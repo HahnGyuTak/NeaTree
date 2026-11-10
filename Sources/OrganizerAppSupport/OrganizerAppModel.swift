@@ -16,6 +16,8 @@ public final class OrganizerAppModel: ObservableObject {
     @Published public private(set) var watching = false
     @Published public private(set) var automaticallyAnalyze = false
     @Published public private(set) var hasAPIKey = false
+    @Published public private(set) var reviewDrafts: [UUID: ReviewDraft] = [:]
+    @Published public private(set) var batchResults: [BatchItemResult] = []
     @Published public var selectedItemID: UUID?
     @Published public var errorMessage: String?
     @Published public var statusMessage: String?
@@ -32,6 +34,7 @@ public final class OrganizerAppModel: ObservableObject {
     private var watcher: Task<Void, Never>?
     private var started = false
     private var operationCount = 0
+    private var batchInProgress = false
     private var refreshGeneration = UUID()
     private var analysisGenerations: [UUID: UUID] = [:]
     private var analysisTasks: [UUID: Task<FileProposal, any Error>] = [:]
@@ -56,6 +59,7 @@ public final class OrganizerAppModel: ObservableObject {
         preferenceStore = try AppPreferenceStore(directory: directory)
         preferences = try preferenceStore.load()
         automaticallyAnalyze = preferences.automaticAnalysis
+        reviewDrafts = Dictionary(preferences.reviewDrafts.values.map { ($0.itemID, $0) }, uniquingKeysWith: { first, _ in first })
     }
 
     public func start() async {
@@ -139,6 +143,117 @@ public final class OrganizerAppModel: ObservableObject {
         }
     }
 
+    public func draft(for id: UUID) -> ReviewDraft? { reviewDrafts[id] }
+
+    @discardableResult
+    public func prepareDraft(_ id: UUID, reset: Bool = false) -> ReviewDraft? {
+        if !reset, let existing = reviewDrafts[id] { return existing }
+        guard let entry = entries.first(where: { $0.id == id }), Self.canReview(entry), let settings else {
+            errorMessage = OrganizerServiceError.itemNotFound.localizedDescription
+            return nil
+        }
+        let proposal = proposal(for: entry)
+        let draft = ReviewDraft(
+            itemID: id, name: proposal?.proposedName ?? URL(fileURLWithPath: entry.path).lastPathComponent,
+            folderID: proposal?.destinationFolderID ?? settings.folders.first?.id ?? "",
+            serialWidth: proposal?.proposedName?.contains("{serial}") == true ? 3 : nil,
+            reviewedFingerprint: entry.fingerprint, reviewedProposal: proposal,
+            reviewedConfigurationRevision: settings.revision,
+            reviewedProposalRevision: settings.proposalRevisions[id.uuidString]
+        )
+        var next = preferences
+        next.reviewDrafts[id.uuidString] = draft
+        return savePreferences(next) ? draft : nil
+    }
+
+    public func saveDraft(_ draft: ReviewDraft) {
+        guard let entry = entries.first(where: { $0.id == draft.itemID }), Self.canReview(entry) else { return }
+        // Accept deliberate empty edits, but a delayed binding from an older
+        // review must not replace the snapshot established by a newer review.
+        if let saved = reviewDrafts[draft.itemID] {
+            guard draft.reviewedFingerprint == saved.reviewedFingerprint,
+                  draft.reviewedProposal == saved.reviewedProposal,
+                  draft.reviewedConfigurationRevision == saved.reviewedConfigurationRevision,
+                  draft.reviewedProposalRevision == saved.reviewedProposalRevision else {
+                errorMessage = AppModelError.staleDraft.localizedDescription
+                return
+            }
+        } else if isDraftStale(draft) {
+            errorMessage = AppModelError.staleDraft.localizedDescription
+            return
+        }
+        var next = preferences
+        next.reviewDrafts[draft.itemID.uuidString] = draft
+        _ = savePreferences(next)
+    }
+
+    public func discardDraft(_ id: UUID) {
+        var next = preferences
+        next.reviewDrafts[id.uuidString] = nil
+        _ = savePreferences(next)
+    }
+
+    public func isDraftStale(_ draft: ReviewDraft) -> Bool {
+        guard let entry = entries.first(where: { $0.id == draft.itemID }), Self.canReview(entry), let settings else { return true }
+        return draft.reviewedFingerprint != entry.fingerprint
+            || draft.reviewedProposal != proposal(for: entry)
+            || draft.reviewedConfigurationRevision != settings.revision
+            || draft.reviewedProposalRevision != settings.proposalRevisions[draft.itemID.uuidString]
+            || (entry.proposal != nil && settings.proposalRevisions[draft.itemID.uuidString] != settings.revision)
+    }
+
+    public func applyDraft(_ id: UUID) async {
+        await run {
+            guard let draft = self.reviewDrafts[id] else { throw AppModelError.reviewRequired }
+            _ = try await self.applyReviewedDraft(draft, allowLearning: true)
+            self.statusMessage = "파일을 정리했습니다. 이력에서 되돌릴 수 있습니다."
+        }
+    }
+
+    @discardableResult public func reviewBatch(_ ids: [UUID]) async -> [BatchItemResult] {
+        await performBatch(ids, action: .review) { id in
+            guard self.prepareDraft(id) != nil else { throw AppModelError.reviewRequired }
+            guard let draft = self.reviewDrafts[id], !self.isDraftStale(draft) else { throw AppModelError.staleDraft }
+            return nil
+        }
+    }
+
+    @discardableResult public func applyBatch(_ ids: [UUID]) async -> [BatchItemResult] {
+        let reviewedDrafts = reviewDrafts
+        return await performBatch(ids, action: .apply) { id in
+            guard let draft = reviewedDrafts[id] else { throw AppModelError.reviewRequired }
+            return try await self.applyReviewedDraft(draft, allowLearning: false).id
+        }
+    }
+
+    @discardableResult public func holdBatch(_ ids: [UUID]) async -> [BatchItemResult] {
+        await performBatch(ids, action: .hold) { id in
+            guard let entry = self.entries.first(where: { $0.id == id }), Self.canReview(entry) else { throw OrganizerServiceError.itemNotFound }
+            self.analysisGenerations[id] = nil
+            try await self.service.hold(id: id)
+            self.demoProposals[id] = nil
+            return nil
+        }
+    }
+
+    @discardableResult public func sendToUnclassifiedBatch(_ ids: [UUID]) async -> [BatchItemResult] {
+        await performBatch(ids, action: .unclassified) { id in
+            guard let entry = self.entries.first(where: { $0.id == id }), Self.canReview(entry) else { throw OrganizerServiceError.itemNotFound }
+            if let draft = self.reviewDrafts[id], self.isDraftStale(draft) { throw AppModelError.staleDraft }
+            self.analysisGenerations[id] = nil
+            let record = try await self.service.sendToUnclassified(id: id)
+            self.demoProposals[id] = nil
+            return record.id
+        }
+    }
+
+    @discardableResult public func undoBatch(_ recordIDs: [UUID]) async -> [BatchItemResult] {
+        await performBatch(recordIDs, action: .undo) { id in
+            guard self.history.contains(where: { $0.id == id && $0.state == .applied }) else { throw OrganizerServiceError.itemNotFound }
+            return try await self.service.undo(recordID: id).id
+        }
+    }
+
     public func apply(id: UUID, name: String, folderID: String, serialWidth: Int? = nil, fillGaps: Bool = false, learnForFuture: Bool = false, reviewedFingerprint: String? = nil) async {
         await run {
             guard let entry = self.entries.first(where: { $0.id == id }),
@@ -148,6 +263,7 @@ public final class OrganizerAppModel: ObservableObject {
             if let reviewedFingerprint, reviewedFingerprint != entry.fingerprint {
                 throw OrganizerServiceError.sourceChanged
             }
+            if let draft = self.reviewDrafts[id], self.isDraftStale(draft) { throw AppModelError.staleDraft }
             // Editable fields still carry a reviewed proposal. Passing explicit
             // values must not accidentally bypass its rule-version requirement.
             let latest = try await self.service.configuration()
@@ -169,11 +285,14 @@ public final class OrganizerAppModel: ObservableObject {
     }
 
     public func hold(_ id: UUID) async {
+        guard !self.batchInProgress else { errorMessage = AppModelError.busy.localizedDescription; return }
+        let wasAnalyzing = analysisTasks[id] != nil
+        guard !isBusy || wasAnalyzing else { errorMessage = AppModelError.busy.localizedDescription; return }
         analysisGenerations[id] = nil
         analysisTasks.removeValue(forKey: id)?.cancel()
         automaticAnalysisIDs.remove(id)
         demoProposals[id] = nil
-        await run(allowConcurrent: true) {
+        await run(allowConcurrent: wasAnalyzing) {
             try await self.service.hold(id: id)
             self.statusMessage = "파일을 그대로 두고 제안을 보류했습니다."
         }
@@ -217,6 +336,30 @@ public final class OrganizerAppModel: ObservableObject {
             _ = try await self.service.confirmRule(index: index)
             self.statusMessage = "규칙을 확정했습니다. 이전 제안은 다시 분석해 주세요."
         }
+    }
+
+    public func createRule(folderID: String, instruction: String) async {
+        await run { _ = try await self.service.createRule(folderID: folderID, instruction: instruction) }
+    }
+
+    public func updateRule(id: String, folderID: String, instruction: String) async {
+        await run { _ = try await self.service.updateRule(id: id, folderID: folderID, instruction: instruction) }
+    }
+
+    public func deleteRule(id: String) async {
+        await run { try await self.service.deleteRule(id: id) }
+    }
+
+    public func updateCandidate(index: Int, folderID: String, instruction: String) async {
+        await run { _ = try await self.service.updateCandidate(index: index, folderID: folderID, instruction: instruction) }
+    }
+
+    public func deleteCandidate(index: Int) async {
+        await run { try await self.service.deleteCandidate(index: index) }
+    }
+
+    public func setWatcherExclusions(extensions: [String], relativeFolders: [String]) async {
+        await run { try await self.service.setWatcherExclusions(extensions: extensions, relativeFolders: relativeFolders) }
     }
 
     public func saveAPIKey(_ key: String) async {
@@ -305,8 +448,73 @@ public final class OrganizerAppModel: ObservableObject {
         entry.proposal ?? (isDemo ? demoProposals[entry.id] : nil)
     }
 
+    private static func canReview(_ entry: InboxEntry) -> Bool {
+        [.ready, .proposed, .held, .failed].contains(entry.status)
+    }
+
+    private func applyReviewedDraft(_ draft: ReviewDraft, allowLearning: Bool) async throws -> MoveRecord {
+        guard !draft.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { throw OrganizerServiceError.missingName }
+        guard !draft.folderID.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { throw OrganizerServiceError.missingDestination }
+        guard let entry = await service.entries().first(where: { $0.id == draft.itemID }), Self.canReview(entry) else { throw OrganizerServiceError.itemNotFound }
+        let configuration = try await service.configuration()
+        guard draft.reviewedFingerprint == entry.fingerprint,
+              draft.reviewedProposal == proposal(for: entry),
+              draft.reviewedConfigurationRevision == configuration.revision,
+              draft.reviewedProposalRevision == configuration.proposalRevisions[draft.itemID.uuidString],
+              entry.proposal == nil || configuration.proposalRevisions[draft.itemID.uuidString] == configuration.revision else {
+            throw AppModelError.staleDraft
+        }
+        if draft.learnForFuture, !allowLearning { throw AppModelError.individualLearningRequired }
+        if draft.learnForFuture, entry.proposal != nil, !isDemo {
+            _ = try await service.learnCorrection(id: draft.itemID, folderID: draft.folderID, name: draft.name, client: OpenAIClient(apiKey: requireAPIKey()))
+        }
+        analysisGenerations[draft.itemID] = nil
+        let serial = draft.name.contains("{serial}")
+            ? draft.serialWidth.map { SerialPolicy(width: $0, allocation: draft.fillGaps ? .fillGap : .appendMax) }
+            : nil
+        let record = try await service.apply(id: draft.itemID, name: draft.name, folderID: draft.folderID, serial: serial)
+        demoProposals[draft.itemID] = nil
+        return record
+    }
+
+    private func performBatch(_ requestedIDs: [UUID], action: BatchAction, operation: (UUID) async throws -> UUID?) async -> [BatchItemResult] {
+        var seen: Set<UUID> = []
+        let ids = requestedIDs.filter { seen.insert($0).inserted }
+        guard !isBusy else {
+            let results = ids.map { BatchItemResult(itemID: $0, action: action, succeeded: false, message: AppModelError.busy.localizedDescription) }
+            if !batchInProgress { batchResults = results }
+            errorMessage = AppModelError.busy.localizedDescription
+            return results
+        }
+        operationCount += 1
+        isBusy = true
+        batchInProgress = true
+        batchResults = []
+        errorMessage = nil
+        defer { batchInProgress = false; operationCount -= 1; isBusy = operationCount > 0 }
+        for id in ids {
+            do {
+                try Task.checkCancellation()
+                let operationID = try await operation(id)
+                batchResults.append(BatchItemResult(itemID: id, action: action, succeeded: true, message: "완료", operationID: operationID))
+            } catch {
+                var operationID: UUID?
+                if case OrganizerServiceError.operationCommitted(let committedID) = error {
+                    operationID = committedID
+                    _ = try? await service.reconcileHistory()
+                }
+                let message = error is CancellationError ? "작업을 취소했습니다." : error.localizedDescription
+                batchResults.append(BatchItemResult(itemID: id, action: action, succeeded: false, message: message, operationID: operationID))
+            }
+            await reloadState()
+        }
+        let completed = batchResults.filter(\.succeeded).count
+        statusMessage = "\(completed)개 완료 · \(batchResults.count - completed)개 확인 필요"
+        return batchResults
+    }
+
     private func run(allowConcurrent: Bool = false, clearError: Bool = true, _ operation: () async throws -> Void) async {
-        guard allowConcurrent || !isBusy else { return }
+        guard allowConcurrent || !isBusy else { errorMessage = AppModelError.busy.localizedDescription; return }
         operationCount += 1
         isBusy = true
         if clearError { errorMessage = nil }
@@ -334,6 +542,13 @@ public final class OrganizerAppModel: ObservableObject {
         entries = updatedEntries
         settings = configuration
         history = updatedHistory
+        let retainedIDs = Set(updatedEntries.filter { ![.applied, .unclassified].contains($0.status) }.map { $0.id.uuidString })
+        let retainedDrafts = preferences.reviewDrafts.filter { retainedIDs.contains($0.key) }
+        if retainedDrafts != preferences.reviewDrafts {
+            var next = preferences
+            next.reviewDrafts = retainedDrafts
+            _ = savePreferences(next)
+        }
         if selectedItemID == nil || !updatedEntries.contains(where: { $0.id == selectedItemID }) {
             selectedItemID = updatedEntries.first(where: { [.ready, .proposed].contains($0.status) })?.id
         }
@@ -454,7 +669,13 @@ public final class OrganizerAppModel: ObservableObject {
     }
 
     @discardableResult private func savePreferences(_ next: AppPreferences) -> Bool {
-        do { try preferenceStore.save(next); preferences = next; return true }
+        if next == preferences { return true }
+        do {
+            try preferenceStore.save(next)
+            preferences = next
+            reviewDrafts = Dictionary(next.reviewDrafts.values.map { ($0.itemID, $0) }, uniquingKeysWith: { first, _ in first })
+            return true
+        }
         catch { errorMessage = error.localizedDescription; return false }
     }
 
@@ -526,12 +747,17 @@ struct AppModelDependencies: Sendable {
 
 enum AppModelError: LocalizedError {
     case demoCredentials, demoConfiguration, demoFilesOnly, invalidAPIKey
+    case busy, reviewRequired, staleDraft, individualLearningRequired
     var errorDescription: String? {
         switch self {
         case .demoCredentials: "데모 모드에서는 API 키를 읽거나 변경하지 않습니다."
         case .demoConfiguration: "데모에서는 감시 폴더와 분류 폴더를 변경할 수 없습니다. 일반 실행에서 설정하세요."
         case .demoFilesOnly: "데모에서는 앱이 만든 임시 폴더 안의 파일만 사용할 수 있습니다. 외부 파일은 가져오지 않았습니다."
         case .invalidAPIKey: "공백이나 줄바꿈이 없는 API 키를 입력하세요."
+        case .busy: "다른 작업이 진행 중입니다. 완료 후 다시 시도하세요."
+        case .reviewRequired: "먼저 이름과 폴더를 검토하고 초안을 저장하세요."
+        case .staleDraft: "검토한 뒤 파일, 제안 또는 분류 규칙이 바뀌었습니다. 초안을 다시 검토하세요."
+        case .individualLearningRequired: "향후 규칙 학습을 선택한 항목은 개별 적용에서 처리하세요. 일괄 적용은 API를 호출하지 않습니다."
         }
     }
 }

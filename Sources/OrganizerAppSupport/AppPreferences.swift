@@ -7,8 +7,22 @@ public struct AppPreferences: Codable, Equatable, Sendable {
     public var watchEnabled = false
     public var automaticAnalysis = false
     public var attemptedFingerprints: [String: String] = [:]
+    public var reviewDrafts: [String: ReviewDraft] = [:]
 
     public init() {}
+
+    private enum CodingKeys: String, CodingKey {
+        case version, watchEnabled, automaticAnalysis, attemptedFingerprints, reviewDrafts
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        version = try values.decodeIfPresent(Int.self, forKey: .version) ?? 1
+        watchEnabled = try values.decodeIfPresent(Bool.self, forKey: .watchEnabled) ?? false
+        automaticAnalysis = try values.decodeIfPresent(Bool.self, forKey: .automaticAnalysis) ?? false
+        attemptedFingerprints = try values.decodeIfPresent([String: String].self, forKey: .attemptedFingerprints) ?? [:]
+        reviewDrafts = try values.decodeIfPresent([String: ReviewDraft].self, forKey: .reviewDrafts) ?? [:]
+    }
 }
 
 struct AppPreferenceStore {

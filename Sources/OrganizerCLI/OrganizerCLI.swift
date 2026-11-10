@@ -59,15 +59,45 @@ import OrganizerCore
                 }
             } else { try output(await service.propose(id: uuid(value), client: api)) }
         case "rules":
-            switch args.next() ?? "list" {
+            let ruleCommand = args.next() ?? "list"
+            switch ruleCommand {
             case "analyze": try output(await service.analyzeStructure(client: client()))
             case "confirm":
                 guard let raw = args.next(), let index = Int(raw), index >= 0 else { throw CLIError("확정할 후보 번호(0부터)를 지정하세요.") }
                 try output(await service.confirmRule(index: index))
+            case "create", "update":
+                let updating = ruleCommand == "update"
+                guard let folder = args.option("--folder"), let instruction = args.option("--instruction") else {
+                    throw CLIError("--folder <폴더 ID> --instruction <규칙 내용>을 지정하세요.")
+                }
+                if updating {
+                    guard let id = args.next() else { throw CLIError("편집할 규칙 ID가 필요합니다.") }
+                    try output(await service.updateRule(id: id, folderID: folder, instruction: instruction))
+                } else { try output(await service.createRule(folderID: folder, instruction: instruction)) }
+            case "delete":
+                guard let id = args.next() else { throw CLIError("삭제할 규칙 ID가 필요합니다.") }
+                try await service.deleteRule(id: id)
+                print("규칙을 삭제했습니다. 기존 파일은 변경하지 않았습니다.")
             case "list":
                 let settings = try await service.configuration()
                 try output(RuleListing(confirmed: settings.rules, candidates: settings.candidates))
-            default: throw CLIError("rules list | analyze | confirm <후보 번호>")
+            default: throw CLIError("rules list | analyze | confirm <후보 번호> | create | update <규칙 ID> | delete <규칙 ID>")
+            }
+        case "exclusions":
+            switch args.next() ?? "list" {
+            case "list":
+                let settings = try await service.configuration()
+                try output(ExclusionListing(extensions: settings.excludedExtensions, relativeFolders: settings.excludedRelativeFolders))
+            case "set":
+                var extensions: [String] = []
+                var folders: [String] = []
+                while let value = args.option("--extension") { extensions.append(value) }
+                while let value = args.option("--folder") { folders.append(value) }
+                guard args.values.isEmpty else { throw CLIError("exclusions set [--extension zip] [--folder 임시자료]") }
+                try await service.setWatcherExclusions(extensions: extensions, relativeFolders: folders)
+                let settings = try await service.configuration()
+                try output(ExclusionListing(extensions: settings.excludedExtensions, relativeFolders: settings.excludedRelativeFolders))
+            default: throw CLIError("exclusions list | set [--extension 확장자] [--folder 다운로드의 상대 경로]")
             }
         case "apply":
             let name = args.option("--name")
@@ -140,6 +170,7 @@ import OrganizerCore
         encoder.dateEncodingStrategy = .iso8601
         print(String(decoding: try encoder.encode(value), as: UTF8.self))
     }
+    private struct ExclusionListing: Codable { let extensions: [String]; let relativeFolders: [String] }
     private struct RuleListing: Codable { let confirmed: [FolderRule]; let candidates: [RuleCandidate] }
     private struct CLIError: LocalizedError { let message: String; init(_ message: String) { self.message = message }; var errorDescription: String? { message } }
     private struct Arguments {
@@ -156,7 +187,7 @@ import OrganizerCore
     }
 
     private static let help = """
-    파일 정리 도우미 — 내부 기능 개발용 CLI
+    NeaTree — 파일 정리 개발용 CLI
     사용: organizer [--state <상태 저장 폴더>] <명령>
 
       configure --downloads <경로> --root <관리 폴더> [--root <추가 폴더>]
@@ -169,6 +200,12 @@ import OrganizerCore
       rules analyze                   GPT로 기존 구조의 규칙 후보 생성
       rules list                      확정 규칙과 후보 보기
       rules confirm <번호>            규칙 후보 확정 (0부터)
+      rules create --folder <폴더 ID> --instruction <내용>
+      rules update <규칙 ID> --folder <폴더 ID> --instruction <내용>
+      rules delete <규칙 ID>          규칙 삭제 (기존 파일은 유지)
+      exclusions list                 감시 제외 설정 확인
+      exclusions set [--extension zip] [--folder 임시자료]
+                                      반복 지정 가능, 옵션 없이 실행하면 모두 해제
       analyze <항목 ID|all>            파일 분류 제안 생성
       apply <항목 ID> [--name <이름>] [--folder <폴더 ID>]
             [--serial-width 3] [--fill-gaps]
@@ -184,6 +221,6 @@ import OrganizerCore
       key set|status|delete           macOS 키체인 API 키 관리
 
     apply와 unclassified는 실제 파일을 이동합니다. 번호 템플릿: '{serial}_제목.pdf'
-    GUI는 이미지 시안 승인 후 구현합니다. API 모델: gpt-6.1-sol
+    API 모델: gpt-6.1-sol. 제외 설정은 자동 감시에만 적용하며 직접 가져오기는 유지합니다.
     """
 }

@@ -1,6 +1,5 @@
 import Foundation
 import CryptoKit
-import PDFKit
 
 public enum CatalogError: Error, LocalizedError, Equatable {
     case unsupportedLocation(String)
@@ -77,7 +76,8 @@ public enum FileInspector {
         try await FileMetadataWorker.run { try inspect(url) }
     }
 
-    /// Extracts up to 128 KiB of text, the first 12 PDF pages, or a shallow folder listing.
+    /// Extracts bounded text, PDF text with local OCR fallback, image OCR, or a shallow folder listing.
+    /// Async callers must use inspectAsync so metadata and Vision work stay off task executors.
     public static func inspect(_ url: URL) throws -> FileEvidence {
         let url = try CatalogPaths.checked(url)
         guard !CatalogPaths.isExcludedLocation(url) else { throw CatalogError.unsupportedLocation(url.path) }
@@ -103,19 +103,13 @@ public enum FileInspector {
                 readStatus = children.count > 100 ? "partial_directory_listing" : "directory_listing"
             }
         } else if kind == "pdf" {
-            if size > 64 * 1_024 * 1_024 {
-                readStatus = "oversized_pdf"
-            } else if let document = PDFDocument(url: url) {
-                if document.isLocked {
-                    readStatus = "locked_pdf"
-                } else {
-                    let pageLimit = min(document.pageCount, 12)
-                    text = (0..<pageLimit).compactMap { document.page(at: $0)?.string }.joined(separator: "\n")
-                    let truncated = text.count > 32_000
-                    if truncated { text = String(text.prefix(32_000)) }
-                    readStatus = text.isEmpty ? "no_text_extracted" : (document.pageCount > pageLimit || truncated ? "partial_text" : "full_text")
-                }
-            } else { readStatus = "unreadable_pdf" }
+            let extraction = LocalTextRecognition.inspectPDF(url, byteCount: size)
+            text = extraction.text
+            readStatus = extraction.readStatus
+        } else if LocalTextRecognition.imageExtensions.contains(kind) {
+            let extraction = LocalTextRecognition.inspectImage(url, byteCount: size)
+            text = extraction.text
+            readStatus = extraction.readStatus
         } else if ["txt", "md", "csv", "tsv", "json", "yaml", "yml", "xml", "html", "htm", "log", "rtf"].contains(kind) {
             let handle = try FileHandle(forReadingFrom: url)
             defer { try? handle.close() }

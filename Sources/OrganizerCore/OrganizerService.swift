@@ -12,14 +12,37 @@ public struct OrganizerSettings: Codable, Sendable {
     public var fingerprints: [String: FileFingerprint] = [:]
     public var revision: UUID = UUID()
     public var proposalRevisions: [String: UUID] = [:]
+    public var excludedExtensions: [String] = []
+    public var excludedRelativeFolders: [String] = []
     public init(downloadsPath: String, destinationRoots: [String]) {
         self.downloadsPath = downloadsPath; self.downloadsPhysicalPath = downloadsPath; self.destinationRoots = destinationRoots
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case downloadsPath, downloadsPhysicalPath, destinationRoots, importedSources, folders, rules, candidates
+        case fingerprints, revision, proposalRevisions, excludedExtensions, excludedRelativeFolders
+    }
+
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        downloadsPath = try values.decode(String.self, forKey: .downloadsPath)
+        downloadsPhysicalPath = try values.decodeIfPresent(String.self, forKey: .downloadsPhysicalPath) ?? downloadsPath
+        destinationRoots = try values.decode([String].self, forKey: .destinationRoots)
+        importedSources = try values.decodeIfPresent([String].self, forKey: .importedSources) ?? []
+        folders = try values.decodeIfPresent([FolderRecord].self, forKey: .folders) ?? []
+        rules = try values.decodeIfPresent([FolderRule].self, forKey: .rules) ?? []
+        candidates = try values.decodeIfPresent([RuleCandidate].self, forKey: .candidates) ?? []
+        fingerprints = try values.decodeIfPresent([String: FileFingerprint].self, forKey: .fingerprints) ?? [:]
+        revision = try values.decodeIfPresent(UUID.self, forKey: .revision) ?? UUID()
+        proposalRevisions = try values.decodeIfPresent([String: UUID].self, forKey: .proposalRevisions) ?? [:]
+        excludedExtensions = try values.decodeIfPresent([String].self, forKey: .excludedExtensions) ?? []
+        excludedRelativeFolders = try values.decodeIfPresent([String].self, forKey: .excludedRelativeFolders) ?? []
     }
 }
 
 public enum OrganizerServiceError: LocalizedError {
     case notConfigured, invalidFolder, itemNotFound, missingSnapshot, sourceChanged, missingDestination, missingName, invalidRule
-    case configurationChanged
+    case configurationChanged, invalidExclusion
     case operationCommitted(UUID)
     public var errorDescription: String? {
         switch self {
@@ -30,7 +53,8 @@ public enum OrganizerServiceError: LocalizedError {
         case .sourceChanged: "검토한 뒤 파일 내용이 바뀌었습니다. 다시 분석하세요."
         case .missingDestination: "허용된 폴더 중 목적지를 선택하세요."
         case .missingName: "적용할 파일명을 지정하세요."
-        case .invalidRule: "해당 규칙 후보를 찾을 수 없습니다."
+        case .invalidRule: "허용된 폴더와 비어 있지 않은 규칙을 지정하세요. 수정할 규칙이나 후보가 있는지도 확인하세요."
+        case .invalidExclusion: "확장자는 pdf처럼, 제외 폴더는 다운로드 폴더 아래의 상대 경로로 입력하세요. 빈 값과 상위 폴더(..)는 사용할 수 없습니다."
         case .configurationChanged: "다른 실행에서 설정이 변경되었습니다. 앱을 다시 열어 최신 설정을 불러오세요."
         case .operationCommitted(let id): "파일 작업은 완료됐지만 검토함을 갱신하지 못했습니다. 작업 ID: \(id). reconcile로 이력을 반영하세요."
         }
@@ -112,19 +136,28 @@ public actor OrganizerService {
 
     public func scanDownloads() async throws -> [InboxEntry] {
         let current = try requireSettings()
-        let ready = try await inbox.poll(downloads: URL(fileURLWithPath: current.downloadsPath))
+        let ready = try await inbox.poll(
+            downloads: URL(fileURLWithPath: current.downloadsPath),
+            excludedExtensions: Set(current.excludedExtensions),
+            excludedRelativeFolders: Set(current.excludedRelativeFolders),
+            explicitPaths: Set(current.importedSources)
+        )
+        guard try requireSettings().revision == current.revision else { return [] }
         let engine = try makeEngine(current)
+        var verifiedReady: [InboxEntry] = []
         for entry in ready {
             do {
                 let fingerprint = try await engine.fingerprint(of: URL(fileURLWithPath: entry.path))
                 var latest = try requireSettings()
+                guard latest.revision == current.revision else { return [] }
                 latest.fingerprints[entry.id.uuidString] = fingerprint
                 try save(latest)
+                verifiedReady.append(entry)
             } catch {
                 try await inbox.setStatus(id: entry.id, status: .failed, note: error.localizedDescription)
             }
         }
-        return ready
+        return verifiedReady
     }
 
     public func analyzeStructure(client: OpenAIClient) async throws -> RuleAnalysis {
@@ -141,13 +174,81 @@ public actor OrganizerService {
         var next = try requireSettings()
         guard next.candidates.indices.contains(index) else { throw OrganizerServiceError.invalidRule }
         let candidate = next.candidates[index]
-        guard next.folders.contains(where: { $0.id == candidate.folderID }) else { throw OrganizerServiceError.invalidRule }
-        let rule = FolderRule(id: UUID().uuidString, folderID: candidate.folderID, instruction: candidate.instruction, confirmed: true)
+        let instruction = try validatedInstruction(candidate.instruction, folderID: candidate.folderID, settings: next)
+        let rule = FolderRule(id: UUID().uuidString, folderID: candidate.folderID, instruction: instruction, confirmed: true)
         next.rules.append(rule)
         next.revision = UUID()
         next.candidates.remove(at: index)
         try save(next)
         return rule
+    }
+
+    @discardableResult
+    public func createRule(folderID: String, instruction: String) throws -> FolderRule {
+        var next = try requireSettings()
+        let text = try validatedInstruction(instruction, folderID: folderID, settings: next)
+        let rule = FolderRule(id: UUID().uuidString, folderID: folderID, instruction: text, confirmed: true)
+        next.rules.append(rule)
+        next.revision = UUID()
+        try save(next)
+        return rule
+    }
+
+    @discardableResult
+    public func updateRule(id: String, folderID: String, instruction: String) throws -> FolderRule {
+        var next = try requireSettings()
+        guard let index = next.rules.firstIndex(where: { $0.id == id }) else { throw OrganizerServiceError.invalidRule }
+        let text = try validatedInstruction(instruction, folderID: folderID, settings: next)
+        let rule = FolderRule(id: id, folderID: folderID, instruction: text, confirmed: true)
+        if next.rules[index] != rule { next.revision = UUID() }
+        next.rules[index] = rule
+        try save(next)
+        return rule
+    }
+
+    public func deleteRule(id: String) throws {
+        var next = try requireSettings()
+        guard let index = next.rules.firstIndex(where: { $0.id == id }) else { throw OrganizerServiceError.invalidRule }
+        next.rules.remove(at: index)
+        next.revision = UUID()
+        try save(next)
+    }
+
+    @discardableResult
+    public func updateCandidate(index: Int, folderID: String, instruction: String) throws -> RuleCandidate {
+        var next = try requireSettings()
+        guard next.candidates.indices.contains(index) else { throw OrganizerServiceError.invalidRule }
+        let text = try validatedInstruction(instruction, folderID: folderID, settings: next)
+        let old = next.candidates[index]
+        let candidate = RuleCandidate(folderID: folderID, instruction: text, evidence: old.evidence, uncertainties: old.uncertainties)
+        next.candidates[index] = candidate
+        try save(next)
+        return candidate
+    }
+
+    public func deleteCandidate(index: Int) throws {
+        var next = try requireSettings()
+        guard next.candidates.indices.contains(index) else { throw OrganizerServiceError.invalidRule }
+        next.candidates.remove(at: index)
+        try save(next)
+    }
+
+    /// Folder paths are relative to Downloads. A nested exclusion skips its enclosing top-level folder unit.
+    public func setWatcherExclusions(extensions: [String], relativeFolders: [String]) async throws {
+        let extensions = try Self.normalizedExtensions(extensions)
+        let relativeFolders = try Self.normalizedRelativeFolders(relativeFolders)
+        var next = try requireSettings()
+        if next.excludedExtensions != extensions || next.excludedRelativeFolders != relativeFolders {
+            next.excludedExtensions = extensions
+            next.excludedRelativeFolders = relativeFolders
+            next.revision = UUID()
+            try save(next)
+        }
+        try await inbox.reconcileWatcherExclusions(
+            downloads: URL(fileURLWithPath: next.downloadsPath),
+            excludedExtensions: Set(extensions), excludedRelativeFolders: Set(relativeFolders),
+            explicitPaths: Set(next.importedSources)
+        )
     }
 
     public func propose(id: UUID, client: OpenAIClient) async throws -> FileProposal {
@@ -156,7 +257,7 @@ public actor OrganizerService {
         let prior = try await item(id)
         guard analysisTokens[id] == token else { throw OrganizerServiceError.sourceChanged }
         guard [.ready, .proposed, .held, .failed].contains(prior.status) else { throw OrganizerServiceError.itemNotFound }
-        let entry = try await inbox.add(url: URL(fileURLWithPath: prior.path))
+        let entry = try await inbox.add(url: URL(fileURLWithPath: prior.path), explicitImport: false)
         guard analysisTokens[id] == token else { throw OrganizerServiceError.sourceChanged }
         if entry.status != .ready && entry.status != .proposed {
             try await inbox.setStatus(id: id, status: .ready)
@@ -302,6 +403,39 @@ public actor OrganizerService {
     }
     private func requireSettings() throws -> OrganizerSettings {
         guard let settings else { throw OrganizerServiceError.notConfigured }; return settings
+    }
+    private func validatedInstruction(_ instruction: String, folderID: String, settings: OrganizerSettings) throws -> String {
+        let trimmed = instruction.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty, settings.folders.contains(where: { $0.id == folderID }) else {
+            throw OrganizerServiceError.invalidRule
+        }
+        return trimmed
+    }
+    private static func normalizedExtensions(_ values: [String]) throws -> [String] {
+        try Array(Set(values.map { value in
+            var ext = value.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+            if ext.hasPrefix(".") { ext.removeFirst() }
+            let allowed = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "_-+"))
+            guard !ext.isEmpty, ext.unicodeScalars.allSatisfy(allowed.contains) else {
+                throw OrganizerServiceError.invalidExclusion
+            }
+            return ext.precomposedStringWithCanonicalMapping
+        })).sorted()
+    }
+    private static func normalizedRelativeFolders(_ values: [String]) throws -> [String] {
+        try Array(Set(values.map { value in
+            var path = value.trimmingCharacters(in: .whitespacesAndNewlines).precomposedStringWithCanonicalMapping
+            guard !path.hasPrefix("/"), !path.hasPrefix("~"), !path.contains("\\"),
+                  !path.unicodeScalars.contains(where: CharacterSet.controlCharacters.contains) else {
+                throw OrganizerServiceError.invalidExclusion
+            }
+            if path.hasSuffix("/") { path.removeLast() }
+            let components = path.split(separator: "/", omittingEmptySubsequences: false)
+            guard !path.isEmpty, components.allSatisfy({ !$0.isEmpty && $0 != "." && $0 != ".." }) else {
+                throw OrganizerServiceError.invalidExclusion
+            }
+            return path
+        })).sorted()
     }
     private func physicalPath(_ url: URL) throws -> String {
         guard let pointer = realpath(url.path, nil) else { throw OrganizerServiceError.invalidFolder }

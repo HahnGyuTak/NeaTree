@@ -16,11 +16,36 @@ public struct InboxEntry: Codable, Sendable, Identifiable, Equatable {
     public var proposal: FileProposal?
     public var stableSince: Date
     public var stableObservations: Int
+    /// Manual drag/import explicitly opts this item into review despite watcher exclusions.
+    public var isExplicitImport: Bool = false
+    var explicitImportIdentity: String?
+    // Older documents did not store per-entry import decisions. Resolve that migration once.
+    var needsExplicitImportMigration: Bool = false
 
     init(path: String, fingerprint: String, status: InboxStatus, now: Date) {
         self.id = UUID(); self.path = path; self.fingerprint = fingerprint; self.status = status
         self.createdAt = now; self.updatedAt = now; self.note = nil; self.proposal = nil
         self.stableSince = now; self.stableObservations = 1
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id, path, fingerprint, status, createdAt, updatedAt, note, proposal, stableSince, stableObservations, isExplicitImport, explicitImportIdentity
+    }
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(UUID.self, forKey: .id)
+        path = try values.decode(String.self, forKey: .path)
+        fingerprint = try values.decode(String.self, forKey: .fingerprint)
+        status = try values.decode(InboxStatus.self, forKey: .status)
+        createdAt = try values.decode(Date.self, forKey: .createdAt)
+        updatedAt = try values.decode(Date.self, forKey: .updatedAt)
+        note = try values.decodeIfPresent(String.self, forKey: .note)
+        proposal = try values.decodeIfPresent(FileProposal.self, forKey: .proposal)
+        stableSince = try values.decode(Date.self, forKey: .stableSince)
+        stableObservations = try values.decode(Int.self, forKey: .stableObservations)
+        isExplicitImport = try values.decodeIfPresent(Bool.self, forKey: .isExplicitImport) ?? false
+        explicitImportIdentity = try values.decodeIfPresent(String.self, forKey: .explicitImportIdentity)
+        needsExplicitImportMigration = !values.contains(.isExplicitImport)
     }
 }
 
@@ -80,12 +105,22 @@ public actor InboxStore {
 
     /// Explicit import is ready immediately. Subsequent mutation is checked before recording a proposal.
     @discardableResult
-    public func add(url: URL, now: Date = Date()) throws -> InboxEntry {
+    public func add(url: URL, now: Date = Date(), explicitImport: Bool = true) throws -> InboxEntry {
         let url = try CatalogPaths.checked(url)
         guard !CatalogPaths.isExcludedLocation(url) else { throw CatalogError.unsupportedLocation(url.path) }
         let fingerprint = try CatalogPaths.fingerprint(url)
         if let index = items.firstIndex(where: { $0.path == url.path }) {
-            if items[index].fingerprint == fingerprint && items[index].status != .missing { return items[index] }
+            if explicitImport {
+                items[index].isExplicitImport = true
+                items[index].explicitImportIdentity = itemIdentity(url)
+                items[index].needsExplicitImportMigration = false
+            } else if items[index].fingerprint != fingerprint || items[index].explicitImportIdentity != itemIdentity(url) {
+                clearExplicitImport(at: index)
+            }
+            if items[index].fingerprint == fingerprint && [.ready, .held, .proposed].contains(items[index].status) {
+                try persist()
+                return items[index]
+            }
             items[index].fingerprint = fingerprint
             items[index].status = .ready
             items[index].proposal = nil
@@ -96,35 +131,49 @@ public actor InboxStore {
             try persist()
             return items[index]
         }
-        let entry = InboxEntry(path: url.path, fingerprint: fingerprint, status: .ready, now: now)
+        // A queued analysis cannot resurrect an automatic item removed by a new exclusion.
+        guard explicitImport else { throw InboxError.unknownEntry }
+        var entry = InboxEntry(path: url.path, fingerprint: fingerprint, status: .ready, now: now)
+        entry.isExplicitImport = true
+        entry.explicitImportIdentity = itemIdentity(url)
         items.append(entry)
         try persist()
         return entry
     }
 
     /// Returns only newly ready items. Direct children are kept as units, including directories.
-    public func poll(downloads: URL, now: Date = Date()) throws -> [InboxEntry] {
+    public func poll(downloads: URL, now: Date = Date(), excludedExtensions: Set<String> = [],
+                     excludedRelativeFolders: Set<String> = [], explicitPaths: Set<String> = []) throws -> [InboxEntry] {
         let downloads = try CatalogPaths.checked(downloads)
         guard !CatalogPaths.isExcludedLocation(downloads),
               try downloads.resourceValues(forKeys: [.isDirectoryKey]).isDirectory == true else {
             throw CatalogError.unsupportedLocation(downloads.path)
         }
+        removeExcludedEntries(downloads: downloads, extensions: excludedExtensions, folders: excludedRelativeFolders, explicitPaths: explicitPaths)
         let children = try FileManager.default.contentsOfDirectory(
             at: downloads, includingPropertiesForKeys: [.isSymbolicLinkKey], options: [.skipsHiddenFiles]
         ).map(\.standardizedFileURL).sorted { $0.lastPathComponent < $1.lastPathComponent }
         var present = Set<String>()
         var becameReady: [InboxEntry] = []
         for child in children {
-            guard !isExcluded(child) else { continue }
             present.insert(child.path)
+            let explicit = items.first(where: { $0.path == child.path })?.isExplicitImport == true
+            guard !isAlwaysExcluded(child),
+                  explicit || !isUserExcluded(child, downloads: downloads, extensions: excludedExtensions, folders: excludedRelativeFolders) else { continue }
             do {
                 guard try child.resourceValues(forKeys: [.isSymbolicLinkKey]).isSymbolicLink != true else {
                     throw CatalogError.symbolicLink(child.path)
                 }
                 let fingerprint = try CatalogPaths.fingerprint(child)
                 if let index = items.firstIndex(where: { $0.path == child.path }) {
+                    if items[index].isExplicitImport,
+                       items[index].fingerprint != fingerprint || items[index].explicitImportIdentity != itemIdentity(child) {
+                        clearExplicitImport(at: index)
+                        if isUserExcluded(child, downloads: downloads, extensions: excludedExtensions, folders: excludedRelativeFolders) { continue }
+                    }
                     if items[index].fingerprint != fingerprint || [.missing, .failed].contains(items[index].status) {
                         let wasHeld = items[index].status == .held
+                        if items[index].fingerprint != fingerprint { clearExplicitImport(at: index) }
                         items[index].fingerprint = fingerprint
                         items[index].status = wasHeld ? .held : .pending
                         items[index].proposal = nil
@@ -162,10 +211,14 @@ public actor InboxStore {
             }
         }
         for index in items.indices {
-            let parent = URL(fileURLWithPath: items[index].path).deletingLastPathComponent().path
+            let url = URL(fileURLWithPath: items[index].path)
+            let parent = url.deletingLastPathComponent().path
             if parent == downloads.path, !present.contains(items[index].path),
-               ![.applied, .unclassified, .missing].contains(items[index].status) {
+               ![.applied, .unclassified, .missing].contains(items[index].status),
+               !isAlwaysExcluded(url),
+               items[index].isExplicitImport || !isUserExcluded(url, downloads: downloads, extensions: excludedExtensions, folders: excludedRelativeFolders) {
                 items[index].status = .missing
+                clearExplicitImport(at: index)
                 items[index].proposal = nil
                 items[index].updatedAt = now
                 items[index].note = "현재 위치에 파일이 없습니다."
@@ -173,6 +226,14 @@ public actor InboxStore {
         }
         try persist()
         return becameReady
+    }
+
+    /// Remove only automatic actionable items; explicit holds and completed history remain intact.
+    public func reconcileWatcherExclusions(downloads: URL, excludedExtensions: Set<String> = [],
+                                           excludedRelativeFolders: Set<String> = [], explicitPaths: Set<String> = []) throws {
+        let downloads = try CatalogPaths.checked(downloads)
+        removeExcludedEntries(downloads: downloads, extensions: excludedExtensions, folders: excludedRelativeFolders, explicitPaths: explicitPaths)
+        try persist()
     }
 
     public func setStatus(id: UUID, status: InboxStatus, note: String? = nil) throws {
@@ -183,6 +244,7 @@ public actor InboxStore {
             guard fingerprint == items[index].fingerprint else { throw InboxError.staleFile }
         }
         items[index].status = status
+        if [.applied, .unclassified, .missing].contains(status) { clearExplicitImport(at: index) }
         items[index].note = note
         items[index].updatedAt = Date()
         if status != .proposed { items[index].proposal = nil }
@@ -201,12 +263,76 @@ public actor InboxStore {
         try persist()
     }
 
-    private func isExcluded(_ url: URL) -> Bool {
+    private func isAlwaysExcluded(_ url: URL) -> Bool {
         let name = url.lastPathComponent
         return name.hasPrefix(".") || name == "미분류"
             || ["download", "crdownload", "part", "partial", "tmp"].contains(url.pathExtension.lowercased())
-            || excludedExtensions.contains(url.pathExtension.lowercased())
             || CatalogPaths.isExcludedLocation(url)
+    }
+
+    private func isUserExcluded(_ url: URL, downloads: URL, extensions: Set<String>, folders: Set<String>) -> Bool {
+        let normalizedExtensions = Set(extensions.map { $0.lowercased().trimmingCharacters(in: CharacterSet(charactersIn: ".")) })
+        if excludedExtensions.union(normalizedExtensions).contains(url.pathExtension.lowercased()) { return true }
+        let caseSensitive = (try? downloads.resourceValues(forKeys: [.volumeSupportsCaseSensitiveNamesKey]).volumeSupportsCaseSensitiveNames) ?? true
+        func sameComponent(_ first: String, _ second: String) -> Bool {
+            let first = first.precomposedStringWithCanonicalMapping
+            let second = second.precomposedStringWithCanonicalMapping
+            return caseSensitive ? first == second : first.compare(second, options: [.caseInsensitive]) == .orderedSame
+        }
+        func beginsWith(_ path: [String], _ prefix: [String]) -> Bool {
+            path.count >= prefix.count && zip(path, prefix).allSatisfy { sameComponent($0.0, $0.1) }
+        }
+        let rootComponents = downloads.pathComponents
+        guard beginsWith(url.pathComponents, rootComponents) else { return false }
+        let relative = Array(url.pathComponents.dropFirst(rootComponents.count))
+        for folder in folders {
+            let folder = folder.split(separator: "/").map(String.init)
+            if beginsWith(relative, folder) { return true }
+            // Downloads folders are single review units. Never inspect a unit containing an excluded subtree.
+            if beginsWith(folder, relative),
+               (try? url.resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true { return true }
+        }
+        return false
+    }
+
+    private func removeExcludedEntries(downloads: URL, extensions: Set<String>, folders: Set<String>, explicitPaths: Set<String>) {
+        for index in items.indices {
+            guard ![.applied, .unclassified, .missing].contains(items[index].status) else {
+                clearExplicitImport(at: index)
+                continue
+            }
+            let canMigrate = items[index].needsExplicitImportMigration && explicitPaths.contains(items[index].path)
+            items[index].needsExplicitImportMigration = false
+            guard items[index].isExplicitImport || canMigrate else { continue }
+            let url = URL(fileURLWithPath: items[index].path)
+            guard let identity = itemIdentity(url),
+                  items[index].explicitImportIdentity == nil || items[index].explicitImportIdentity == identity,
+                  let fingerprint = try? CatalogPaths.fingerprint(url), fingerprint == items[index].fingerprint else {
+                clearExplicitImport(at: index)
+                continue
+            }
+            items[index].isExplicitImport = true
+            items[index].explicitImportIdentity = identity
+        }
+        items.removeAll { entry in
+            guard !entry.isExplicitImport, ![.held, .applied, .unclassified].contains(entry.status) else { return false }
+            let url = URL(fileURLWithPath: entry.path)
+            guard url.deletingLastPathComponent().path == downloads.path else { return false }
+            return isAlwaysExcluded(url) || isUserExcluded(url, downloads: downloads, extensions: extensions, folders: folders)
+        }
+    }
+
+    private func clearExplicitImport(at index: Int) {
+        items[index].isExplicitImport = false
+        items[index].explicitImportIdentity = nil
+        items[index].needsExplicitImportMigration = false
+    }
+
+    /// A path can be reused even with identical bytes. Inode and birth time distinguish that generation.
+    private func itemIdentity(_ url: URL) -> String? {
+        var info = stat()
+        guard lstat(url.path, &info) == 0, info.st_mode & S_IFMT != S_IFLNK else { return nil }
+        return "\(info.st_dev):\(info.st_ino):\(info.st_birthtimespec.tv_sec):\(info.st_birthtimespec.tv_nsec)"
     }
 
     private func persist() throws {

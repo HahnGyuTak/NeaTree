@@ -29,7 +29,8 @@ struct ProposalPopoverView: View {
     private var requiresReview: Bool {
         guard let snapshot else { return false }
         guard let latestEntry else { return true }
-        return latestEntry.fingerprint != snapshot.entry.fingerprint
+        return model.settings?.revision != snapshot.configurationRevision
+            || latestEntry.fingerprint != snapshot.entry.fingerprint
             || latestEntry.path != snapshot.entry.path
             || model.proposal(for: latestEntry) != snapshot.proposal
             || destinationPath(snapshot.proposal.destinationFolderID) != snapshot.destinationPath
@@ -108,7 +109,10 @@ struct ProposalPopoverView: View {
             } else if canApply(proposal) {
                 Button("적용") {
                     guard let name = proposal.proposedName, let folder = proposal.destinationFolderID else { return }
-                    Task { await model.apply(id: entry.id, name: name, folderID: folder, reviewedFingerprint: entry.fingerprint) }
+                    Task {
+                        guard !requiresReview else { return }
+                        await model.apply(id: entry.id, name: name, folderID: folder, reviewedFingerprint: entry.fingerprint)
+                    }
                 }
                 .disabled(model.isBusy)
             } else {
@@ -170,7 +174,7 @@ struct ProposalPopoverView: View {
             snapshot = nil
             return
         }
-        snapshot = ProposalSnapshot(entry: entry, proposal: proposal, destinationPath: destinationPath(proposal.destinationFolderID))
+        snapshot = ProposalSnapshot(entry: entry, proposal: proposal, destinationPath: destinationPath(proposal.destinationFolderID), configurationRevision: model.settings?.revision)
     }
 
     private func openMain(entry: InboxEntry? = nil) {
@@ -183,5 +187,6 @@ struct ProposalPopoverView: View {
         let entry: InboxEntry
         let proposal: FileProposal
         let destinationPath: String?
+        let configurationRevision: UUID?
     }
 }

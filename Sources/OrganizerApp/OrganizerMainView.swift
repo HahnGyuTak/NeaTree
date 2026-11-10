@@ -12,7 +12,6 @@ struct OrganizerMainView: View {
     @State private var search = ""
     @State private var showingSettings = false
     @State private var dropTargeted = false
-    @State private var reviewDrafts: [UUID: ReviewDraft] = [:]
 
     init(model: OrganizerAppModel) { self.model = model }
 
@@ -185,10 +184,7 @@ struct OrganizerMainView: View {
             .frame(minWidth: 250, idealWidth: 310)
             Group {
                 if let entry = selectedEntry {
-                    ReviewDetailView(model: model, entry: entry, draft: Binding(
-                        get: { reviewDrafts[entry.id] ?? ReviewDraft() },
-                        set: { reviewDrafts[entry.id] = $0 }
-                    )).id(entry.id)
+                    ReviewDetailView(model: model, entry: entry).id(entry.id)
                 } else {
                     VStack(spacing: 10) {
                         Image(systemName: "doc.text.magnifyingglass").font(.system(size: 34, weight: .light))
@@ -288,24 +284,41 @@ private struct FileListRow: View {
 private struct ReviewDetailView: View {
     @ObservedObject var model: OrganizerAppModel
     let entry: InboxEntry
-    @Binding var draft: ReviewDraft
     @State private var evidence: FileEvidence?
     @State private var duplicateReport: DuplicateReport?
     @State private var checkingDuplicates = false
 
     private var proposal: FileProposal? { model.proposal(for: entry) }
-    private var seed: ReviewDraftSeed {
-        .init(name: proposal?.proposedName ?? URL(fileURLWithPath: entry.path).lastPathComponent,
-              folderID: proposal?.destinationFolderID ?? "", fingerprint: entry.fingerprint)
+    private var draft: ReviewDraft {
+        model.draft(for: entry.id) ?? ReviewDraft(
+            itemID: entry.id,
+            name: proposal?.proposedName ?? URL(fileURLWithPath: entry.path).lastPathComponent,
+            folderID: proposal?.destinationFolderID ?? "",
+            reviewedFingerprint: entry.fingerprint, reviewedProposal: proposal,
+            reviewedConfigurationRevision: model.settings?.revision ?? entry.id,
+            reviewedProposalRevision: model.settings?.proposalRevisions[entry.id.uuidString]
+        )
     }
     private var isDirty: Bool {
-        guard let loadedSeed = draft.loadedSeed else { return false }
-        return draft.draftName != loadedSeed.name || draft.draftFolderID != loadedSeed.folderID
+        draft.name != (draft.reviewedProposal?.proposedName ?? URL(fileURLWithPath: entry.path).lastPathComponent)
+            || draft.folderID != (draft.reviewedProposal?.destinationFolderID ?? "")
     }
     private var canEdit: Bool { [.ready, .proposed, .held, .failed].contains(entry.status) }
-    private var hasStaleSource: Bool { draft.loadedSeed.map { $0.fingerprint != entry.fingerprint } ?? false }
-    private var validDestination: Bool { model.settings?.folders.contains(where: { $0.id == draft.draftFolderID }) == true }
-    private var canApply: Bool { canEdit && !hasStaleSource && !draft.draftName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && validDestination && !model.isBusy }
+    private var hasStaleSource: Bool { model.isDraftStale(draft) }
+    private var validDestination: Bool { model.settings?.folders.contains(where: { $0.id == draft.folderID }) == true }
+    private var canApply: Bool {
+        canEdit && model.draft(for: entry.id) != nil && !hasStaleSource
+            && !draft.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && validDestination && !model.isBusy
+    }
+
+    private func draftBinding<Value>(_ keyPath: WritableKeyPath<ReviewDraft, Value>) -> Binding<Value> {
+        Binding(get: { draft[keyPath: keyPath] }, set: { value in
+            guard var updated = model.draft(for: entry.id) else { return }
+            updated[keyPath: keyPath] = value
+            if updated.name.contains("{serial}"), updated.serialWidth == nil { updated.serialWidth = 3 }
+            model.saveDraft(updated)
+        })
+    }
 
     var body: some View {
         ScrollView {
@@ -339,12 +352,7 @@ private struct ReviewDetailView: View {
             }
             .padding(22)
         }
-        .task(id: seed) {
-            if draft.loadedSeed == nil { loadCurrentProposal() }
-            else if hasStaleSource { draft.hasNewProposal = true }
-            else if !isDirty { loadCurrentProposal() }
-            else if draft.loadedSeed != seed { draft.hasNewProposal = true }
-        }
+        .task(id: canEdit) { if canEdit { _ = model.prepareDraft(entry.id) } }
         .task(id: entry.fingerprint) {
             duplicateReport = nil
             evidence = await model.inspect(entry.id)
@@ -372,41 +380,38 @@ private struct ReviewDetailView: View {
             }
             if hasStaleSource {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("검토 중 파일 내용이 변경되었습니다. 현재 파일을 다시 확인한 뒤 적용하세요.")
+                    Text("파일이나 분류 규칙이 변경되었습니다. 현재 내용을 다시 검토한 뒤 적용하세요.")
                         .font(.caption).foregroundStyle(.secondary)
                     Button("현재 파일로 다시 검토", action: loadCurrentProposal)
-                }
-            } else if draft.hasNewProposal {
-                HStack(alignment: .top) {
-                    Text("새 제안이 도착했습니다. 편집 중인 값은 유지했습니다.")
-                        .font(.caption).foregroundStyle(.secondary)
-                    Button("새 제안 보기", action: loadCurrentProposal)
                 }
             }
             VStack(alignment: .leading, spacing: 7) {
                 Text("이름").font(.caption).foregroundStyle(.secondary)
-                TextField("파일명", text: $draft.draftName).textFieldStyle(.roundedBorder)
+                TextField("파일명", text: draftBinding(\.name)).textFieldStyle(.roundedBorder)
                     .accessibilityLabel("정리할 파일 이름")
                 Text("확장자는 유지하세요. 번호를 배정하려면 {serial}을 넣으세요.")
                     .font(.caption2).foregroundStyle(.secondary)
             }
             VStack(alignment: .leading, spacing: 7) {
                 Text("위치").font(.caption).foregroundStyle(.secondary)
-                Picker("정리할 폴더", selection: $draft.draftFolderID) {
+                Picker("정리할 폴더", selection: draftBinding(\.folderID)) {
                     Text("폴더 선택").tag("")
                     ForEach(model.settings?.folders ?? [], id: \.id) { folder in
                         Text(folder.path).tag(folder.id)
                     }
                 }
                 .labelsHidden()
-                if let folder = model.settings?.folders.first(where: { $0.id == draft.draftFolderID }) {
+                if let folder = model.settings?.folders.first(where: { $0.id == draft.folderID }) {
                     Text(folder.path).font(.caption).foregroundStyle(.secondary).textSelection(.enabled)
                 }
             }
-            if draft.draftName.contains("{serial}") {
+            if draft.name.contains("{serial}") {
                 HStack {
-                    Stepper("번호 \(draft.serialWidth)자리", value: $draft.serialWidth, in: 1...12)
-                    Toggle("빈 번호 사용", isOn: $draft.fillGaps).toggleStyle(.checkbox)
+                    Stepper("번호 \(draft.serialWidth ?? 3)자리", value: Binding(
+                        get: { draft.serialWidth ?? 3 },
+                        set: { draftBinding(\.serialWidth).wrappedValue = $0 }
+                    ), in: 1...12)
+                    Toggle("빈 번호 사용", isOn: draftBinding(\.fillGaps)).toggleStyle(.checkbox)
                 }
                 .font(.caption)
             }
@@ -424,14 +429,14 @@ private struct ReviewDetailView: View {
                         Menu("다른 위치 후보") {
                             ForEach(Array(proposal.alternatives.enumerated()), id: \.offset) { _, alternative in
                                 if let folder = model.settings?.folders.first(where: { $0.id == alternative.folderID }) {
-                                    Button("\(folder.path) — \(alternative.reason)") { draft.draftFolderID = folder.id }
+                                    Button("\(folder.path) — \(alternative.reason)") { draftBinding(\.folderID).wrappedValue = folder.id }
                                 }
                             }
                         }
                     }
                 }
                 if isDirty {
-                    Toggle("이 수정으로 앞으로 사용할 규칙 후보 만들기", isOn: $draft.learnForFuture)
+                    Toggle("이 수정으로 앞으로 사용할 규칙 후보 만들기", isOn: draftBinding(\.learnForFuture))
                         .font(.caption)
                         .toggleStyle(.checkbox)
                         .disabled(!model.hasAPIKey || model.isDemo)
@@ -449,13 +454,7 @@ private struct ReviewDetailView: View {
                         .disabled(model.isBusy)
                     Spacer(minLength: 0)
                     Button("적용") {
-                        let name = draft.draftName
-                        let folder = draft.draftFolderID
-                        let width = name.contains("{serial}") ? draft.serialWidth : nil
-                        let fillGaps = draft.fillGaps
-                        let learn = draft.learnForFuture && isDirty
-                        let reviewedFingerprint = draft.loadedSeed?.fingerprint
-                        Task { await model.apply(id: entry.id, name: name, folderID: folder, serialWidth: width, fillGaps: fillGaps, learnForFuture: learn, reviewedFingerprint: reviewedFingerprint) }
+                        Task { await model.applyDraft(entry.id) }
                     }
                     .disabled(!canApply)
                 }
@@ -524,38 +523,8 @@ private struct ReviewDetailView: View {
     }
 
     private func loadCurrentProposal() {
-        // Resolve from the model again: an explicit reanalysis may have suspended
-        // while SwiftUI produced a newer value of this view.
-        let latest = model.entries.first(where: { $0.id == entry.id }) ?? entry
-        let latestProposal = model.proposal(for: latest)
-        let current = ReviewDraftSeed(
-            name: latestProposal?.proposedName ?? URL(fileURLWithPath: latest.path).lastPathComponent,
-            folderID: latestProposal?.destinationFolderID ?? "",
-            fingerprint: latest.fingerprint
-        )
-        draft.draftName = current.name
-        draft.draftFolderID = current.folderID
-        draft.loadedSeed = current
-        draft.hasNewProposal = false
-        draft.learnForFuture = false
+        _ = model.prepareDraft(entry.id, reset: true)
     }
-
-}
-
-private struct ReviewDraft {
-    var draftName = ""
-    var draftFolderID = ""
-    var loadedSeed: ReviewDraftSeed?
-    var hasNewProposal = false
-    var serialWidth = 3
-    var fillGaps = false
-    var learnForFuture = false
-}
-
-private struct ReviewDraftSeed: Hashable {
-    let name: String
-    let folderID: String
-    let fingerprint: String
 }
 
 @MainActor
@@ -690,8 +659,16 @@ private extension String {
         case "directory_listing": "폴더 내부 목록입니다."
         case "partial_directory_listing": "폴더 내부 목록 일부입니다."
         case "locked_pdf": "잠긴 PDF입니다."
+        case "unreadable_pdf": "PDF를 읽지 못했습니다."
         case "oversized_pdf": "PDF가 읽기 한도를 초과했습니다."
         case "no_text_extracted": "추출할 수 있는 텍스트가 없습니다."
+        case "ocr_text": "기기의 OCR로 읽은 텍스트입니다. 인식 오류가 있을 수 있습니다."
+        case "partial_ocr_text": "한도 내에서 OCR로 일부를 읽었습니다. 원본과 확인하세요."
+        case "no_text_recognized": "OCR에서 읽을 수 있는 글자를 찾지 못했습니다."
+        case "ocr_limit": "OCR 처리 한도를 초과했습니다. 원본을 확인하세요."
+        case "ocr_failed": "OCR을 완료하지 못했습니다. 원본을 확인하세요."
+        case "oversized_image", "image_pixel_limit": "이미지가 OCR 크기 한도를 초과했습니다."
+        case "unreadable_image": "이미지를 읽지 못했습니다."
         default: "이 형식의 텍스트를 추출하지 못했습니다."
         }
     }
