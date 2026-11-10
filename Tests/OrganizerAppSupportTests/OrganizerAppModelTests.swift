@@ -101,6 +101,10 @@ struct OrganizerAppModelTests {
         #expect(model.entries.count == 2)
         #expect(!model.hasAPIKey)
         #expect(recorder.keyReads == 0)
+        let actionableSample = try #require(model.entries.first { URL(fileURLWithPath: $0.path).pathExtension == "txt" })
+        let ambiguousSample = try #require(model.entries.first { URL(fileURLWithPath: $0.path).pathExtension == "md" })
+        #expect(model.proposal(for: actionableSample)?.status == "ready")
+        #expect(model.proposal(for: ambiguousSample)?.status == "needsReview")
 
         let entry = try #require(model.entries.first)
         await model.analyze(entry.id)
@@ -111,6 +115,40 @@ struct OrganizerAppModelTests {
         #expect(recorder.keyDeletes == 0)
         #expect(recorder.analysisCalls == 0)
         #expect(try Data(contentsOf: fixture.file) == Data("original content".utf8))
+    }
+
+    @Test func demoRejectsExternalConfigurationAndMixedDropsIncludingEscapingSymlinks() async throws {
+        let fixture = try ModelFixture()
+        defer { fixture.remove() }
+        let recorder = CallRecorder()
+        let model = try OrganizerAppModel(stateDirectory: fixture.state, demo: true, dependencies: recorder.dependencies)
+        let demoRoot = model.stateDirectory.deletingLastPathComponent()
+        defer { model.stop(); try? FileManager.default.removeItem(at: demoRoot) }
+        await model.start()
+        let originalSettings = try #require(model.settings)
+        let originalIDs = model.entries.map(\.id)
+
+        await model.configure(downloads: fixture.downloads, roots: [fixture.archive])
+        #expect(model.errorMessage != nil)
+        #expect(model.settings?.downloadsPath == originalSettings.downloadsPath)
+        #expect(model.settings?.destinationRoots == originalSettings.destinationRoots)
+        #expect(model.settings?.revision == originalSettings.revision)
+
+        let inside = demoRoot.appendingPathComponent("local-sample.txt")
+        try Data("local demo sample".utf8).write(to: inside)
+        let escapedDirectory = demoRoot.appendingPathComponent("external-link")
+        try FileManager.default.createSymbolicLink(at: escapedDirectory, withDestinationURL: fixture.downloads)
+        let escapedLeaf = demoRoot.appendingPathComponent("external-file.txt")
+        try FileManager.default.createSymbolicLink(at: escapedLeaf, withDestinationURL: fixture.file)
+        for outside in [fixture.file, escapedDirectory.appendingPathComponent(fixture.file.lastPathComponent), escapedLeaf] {
+            await model.importFiles([inside, outside])
+            #expect(model.errorMessage != nil)
+            #expect(model.entries.map(\.id) == originalIDs)
+            #expect(model.settings?.importedSources == originalSettings.importedSources)
+        }
+        #expect(try Data(contentsOf: fixture.file) == Data("original content".utf8))
+        #expect(recorder.analysisCalls == 0)
+        #expect(recorder.keyReads == 0)
     }
 
     @Test func editedApplyAndUndoUseRealCoreAndRefreshBothViews() async throws {

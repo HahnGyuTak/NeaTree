@@ -1,4 +1,5 @@
 import Combine
+import Darwin
 import Foundation
 import OrganizerCore
 
@@ -25,6 +26,7 @@ public final class OrganizerAppModel: ObservableObject {
 
     private let service: OrganizerService
     private let dependencies: AppModelDependencies
+    private let demoRootPath: String?
     private var preferenceStore: AppPreferenceStore
     private var preferences: AppPreferences
     private var watcher: Task<Void, Never>?
@@ -50,6 +52,7 @@ public final class OrganizerAppModel: ObservableObject {
         self.stateDirectory = directory
         self.dependencies = dependencies
         service = try OrganizerService(stateDirectory: directory, settleInterval: settleInterval)
+        demoRootPath = demo ? try Self.canonicalFilePath(directory.deletingLastPathComponent()) : nil
         preferenceStore = try AppPreferenceStore(directory: directory)
         preferences = try preferenceStore.load()
         automaticallyAnalyze = preferences.automaticAnalysis
@@ -89,6 +92,7 @@ public final class OrganizerAppModel: ObservableObject {
 
     public func configure(downloads: URL, roots: [URL]) async {
         await run {
+            guard !self.isDemo else { throw AppModelError.demoConfiguration }
             try await self.service.configure(downloads: downloads, roots: roots)
             self.statusMessage = "감시 폴더와 분류할 폴더를 저장했습니다."
         }
@@ -96,6 +100,16 @@ public final class OrganizerAppModel: ObservableObject {
 
     public func importFiles(_ urls: [URL]) async {
         await run {
+            // Validate the whole drop before importing any item, so a mixed drop
+            // cannot partly enter the demo queue. realpath checks parent symlinks.
+            if let demoRootPath = self.demoRootPath {
+                for url in urls {
+                    let path = try Self.canonicalFilePath(url)
+                    guard path == demoRootPath || path.hasPrefix(demoRootPath + "/") else {
+                        throw AppModelError.demoFilesOnly
+                    }
+                }
+            }
             guard self.settings != nil else { throw OrganizerServiceError.notConfigured }
             var failures: [String] = []
             var imported: [InboxEntry] = []
@@ -476,11 +490,18 @@ public final class OrganizerAppModel: ObservableObject {
                 ? original.lastPathComponent + "_정리"
                 : original.deletingPathExtension().lastPathComponent + "_정리." + original.pathExtension
             demoProposals[entry.id] = FileProposal(
-                fileID: evidence.id, status: "needsReview", destinationFolderID: folder.id,
+                fileID: evidence.id, status: original.lastPathComponent == "다운로드한 문서.txt" ? "ready" : "needsReview", destinationFolderID: folder.id,
                 proposedName: filename, reason: "데모용 제안입니다. AI 분석 결과가 아니며 임시 샘플 파일만 사용합니다.",
                 evidence: ["임시 샘플 문서"], alternatives: [], missingInformation: []
             )
         }
+    }
+
+    private static func canonicalFilePath(_ url: URL) throws -> String {
+        guard url.isFileURL, (url.host() ?? "").isEmpty,
+              let pointer = realpath(url.path, nil) else { throw AppModelError.demoFilesOnly }
+        defer { free(pointer) }
+        return String(cString: pointer)
     }
 }
 
@@ -504,10 +525,12 @@ struct AppModelDependencies: Sendable {
 }
 
 enum AppModelError: LocalizedError {
-    case demoCredentials, invalidAPIKey
+    case demoCredentials, demoConfiguration, demoFilesOnly, invalidAPIKey
     var errorDescription: String? {
         switch self {
         case .demoCredentials: "데모 모드에서는 API 키를 읽거나 변경하지 않습니다."
+        case .demoConfiguration: "데모에서는 감시 폴더와 분류 폴더를 변경할 수 없습니다. 일반 실행에서 설정하세요."
+        case .demoFilesOnly: "데모에서는 앱이 만든 임시 폴더 안의 파일만 사용할 수 있습니다. 외부 파일은 가져오지 않았습니다."
         case .invalidAPIKey: "공백이나 줄바꿈이 없는 API 키를 입력하세요."
         }
     }

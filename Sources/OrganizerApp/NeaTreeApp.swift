@@ -153,6 +153,7 @@ final class OrganizerApplicationDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(editItem)
         let windowMenu = NSMenu(title: "윈도우")
         windowMenu.addItem(menuItem("검토함 열기", action: #selector(openReview), key: "1"))
+        windowMenu.addItem(menuItem("메뉴바 제안 보기", action: #selector(openProposal), key: "2"))
         windowMenu.addItem(NSMenuItem(title: "최소화", action: #selector(NSWindow.performMiniaturize(_:)), keyEquivalent: "m"))
         let windowItem = NSMenuItem(title: "윈도우", action: nil, keyEquivalent: "")
         windowItem.submenu = windowMenu
@@ -176,6 +177,8 @@ final class OrganizerApplicationDelegate: NSObject, NSApplicationDelegate {
         showMainWindow()
         NotificationCenter.default.post(name: Notification.Name("OrganizerOpenSettings"), object: nil)
     }
+
+    @objc private func openProposal() { statusController?.showFromUserAction() }
 
     @objc private func showAbout() {
         NSApp.orderFrontStandardAboutPanel(options: [

@@ -145,7 +145,7 @@ struct OrganizerMainView: View {
                     Spacer()
                     if section == "review" {
                         Button("모두 분석") { Task { await model.analyzeAll() } }
-                            .disabled(model.isBusy || !model.hasAPIKey || displayedEntries.isEmpty)
+                            .disabled(model.isBusy || !(model.hasAPIKey || model.isDemo) || displayedEntries.isEmpty)
                     }
                 }
                 .padding(18)
@@ -159,7 +159,7 @@ struct OrganizerMainView: View {
                                     Button("다시 검토") { Task { await model.revisit(entry.id) } }
                                 } else if entry.status != .pending && entry.status != .missing {
                                     Button("분석") { Task { await model.analyze(entry.id) } }
-                                        .disabled(!model.hasAPIKey || model.isBusy)
+                                        .disabled(!(model.hasAPIKey || model.isDemo) || model.isBusy)
                                     Button("보류") { Task { await model.hold(entry.id) } }
                                         .disabled(model.isBusy)
                                 }
@@ -364,7 +364,7 @@ private struct ReviewDetailView: View {
                         }
                     }
                 }
-                    .disabled(model.isBusy || !model.hasAPIKey)
+                    .disabled(model.isBusy || !(model.hasAPIKey || model.isDemo))
             }
             if !model.hasAPIKey && !model.isDemo {
                 Text("설정에서 API 키를 추가하면 내용 분석과 제안을 사용할 수 있습니다.")
@@ -604,7 +604,7 @@ private struct RulesView: View {
                     Spacer()
                     Button("폴더 구조 분석") { Task { await model.analyzeStructure() } }
                         .buttonStyle(LiquidGlassButtonStyle())
-                        .disabled(!model.hasAPIKey || model.isBusy)
+                        .disabled(!(model.hasAPIKey || model.isDemo) || model.isBusy)
                 }
                 Text("선택한 폴더의 이름과 파일명 사례에서 규칙 후보를 찾습니다. 확인한 규칙만 새 제안에 사용됩니다.")
                     .font(.callout).foregroundStyle(.secondary)

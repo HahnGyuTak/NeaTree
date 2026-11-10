@@ -67,6 +67,10 @@ final class OrganizerStatusController: NSObject {
         NSStatusBar.system.removeStatusItem(item)
     }
 
+    func showFromUserAction() {
+        showProposal(allowKeyboardFocus: true)
+    }
+
     func dismissProposal() {
         panel?.orderOut(nil)
         if let localMonitor { NSEvent.removeMonitor(localMonitor) }

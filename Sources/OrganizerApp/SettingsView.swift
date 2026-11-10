@@ -113,8 +113,10 @@ struct SettingsView: View {
                         get: { model.automaticallyAnalyze },
                         set: { model.setAutomaticAnalysis($0) }
                     ))
-                    .disabled(model.settings == nil || (!model.hasAPIKey && !model.automaticallyAnalyze) || model.isDemo)
-                    Text("자동 분석을 켜면 다운로드가 완료된 새 파일을 OpenAI API로 분석하며 API 사용 요금이 발생할 수 있습니다. 파일 이동은 제안의 적용을 눌렀을 때만 실행됩니다.")
+                    .disabled(model.settings == nil || (!(model.hasAPIKey || model.isDemo) && !model.automaticallyAnalyze))
+                    Text(model.isDemo
+                         ? "데모 자동 분석은 임시 샘플 폴더의 새 파일에 예시 제안을 만듭니다. OpenAI API로 전송하지 않으며, 파일 이동은 적용을 눌렀을 때 실행됩니다."
+                         : "자동 분석을 켜면 다운로드가 완료된 새 파일을 OpenAI API로 분석하며 API 사용 요금이 발생할 수 있습니다. 파일 이동은 제안의 적용을 눌렀을 때만 실행됩니다.")
                         .font(.caption).foregroundStyle(.secondary)
                     Text("창을 닫아도 메뉴바에서 감시를 유지합니다. 메뉴바의 종료를 선택하면 앱과 감시가 모두 종료됩니다.")
                         .font(.caption).foregroundStyle(.secondary)
