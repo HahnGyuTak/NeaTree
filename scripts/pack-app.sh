@@ -132,6 +132,9 @@ cp "$repo_root/packaging/Info.plist" "$app/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $version" "$app/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $build_number" "$app/Contents/Info.plist"
 plutil -lint "$app/Contents/Info.plist" >/dev/null
+# Copying a locally inspected binary can preserve Finder metadata that codesign
+# rejects. Clean only the newly assembled staging bundle, never the source tree.
+xattr -cr "$app"
 
 codesign_args=(--force --sign "$signing_identity")
 if [[ -n "$signing_keychain" ]]; then codesign_args+=(--keychain "$signing_keychain"); fi
