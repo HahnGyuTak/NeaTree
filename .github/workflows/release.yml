@@ -1,0 +1,94 @@
+name: Prepare NeaTree signed release draft
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: App version, for example 0.1.0
+        type: string
+        required: true
+      prerelease:
+        description: Mark the draft as a prerelease
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ inputs.version }}
+  cancel-in-progress: false
+
+jobs:
+  signed-draft:
+    if: github.ref == 'refs/heads/main'
+    runs-on: macos-26
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Validate version and toolchain
+        shell: bash
+        env:
+          APP_VERSION: ${{ inputs.version }}
+        run: |
+          [[ "$APP_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          sdk_version="$(xcrun --sdk macosx --show-sdk-version)"
+          test "${sdk_version%%.*}" -ge 26
+          xcodebuild -version
+      - name: Test
+        run: swift test
+      - name: Build, sign, notarize and staple
+        shell: bash
+        env:
+          APP_VERSION: ${{ inputs.version }}
+          CERTIFICATE_BASE64: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 }}
+          CERTIFICATE_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+          SIGNING_IDENTITY: ${{ secrets.MACOS_SIGNING_IDENTITY }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          set -euo pipefail
+          for name in CERTIFICATE_BASE64 CERTIFICATE_PASSWORD SIGNING_IDENTITY APPLE_ID APPLE_APP_SPECIFIC_PASSWORD APPLE_TEAM_ID; do
+            [[ -n "${!name:-}" ]] || { printf 'Missing required secret: %s\n' "$name" >&2; exit 1; }
+          done
+          release_temp="$(mktemp -d "$RUNNER_TEMP/neatree-signing.XXXXXX")"
+          export SIGNING_KEYCHAIN_PATH="$release_temp/signing.keychain-db"
+          export NOTARY_KEYCHAIN_PATH="$SIGNING_KEYCHAIN_PATH"
+          export NOTARY_PROFILE=neatree-notary
+          keychain_password="$(uuidgen)"
+          printf '::add-mask::%s\n' "$keychain_password"
+          cleanup() {
+            security delete-keychain "$SIGNING_KEYCHAIN_PATH" >/dev/null 2>&1 || true
+            rm -rf "$release_temp"
+          }
+          trap cleanup EXIT
+          python3 - "$release_temp/certificate.p12" <<'PY'
+          import base64, os, pathlib, sys
+          pathlib.Path(sys.argv[1]).write_bytes(base64.b64decode(os.environ['CERTIFICATE_BASE64'], validate=True))
+          PY
+          security create-keychain -p "$keychain_password" "$SIGNING_KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$SIGNING_KEYCHAIN_PATH"
+          security unlock-keychain -p "$keychain_password" "$SIGNING_KEYCHAIN_PATH"
+          security import "$release_temp/certificate.p12" -k "$SIGNING_KEYCHAIN_PATH" \
+            -P "$CERTIFICATE_PASSWORD" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s \
+            -k "$keychain_password" "$SIGNING_KEYCHAIN_PATH" >/dev/null
+          xcrun notarytool store-credentials "$NOTARY_PROFILE" \
+            --keychain "$NOTARY_KEYCHAIN_PATH" --apple-id "$APPLE_ID" \
+            --team-id "$APPLE_TEAM_ID" --password "$APPLE_APP_SPECIFIC_PASSWORD"
+          scripts/pack-app.sh --version "$APP_VERSION" --build-number "$GITHUB_RUN_NUMBER" \
+            --configuration release --arch universal --notarize
+      - name: Create GitHub release draft
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          APP_VERSION: ${{ inputs.version }}
+          RELEASE_PRERELEASE: ${{ inputs.prerelease }}
+        run: |
+          package_dir="dist/NeaTree-$APP_VERSION-b$GITHUB_RUN_NUMBER-macos-universal"
+          scripts/release.sh "$package_dir"

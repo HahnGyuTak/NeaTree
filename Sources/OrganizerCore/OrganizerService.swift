@@ -154,8 +154,10 @@ public actor OrganizerService {
         let token = UUID()
         analysisTokens[id] = token
         let prior = try await item(id)
+        guard analysisTokens[id] == token else { throw OrganizerServiceError.sourceChanged }
         guard [.ready, .proposed, .held, .failed].contains(prior.status) else { throw OrganizerServiceError.itemNotFound }
         let entry = try await inbox.add(url: URL(fileURLWithPath: prior.path))
+        guard analysisTokens[id] == token else { throw OrganizerServiceError.sourceChanged }
         if entry.status != .ready && entry.status != .proposed {
             try await inbox.setStatus(id: id, status: .ready)
         }

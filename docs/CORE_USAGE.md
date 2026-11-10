@@ -1,8 +1,8 @@
-# 맥 파일 정리 도우미
+# NeaTree 파일 처리 코어
 
-Finder 스타일 GUI를 연결하기 위한 Swift 네이티브 코어와 개발용 CLI입니다. 파일 감시·분석 요청·검토 상태·이동·되돌리기를 실제 파일시스템에서 수행합니다. 현재 GUI는 이미지 시안 승인 대기 상태입니다.
+Finder 스타일 GUI를 연결하기 위한 Swift 네이티브 코어와 개발용 CLI입니다. 파일 감시·분석 요청·검토 상태·이동·되돌리기를 실제 파일시스템에서 수행합니다. GUI는 같은 서비스를 공유하며 본창과 메뉴바에서 호출합니다.
 
-최신 디자인 요구사항은 [DESIGN_REQUIREMENTS.md](DESIGN_REQUIREMENTS.md)에 보존합니다. 재사용 가능한 SwiftUI Liquid Glass 컴포넌트와 독립 미리보기 사용법은 [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md)를 참고하세요. 디자인 미리보기는 샘플 데이터로만 동작합니다.
+최신 디자인 요구사항은 [DESIGN_REQUIREMENTS.md](../DESIGN_REQUIREMENTS.md)에 보존합니다. 재사용 가능한 SwiftUI Liquid Glass 컴포넌트와 독립 미리보기 사용법은 [DESIGN_SYSTEM.md](../DESIGN_SYSTEM.md)를 참고하세요. 디자인 미리보기는 샘플 데이터로만 동작합니다.
 
 ## 구현된 기능
 
@@ -25,7 +25,7 @@ swift test
 swift run organizer help
 ```
 
-현재 맥에서 빌드한 개발용 실행 파일은 `bin/organizer`에 있습니다. 이 폴더에서 `./bin/organizer help`로 실행할 수 있습니다. GUI 앱 번들이나 배포용 서명 빌드는 아닙니다.
+명령은 저장소 루트에서 실행합니다. GUI 앱 번들은 `scripts/pack-app.sh`로 별도 생성합니다.
 
 API 분석 없이 임시 파일로 파일 관리 기능부터 확인할 수 있습니다. `configure`는 지정 폴더의 이름과 구조를 읽어 로컬에 저장합니다. `rules analyze`, `analyze`, `learn`, `watch --analyze`는 선택 범위의 자료를 OpenAI API로 전송합니다.
 
@@ -41,7 +41,7 @@ API 키는 터미널에서 `swift run organizer key set`으로 입력합니다. 
 
 규칙 분석은 `rules analyze`, 후보 확정은 `rules confirm <0부터 시작하는 후보 번호>`, 파일 분석은 `analyze <항목 ID>`를 사용합니다. `learn <항목 ID> --name <수정 이름> --folder <폴더 ID>`는 앞으로 사용할 규칙 후보를 만들며 확정은 별도입니다. `revisit <미분류 항목 ID>`는 이동 후 실제 경로의 파일을 새 검토 항목으로 등록합니다.
 
-`watch`는 다운로드 감시만 수행합니다. 자동 분석까지 요청하려면 `watch --analyze`를 사용합니다. 종료는 Ctrl+C입니다. 개발용 CLI의 동일 상태 저장소를 여러 프로세스에서 수정하면 저장 충돌을 표시하므로, 감시를 종료한 뒤 별도 명령을 실행합니다. GUI에서는 한 서비스 인스턴스를 공유하도록 연결할 예정입니다.
+`watch`는 다운로드 감시만 수행합니다. 자동 분석까지 요청하려면 `watch --analyze`를 사용합니다. 종료는 Ctrl+C입니다. 개발용 CLI의 동일 상태 저장소를 여러 프로세스에서 수정하면 저장 충돌을 표시하므로, 감시를 종료한 뒤 별도 명령을 실행합니다. GUI에서는 한 서비스 인스턴스를 공유합니다.
 
 ## 현재 범위
 
@@ -51,7 +51,7 @@ API 키는 터미널에서 `swift run organizer key set`으로 입력합니다. 
 
 텍스트는 최대 128 KiB, PDF는 첫 12페이지·32,000자, 폴더 목록은 첫 100개 항목까지 분석합니다. 스캔 PDF·사진 OCR과 Office 전용 문서 추출은 아직 구현하지 않았습니다. 중복 탐색은 검사 한도와 읽기 실패가 있으면 결과의 `truncated`를 표시합니다.
 
-GUI, GUI의 드래그앤드롭·Quick Look 연동, 로그인 시 상주 실행, 여러 파일의 프로젝트 관계를 묶어 판단하는 기능은 다음 단계입니다. 파일·폴더를 하나의 항목으로 가져오고 이동하는 코어는 구현되어 있습니다.
+GUI와 드래그앤드롭, 메뉴바 상주 및 로그인 시 실행 선택을 연결했습니다. Quick Look 연동과 여러 파일의 프로젝트 관계를 묶어 판단하는 기능은 이후 범위입니다. 파일·폴더를 하나의 항목으로 가져오고 이동하는 코어는 구현되어 있습니다.
 
 실제 API 키가 없는 개발 환경에서는 네트워크 모형으로 요청·응답 처리를 검증합니다. 실제 모델의 분류 품질과 계정별 API 접근은 키 설정 후 대표 파일로 확인해야 합니다.
 

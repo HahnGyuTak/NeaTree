@@ -1,6 +1,8 @@
-# Project instructions
+# NeaTree project instructions
 
 - Read `docs/PLAN.md` and `DESIGN_REQUIREMENTS.md` before changing behavior or visuals.
+- Product name: NeaTree (Neat + Tree). Keep the name consistent in the app and distribution artifacts.
+- Menu bar proposal mockup v1 was approved on 2026-11-11 (“이 시안대로 구현”).
 - This is a native macOS SwiftUI/AppKit app distributed through GitHub Releases, not the App Store.
 - Preserve Finder's sidebar/list/preview structure and the user-specified Liquid Glass components. Do not invent unrelated accents or decoration.
 - The user has asked to begin app development following the shown preview and recorded design rules. New visual directions still follow the image-review requirement in the design document.

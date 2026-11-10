@@ -1,0 +1,49 @@
+name: NeaTree build and test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  macos:
+    runs-on: macos-26
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Check toolchain
+        shell: bash
+        run: |
+          xcodebuild -version
+          swift --version
+          sdk_version="$(xcrun --sdk macosx --show-sdk-version)"
+          test "${sdk_version%%.*}" -ge 26
+      - name: Test
+        run: swift test
+      - name: Build app
+        run: swift build --product file-organizer
+      - name: Package development build
+        shell: bash
+        run: |
+          binary_dir="$(swift build --show-bin-path)"
+          scripts/pack-app.sh --configuration debug --version 0.1.0 \
+            --build-number "$GITHUB_RUN_NUMBER" --binary "$binary_dir/file-organizer" --no-dmg
+      - name: Upload development archive
+        uses: actions/upload-artifact@v6
+        with:
+          name: NeaTree-macOS-development-build
+          path: |
+            dist/**/*.zip
+            dist/**/build-metadata.json
+            dist/**/SHA256SUMS
+          if-no-files-found: error
+          retention-days: 7
