@@ -5,7 +5,7 @@ import ServiceManagement
 import SwiftUI
 
 @main @MainActor
-enum FileOrganizerApplication {
+enum NeaTreeApplication {
     static func main() {
         let application = NSApplication.shared
         application.setActivationPolicy(.regular)

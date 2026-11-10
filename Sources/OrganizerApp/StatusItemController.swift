@@ -94,14 +94,11 @@ final class OrganizerStatusController: NSObject {
         let anchor = anchorWindow.convertToScreen(button.convert(button.bounds, to: nil))
         guard anchor.width > 0, anchor.height > 0, screen.frame.intersects(anchor) else { return }
         let width: CGFloat = 380
-        let height: CGFloat = 510
         let x = min(max(anchor.midX - width / 2, screen.frame.minX + 8), screen.frame.maxX - width - 8)
-        let y = max(screen.visibleFrame.minY + 8, anchor.minY - height - 3)
-        let finalFrame = NSRect(x: x, y: y, width: width, height: height)
         let tip = min(max(anchor.midX - x, 22), width - 22)
         let panel = self.panel ?? ProposalPanel()
         panel.allowsKeyboardFocus = allowKeyboardFocus
-        panel.contentView = NSHostingView(rootView:
+        let hostingView = NSHostingView(rootView:
             ProposalCallout(tipX: tip) {
                 ProposalPopoverView(model: model, onOpenMain: { [weak self] in
                     self?.dismissProposal()
@@ -109,6 +106,10 @@ final class OrganizerStatusController: NSObject {
                 })
             }
         )
+        panel.contentView = hostingView
+        let height = min(max(hostingView.fittingSize.height, 180), screen.visibleFrame.height - 16)
+        let y = max(screen.visibleFrame.minY + 8, anchor.minY - height - 3)
+        let finalFrame = NSRect(x: x, y: y, width: width, height: height)
         self.panel = panel
         let reduceMotion = NSWorkspace.shared.accessibilityDisplayShouldReduceMotion
         panel.alphaValue = reduceMotion ? 1 : 0
@@ -229,9 +230,9 @@ private struct ProposalCallout<Content: View>: View {
         VStack(spacing: 0) {
             Color.clear.frame(height: 11)
             content
-            Spacer(minLength: 0)
         }
         .frame(width: 380)
+        .fixedSize(horizontal: false, vertical: true)
         .modifier(CalloutMaterial(tipX: tipX, opaque: reduceTransparency))
     }
 }
