@@ -184,7 +184,7 @@ final class OrganizerApplicationDelegate: NSObject, NSApplicationDelegate {
         NSApp.orderFrontStandardAboutPanel(options: [
             .applicationName: "NeaTree",
             .applicationVersion: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "개발 중",
-            .credits: NSAttributedString(string: "Neat + Tree · 깔끔한 디렉토리 구조\nGitHub Releases로 배포하는 macOS 파일 정리 도우미\nhttps://github.com/HahnGyuTak/mac-file-organizer")
+            .credits: NSAttributedString(string: "Neat + Tree · 깔끔한 디렉토리 구조\nGitHub Releases로 배포하는 macOS 파일 정리 도우미\nhttps://github.com/HahnGyuTak/NeaTree")
         ])
     }
 }

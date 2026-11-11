@@ -228,7 +228,7 @@ Finder에서 익숙한 사이드바, 상단 도구 막대, 파일 목록, 미리
 
 ## 구현 진행 상태
 
-공개 저장소를 먼저 생성하고 Swift 코어·CLI·디자인 시스템·기획안을 올린 뒤 네이티브 앱 연결을 진행했다. 앱 이름은 NeaTree이며 배포 채널은 [GitHub Releases](https://github.com/HahnGyuTak/mac-file-organizer/releases)다. App Store 배포는 사용하지 않는다.
+공개 저장소를 먼저 생성하고 Swift 코어·CLI·디자인 시스템·기획안을 올린 뒤 네이티브 앱 연결을 진행했다. 앱 이름은 NeaTree이며 배포 채널은 [GitHub Releases](https://github.com/HahnGyuTak/NeaTree/releases)다. App Store 배포는 사용하지 않는다.
 
 본창, 폴더·키 설정, 다운로드 감시, 드래그 입력, 내용 추출, 편집 가능한 제안, 적용·보류·미분류, 이력·되돌리기, 규칙 후보 확인을 하나의 서비스에 연결했다. 창을 닫아도 메뉴바가 유지되며, 자동 분석을 사용자가 켜면 제안 준비 후 승인된 메뉴바 제안창을 표시한다. API 전송은 사용자 분석 요청 또는 자동 분석 설정에 따른다.
 

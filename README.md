@@ -4,7 +4,7 @@
 
 다운로드한 파일과 폴더의 내용을 살펴보고, 기존 폴더 구조와 명명 규칙에 맞는 이름·위치를 제안하는 macOS 앱입니다. 사용자가 검토하고 적용할 때 파일을 이동하며, 미분류·보류·이력·되돌리기를 지원합니다.
 
-Finder의 사이드바·목록·검토 영역에 Liquid Glass 컴포넌트를 연결한 첫 개발 버전입니다. 배포 채널은 **[GitHub Releases](https://github.com/HahnGyuTak/mac-file-organizer/releases)**입니다. 아직 서명·공증된 정식 릴리스는 없습니다.
+Finder의 사이드바·목록·검토 영역에 Liquid Glass 컴포넌트를 연결한 첫 개발 버전입니다. 배포 채널은 **[GitHub Releases](https://github.com/HahnGyuTak/NeaTree/releases)**입니다. 아직 서명·공증된 정식 릴리스는 없습니다.
 
 ## 사용 흐름
 

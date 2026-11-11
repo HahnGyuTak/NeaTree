@@ -1,6 +1,6 @@
 # NeaTree GitHub Releases 배포
 
-NeaTree(Neat + Tree)는 Mac App Store 대신 이 저장소의 [GitHub Releases](https://github.com/HahnGyuTak/mac-file-organizer/releases)에서 제공한다. 사용자는 ZIP을 풀거나 DMG를 열고 `NeaTree.app`을 응용 프로그램 폴더에 복사한다. DMG는 앱과 `/Applications` 링크만 포함하는 기본 구성이며 별도 시각 디자인을 추가하지 않는다. 앱의 번들 ID는 `io.github.HahnGyuTak.NeaTree`다.
+NeaTree(Neat + Tree)는 Mac App Store 대신 이 저장소의 [GitHub Releases](https://github.com/HahnGyuTak/NeaTree/releases)에서 제공한다. 사용자는 ZIP을 풀거나 DMG를 열고 `NeaTree.app`을 응용 프로그램 폴더에 복사한다. DMG는 앱과 `/Applications` 링크만 포함하는 기본 구성이며 별도 시각 디자인을 추가하지 않는다. 앱의 번들 ID는 `io.github.HahnGyuTak.NeaTree`다.
 
 ## 빌드 종류
 
@@ -63,7 +63,7 @@ SIGNING_IDENTITY='Developer ID Application: 개발자 이름 (TEAMID)' \
 NOTARY_PROFILE='neatree-notary' \
 scripts/pack-app.sh --version 0.1.0 --build-number 1 --arch universal --notarize
 
-GH_REPO='HahnGyuTak/mac-file-organizer' \
+GH_REPO='HahnGyuTak/NeaTree' \
 scripts/release.sh dist/NeaTree-0.1.0-b1-macos-universal
 ```
 
