@@ -13,6 +13,8 @@ public final class OrganizerAppModel: ObservableObject {
     @Published public private(set) var settings: OrganizerSettings?
     @Published public private(set) var history: [MoveRecord] = []
     @Published public private(set) var isBusy = false
+    @Published public private(set) var psiloActivity = PsiloActivity()
+    @Published public private(set) var psiloIssue: PsiloIssue?
     @Published public private(set) var watching = false
     @Published public private(set) var automaticallyAnalyze = false
     @Published public private(set) var hasAPIKey = false
@@ -34,6 +36,8 @@ public final class OrganizerAppModel: ObservableObject {
     private var watcher: Task<Void, Never>?
     private var started = false
     private var operationCount = 0
+    private var psiloTracker = PsiloActivityTracker()
+    private var analysisPsiloIDs: [UUID: UUID] = [:]
     private var batchInProgress = false
     private var refreshGeneration = UUID()
     private var analysisGenerations: [UUID: UUID] = [:]
@@ -90,6 +94,9 @@ public final class OrganizerAppModel: ObservableObject {
         for task in analysisTasks.values { task.cancel() }
         analysisTasks.removeAll()
         automaticAnalysisIDs.removeAll()
+        analysisPsiloIDs.removeAll()
+        psiloTracker.cancel(psiloTracker.activity.id)
+        publishPsiloActivity()
     }
 
     public func refresh() async { await reloadState() }
@@ -203,7 +210,7 @@ public final class OrganizerAppModel: ObservableObject {
     }
 
     public func applyDraft(_ id: UUID) async {
-        await run {
+        await run(activity: .organizing, outcome: .filesApplied, subjectIDs: [id]) {
             guard let draft = self.reviewDrafts[id] else { throw AppModelError.reviewRequired }
             _ = try await self.applyReviewedDraft(draft, allowLearning: true)
             self.statusMessage = "파일을 정리했습니다. 이력에서 되돌릴 수 있습니다."
@@ -255,7 +262,7 @@ public final class OrganizerAppModel: ObservableObject {
     }
 
     public func apply(id: UUID, name: String, folderID: String, serialWidth: Int? = nil, fillGaps: Bool = false, learnForFuture: Bool = false, reviewedFingerprint: String? = nil) async {
-        await run {
+        await run(activity: .organizing, outcome: .filesApplied, subjectIDs: [id]) {
             guard let entry = self.entries.first(where: { $0.id == id }),
                   [.ready, .proposed, .held, .failed].contains(entry.status) else {
                 throw OrganizerServiceError.itemNotFound
@@ -287,6 +294,10 @@ public final class OrganizerAppModel: ObservableObject {
     public func hold(_ id: UUID) async {
         guard !self.batchInProgress else { errorMessage = AppModelError.busy.localizedDescription; return }
         let wasAnalyzing = analysisTasks[id] != nil
+        if let activityID = analysisPsiloIDs.removeValue(forKey: id) {
+            psiloTracker.cancel(activityID)
+            publishPsiloActivity()
+        }
         guard !isBusy || wasAnalyzing else { errorMessage = AppModelError.busy.localizedDescription; return }
         analysisGenerations[id] = nil
         analysisTasks.removeValue(forKey: id)?.cancel()
@@ -299,7 +310,7 @@ public final class OrganizerAppModel: ObservableObject {
     }
 
     public func sendToUnclassified(_ id: UUID) async {
-        await run {
+        await run(activity: .organizing, outcome: .filesApplied, subjectIDs: [id]) {
             self.analysisGenerations[id] = nil
             _ = try await self.service.sendToUnclassified(id: id)
             self.demoProposals[id] = nil
@@ -308,7 +319,7 @@ public final class OrganizerAppModel: ObservableObject {
     }
 
     public func undo(_ id: UUID) async {
-        await run {
+        await run(activity: .undo, outcome: .restored, subjectIDs: [id]) {
             _ = try await self.service.undo(recordID: id)
             self.statusMessage = "원래 이름과 위치로 되돌렸습니다."
         }
@@ -324,8 +335,8 @@ public final class OrganizerAppModel: ObservableObject {
     }
 
     public func analyzeStructure() async {
-        await run {
-            guard !self.isDemo else { self.statusMessage = "데모에서는 API 규칙 분석을 실행하지 않습니다."; return }
+        guard !isDemo else { statusMessage = "데모에서는 API 규칙 분석을 실행하지 않습니다."; return }
+        await run(activity: .structureAnalysis, outcome: .rulesReady) {
             _ = try await self.service.analyzeStructure(client: OpenAIClient(apiKey: self.requireAPIKey()))
             self.statusMessage = "규칙 후보를 만들었습니다. 내용을 확인한 후 확정하세요."
         }
@@ -398,10 +409,12 @@ public final class OrganizerAppModel: ObservableObject {
         automaticallyAnalyze = enabled
         if !enabled {
             for id in automaticAnalysisIDs {
+                if let activityID = analysisPsiloIDs.removeValue(forKey: id) { psiloTracker.cancel(activityID) }
                 analysisGenerations[id] = nil
                 analysisTasks.removeValue(forKey: id)?.cancel()
             }
             automaticAnalysisIDs.removeAll()
+            publishPsiloActivity()
         }
         if enabled, !hasAPIKey, !isDemo { statusMessage = "자동 분석을 켰습니다. API 키를 설정하면 분석할 수 있습니다." }
     }
@@ -491,6 +504,13 @@ public final class OrganizerAppModel: ObservableObject {
         batchInProgress = true
         batchResults = []
         errorMessage = nil
+        let kind: PsiloActivity.Kind? = switch action {
+        case .apply, .unclassified: .organizing
+        case .undo: .undo
+        case .review, .hold: nil
+        }
+        let activityID = !ids.isEmpty ? kind.map { beginPsiloActivity($0, total: ids.count, subjectIDs: Set(ids)) } : nil
+        var cancellations = 0
         defer { batchInProgress = false; operationCount -= 1; isBusy = operationCount > 0 }
         for id in ids {
             do {
@@ -498,6 +518,7 @@ public final class OrganizerAppModel: ObservableObject {
                 let operationID = try await operation(id)
                 batchResults.append(BatchItemResult(itemID: id, action: action, succeeded: true, message: "완료", operationID: operationID))
             } catch {
+                if error is CancellationError { cancellations += 1 }
                 var operationID: UUID?
                 if case OrganizerServiceError.operationCommitted(let committedID) = error {
                     operationID = committedID
@@ -506,23 +527,60 @@ public final class OrganizerAppModel: ObservableObject {
                 let message = error is CancellationError ? "작업을 취소했습니다." : error.localizedDescription
                 batchResults.append(BatchItemResult(itemID: id, action: action, succeeded: false, message: message, operationID: operationID))
             }
+            if let activityID {
+                psiloTracker.progress(activityID, completed: batchResults.count)
+                publishPsiloActivity()
+            }
             await reloadState()
         }
         let completed = batchResults.filter(\.succeeded).count
         statusMessage = "\(completed)개 완료 · \(batchResults.count - completed)개 확인 필요"
+        if let activityID {
+            if completed == ids.count {
+                psiloTracker.succeed(activityID, outcome: action == .undo ? .restored : .filesApplied)
+            } else if cancellations == ids.count {
+                psiloTracker.cancel(activityID)
+            } else {
+                let message = batchResults.filter { !$0.succeeded }.prefix(3).map(\.message).joined(separator: "\n")
+                psiloTracker.fail(activityID, message: message, partial: completed > 0, completed: completed,
+                                  failedSubjectIDs: Set(batchResults.filter { !$0.succeeded }.map(\.itemID)))
+            }
+            publishPsiloActivity()
+        }
         return batchResults
     }
 
-    private func run(allowConcurrent: Bool = false, clearError: Bool = true, _ operation: () async throws -> Void) async {
+    private func run(allowConcurrent: Bool = false, clearError: Bool = true,
+                     activity: PsiloActivity.Kind? = nil, outcome: PsiloActivity.Outcome? = nil, subjectIDs: Set<UUID> = [],
+                     _ operation: () async throws -> Void) async {
         guard allowConcurrent || !isBusy else { errorMessage = AppModelError.busy.localizedDescription; return }
         operationCount += 1
         isBusy = true
+        let activityID = activity.map { beginPsiloActivity($0, subjectIDs: subjectIDs) }
         if clearError { errorMessage = nil }
         defer { operationCount -= 1; isBusy = operationCount > 0 }
-        do { try await operation() }
-        catch is CancellationError { }
-        catch { errorMessage = error.localizedDescription }
+        do {
+            try await operation()
+            if let activityID, let outcome { psiloTracker.succeed(activityID, outcome: outcome) }
+        } catch is CancellationError {
+            if let activityID { psiloTracker.cancel(activityID) }
+        } catch {
+            errorMessage = error.localizedDescription
+            if let activityID { psiloTracker.fail(activityID, message: error.localizedDescription) }
+        }
+        publishPsiloActivity()
         await reloadState()
+    }
+
+    @discardableResult private func beginPsiloActivity(_ kind: PsiloActivity.Kind, total: Int = 1, subjectIDs: Set<UUID> = []) -> UUID {
+        let id = psiloTracker.begin(kind, total: total, subjectIDs: subjectIDs)
+        publishPsiloActivity()
+        return id
+    }
+
+    private func publishPsiloActivity() {
+        if psiloActivity != psiloTracker.activity { psiloActivity = psiloTracker.activity }
+        if psiloIssue != psiloTracker.issue { psiloIssue = psiloTracker.issue }
     }
 
     private func reloadState() async {
@@ -594,56 +652,72 @@ public final class OrganizerAppModel: ObservableObject {
         guard let entry = entries.first(where: { $0.id == id }), [.ready, .proposed, .held, .failed].contains(entry.status) else {
             throw OrganizerServiceError.itemNotFound
         }
-        let generation = UUID()
-        analysisGenerations[id] = generation
-        var next = preferences
-        next.attemptedFingerprints[id.uuidString] = entry.fingerprint
-        if next.attemptedFingerprints.count > 1_000 {
-            let activeIDs = Set(entries.suffix(1_000).map { $0.id.uuidString })
-            next.attemptedFingerprints = next.attemptedFingerprints.filter { activeIDs.contains($0.key) }
+        let activityID = beginPsiloActivity(.fileAnalysis, subjectIDs: [id])
+        analysisPsiloIDs[id] = activityID
+        defer {
+            if analysisPsiloIDs[id] == activityID { analysisPsiloIDs[id] = nil }
+            psiloTracker.cancel(activityID) // No-op after a current success/failure.
+            publishPsiloActivity()
         }
-        guard savePreferences(next) else { throw AppPreferenceError.concurrentWrite }
-        if isDemo {
-            try await updateDemoHints(for: [entry])
-        } else {
-            let key = try requireAPIKey()
-            let analyzeFile = dependencies.analyzeFile
-            let service = self.service
-            let task = Task { try await analyzeFile(service, id, key) }
-            analysisTasks[id] = task
-            if automatic { automaticAnalysisIDs.insert(id) }
-            defer {
-                if analysisGenerations[id] == generation {
-                    analysisTasks[id] = nil
-                    automaticAnalysisIDs.remove(id)
+        do {
+            let generation = UUID()
+            analysisGenerations[id] = generation
+            var next = preferences
+            next.attemptedFingerprints[id.uuidString] = entry.fingerprint
+            if next.attemptedFingerprints.count > 1_000 {
+                let activeIDs = Set(entries.suffix(1_000).map { $0.id.uuidString })
+                next.attemptedFingerprints = next.attemptedFingerprints.filter { activeIDs.contains($0.key) }
+            }
+            guard savePreferences(next) else { throw AppPreferenceError.concurrentWrite }
+            if isDemo {
+                try await updateDemoHints(for: [entry])
+            } else {
+                let key = try requireAPIKey()
+                let analyzeFile = dependencies.analyzeFile
+                let service = self.service
+                let task = Task { try await analyzeFile(service, id, key) }
+                analysisTasks[id] = task
+                if automatic { automaticAnalysisIDs.insert(id) }
+                defer {
+                    if analysisGenerations[id] == generation {
+                        analysisTasks[id] = nil
+                        automaticAnalysisIDs.remove(id)
+                    }
+                }
+                do {
+                    _ = try await withTaskCancellationHandler {
+                        try await task.value
+                    } onCancel: {
+                        task.cancel()
+                    }
+                } catch {
+                    // A user's hold/stop owns the final state; its cancelled analysis
+                    // must not replace that action with a late error alert.
+                    guard analysisGenerations[id] == generation else { return }
+                    throw error
                 }
             }
-            do {
-                _ = try await withTaskCancellationHandler {
-                    try await task.value
-                } onCancel: {
-                    task.cancel()
-                }
-            } catch {
-                // A user's hold/stop owns the final state; its cancelled analysis
-                // must not replace that action with a late error alert.
-                guard analysisGenerations[id] == generation else { return }
-                throw error
+            guard analysisGenerations[id] == generation, !Task.isCancelled else {
+                if isDemo { demoProposals[id] = nil }
+                return
             }
-        }
-        guard analysisGenerations[id] == generation, !Task.isCancelled else {
-            if isDemo { demoProposals[id] = nil }
-            return
-        }
-        await reloadState()
-        guard let current = entries.first(where: { $0.id == id }),
-              [.ready, .proposed].contains(current.status), proposal(for: current) != nil else { return }
-        statusMessage = "분류 제안을 준비했습니다."
-        // Reanalysis is explicit, but a background scan must not reopen the same popover.
-        if (!automatic || deliveredProposalFingerprints[id] != current.fingerprint),
-           !automatic || automaticallyAnalyze {
-            deliveredProposalFingerprints[id] = current.fingerprint
-            onProposalReady?(id)
+            await reloadState()
+            guard let current = entries.first(where: { $0.id == id }),
+                  [.ready, .proposed].contains(current.status), proposal(for: current) != nil else { return }
+            statusMessage = "분류 제안을 준비했습니다."
+            // Reanalysis is explicit, but a background scan must not reopen the same popover.
+            if (!automatic || deliveredProposalFingerprints[id] != current.fingerprint),
+               !automatic || automaticallyAnalyze {
+                deliveredProposalFingerprints[id] = current.fingerprint
+                onProposalReady?(id)
+            }
+            psiloTracker.succeed(activityID, outcome: .proposalReady)
+        } catch is CancellationError {
+            psiloTracker.cancel(activityID)
+            throw CancellationError()
+        } catch {
+            psiloTracker.fail(activityID, message: error.localizedDescription)
+            throw error
         }
     }
 

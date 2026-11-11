@@ -12,6 +12,7 @@ struct OrganizerMainView: View {
     @State private var search = ""
     @State private var showingSettings = false
     @State private var dropTargeted = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     init(model: OrganizerAppModel) { self.model = model }
 
@@ -41,6 +42,21 @@ struct OrganizerMainView: View {
         displayedEntries.first { $0.id == model.selectedItemID }
     }
 
+    /// A search/filter with no matches does not mean that the app has no files.
+    private var showsCentralPsilo: Bool {
+        model.settings == nil || (model.entries.isEmpty && section == "review" && search.isEmpty)
+    }
+
+    private var psiloCaption: String {
+        if model.psiloIssue != nil && model.psiloActivity.phase != .working {
+            return "문제를 확인하고 있어요"
+        }
+        if model.psiloActivity.phase == .idle || model.psiloActivity.phase == .cancelled {
+            return "필요하면 다시 살펴볼게요"
+        }
+        return model.psiloActivity.statusLabel
+    }
+
     var body: some View {
         VStack(spacing: 0) {
             titlebar
@@ -58,6 +74,11 @@ struct OrganizerMainView: View {
             footer
         }
         .frame(minWidth: 960, minHeight: 620)
+        // One persistent renderer changes position rather than being recreated
+        // between the empty state and sidebar. Its current pose is retained.
+        .overlayPreferenceValue(PsiloPlacementPreferenceKey.self) { anchor in
+            psiloOverlay(anchor: anchor)
+        }
         .liquidCustomTitlebar()
         .sheet(isPresented: $showingSettings) { SettingsView(model: model) }
         .alert("작업을 완료하지 못했습니다", isPresented: Binding(
@@ -85,6 +106,39 @@ struct OrganizerMainView: View {
                     .allowsHitTesting(false)
             }
         }
+    }
+
+    private func psiloOverlay(anchor: Anchor<CGRect>?) -> some View {
+        GeometryReader { geometry in
+            let placement = PsiloPlacement(anchor: anchor, geometry: geometry)
+
+            // The representable is always the first child of this VStack. Only
+            // its frame/position change; there are never two live viewports.
+            VStack(spacing: 6) {
+                Psilo3DView(
+                    activity: model.psiloActivity,
+                    issue: model.psiloIssue,
+                    isPresented: !showingSettings
+                )
+                .frame(width: placement.viewportSize.width, height: placement.viewportSize.height)
+                .accessibilityHidden(true)
+                if !placement.isCentral {
+                    Text(psiloCaption)
+                        .font(.system(size: 11))
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                }
+            }
+            .frame(width: placement.size.width, height: placement.size.height)
+            .position(placement.center)
+            .animation(reduceMotion ? nil : .spring(duration: 0.45, bounce: 0.08), value: placement.isCentral)
+            .allowsHitTesting(false)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("실로")
+            .accessibilityValue(psiloCaption)
+        }
+        .allowsHitTesting(false)
     }
 
     private var titlebar: some View {
@@ -123,7 +177,7 @@ struct OrganizerMainView: View {
 
     private var setupEmptyState: some View {
         VStack(spacing: 16) {
-            Image(systemName: "folder.badge.gearshape").font(.system(size: 40, weight: .light)).foregroundStyle(.secondary)
+            centralPsiloSpace
             Text("정리할 폴더를 선택하세요").font(.title2.weight(.semibold))
             Text("다운로드 폴더와 파일을 보관할 폴더를 지정하면 시작할 수 있습니다.")
                 .foregroundStyle(.secondary)
@@ -168,13 +222,28 @@ struct OrganizerMainView: View {
                 .listStyle(.inset)
                 .overlay {
                     if displayedEntries.isEmpty {
-                        VStack(spacing: 8) {
-                            Image(systemName: "tray").font(.title).foregroundStyle(.secondary)
-                            Text(search.isEmpty ? "검토할 파일이 없습니다" : "검색 결과가 없습니다")
-                                .foregroundStyle(.secondary)
-                            if search.isEmpty && section == "review" {
-                                Text("파일을 끌어놓거나 가져오기를 누르세요.")
-                                    .font(.caption).foregroundStyle(.secondary)
+                        Group {
+                            if showsCentralPsilo {
+                                VStack(spacing: 16) {
+                                    centralPsiloSpace
+                                    Text("새 파일을 기다리고 있어요")
+                                        .font(.headline)
+                                    Text("파일을 끌어놓으면 이름과 위치를 함께 정리해요.")
+                                        .font(.callout)
+                                        .foregroundStyle(.secondary)
+                                        .multilineTextAlignment(.center)
+                                }
+                                .padding(20)
+                            } else {
+                                VStack(spacing: 8) {
+                                    Image(systemName: "tray").font(.title).foregroundStyle(.secondary)
+                                    Text(search.isEmpty ? "검토할 파일이 없습니다" : "검색 결과가 없습니다")
+                                        .foregroundStyle(.secondary)
+                                    if search.isEmpty && section == "review" {
+                                        Text("파일을 끌어놓거나 가져오기를 누르세요.")
+                                            .font(.caption).foregroundStyle(.secondary)
+                                    }
+                                }
                             }
                         }
                         .allowsHitTesting(false)
@@ -196,6 +265,13 @@ struct OrganizerMainView: View {
             }
             .frame(minWidth: 380, idealWidth: 450)
         }
+    }
+
+    private var centralPsiloSpace: some View {
+        Color.clear
+            .frame(width: 144, height: 114)
+            .anchorPreference(key: PsiloPlacementPreferenceKey.self, value: .bounds) { $0 }
+            .accessibilityHidden(true)
     }
 
     private var footer: some View {
@@ -258,6 +334,39 @@ struct OrganizerMainView: View {
             await model.importFiles(urls)
         }
         return true
+    }
+}
+
+private struct PsiloPlacementPreferenceKey: PreferenceKey {
+    static var defaultValue: Anchor<CGRect>? { nil }
+
+    static func reduce(value: inout Anchor<CGRect>?, nextValue: () -> Anchor<CGRect>?) {
+        value = nextValue() ?? value
+    }
+}
+
+private struct PsiloPlacement {
+    let isCentral: Bool
+    let size: CGSize
+    let viewportSize: CGSize
+    let center: CGPoint
+
+    init(anchor: Anchor<CGRect>?, geometry: GeometryProxy) {
+        if let anchor {
+            let rect: CGRect = geometry[anchor]
+            isCentral = true
+            size = rect.size
+            viewportSize = rect.size
+            center = CGPoint(x: rect.midX, y: rect.midY)
+        } else {
+            isCentral = false
+            size = CGSize(width: 150, height: 112)
+            viewportSize = CGSize(width: 88, height: 76)
+            // Stay within the sidebar, above the existing 32pt status bar.
+            let sidebarMidX: CGFloat = 95
+            let bottomInset: CGFloat = 32 + 18 + size.height / 2
+            center = CGPoint(x: sidebarMidX, y: geometry.size.height - bottomInset)
+        }
     }
 }
 

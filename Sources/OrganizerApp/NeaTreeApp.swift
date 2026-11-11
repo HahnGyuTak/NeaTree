@@ -25,12 +25,20 @@ final class OrganizerApplicationDelegate: NSObject, NSApplicationDelegate {
     private var modelStarted = false
     private var drainingOpenURLs = false
     private var intakeObservation: AnyCancellable?
+    #if DEBUG
+    private var psiloLabWindow: NSWindow?
+    #endif
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         OrganizerArtwork.installDevelopmentAppIcon()
         do {
             let arguments = CommandLine.arguments
-            let demo = arguments.contains("--demo") || Bundle.main.object(forInfoDictionaryKey: "FileOrganizerDemoMode") as? Bool == true
+            #if DEBUG
+            let psiloLab = arguments.contains("--psilo-demo") || Bundle.main.object(forInfoDictionaryKey: "PsiloMotionLabMode") as? Bool == true
+            #else
+            let psiloLab = false
+            #endif
+            let demo = psiloLab || arguments.contains("--demo") || Bundle.main.object(forInfoDictionaryKey: "FileOrganizerDemoMode") as? Bool == true
             let directory: URL
             if let index = arguments.firstIndex(of: "--state"), index + 1 < arguments.count {
                 directory = URL(fileURLWithPath: arguments[index + 1], isDirectory: true)
@@ -57,7 +65,21 @@ final class OrganizerApplicationDelegate: NSObject, NSApplicationDelegate {
                 if !self.pendingOpenURLs.isEmpty { await self.importPendingURLs() }
             }
             let launchedAsLoginItem = NSAppleEventManager.shared().currentAppleEvent?.paramDescriptor(forKeyword: keyAEPropData)?.enumCodeValue == keyAELaunchedAsLogInItem
+            #if DEBUG
+            if psiloLab {
+                let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 620, height: 520),
+                    styleMask: [.titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
+                window.title = "실로 — 3D 동작 확인"
+                window.contentView = NSHostingView(rootView: PsiloMotionLabView())
+                window.isReleasedWhenClosed = false
+                window.center()
+                psiloLabWindow = window
+                window.makeKeyAndOrderFront(nil)
+                NSApp.activate(ignoringOtherApps: true)
+            } else if !arguments.contains("--background") && !launchedAsLoginItem { showMainWindow() }
+            #else
             if !arguments.contains("--background") && !launchedAsLoginItem { showMainWindow() }
+            #endif
         } catch {
             let alert = NSAlert()
             alert.messageText = "NeaTree를 시작하지 못했습니다"

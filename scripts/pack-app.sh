@@ -115,7 +115,7 @@ for resource_root in "$resource_bundle" "$resource_bundle/Contents/Resources"; d
     done
 done
 [[ -n "$icon_resource_dir" ]] || fail "Menu-bar artwork is missing from the matching app resource bundle."
-for menu_asset in MenuBarTemplate.png MenuBarTemplate@2x.png; do
+for menu_asset in MenuBarTemplate.png MenuBarTemplate@2x.png Psilo.usdz; do
     [[ -f "$icon_resource_dir/$menu_asset" ]] || fail "$menu_asset is missing from the matching app resource bundle."
 done
 binary_arches="$(lipo -archs "$binary_path")"

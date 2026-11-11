@@ -1,0 +1,13 @@
+{
+  "name": "Psilo",
+  "source": "Blender 5.3",
+  "triangles": 22780,
+  "meshes": 27,
+  "materials": 6,
+  "textures": 1,
+  "texture_resolution": [
+    768,
+    768
+  ],
+  "bytes": 630244
+}

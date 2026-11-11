@@ -5,6 +5,7 @@
 .env
 .env.*
 *.xcuserstate
+*.blend[0-9]
 *.app/
 *.dmg
 *.zip
