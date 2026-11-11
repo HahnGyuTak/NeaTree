@@ -1,0 +1,71 @@
+{
+  "horns": [
+    {
+      "horn": "Horn_L",
+      "sampled_full_planar_disc_points": 3073,
+      "buried_fraction": 1.0,
+      "minimum_burial_m": 0.0017983788238780107,
+      "maximum_conical_surface_error_m": 1.0451786037340982e-08,
+      "maximum_round_tip_error_m": 1.3861704669217503e-07
+    },
+    {
+      "horn": "Horn_R",
+      "sampled_full_planar_disc_points": 3073,
+      "buried_fraction": 1.0,
+      "minimum_burial_m": 0.001812859351048246,
+      "maximum_conical_surface_error_m": 9.039538144059445e-09,
+      "maximum_round_tip_error_m": 1.4496041246970376e-07
+    }
+  ],
+  "nonfinite_coordinates": 0,
+  "morph_endpoints": [
+    {
+      "object": "Cap",
+      "key": "Basis",
+      "vertices": 11778,
+      "nonfinite": 0
+    },
+    {
+      "object": "Cap",
+      "key": "SmileClose",
+      "vertices": 11778,
+      "nonfinite": 0
+    },
+    {
+      "object": "EyeDot_L",
+      "key": "Basis",
+      "vertices": 222,
+      "nonfinite": 0
+    },
+    {
+      "object": "EyeDot_L",
+      "key": "Happy",
+      "vertices": 222,
+      "nonfinite": 0
+    },
+    {
+      "object": "EyeDot_R",
+      "key": "Basis",
+      "vertices": 222,
+      "nonfinite": 0
+    },
+    {
+      "object": "EyeDot_R",
+      "key": "Happy",
+      "vertices": 222,
+      "nonfinite": 0
+    },
+    {
+      "object": "MouthInterior",
+      "key": "Basis",
+      "vertices": 641,
+      "nonfinite": 0
+    },
+    {
+      "object": "MouthInterior",
+      "key": "SmileClose",
+      "vertices": 641,
+      "nonfinite": 0
+    }
+  ]
+}

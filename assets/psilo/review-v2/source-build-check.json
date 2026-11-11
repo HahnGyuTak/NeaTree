@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "blender_version": "5.3.0",
+  "files": [
+    "Psilo-v2.blend",
+    "Psilo-v2-motion.blend",
+    "Psilo-cap-color.png"
+  ],
+  "required_shape_keys": {
+    "Cap": [
+      "Basis",
+      "SmileClose"
+    ],
+    "EyeDot_L": [
+      "Basis",
+      "Happy"
+    ],
+    "EyeDot_R": [
+      "Basis",
+      "Happy"
+    ]
+  },
+  "control_count": 17,
+  "duration_seconds": 12,
+  "fps": 24,
+  "markers": {
+    "idle": 1,
+    "cursor": 28,
+    "incoming": 49,
+    "glasses_landing": 63,
+    "file_analysis": 88,
+    "structure_analysis": 106,
+    "proud": 127,
+    "second_shrug": 141,
+    "error": 207,
+    "recovering": 255,
+    "settled": 289
+  },
+  "sampled_transform_checks": 238,
+  "neutral_restore": "passed",
+  "rendered_images": 0,
+  "production_approved": false,
+  "helper_sha256": {
+    "blender-psilo-v2.py": "ccef0e2c68729def911e6597dc7cb28129b0ca488638db70ed9276bb00c54f3f",
+    "psilo-sculpt-refinement-v2.py": "918e911b4e3f5e023586e309aaab30e2e2ad8c6f7e4a2db304de43a830d98588",
+    "psilo-motion-v2.py": "e0ac880a497ebedc0fc392c75c9189cbed51ce65ecfface3f511413c2a6742b0"
+  },
+  "limitations": [
+    "Structural source verification only; rendered visual review is separate.",
+    "No app resources, runtime morph controller or material bake are created."
+  ]
+}

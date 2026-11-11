@@ -1,0 +1,63 @@
+{
+  "programs": [],
+  "stream_groups": [],
+  "streams": [
+    {
+      "codec_name": "h264",
+      "width": 640,
+      "height": 576,
+      "color_space": "bt709",
+      "r_frame_rate": "24/1",
+      "duration": "12.041667",
+      "nb_frames": "289",
+      "nb_read_frames": "289"
+    }
+  ],
+  "source_png_frames_validated": 289,
+  "encoding_command_args": [
+    "/opt/homebrew/bin/ffmpeg",
+    "-hide_banner",
+    "-loglevel",
+    "warning",
+    "-y",
+    "-f",
+    "lavfi",
+    "-i",
+    "color=c=0xf5f1e9:s=640x576:r=24",
+    "-framerate",
+    "24",
+    "-start_number",
+    "1",
+    "-i",
+    "work/psilo-paper-audit/motion-final/frame_%04d.png",
+    "-filter_complex",
+    "[0:v][1:v]overlay=shortest=1:format=auto,scale=in_range=full:out_range=tv:out_color_matrix=bt709,format=yuv420p[v]",
+    "-map",
+    "[v]",
+    "-frames:v",
+    "289",
+    "-r",
+    "24",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "17",
+    "-colorspace",
+    "bt709",
+    "-color_trc",
+    "bt709",
+    "-color_primaries",
+    "bt709",
+    "-movflags",
+    "+faststart",
+    "-an",
+    "work/psilo-paper-audit/motion-final/Psilo-v4-motion-review.mp4"
+  ],
+  "frame88_video_vs_png_rgb_mae": [
+    2.5249945746527778,
+    2.068948025173611,
+    2.8870062934027776
+  ]
+}

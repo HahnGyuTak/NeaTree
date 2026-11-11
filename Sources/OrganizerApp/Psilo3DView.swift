@@ -44,6 +44,7 @@ struct Psilo3DView: NSViewRepresentable {
 @MainActor
 final class PsiloViewportHost: NSView {
     private var renderer: ARView?
+    private var displaySession: PsiloDisplaySession?
     private let anchor = AnchorEntity(world: .zero)
     private let driver = PsiloMotionDriver()
     private var loadSubscription: AnyCancellable?
@@ -55,6 +56,10 @@ final class PsiloViewportHost: NSView {
     private var presented = true
     private var didStartLoading = false
     private var lastVisibility = false
+    #if DEBUG
+    private var captureTask: Task<Void, Never>?
+    private var captureMode = "idle"
+    #endif
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -72,6 +77,15 @@ final class PsiloViewportHost: NSView {
         driver.reduceMotion = reduceMotion
         driver.receive(activity: activity, issue: issue)
         reconcileVisibility()
+        #if DEBUG
+        let nextCaptureMode = activity.phase == .working ? "working"
+            : (issue != nil || activity.phase == .failed) ? "error"
+            : activity.phase == .succeeded ? "proud" : "idle"
+        if nextCaptureMode != captureMode {
+            captureMode = nextCaptureMode
+            scheduleDebugCapture()
+        }
+        #endif
     }
 
     override func viewDidMoveToWindow() {
@@ -97,6 +111,13 @@ final class PsiloViewportHost: NSView {
                 MainActor.assumeIsolated { self?.reconcileVisibility() }
             })
         }
+        notifications.append(center.addObserver(forName: NSWindow.didChangeBackingPropertiesNotification,
+                                                 object: window, queue: .main) { [weak self] _ in
+            MainActor.assumeIsolated {
+                guard let self, let renderer = self.renderer else { return }
+                self.displaySession?.refreshProfile(of: renderer)
+            }
+        })
         mouseMonitor = NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved, .leftMouseDragged, .rightMouseDragged]) { [weak self] event in
             MainActor.assumeIsolated { self?.trackMouse(event) }
             return event
@@ -165,21 +186,29 @@ final class PsiloViewportHost: NSView {
                     guard let self else { return }
                     self.driver.attach(model)
                     self.anchor.addChild(model)
+                    #if DEBUG
+                    self.scheduleDebugCapture()
+                    #endif
                 }
             })
     }
 
-    private var modelURL: URL? {
+    private var modelURL: URL? { resourceURL(name: "Psilo", extension: "usdz") }
+
+    private func resourceURL(name: String, extension fileExtension: String) -> URL? {
         if let resources = Bundle.main.resourceURL,
            let bundle = Bundle(url: resources.appendingPathComponent("NeaTree_OrganizerApp.bundle")),
-           let url = bundle.url(forResource: "Psilo", withExtension: "usdz") { return url }
+           let url = bundle.url(forResource: name, withExtension: fileExtension) { return url }
         guard Bundle.main.bundleURL.pathExtension != "app" else { return nil }
-        return Bundle.module.url(forResource: "Psilo", withExtension: "usdz")
+        return Bundle.module.url(forResource: name, withExtension: fileExtension)
     }
 
     private func startRendering() {
         guard renderer == nil else { return }
         let view = ARView(frame: bounds)
+        displaySession = PsiloRenderStyle.installColorTransform(on: view,
+            lookupURL: resourceURL(name: "PsiloDisplayTransform", extension: "rgba16float"),
+            debugLogging: psiloDebugLoggingEnabled)
         view.environment.background = .color(.clear)
         view.environment.reverb = .noReverb
         let camera = PerspectiveCamera()
@@ -187,11 +216,7 @@ final class PsiloViewportHost: NSView {
         camera.look(at: [0, 0.072, 0], from: [0, 0.072, 0.45], relativeTo: nil)
         let cameraAnchor = AnchorEntity(world: .zero)
         cameraAnchor.addChild(camera)
-        let light = DirectionalLight()
-        light.light.intensity = 1_100
-        light.shadow = nil
-        light.look(at: .zero, from: [-0.4, 0.7, 0.6], relativeTo: nil)
-        cameraAnchor.addChild(light)
+        cameraAnchor.addChild(PsiloRenderStyle.makeLight())
         view.scene.addAnchor(cameraAnchor)
         view.scene.addAnchor(anchor)
         updateSubscription = view.scene.subscribe(to: SceneEvents.Update.self) { [weak self] event in
@@ -200,11 +225,18 @@ final class PsiloViewportHost: NSView {
         view.autoresizingMask = [.width, .height]
         addSubview(view)
         renderer = view
+        displaySession?.refreshProfile(of: view)
         lastVisibility = true
         if psiloDebugLoggingEnabled { NSLog("Psilo renderer active") }
     }
 
     private func stopRendering() {
+        displaySession?.cancel()
+        displaySession = nil
+        #if DEBUG
+        captureTask?.cancel()
+        captureTask = nil
+        #endif
         guard let renderer else { return }
         updateSubscription?.cancel()
         updateSubscription = nil
@@ -215,6 +247,34 @@ final class PsiloViewportHost: NSView {
         if lastVisibility && psiloDebugLoggingEnabled { NSLog("Psilo renderer stopped (no hidden viewport)") }
         lastVisibility = false
     }
+
+    #if DEBUG
+    /// Explicit development-only output, with no extra controls in the app.
+    /// It captures only this RealityKit viewport, never the desktop or files.
+    private func scheduleDebugCapture() {
+        let arguments = CommandLine.arguments
+        guard let index = arguments.firstIndex(of: "--psilo-capture-directory"),
+              arguments.indices.contains(index + 1), arguments[index + 1].hasPrefix("/"),
+              let renderer, !anchor.children.isEmpty else { return }
+        let directory = URL(fileURLWithPath: arguments[index + 1], isDirectory: true)
+        guard (try? directory.resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true else { return }
+        captureTask?.cancel()
+        let mode = captureMode
+        captureTask = Task { [weak self, weak renderer] in
+            do { try await Task.sleep(for: .seconds(1.1)) } catch { return }
+            guard let self, let renderer, self.renderer === renderer, self.captureMode == mode else { return }
+            renderer.snapshot(saveToHDR: false) { image in
+                guard let data = image?.tiffRepresentation,
+                      let bitmap = NSBitmapImageRep(data: data),
+                      let png = bitmap.representation(using: .png, properties: [:]) else { return }
+                do {
+                    try png.write(to: directory.appendingPathComponent("psilo-\(mode).png"), options: .atomic)
+                    NSLog("Psilo viewport capture: %@", mode)
+                } catch { NSLog("Psilo viewport capture failed: %@", error.localizedDescription) }
+            }
+        }
+    }
+    #endif
 
     private func trackMouse(_ event: NSEvent) {
         guard renderer != nil, NSApp.isActive, event.window === window, let window else { return }
@@ -252,6 +312,7 @@ private final class PsiloMotionDriver {
     private var spirals: [Entity] = []
     private var idleMouth: Entity?
     private var proudMouth: Entity?
+    private var expressionRig: PsiloExpressionRig?
     private var files: [Entity] = []
     private var poses: [ObjectIdentifier: Transform] = [:]
     private var yaw = PsiloSpring(), pitch = PsiloSpring(), roll = PsiloSpring()
@@ -282,6 +343,7 @@ private final class PsiloMotionDriver {
 
     func attach(_ entity: Entity) {
         root = entity
+        PsiloRenderStyle.restoreAuthoredMaterials(in: entity)
         head = entity.findEntity(named: "Head")
         hat = entity.findEntity(named: "Hat")
         horns = entity.findEntity(named: "Horns")
@@ -291,6 +353,13 @@ private final class PsiloMotionDriver {
         spirals = ["spiral_L", "spiral_R"].compactMap { entity.findEntity(named: $0) }
         idleMouth = entity.findEntity(named: "mouth_idle")
         proudMouth = entity.findEntity(named: "mouth_proud")
+        #if DEBUG
+        let forceMeshMorph = CommandLine.arguments.contains("--psilo-mesh-morph-demo")
+        #else
+        let forceMeshMorph = false
+        #endif
+        expressionRig = PsiloExpressionRig(root: entity, forceMeshFallback: forceMeshMorph,
+                                           debugLogging: psiloDebugLoggingEnabled)
         files = (0..<3).compactMap { entity.findEntity(named: "file_\($0)") }
         let parts = [entity] + [head, hat, horns, glasses, errorEyes, idleMouth, proudMouth].compactMap { $0 } + eyes + spirals + files
         for part in parts { poses[ObjectIdentifier(part)] = part.transform }
@@ -314,6 +383,7 @@ private final class PsiloMotionDriver {
         work.step(to: workTarget, dt: dt, frequency: 3.8)
         proud.step(to: prideTarget, dt: dt, frequency: 3.5)
         confused.step(to: errorTarget, dt: dt, frequency: 3.4)
+        expressionRig?.update(pride: proud.value, deltaTime: dt)
 
         let motion: Float = reduceMotion ? 0 : 1
         let scanning = sin(clock * 1.65) * 0.65
@@ -336,16 +406,17 @@ private final class PsiloMotionDriver {
             t.translation.y += (sin(clock * 1.7) * 0.0007 + abs(proudWiggle) * 0.002) * motion
             head.transform = t
         }
-        // The hat and blunt horns settle slightly after the head, like soft
-        // lightweight props, without a physics solver or extra animation clips.
-        for (part, weight) in [(hat, Float(1)), (horns, Float(0.45))] {
-            guard let part else { continue }
-            var t = original(part)
+        // The hat may settle after the head. Horn roots stay fixed to the
+        // cap: rotating their shared parent about the head origin slides the
+        // attachment points across the surface during turns and errors.
+        if let hat {
+            var t = original(hat)
             t.rotation = t.rotation
-                * simd_quatf(angle: (accessoryPitch.value - pitch.value) * weight, axis: [1, 0, 0])
-                * simd_quatf(angle: (accessoryRoll.value - roll.value) * weight, axis: [0, 0, 1])
-            part.transform = t
+                * simd_quatf(angle: accessoryPitch.value - pitch.value, axis: [1, 0, 0])
+                * simd_quatf(angle: accessoryRoll.value - roll.value, axis: [0, 0, 1])
+            hat.transform = t
         }
+        if let horns { horns.transform = original(horns) }
         var rootPose = original(root)
         rootPose.scale.y *= 1 + sin(clock * 1.7) * 0.008 * motion
         root.transform = rootPose
@@ -382,7 +453,7 @@ private final class PsiloMotionDriver {
             t.rotation = t.rotation * simd_quatf(angle: clock * 2.6 * motion, axis: [0, 0, 1])
             spiral.transform = t
         }
-        if let idleMouth {
+        if let idleMouth, expressionRig?.usesInsetMouth != true {
             var t = original(idleMouth)
             t.scale *= max(0.001, 1 - proud.value)
             t.scale.y *= 1 - work.value * 0.7
@@ -391,8 +462,17 @@ private final class PsiloMotionDriver {
         }
         if let proudMouth {
             var t = original(proudMouth)
-            t.scale = SIMD3(repeating: max(0.001, proud.value))
-            proudMouth.isEnabled = proud.value > 0.003
+            let amount: Float
+            if expressionRig?.usesInsetMouth == true {
+                // Let the sculpted bowl close before the smile line arrives.
+                // Keep the full curve seated on the authored closed cap.
+                amount = expressionRig?.hasCompleteSmile == true
+                    ? PsiloExpressionRig.smileVisibility(pride: proud.value) : 0
+            } else {
+                amount = proud.value
+            }
+            t.scale = SIMD3(repeating: max(0.001, amount))
+            proudMouth.isEnabled = amount > 0.003
             proudMouth.transform = t
         }
         for (index, file) in files.enumerated() {

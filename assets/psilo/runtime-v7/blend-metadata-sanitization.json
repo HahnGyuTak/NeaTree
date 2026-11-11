@@ -1,0 +1,417 @@
+{
+  "files": [
+    {
+      "file": "assets/psilo/runtime-v7/Psilo-v7-runtime-studio.blend",
+      "before_sha256": "1a7ab2bbfef0f56b02b25d8b7b35c882117a7d9106d32d2c35c211b03144c236",
+      "after_sha256": "a57a1a64e5d3481ee025af581e7771000e10dc5b0249b500d5b624863315948e",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "5be93e5cefad858d793dce77b344158c3ae958063195f9062b34954d6a11ad36",
+      "texture_pixel_fingerprints": [
+        {
+          "name": "Psilo cap color.008",
+          "size": [
+            1536,
+            1536
+          ],
+          "colorspace": "sRGB",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "308ca78b887e3366e9f9e5acd276c6cfe2f4f8d8465cb4c8ccd19a7543143109"
+        },
+        {
+          "name": "Psilo-paper-grain.png",
+          "size": [
+            256,
+            256
+          ],
+          "colorspace": "Non-Color",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "c4f13eee275f3af51e0668fcc5058b815e82a28a1fce93047b85b493a6f76377"
+        },
+        {
+          "name": "Psilo-v7-Color",
+          "size": [
+            2048,
+            2048
+          ],
+          "colorspace": "sRGB",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "576fe184ac9b29768a781667acb67969c37176682cb76ff36c7708a151b4aaa3"
+        },
+        {
+          "name": "Psilo-v7-Normal",
+          "size": [
+            1024,
+            1024
+          ],
+          "colorspace": "Non-Color",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "5998adea5a305fda889f04923de7dbbba10f0f91276383f85378eae956ab66e0"
+        },
+        {
+          "name": "Psilo-v7-Roughness",
+          "size": [
+            1024,
+            1024
+          ],
+          "colorspace": "Non-Color",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "df7fc1bb599384eb4fe89a0e3455da8f8f4fdab0f748f7277d0a724cca99cd2d"
+        }
+      ],
+      "after_relative_path_rewrite_sha256": "894dffd847a775f8c2333cd671ec6046726690183a33afa7d07c3e36fc650fc1",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/runtime-v7/Psilo-lod.blend",
+      "before_sha256": "a61a2a797eabda23c9a32732016dc0937bf44ec77b145d0035ab3bbcf246f306",
+      "after_sha256": "3db590fcc9f7bb76b13234b204625b9218b61920c6ff342ae6544cad0d52ca97",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "14a1e7225b0e9a7c497dbc69135a9d8a07ed9e7c26a47e682162b7ae8c97c55e",
+      "texture_pixel_fingerprints": [
+        {
+          "name": "Psilo cap color.008",
+          "size": [
+            1536,
+            1536
+          ],
+          "colorspace": "sRGB",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "308ca78b887e3366e9f9e5acd276c6cfe2f4f8d8465cb4c8ccd19a7543143109"
+        },
+        {
+          "name": "Psilo-paper-grain.png",
+          "size": [
+            256,
+            256
+          ],
+          "colorspace": "Non-Color",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "c4f13eee275f3af51e0668fcc5058b815e82a28a1fce93047b85b493a6f76377"
+        }
+      ],
+      "after_relative_path_rewrite_sha256": "1cc21bc3dbd4c1fb9e05de10b4112fbdec21e8eaa55cac6048b5fceadcca2379",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/runtime-v7/Psilo-lod-studio.blend",
+      "before_sha256": "e907269d087fffdff4fbe84b5b340eda4a2a71a1e4c83209cc0a68c9c772d03e",
+      "after_sha256": "33839e9067954d8f4071a4b0fa2d219c2d4030590669439a94d066a2d2e1958b",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "d4104b6745b69587ba9863a35f348c11d3b6e3f6ef3ed1fbb4447b04d23a8405",
+      "texture_pixel_fingerprints": [
+        {
+          "name": "Psilo cap color.008",
+          "size": [
+            1536,
+            1536
+          ],
+          "colorspace": "sRGB",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "308ca78b887e3366e9f9e5acd276c6cfe2f4f8d8465cb4c8ccd19a7543143109"
+        },
+        {
+          "name": "Psilo-paper-grain.png",
+          "size": [
+            256,
+            256
+          ],
+          "colorspace": "Non-Color",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "c4f13eee275f3af51e0668fcc5058b815e82a28a1fce93047b85b493a6f76377"
+        }
+      ],
+      "after_relative_path_rewrite_sha256": "584b044c4b79d9f4d4479102e359ab0dc199f0ccdb6c7867c07ad58fac9d28de",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v7-plump-horns/Psilo-v7.blend",
+      "before_sha256": "4daadd9a313ccd774efb15cf5f92f82db89f1c288e46c566d2bce2f134a90205",
+      "after_sha256": "1ec7be0deefea7a2c5c1127da8fa3ae6781d8c85517f69916d555741afc2139b",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "57304d82ba31bf45f2ef449d3301af3c2ee918dbd30fb8c3a1ed39b85db2b52a",
+      "texture_pixel_fingerprints": [
+        {
+          "name": "Psilo cap color.008",
+          "size": [
+            1536,
+            1536
+          ],
+          "colorspace": "sRGB",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "308ca78b887e3366e9f9e5acd276c6cfe2f4f8d8465cb4c8ccd19a7543143109"
+        },
+        {
+          "name": "Psilo-paper-grain.png",
+          "size": [
+            256,
+            256
+          ],
+          "colorspace": "Non-Color",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "c4f13eee275f3af51e0668fcc5058b815e82a28a1fce93047b85b493a6f76377"
+        },
+        {
+          "name": "Viewer Node",
+          "size": [
+            256,
+            256
+          ],
+          "colorspace": "",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58"
+        }
+      ],
+      "after_relative_path_rewrite_sha256": "2a9711f8f1b4337f8b7a443e1112fb2a382ac3ee9b15c95373dbc1261a8353c3",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v7-plump-horns/Psilo-v7-motion.blend",
+      "before_sha256": "c118144023b21f301de4b52a3a9b0f4389a97fae71c87b1c5a2f68b81574875c",
+      "after_sha256": "9f1d6561e267083ed6e0bd1170f6c6330b40729bf43dfb315eacc111d4f0f8eb",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "e06255905d4302241d59dd931a56a22f3fb526a353a80a00ca41fae66f1e96e4",
+      "texture_pixel_fingerprints": [
+        {
+          "name": "Psilo cap color.008",
+          "size": [
+            1536,
+            1536
+          ],
+          "colorspace": "sRGB",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "308ca78b887e3366e9f9e5acd276c6cfe2f4f8d8465cb4c8ccd19a7543143109"
+        },
+        {
+          "name": "Psilo-paper-grain.png",
+          "size": [
+            256,
+            256
+          ],
+          "colorspace": "Non-Color",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "c4f13eee275f3af51e0668fcc5058b815e82a28a1fce93047b85b493a6f76377"
+        },
+        {
+          "name": "Viewer Node",
+          "size": [
+            256,
+            256
+          ],
+          "colorspace": "",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58"
+        }
+      ],
+      "after_relative_path_rewrite_sha256": "e7111606f234ae2ea2ea62f85874f5b71b1a56baf489626eb8906c3ced0dc7d7",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/blender/Psilo.blend",
+      "before_sha256": "c9a05c7a340bc8fb6a6899af03e56e1741c082982dc6e5206f2f5fbc46f50c63",
+      "after_sha256": "b8eec6f05bbca4042daadcf6400d718f14daeb375530feb80d8cd7d5bfd9e56e",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "72cb9622c0e7ab0e7148d861988a7fc1f3ce7d2b7fd1761abdc58a135d7d6fbd",
+      "texture_pixel_fingerprints": [
+        {
+          "name": "Psilo cap color",
+          "size": [
+            768,
+            768
+          ],
+          "colorspace": "sRGB",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "8c1bcf4bd19b6805aa2757dc9b21fc8521a09fdc691e38b5c64382c2c1f52604"
+        },
+        {
+          "name": "Viewer Node",
+          "size": [
+            256,
+            256
+          ],
+          "colorspace": "",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58"
+        }
+      ],
+      "after_relative_path_rewrite_sha256": "066c6ae1bb3e774c43a97f8554eca318fafa5ee830954b84d4f490f5b4c449e6",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/blender/Psilo-MCP.blend",
+      "before_sha256": "6242c7d13d690e83dc88f03967a56c838161bb116b06fb3411f39020ef0c72e6",
+      "after_sha256": "296b01269560c205db8a10b8d98c164db98e419b16af5c2d742fe61ca1d32720",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "0f2e269a463a0c634de807b7430e75994c6a652f48ba5ad1952b2d17c7dcea0e",
+      "texture_pixel_fingerprints": [
+        {
+          "name": "Psilo cap color",
+          "size": [
+            768,
+            768
+          ],
+          "colorspace": "sRGB",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "8c1bcf4bd19b6805aa2757dc9b21fc8521a09fdc691e38b5c64382c2c1f52604"
+        },
+        {
+          "name": "Viewer Node",
+          "size": [
+            256,
+            256
+          ],
+          "colorspace": "",
+          "alpha_mode": "STRAIGHT",
+          "pixel_sha256": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58"
+        }
+      ],
+      "after_relative_path_rewrite_sha256": "fc8c73c8f73e122198fde02e28a3498085bc18516509922cfd8092342a66b4d3",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v2/Psilo-v2.blend",
+      "before_sha256": "34523d9417fbbe1bcdb1f5af58604d6c99b3726b74cf709267b012e490d63fc8",
+      "after_sha256": "98214838d70c5e4a5c9aca4a685a6c6acea3da3beb98034b85108ba42a70d88f",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "1b8ab076a32e84c40d82bdd789e4464a31c30b2a8c40c7c978337d2dfbe50b03",
+      "after_relative_path_rewrite_sha256": "b09f2b337b3941fb194de6b0d48d2f21a9b96e01702bdae666c63fe99ca3c145",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v2/Psilo-v2-motion.blend",
+      "before_sha256": "d2cf520e3e58a055a671f07d5fde8ed0bad9692271add85bf03052a11800cd7d",
+      "after_sha256": "de7b41478a25e58a8640dd217ca76b281747a6d9dcc7bad81c543110a948a901",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "7f13cb00f925039a3344330bcca3eecc7bc3d219a73d01a30be6dfbff34f0e86",
+      "after_relative_path_rewrite_sha256": "96de7d1662efcb1a6ea4f10727cc32ae6d346e639c7545db889ac5d6a5fabc8f",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v2/runtime-review/Psilo-v2-lod.blend",
+      "before_sha256": "4029d3a1d94fdf80578de1a8f4aed08b95f3f2530c23dc4a9d4dfbd917fc250d",
+      "after_sha256": "689dcacf13d5c3f772125c2123132641e12b2393b468f11a8cdb3bd98a5ad90b",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "9d7017a353be755846435af95959046459f5ac48394a11831f8404023c9f813b",
+      "after_relative_path_rewrite_sha256": "fd0746876cde4b8058a421d916e0eed11f1470f1d9496d3a54c2a611543cb147",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v2/runtime-review/Psilo-v2-lod-studio.blend",
+      "before_sha256": "d71dc880fc3c120fda8d9bd52aa60a92b02be208ac73323e893e05e95c687e72",
+      "after_sha256": "50d7a3b502179c99a0a06f7f25f90f061897a43973c59f8e464731c636302089",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "49d429054aa211478be1fd22f41cdccd01a1e76bf46632127bc2d212d5374683",
+      "after_relative_path_rewrite_sha256": "bba46dd772bcb1890e76777be9eb1b784f533092444dfb263ddeb5dfcfa0b88f",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v3-hat/Psilo-v3-hat.blend",
+      "before_sha256": "d62870ce1caa3db3927ef74ed985cfe8950d6ec64746cca62a8653c935e37d36",
+      "after_sha256": "c9b5ac1356fa890633a53a966802c378cc162d43e19b56e5efc1b6f8f602fb45",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "a643a77afdd65a27bbbda65f939461bb17c2eac68e0ac53ecf12f9347911ee65",
+      "after_relative_path_rewrite_sha256": "86531464c33997dad689a0f1711247a1a1f0f81e0468000cb269f02cd0fc2ffe",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v3-hat/Psilo-v3-hat-motion.blend",
+      "before_sha256": "2d8f393c6d1ea3db9c326c81eb591901d6b7c3adce1028eb39739756c9ba22b3",
+      "after_sha256": "473bda6ad73b7da2a3434625af40101f110124dca7956098b867f1aae75a72de",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "23f986f7504429ed21629b6b64882e72b0cc22784a49cc58a42145a4195d40f1",
+      "after_relative_path_rewrite_sha256": "3f24f4fb53b6e961690edb9198a9f17a6379a8e936fc7e53afa3e8351ad849db",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v4-fit-surface/Psilo-v4.blend",
+      "before_sha256": "76391ba0001d09323ee4941b990ffd05ff5634aaa49ca27c33c8ebb23a643b94",
+      "after_sha256": "d84ba95857bbd003afa8ec6aeaecfde691304d0d7719201ab0175463397d9dfa",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "ceddb9208708e8fb3e085c1a8f4fe2db74bb621f6eb43a0e5751f99b9296c823",
+      "after_relative_path_rewrite_sha256": "be72dddd56d0d692f89e4fe016f9006b7a398e99394ea0d784069a5012251651",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v4-fit-surface/Psilo-v4-motion.blend",
+      "before_sha256": "ec4571c40d77bdfeaf5e751a758a2e1a6e7014af7f9a7920f2a0b734ab76acce",
+      "after_sha256": "e71fc7bd8c764e211ca25a411dbcaaba47294f7417627f6c712cc96cfd947693",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "96e5a87106c097396f54f74feb399231fac05ab49f85030af02ad549fcfd1729",
+      "after_relative_path_rewrite_sha256": "099dedec39eec4381d3ac7801cfffbee43622b93958d1d9debde8b88fed24076",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v5-short-horns/Psilo-v5.blend",
+      "before_sha256": "da4264b4c10c6cf198bded57ddac89a46e7901d4d7a6a4b347e0849820eecf1d",
+      "after_sha256": "d5c25cbde7f8fd0ab295df3f8afd4b816e2f6352fcaf8b91fc3977157a74e442",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "efd293fba857bd8bd69e0748211a7257950fcb8ddbd856e093c913cd95e3c24d",
+      "after_relative_path_rewrite_sha256": "9e6b0249544e9490adcedd2cbc313ab363143aa692995e17751e61ac594f052f",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v5-short-horns/Psilo-v5-motion.blend",
+      "before_sha256": "31046ffd6b3c5615fc2cf4376737e5a6b084f48779ecf7c006b647fa7088f44d",
+      "after_sha256": "842d92d0d51922d092adff9227e708ca15e5ab42a0bca41fe0a21349149c0f58",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "67536266e92510a343ca02a0fb76792623918fe3b620b9b62d49d467d9a1ae3b",
+      "after_relative_path_rewrite_sha256": "f34b0001b31f81dcd3ce5f70980a482d5af1a616f016ce23a152b5b836a28830",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v6-fidelity/Psilo-v6.blend",
+      "before_sha256": "d3ba58b3dbf40d42634af6ab3b0fd890b30801feee3e8baad03eec1bfabb0d0b",
+      "after_sha256": "c1cbcbf41bb7c41cd4afba9f1d1955ae3d76d0eb5aadb7530439436f5c4d1bc4",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "cffca70bf240e01ea24927139bdfaf8b480510a1a35685c4de7edff9cade9324",
+      "after_relative_path_rewrite_sha256": "03e864e831c9a15ea9a5e6548b1bae1ac0700898df135b73743541aa463eea16",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    },
+    {
+      "file": "assets/psilo/review-v6-fidelity/Psilo-v6-motion.blend",
+      "before_sha256": "98616f327a72d219d49873ffd56874eea1b6e18c59ecaca3f66d07fdb5e2666e",
+      "after_sha256": "2bab706e0c2f45a1938594e0da89c5c811c2b3eb005ab8e28075a026017bfa26",
+      "private_path_count": 0,
+      "geometry_material_texture_pixels_unchanged": true,
+      "geometry_material_sha256": "04c6d38c54facb62044556881f1a4729291c7bd2fe0be0197c6324e7bcb73263",
+      "after_relative_path_rewrite_sha256": "582219c3b8dfe4becfc32c9f8928be7e8cc6ad35f0a8db99d1cdac27565fe8d9",
+      "fixed_size_path_buffers_filled_before_assignment": true,
+      "private_path_and_workspace_fragment_count": 0
+    }
+  ]
+}

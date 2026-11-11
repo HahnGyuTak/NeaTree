@@ -1,0 +1,38 @@
+{
+  "source_blend": "NeaTree/assets/psilo/review-v4-fit-surface/Psilo-v4-motion.blend",
+  "source_sha256": "e71fc7bd8c764e211ca25a411dbcaaba47294f7417627f6c712cc96cfd947693",
+  "source_mtime": 1794399744.8553967,
+  "render_engine": "BLENDER_EEVEE",
+  "render_samples": 64,
+  "resolution": [
+    640,
+    576
+  ],
+  "fps": 24,
+  "frames_inclusive": [
+    1,
+    289
+  ],
+  "override": {
+    "object": "STUDIO_BodyBounce",
+    "property": "data.energy",
+    "source_value": 1.0,
+    "preview_value": 0.4
+  },
+  "calibration": {
+    "frame": 88,
+    "body_center_cycles_rgb": [
+      244.6,
+      213.5,
+      185.6
+    ],
+    "body_center_eevee_rgb": [
+      243.7,
+      212.2,
+      183.9
+    ]
+  },
+  "note": "Offline Blender motion review, not final macOS runtime footage. Source blend remains unchanged.",
+  "source_before_metadata_sanitization_sha256": "ec4571c40d77bdfeaf5e751a758a2e1a6e7014af7f9a7920f2a0b734ab76acce",
+  "source_metadata_sanitization": "../runtime-v7/blend-metadata-sanitization.json"
+}

@@ -1,0 +1,58 @@
+{
+  "source": "assets/psilo/review-v6-fidelity/Psilo-v6-motion.blend",
+  "source_sha256": "2bab706e0c2f45a1938594e0da89c5c811c2b3eb005ab8e28075a026017bfa26",
+  "frames": 289,
+  "method": "evaluated relative transform matrix components of Horns/Horn_L/Horn_R in Cap coordinates compared with frame1",
+  "maximum_matrix_component_errors": {
+    "Horns": 1.7881393432617188e-07,
+    "Horn_L": 1.7881393432617188e-07,
+    "Horn_R": 1.7881393432617188e-07
+  },
+  "maximum_error_frames": {
+    "Horns": 20,
+    "Horn_L": 20,
+    "Horn_R": 20
+  },
+  "tolerance": 1e-06,
+  "rigid_relative_transforms_passed": true,
+  "horn_geometry_has_shape_keys": {
+    "Horn_L": false,
+    "Horn_R": false
+  },
+  "horn_geometry_modifiers": {
+    "Horn_L": [],
+    "Horn_R": []
+  },
+  "horn_geometry_static": true,
+  "cap_modifiers": [
+    "SUBSURF"
+  ],
+  "cap_morph_support": [
+    {
+      "shape_key": "SmileClose",
+      "changed_vertices": 49,
+      "max_displacement_m": 0.0045999996002434335,
+      "maximum_changed_absolute_x_m": 0.006574629805982113,
+      "x_separation_from_horn_bases_m": 0.035412256605923176,
+      "separated_from_horn_base_x_region": true
+    }
+  ],
+  "horn_bases_minimum_absolute_cap_x_m": 0.04198688641190529,
+  "cap_morph_regions_separated_from_horn_bases": true,
+  "evaluated_cap_surface_around_horns": {
+    "compared_frames": [
+      1,
+      125
+    ],
+    "peak_SmileClose_value": 1.0,
+    "minimum_absolute_x_region_m": 0.0242807581089437,
+    "evaluated_vertices_checked": 84322,
+    "maximum_surface_displacement_m": 1.9822080297202582e-08,
+    "passed": true,
+    "scope": "Compares the evaluated subdivided cap at neutral and peak mouth deformation across a region extending inward beyond both horn footprints."
+  },
+  "passed": true,
+  "scope": "One dense basal test plus all289 relative-transform checks and cap morph support inspection. This is not289 repeated dense basal tests. Visual review remains separate.",
+  "source_before_metadata_sanitization_sha256": "98616f327a72d219d49873ffd56874eea1b6e18c59ecaca3f66d07fdb5e2666e",
+  "source_metadata_sanitization": "../runtime-v7/blend-metadata-sanitization.json"
+}

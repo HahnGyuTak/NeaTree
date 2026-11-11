@@ -1,0 +1,1124 @@
+{
+  "method": "evaluated world-space meshes; nearest-face signed distance",
+  "units": "metres",
+  "frames": [
+    {
+      "frame": 1,
+      "horns": {
+        "Horn_L": {
+          "attachment_mode": "fully buried planar disc",
+          "attachment_valid": true,
+          "full_basal_containment": true,
+          "basal_polygons": 768,
+          "basal_vertices": 769,
+          "disc_samples": 11073,
+          "inside_samples": 11073,
+          "entire_disc_inside_fraction": 1.0,
+          "planar_base_axial_spread_m": 8.498318493366241e-09,
+          "minimum_nearest_surface_depth_m": 0.003517404809826985,
+          "minimum_upper_clearance_m": 0.005366966128349304,
+          "minimum_lower_clearance_m": 0.04375199228525162,
+          "sections_perpendicular_to_axis_circular": true,
+          "horizontal_sections_circular": null,
+          "cone_axis_cap": [
+            -0.5714418888092041,
+            -0.5891307592391968,
+            0.571295976638794
+          ],
+          "cone_axis_world": [
+            -0.5714418888092041,
+            -0.5891307592391968,
+            0.571295976638794
+          ],
+          "cone_base_center_cap": [
+            -0.053571347147226334,
+            -0.017901653423905373,
+            0.022572224959731102
+          ],
+          "circular_ring_count": 38,
+          "base_normal_to_root_cap_normal_degrees": 0.013988227454926254,
+          "root_center_surface_point_world": [
+            -0.05699998885393143,
+            -0.021436430513858795,
+            0.0859999880194664
+          ],
+          "root_center_surface_normal_world": [
+            -0.5714931488037109,
+            -0.5890045166015625,
+            0.5713748335838318
+          ],
+          "root_center_axis_surface_exit_m": 0.005999985616654158,
+          "max_radial_error_m": 9.342348752895344e-09,
+          "max_section_axial_spread_m": 1.4901161193847656e-08,
+          "max_axis_center_drift_m": 6.870238938116115e-09,
+          "straight_conical_prefix_rings": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
+          "cone_slope": 0.46666769120493895,
+          "rounded_tip_radius_m": 0.0008,
+          "rings": [
+            {
+              "ring": 0,
+              "samples": 64,
+              "center": [
+                -5.675246939063072e-10,
+                6.584741640836e-10,
+                1.2661303117056377e-09
+              ],
+              "radius_m": 0.014000000791735814,
+              "max_radius_error_m": 5.314963667096828e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 1,
+              "samples": 64,
+              "center": [
+                -1.1641532182693481e-09,
+                5.493347998708487e-10,
+                0.0010159489465877414
+              ],
+              "radius_m": 0.013525890833311733,
+              "max_radius_error_m": 5.14005158054609e-09,
+              "horizontal_z_spread_m": 6.752088665962219e-09
+            },
+            {
+              "ring": 2,
+              "samples": 64,
+              "center": [
+                -2.0081643015146255e-09,
+                2.1464074961841106e-10,
+                0.002031897194683552
+              ],
+              "radius_m": 0.01305178234409153,
+              "max_radius_error_m": 5.416493441268155e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 3,
+              "samples": 64,
+              "center": [
+                -1.3242242857813835e-09,
+                1.4624674804508686e-09,
+                0.0030478450935333967
+              ],
+              "radius_m": 0.012577673250951462,
+              "max_radius_error_m": 4.723094028727393e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 4,
+              "samples": 64,
+              "center": [
+                -1.178705133497715e-09,
+                8.803908713161945e-10,
+                0.004063793458044529
+              ],
+              "radius_m": 0.012103563296253176,
+              "max_radius_error_m": 5.3949648134293815e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 5,
+              "samples": 64,
+              "center": [
+                -9.458744898438454e-10,
+                1.1204974725842476e-09,
+                0.0050797429867088795
+              ],
+              "radius_m": 0.011629454352001025,
+              "max_radius_error_m": 5.097263361397708e-09,
+              "horizontal_z_spread_m": 8.847564458847046e-09
+            },
+            {
+              "ring": 6,
+              "samples": 64,
+              "center": [
+                -1.7462298274040222e-09,
+                1.5352270565927029e-09,
+                0.00609568553045392
+              ],
+              "radius_m": 0.011155346262510182,
+              "max_radius_error_m": 5.2215361704549546e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 7,
+              "samples": 64,
+              "center": [
+                -1.8480932340025902e-09,
+                1.1714291758835316e-09,
+                0.007111637853085995
+              ],
+              "radius_m": 0.010681237134063576,
+              "max_radius_error_m": 4.705298210089248e-09,
+              "horizontal_z_spread_m": 8.381903171539307e-09
+            },
+            {
+              "ring": 8,
+              "samples": 64,
+              "center": [
+                -1.8480932340025902e-09,
+                1.0186340659856796e-09,
+                0.008127585053443909
+              ],
+              "radius_m": 0.010207128087300668,
+              "max_radius_error_m": 5.179249256900831e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 9,
+              "samples": 64,
+              "center": [
+                -1.0477378964424133e-09,
+                -2.255546860396862e-10,
+                0.009143531322479248
+              ],
+              "radius_m": 0.009733018972656647,
+              "max_radius_error_m": 7.919441465456534e-09,
+              "horizontal_z_spread_m": 8.381903171539307e-09
+            },
+            {
+              "ring": 10,
+              "samples": 64,
+              "center": [
+                -1.076841726899147e-09,
+                9.604264050722122e-10,
+                0.010159485973417759
+              ],
+              "radius_m": 0.00925890990125183,
+              "max_radius_error_m": 5.171546036894514e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 11,
+              "samples": 64,
+              "center": [
+                -1.4260876923799515e-09,
+                1.2441887520253658e-09,
+                0.011175434105098248
+              ],
+              "radius_m": 0.008784800546585026,
+              "max_radius_error_m": 6.216894108887483e-09,
+              "horizontal_z_spread_m": 8.381903171539307e-09
+            },
+            {
+              "ring": 12,
+              "samples": 64,
+              "center": [
+                -1.4260876923799515e-09,
+                1.1641532182693481e-09,
+                0.01219137106090784
+              ],
+              "radius_m": 0.008310691338084274,
+              "max_radius_error_m": 6.371129238763595e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 13,
+              "samples": 64,
+              "center": [
+                -8.658389560878277e-10,
+                1.229636836796999e-09,
+                0.01320731919258833
+              ],
+              "radius_m": 0.007836582373966129,
+              "max_radius_error_m": 6.994397568071964e-09,
+              "horizontal_z_spread_m": 8.381903171539307e-09
+            },
+            {
+              "ring": 14,
+              "samples": 64,
+              "center": [
+                -9.822542779147625e-10,
+                1.4479155652225018e-09,
+                0.014223276637494564
+              ],
+              "radius_m": 0.007362473058512498,
+              "max_radius_error_m": 5.632116600352843e-09,
+              "horizontal_z_spread_m": 8.381903171539307e-09
+            },
+            {
+              "ring": 15,
+              "samples": 64,
+              "center": [
+                -8.658389560878277e-10,
+                1.4551915228366852e-09,
+                0.015239227563142776
+              ],
+              "radius_m": 0.0068883646823483195,
+              "max_radius_error_m": 6.5046110667849044e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 16,
+              "samples": 64,
+              "center": [
+                -1.3023964129388332e-09,
+                1.979060471057892e-09,
+                0.01625516079366207
+              ],
+              "radius_m": 0.006414255070985247,
+              "max_radius_error_m": 5.531438078409945e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 17,
+              "samples": 64,
+              "center": [
+                -1.57160684466362e-09,
+                1.1423253454267979e-09,
+                0.017271114513278008
+              ],
+              "radius_m": 0.005940146182886985,
+              "max_radius_error_m": 6.0401263522052995e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 18,
+              "samples": 64,
+              "center": [
+                -1.5497789718210697e-09,
+                7.494236342608929e-10,
+                0.018287062644958496
+              ],
+              "radius_m": 0.005466036827163245,
+              "max_radius_error_m": 5.70797015469332e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 19,
+              "samples": 64,
+              "center": [
+                -1.6443664208054543e-09,
+                1.4551915228366852e-09,
+                0.019303008913993835
+              ],
+              "radius_m": 0.004991927900951647,
+              "max_radius_error_m": 7.311041130136919e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 20,
+              "samples": 64,
+              "center": [
+                -1.775333657860756e-09,
+                1.9936123862862587e-09,
+                0.020318973809480667
+              ],
+              "radius_m": 0.0045178190320484595,
+              "max_radius_error_m": 5.089577538933132e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 21,
+              "samples": 64,
+              "center": [
+                -1.6298145055770874e-09,
+                9.89530235528946e-10,
+                0.021334895864129066
+              ],
+              "radius_m": 0.004043709495152187,
+              "max_radius_error_m": 7.716333305825274e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 22,
+              "samples": 64,
+              "center": [
+                -8.803908713161945e-10,
+                1.7171259969472885e-09,
+                0.022350868210196495
+              ],
+              "radius_m": 0.0035696004794882512,
+              "max_radius_error_m": 6.929616600155619e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 23,
+              "samples": 64,
+              "center": [
+                -1.178705133497715e-09,
+                1.5861587598919868e-09,
+                0.023366807028651237
+              ],
+              "radius_m": 0.003095491996219496,
+              "max_radius_error_m": 6.818671790392861e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 24,
+              "samples": 64,
+              "center": [
+                -1.0113581083714962e-09,
+                1.1204974725842476e-09,
+                0.02438274212181568
+              ],
+              "radius_m": 0.0026213827268816267,
+              "max_radius_error_m": 6.400227577085804e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 25,
+              "samples": 64,
+              "center": [
+                -2.4811015464365482e-09,
+                1.3533281162381172e-09,
+                0.02539871074259281
+              ],
+              "radius_m": 0.002147274277234408,
+              "max_radius_error_m": 8.006490619365952e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 26,
+              "samples": 64,
+              "center": [
+                -1.7171259969472885e-09,
+                1.3242242857813835e-09,
+                0.02641463838517666
+              ],
+              "radius_m": 0.001673164219740252,
+              "max_radius_error_m": 8.687996776429036e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 27,
+              "samples": 64,
+              "center": [
+                -1.418811734765768e-09,
+                2.371962182223797e-09,
+                0.02743060141801834
+              ],
+              "radius_m": 0.0011990556405743077,
+              "max_radius_error_m": 6.825567648192574e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 28,
+              "samples": 64,
+              "center": [
+                -5.093170329928398e-10,
+                1.7316779121756554e-09,
+                0.028446553274989128
+              ],
+              "radius_m": 0.0007249461647185789,
+              "max_radius_error_m": 8.372965970299823e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 29,
+              "samples": 64,
+              "center": [
+                -1.0186340659856796e-09,
+                2.8812792152166367e-09,
+                0.028534986078739166
+              ],
+              "radius_m": 0.000676677251416372,
+              "max_radius_error_m": 7.031391275756811e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 30,
+              "samples": 64,
+              "center": [
+                -1.1641532182693481e-09,
+                2.168235369026661e-09,
+                0.028616659343242645
+              ],
+              "radius_m": 0.0006176761002633832,
+              "max_radius_error_m": 6.06871366332605e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 31,
+              "samples": 64,
+              "center": [
+                -9.89530235528946e-10,
+                1.877197064459324e-09,
+                0.02869022637605667
+              ],
+              "radius_m": 0.0005488787037920056,
+              "max_radius_error_m": 9.342348752895344e-09,
+              "horizontal_z_spread_m": 1.4901161193847656e-08
+            },
+            {
+              "ring": 32,
+              "samples": 64,
+              "center": [
+                -2.1318555809557438e-09,
+                8.731149137020111e-10,
+                0.028754599392414093
+              ],
+              "radius_m": 0.00047137701932279427,
+              "max_radius_error_m": 8.921976298926527e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 33,
+              "samples": 64,
+              "center": [
+                -3.1504896469414234e-09,
+                6.984919309616089e-10,
+                0.028808720409870148
+              ],
+              "radius_m": 0.0003863978690688507,
+              "max_radius_error_m": 7.579846217646482e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 34,
+              "samples": 64,
+              "center": [
+                -3.8562575355172157e-10,
+                1.178705133497715e-09,
+                0.028851747512817383
+              ],
+              "radius_m": 0.00029529152889641824,
+              "max_radius_error_m": 8.38816472309217e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 35,
+              "samples": 64,
+              "center": [
+                -2.1755113266408443e-09,
+                1.0331859812140465e-09,
+                0.02888297289609909
+              ],
+              "radius_m": 0.00019950125311581836,
+              "max_radius_error_m": 6.530414004885963e-09,
+              "horizontal_z_spread_m": 1.30385160446167e-08
+            },
+            {
+              "ring": 36,
+              "samples": 64,
+              "center": [
+                -2.0954757928848267e-09,
+                1.3387762010097504e-09,
+                0.028901908546686172
+              ],
+              "radius_m": 0.00010054872450276201,
+              "max_radius_error_m": 6.5626409730503484e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 37,
+              "samples": 1,
+              "center": [
+                4.656612873077393e-10,
+                7.450580596923828e-09,
+                0.02890823781490326
+              ],
+              "radius_m": 0.0,
+              "max_radius_error_m": 0.0,
+              "horizontal_z_spread_m": 0.0
+            }
+          ],
+          "failures": [],
+          "scope": "All marked basal mesh vertices and triangle interiors/edges sampled; sections perpendicular to the declared cone axis are checked in orthonormal world coordinates. Circular rings are polygonal approximations with equal radii, not ellipses."
+        },
+        "Horn_R": {
+          "attachment_mode": "fully buried planar disc",
+          "attachment_valid": true,
+          "full_basal_containment": true,
+          "basal_polygons": 768,
+          "basal_vertices": 769,
+          "disc_samples": 11073,
+          "inside_samples": 11073,
+          "entire_disc_inside_fraction": 1.0,
+          "planar_base_axial_spread_m": 7.799826562404633e-09,
+          "minimum_nearest_surface_depth_m": 0.0035040062793996185,
+          "minimum_upper_clearance_m": 0.005330346524715424,
+          "minimum_lower_clearance_m": 0.04312417656183243,
+          "sections_perpendicular_to_axis_circular": true,
+          "horizontal_sections_circular": null,
+          "cone_axis_cap": [
+            0.5400961637496948,
+            -0.6152415871620178,
+            0.5742594599723816
+          ],
+          "cone_axis_world": [
+            0.5400961637496948,
+            -0.6152415871620178,
+            0.5742594599723816
+          ],
+          "cone_base_center_cap": [
+            0.05375942215323448,
+            -0.01947838068008423,
+            0.022554444149136543
+          ],
+          "circular_ring_count": 38,
+          "base_normal_to_root_cap_normal_degrees": 0.0,
+          "root_center_surface_point_world": [
+            0.057000018656253815,
+            -0.023169852793216705,
+            0.08600002527236938
+          ],
+          "root_center_surface_normal_world": [
+            0.5401871204376221,
+            -0.6151801347732544,
+            0.5742397308349609
+          ],
+          "root_center_axis_surface_exit_m": 0.0060000354424119,
+          "max_radial_error_m": 8.907846012901066e-09,
+          "max_section_axial_spread_m": 1.1175870895385742e-08,
+          "max_axis_center_drift_m": 3.653987072896116e-09,
+          "straight_conical_prefix_rings": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
+          "cone_slope": 0.46666612894675374,
+          "rounded_tip_radius_m": 0.0008,
+          "rings": [
+            {
+              "ring": 0,
+              "samples": 64,
+              "center": [
+                7.712515071034431e-10,
+                -1.0695657692849636e-09,
+                -1.2369127944111824e-09
+              ],
+              "radius_m": 0.013999999949612004,
+              "max_radius_error_m": 5.176722949612467e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 1,
+              "samples": 64,
+              "center": [
+                3.812601789832115e-09,
+                -2.2337189875543118e-09,
+                0.0010159470839425921
+              ],
+              "radius_m": 0.013525891279508467,
+              "max_radius_error_m": 7.381875600370735e-09,
+              "horizontal_z_spread_m": 7.566995918750763e-09
+            },
+            {
+              "ring": 2,
+              "samples": 64,
+              "center": [
+                2.8230715543031693e-09,
+                -1.775333657860756e-09,
+                0.002031895099207759
+              ],
+              "radius_m": 0.013051782338830052,
+              "max_radius_error_m": 6.376188582332687e-09,
+              "horizontal_z_spread_m": 6.28642737865448e-09
+            },
+            {
+              "ring": 3,
+              "samples": 64,
+              "center": [
+                2.066371962428093e-09,
+                -2.1609594114124775e-09,
+                0.003047841601073742
+              ],
+              "radius_m": 0.012577672227364823,
+              "max_radius_error_m": 5.090147015690549e-09,
+              "horizontal_z_spread_m": 8.149072527885437e-09
+            },
+            {
+              "ring": 4,
+              "samples": 64,
+              "center": [
+                2.473825588822365e-09,
+                -1.5497789718210697e-09,
+                0.004063791129738092
+              ],
+              "radius_m": 0.012103563929848321,
+              "max_radius_error_m": 6.450496444279641e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 5,
+              "samples": 64,
+              "center": [
+                3.5943230614066124e-09,
+                -2.1827872842550278e-09,
+                0.005079739727079868
+              ],
+              "radius_m": 0.011629454662890153,
+              "max_radius_error_m": 5.949031803634264e-09,
+              "horizontal_z_spread_m": 6.51925802230835e-09
+            },
+            {
+              "ring": 6,
+              "samples": 64,
+              "center": [
+                2.2264430299401283e-09,
+                -1.5606929082423449e-09,
+                0.006095684599131346
+              ],
+              "radius_m": 0.01115534532723746,
+              "max_radius_error_m": 6.9024792166694215e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 7,
+              "samples": 64,
+              "center": [
+                2.764863893389702e-09,
+                -2.1500454749912024e-09,
+                0.007111637387424707
+              ],
+              "radius_m": 0.010681237079052469,
+              "max_radius_error_m": 6.04894116219834e-09,
+              "horizontal_z_spread_m": 8.381903171539307e-09
+            },
+            {
+              "ring": 8,
+              "samples": 64,
+              "center": [
+                3.6816345527768135e-09,
+                -2.244632923975587e-09,
+                0.008127578534185886
+              ],
+              "radius_m": 0.01020712822329301,
+              "max_radius_error_m": 5.206318461417614e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 9,
+              "samples": 64,
+              "center": [
+                2.270098775625229e-09,
+                -1.7025740817189217e-09,
+                0.009143531322479248
+              ],
+              "radius_m": 0.009733018565405297,
+              "max_radius_error_m": 8.907846012901066e-09,
+              "horizontal_z_spread_m": 8.381903171539307e-09
+            },
+            {
+              "ring": 10,
+              "samples": 64,
+              "center": [
+                3.3178366720676422e-09,
+                -2.240994945168495e-09,
+                0.01015948411077261
+              ],
+              "radius_m": 0.009258909637843217,
+              "max_radius_error_m": 7.787931136787885e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 11,
+              "samples": 64,
+              "center": [
+                3.1723175197839737e-09,
+                -1.291482476517558e-09,
+                0.011175429448485374
+              ],
+              "radius_m": 0.008784800454862225,
+              "max_radius_error_m": 5.827719673154319e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 12,
+              "samples": 64,
+              "center": [
+                3.2014213502407074e-09,
+                -2.23008100874722e-09,
+                0.01219137106090784
+              ],
+              "radius_m": 0.008310691590353499,
+              "max_radius_error_m": 8.215789219084835e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 13,
+              "samples": 64,
+              "center": [
+                2.546585164964199e-09,
+                -1.6043486539274454e-09,
+                0.013207318261265755
+              ],
+              "radius_m": 0.00783658175133445,
+              "max_radius_error_m": 6.093528379796931e-09,
+              "horizontal_z_spread_m": 8.381903171539307e-09
+            },
+            {
+              "ring": 14,
+              "samples": 64,
+              "center": [
+                2.2992026060819626e-09,
+                -8.076312951743603e-10,
+                0.014223276637494564
+              ],
+              "radius_m": 0.007362472899681066,
+              "max_radius_error_m": 7.851031297301247e-09,
+              "horizontal_z_spread_m": 7.450580596923828e-09
+            },
+            {
+              "ring": 15,
+              "samples": 64,
+              "center": [
+                3.0850060284137726e-09,
+                -2.1100277081131935e-09,
+                0.015239225700497627
+              ],
+              "radius_m": 0.0068883643204536065,
+              "max_radius_error_m": 6.853763592253037e-09,
+              "horizontal_z_spread_m": 8.381903171539307e-09
+            },
+            {
+              "ring": 16,
+              "samples": 64,
+              "center": [
+                3.0704541131854057e-09,
+                -1.8480932340025902e-09,
+                0.016255157068371773
+              ],
+              "radius_m": 0.0064142550974036665,
+              "max_radius_error_m": 5.2072695192265095e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 17,
+              "samples": 64,
+              "center": [
+                2.4883775040507317e-09,
+                -2.066371962428093e-09,
+                0.01727111078798771
+              ],
+              "radius_m": 0.005940145471435542,
+              "max_radius_error_m": 7.155135966357973e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 18,
+              "samples": 64,
+              "center": [
+                3.550667315721512e-09,
+                -2.4665496312081814e-09,
+                0.018287062644958496
+              ],
+              "radius_m": 0.005466037270265311,
+              "max_radius_error_m": 5.6001338028660586e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 19,
+              "samples": 64,
+              "center": [
+                2.4010660126805305e-09,
+                -1.342414179816842e-09,
+                0.019303008913993835
+              ],
+              "radius_m": 0.004991927840213871,
+              "max_radius_error_m": 7.479950599013907e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 20,
+              "samples": 64,
+              "center": [
+                3.4633558243513107e-09,
+                -1.6261765267699957e-09,
+                0.020318973809480667
+              ],
+              "radius_m": 0.004517818983657474,
+              "max_radius_error_m": 6.4653783568222045e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 21,
+              "samples": 64,
+              "center": [
+                2.9831426218152046e-09,
+                -2.0481820683926344e-09,
+                0.021334894001483917
+              ],
+              "radius_m": 0.00404370955876448,
+              "max_radius_error_m": 6.530056021088193e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 22,
+              "samples": 64,
+              "center": [
+                2.86672729998827e-09,
+                -1.7207639757543802e-09,
+                0.022350868210196495
+              ],
+              "radius_m": 0.003569600454704431,
+              "max_radius_error_m": 6.6509822631982685e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 23,
+              "samples": 64,
+              "center": [
+                2.7430360205471516e-09,
+                -3.2778189051896334e-09,
+                0.023366807028651237
+              ],
+              "radius_m": 0.0030954914209397875,
+              "max_radius_error_m": 5.699630959039859e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 24,
+              "samples": 64,
+              "center": [
+                2.5538611225783825e-09,
+                -2.1973391994833946e-09,
+                0.02438274212181568
+              ],
+              "radius_m": 0.0026213826836527787,
+              "max_radius_error_m": 6.10778602997894e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 25,
+              "samples": 64,
+              "center": [
+                4.2782630771398544e-09,
+                -2.0954757928848267e-09,
+                0.025398703292012215
+              ],
+              "radius_m": 0.0021472734097308334,
+              "max_radius_error_m": 6.50080099560274e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 26,
+              "samples": 64,
+              "center": [
+                4.059984348714352e-09,
+                -2.382876118645072e-09,
+                0.02641463652253151
+              ],
+              "radius_m": 0.0016731639722160142,
+              "max_radius_error_m": 7.001603154893621e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 27,
+              "samples": 64,
+              "center": [
+                2.291926648467779e-09,
+                -3.179593477398157e-09,
+                0.027430597692728043
+              ],
+              "radius_m": 0.0011990553930984141,
+              "max_radius_error_m": 5.929459266250034e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 28,
+              "samples": 64,
+              "center": [
+                1.7462298274040222e-09,
+                -1.800799509510398e-09,
+                0.028446553274989128
+              ],
+              "radius_m": 0.000724946711388677,
+              "max_radius_error_m": 8.434351027276563e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 29,
+              "samples": 64,
+              "center": [
+                2.2773747332394123e-09,
+                -2.2082531359046698e-09,
+                0.028534982353448868
+              ],
+              "radius_m": 0.0006766765203952093,
+              "max_radius_error_m": 8.725474139005193e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 30,
+              "samples": 64,
+              "center": [
+                2.903107088059187e-09,
+                -1.4915713109076023e-09,
+                0.028616657480597496
+              ],
+              "radius_m": 0.0006176766516456922,
+              "max_radius_error_m": 8.02163321357574e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 31,
+              "samples": 64,
+              "center": [
+                3.39787220582366e-09,
+                -2.142769517377019e-09,
+                0.02869022637605667
+              ],
+              "radius_m": 0.0005488786884765231,
+              "max_radius_error_m": 6.795272316953253e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 32,
+              "samples": 64,
+              "center": [
+                3.3614924177527428e-09,
+                -2.8230715543031693e-09,
+                0.028754597529768944
+              ],
+              "radius_m": 0.00047137615553476033,
+              "max_radius_error_m": 6.539843762614749e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 33,
+              "samples": 64,
+              "center": [
+                3.39787220582366e-09,
+                -1.7680577002465725e-09,
+                0.028808720409870148
+              ],
+              "radius_m": 0.0003863980763692921,
+              "max_radius_error_m": 6.845228415401725e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 34,
+              "samples": 64,
+              "center": [
+                2.0590960048139095e-09,
+                -3.183231456205249e-09,
+                0.028851745650172234
+              ],
+              "radius_m": 0.00029529163943954227,
+              "max_radius_error_m": 7.453540088787642e-09,
+              "horizontal_z_spread_m": 1.1175870895385742e-08
+            },
+            {
+              "ring": 35,
+              "samples": 64,
+              "center": [
+                2.4301698431372643e-09,
+                -2.142769517377019e-09,
+                0.02888297289609909
+              ],
+              "radius_m": 0.00019950209943758054,
+              "max_radius_error_m": 8.331314631915667e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 36,
+              "samples": 64,
+              "center": [
+                2.9249349609017372e-09,
+                -1.4115357771515846e-09,
+                0.028901908546686172
+              ],
+              "radius_m": 0.00010054862795689846,
+              "max_radius_error_m": 6.079060550708308e-09,
+              "horizontal_z_spread_m": 9.313225746154785e-09
+            },
+            {
+              "ring": 37,
+              "samples": 1,
+              "center": [
+                -1.3969838619232178e-09,
+                -2.5613124954304567e-09,
+                0.02890823408961296
+              ],
+              "radius_m": 0.0,
+              "max_radius_error_m": 0.0,
+              "horizontal_z_spread_m": 0.0
+            }
+          ],
+          "failures": [],
+          "scope": "All marked basal mesh vertices and triangle interiors/edges sampled; sections perpendicular to the declared cone axis are checked in orthonormal world coordinates. Circular rings are polygonal approximations with equal radii, not ellipses."
+        }
+      },
+      "eyes": {
+        "EyeDot_L": {
+          "vertices": 222,
+          "inside_fraction": 0.427927928,
+          "deepest_overlap_m": 0.001049809,
+          "closest_signed_m": -0.001049809,
+          "maximum_relief_m": 0.001250182,
+          "seated": true
+        },
+        "EyeDot_R": {
+          "vertices": 222,
+          "inside_fraction": 0.427927928,
+          "deepest_overlap_m": 0.001050114,
+          "closest_signed_m": -0.001050114,
+          "maximum_relief_m": 0.001249882,
+          "seated": true
+        }
+      },
+      "glasses_front": {},
+      "visible_mouth_overlays": [],
+      "mouth_is_shaded_cap_recess": true
+    }
+  ],
+  "passed": true,
+  "visual_review_required": [
+    "horn appears attached in side/rear views; entire base must match its declared flush or buried mode",
+    "mouth interior reads inset, not a front disk",
+    "eye highlights and embedding remain consistent throughout motion",
+    "complete spectacles rings are visible in settled work and error views"
+  ],
+  "source": "assets/psilo/review-v6-fidelity/Psilo-v6-motion.blend",
+  "source_sha256": "2bab706e0c2f45a1938594e0da89c5c811c2b3eb005ab8e28075a026017bfa26",
+  "scope": "Dense horn basal disc, perpendicular circular sections and eye seating in frame1; later frames are covered by the separate anchor/morph report, not repeated dense base tests.",
+  "source_before_metadata_sanitization_sha256": "98616f327a72d219d49873ffd56874eea1b6e18c59ecaca3f66d07fdb5e2666e",
+  "source_metadata_sanitization": "../runtime-v7/blend-metadata-sanitization.json"
+}

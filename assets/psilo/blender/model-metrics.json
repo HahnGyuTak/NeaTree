@@ -1,7 +1,8 @@
 {
   "name": "Psilo",
   "source": "Blender 5.3",
-  "triangles": 22780,
+  "horn_design": "approved-short-soft-point-v5",
+  "triangles": 25756,
   "meshes": 27,
   "materials": 6,
   "textures": 1,
@@ -9,5 +10,5 @@
     768,
     768
   ],
-  "bytes": 630244
+  "bytes": 671098
 }

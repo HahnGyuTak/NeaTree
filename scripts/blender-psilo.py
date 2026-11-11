@@ -173,9 +173,10 @@ nodes=M['Coral'].node_tree.nodes;tex=nodes.new('ShaderNodeTexImage');tex.image=i
 M['Coral'].node_tree.links.new(tex.outputs['Color'],nodes.get('Principled BSDF').inputs['Base Color'])
 
 horns=empty('Horns',head)
-for sign,label in [(-1,'L'),(1,'R')]:
-    path=[(sign*.065,.073-.06,-.002),(sign*.077,.081-.06,-.001),(sign*.084,.097-.06,0),(sign*.083,.113-.06,.002),(sign*.077,.120-.06,.004),(sign*.075,.124-.06,.004)]
-    tube('Horn_'+label,horns,path,[.002,.016,.016,.012,.008,.0001],'Cream',12,1)
+horn_scope={'__name__':'psilo_approved_horn_helper'}
+horn_source=ROOT/'scripts/psilo-short-horns-v5.py'
+exec(compile(horn_source.read_text(),str(horn_source),'exec'),horn_scope)
+horn_scope['apply_psilo_short_horns_v5'](SCENE,segments=24,rings=17,subdivision=1,front_offset=-.003)
 
 hat=empty('Hat',head)
 hat_origin=(-.007,.040,-.007)

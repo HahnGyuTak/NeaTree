@@ -5,6 +5,25 @@ import Security
 public enum APIKeyStore {
     private static let service = "local.file-organizer.openai"
     private static let account = "api-key"
+
+    /// Checks registration without decrypting the key or presenting an authorization prompt.
+    /// Security framework calls can still block on IPC; callers updating UI must use a worker task.
+    public static func containsKey() throws -> Bool {
+        try containsKey { query in SecItemCopyMatching(query, nil) }
+    }
+
+    // Injectable so tests never access the user's Keychain.
+    static func containsKey(matching: (CFDictionary) -> OSStatus) throws -> Bool {
+        let status = matching([
+            kSecClass: kSecClassGenericPassword, kSecAttrService: service, kSecAttrAccount: account,
+            kSecReturnAttributes: true, kSecReturnData: false, kSecMatchLimit: kSecMatchLimitOne,
+            kSecUseAuthenticationUI: kSecUseAuthenticationUISkip
+        ] as CFDictionary)
+        if status == errSecItemNotFound { return false }
+        guard status == errSecSuccess else { throw KeychainError(status) }
+        return true
+    }
+
     public static func read() throws -> String? {
         var result: CFTypeRef?
         let status = SecItemCopyMatching([

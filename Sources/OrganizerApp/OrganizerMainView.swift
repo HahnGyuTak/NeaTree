@@ -12,6 +12,9 @@ struct OrganizerMainView: View {
     @State private var search = ""
     @State private var showingSettings = false
     @State private var dropTargeted = false
+    @State private var selectedEntryIDs: Set<UUID> = []
+    @State private var activeBatchEntries: [InboxEntry]?
+    @State private var batchReport: BatchResultReport?
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     init(model: OrganizerAppModel) { self.model = model }
@@ -39,12 +42,27 @@ struct OrganizerMainView: View {
     }
 
     private var selectedEntry: InboxEntry? {
-        displayedEntries.first { $0.id == model.selectedItemID }
+        displayedEntries.first { selectedEntryIDs.contains($0.id) }
+    }
+
+    private var selectedEntries: [InboxEntry] {
+        activeBatchEntries ?? displayedEntries.filter { selectedEntryIDs.contains($0.id) }
+    }
+
+    private var listSelection: Binding<Set<UUID>> {
+        Binding(get: { selectedEntryIDs }, set: { ids in
+            selectedEntryIDs = ids
+            if !ids.contains(model.selectedItemID ?? UUID()) {
+                model.selectedItemID = displayedEntries.first { ids.contains($0.id) }?.id
+            }
+        })
     }
 
     /// A search/filter with no matches does not mean that the app has no files.
     private var showsCentralPsilo: Bool {
-        model.settings == nil || (model.entries.isEmpty && section == "review" && search.isEmpty)
+        // Completed journal entries remain in storage after the inbox is empty.
+        model.settings == nil || (model.entries.allSatisfy { $0.status == .applied }
+                                  && section == "review" && search.isEmpty)
     }
 
     private var psiloCaption: String {
@@ -66,7 +84,7 @@ struct OrganizerMainView: View {
                 } else if section == "history" {
                     HistoryView(model: model)
                 } else if section == "rules" {
-                    RulesView(model: model)
+                    RuleManagementView(model: model)
                 } else {
                     reviewContent
                 }
@@ -81,19 +99,34 @@ struct OrganizerMainView: View {
         }
         .liquidCustomTitlebar()
         .sheet(isPresented: $showingSettings) { SettingsView(model: model) }
+        .sheet(item: $batchReport) { BatchResultsView(report: $0) }
         .alert("작업을 완료하지 못했습니다", isPresented: Binding(
             get: { model.errorMessage != nil },
             set: { if !$0 { model.errorMessage = nil } }
         )) {
             Button("확인") { model.errorMessage = nil }
         } message: { Text(model.errorMessage ?? "") }
-        .onChange(of: section) { _, _ in selectFirstIfNeeded() }
+        .onAppear { selectFirstIfNeeded() }
+        .onChange(of: section) { _, _ in
+            selectedEntryIDs = []
+            selectFirstIfNeeded()
+        }
         .onChange(of: displayedEntries.map(\.id)) { _, _ in selectFirstIfNeeded() }
+        .onChange(of: model.selectedItemID) { _, id in
+            // A proposal opened from the menu bar or an imported file can
+            // become the primary selection without breaking a local group.
+            if let id, !selectedEntryIDs.contains(id), displayedEntries.contains(where: { $0.id == id }) {
+                selectedEntryIDs = [id]
+            }
+        }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("OrganizerOpenSettings"))) { _ in
             showingSettings = true
         }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("OrganizerShowReview"))) { _ in
             section = "review"
+            search = ""
+            selectedEntryIDs = model.selectedItemID.map { [$0] } ?? []
+            selectFirstIfNeeded()
         }
         .onDrop(of: [UTType.fileURL.identifier], isTargeted: $dropTargeted, perform: acceptDrop)
         .overlay(alignment: .top) {
@@ -118,7 +151,7 @@ struct OrganizerMainView: View {
                 Psilo3DView(
                     activity: model.psiloActivity,
                     issue: model.psiloIssue,
-                    isPresented: !showingSettings
+                    isPresented: !showingSettings && batchReport == nil
                 )
                 .frame(width: placement.viewportSize.width, height: placement.viewportSize.height)
                 .accessibilityHidden(true)
@@ -202,7 +235,7 @@ struct OrganizerMainView: View {
                     }
                 }
                 .padding(18)
-                List(selection: $model.selectedItemID) {
+                List(selection: listSelection) {
                     ForEach(displayedEntries) { entry in
                         FileListRow(entry: entry)
                             .tag(entry.id)
@@ -220,6 +253,7 @@ struct OrganizerMainView: View {
                     }
                 }
                 .listStyle(.inset)
+                .disabled(activeBatchEntries != nil)
                 .overlay {
                     if displayedEntries.isEmpty {
                         Group {
@@ -249,10 +283,38 @@ struct OrganizerMainView: View {
                         .allowsHitTesting(false)
                     }
                 }
+                if !displayedEntries.isEmpty {
+                    HStack {
+                        Text(selectedEntryIDs.count > 1 ? "\(selectedEntryIDs.count)개 선택" : "⌘ 또는 ⇧로 여러 파일 선택")
+                        Spacer(minLength: 8)
+                        if selectedEntryIDs.count > 1 {
+                            Button("선택 해제") {
+                                selectedEntryIDs = []
+                                model.selectedItemID = nil
+                            }.buttonStyle(.link).disabled(model.isBusy)
+                        }
+                    }
+                    .font(.caption).foregroundStyle(.secondary)
+                    .padding(.horizontal, 18).padding(.vertical, 10)
+                }
             }
             .frame(minWidth: 250, idealWidth: 310)
             Group {
-                if let entry = selectedEntry {
+                if selectedEntries.count > 1 {
+                    BatchReviewView(
+                        model: model, entries: selectedEntries,
+                        onOpenIndividual: { id in
+                            selectedEntryIDs = [id]
+                            model.selectedItemID = id
+                        },
+                        onOperationStarted: { activeBatchEntries = $0 },
+                        onCompleted: { report in
+                            batchReport = report
+                            activeBatchEntries = nil
+                            selectFirstIfNeeded()
+                        }
+                    )
+                } else if let entry = selectedEntry {
                     ReviewDetailView(model: model, entry: entry).id(entry.id)
                 } else {
                     VStack(spacing: 10) {
@@ -292,9 +354,15 @@ struct OrganizerMainView: View {
     }
 
     private func selectFirstIfNeeded() {
-        guard section != "history", section != "rules" else { return }
-        if !displayedEntries.contains(where: { $0.id == model.selectedItemID }) {
-            model.selectedItemID = displayedEntries.first?.id
+        guard section != "history", section != "rules", activeBatchEntries == nil else { return }
+        let available = Set(displayedEntries.map(\.id))
+        selectedEntryIDs.formIntersection(available)
+        if selectedEntryIDs.isEmpty {
+            let id = model.selectedItemID.flatMap { available.contains($0) ? $0 : nil } ?? displayedEntries.first?.id
+            selectedEntryIDs = id.map { [$0] } ?? []
+        }
+        if !selectedEntryIDs.contains(model.selectedItemID ?? UUID()) {
+            model.selectedItemID = displayedEntries.first { selectedEntryIDs.contains($0.id) }?.id
         }
     }
 
@@ -396,6 +464,7 @@ private struct ReviewDetailView: View {
     @State private var evidence: FileEvidence?
     @State private var duplicateReport: DuplicateReport?
     @State private var checkingDuplicates = false
+    @State private var showingQuickLook = false
 
     private var proposal: FileProposal? { model.proposal(for: entry) }
     private var draft: ReviewDraft {
@@ -466,6 +535,9 @@ private struct ReviewDetailView: View {
             duplicateReport = nil
             evidence = await model.inspect(entry.id)
         }
+        .sheet(isPresented: $showingQuickLook) {
+            QuickLookPreview(url: model.actualURL(for: entry))
+        }
     }
 
     private var proposalEditor: some View {
@@ -506,12 +578,14 @@ private struct ReviewDetailView: View {
                 Picker("정리할 폴더", selection: draftBinding(\.folderID)) {
                     Text("폴더 선택").tag("")
                     ForEach(model.settings?.folders ?? [], id: \.id) { folder in
-                        Text(folder.path).tag(folder.id)
+                        Text(ReviewFolderLabel.text(for: folder, in: model.settings?.folders ?? []))
+                            .lineLimit(1).truncationMode(.head).help(folder.path).tag(folder.id)
                     }
                 }
                 .labelsHidden()
                 if let folder = model.settings?.folders.first(where: { $0.id == draft.folderID }) {
-                    Text(folder.path).font(.caption).foregroundStyle(.secondary).textSelection(.enabled)
+                    Text(folder.path).font(.caption).foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true).textSelection(.enabled)
                 }
             }
             if draft.name.contains("{serial}") {
@@ -538,7 +612,9 @@ private struct ReviewDetailView: View {
                         Menu("다른 위치 후보") {
                             ForEach(Array(proposal.alternatives.enumerated()), id: \.offset) { _, alternative in
                                 if let folder = model.settings?.folders.first(where: { $0.id == alternative.folderID }) {
-                                    Button("\(folder.path) — \(alternative.reason)") { draftBinding(\.folderID).wrappedValue = folder.id }
+                                    Button("\(ReviewFolderLabel.text(for: folder, in: model.settings?.folders ?? [])) — \(alternative.reason)") {
+                                        draftBinding(\.folderID).wrappedValue = folder.id
+                                    }.help(folder.path)
                                 }
                             }
                         }
@@ -575,11 +651,17 @@ private struct ReviewDetailView: View {
 
     private var preview: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("내용 미리보기").font(.headline)
+            HStack {
+                Text("내용 미리보기").font(.headline)
+                Spacer(minLength: 8)
+                Button("원본 미리보기") { showingQuickLook = true }
+                    .disabled(entry.status == .missing || entry.status == .pending)
+                    .help("Quick Look으로 원본 파일을 확인합니다")
+            }
             if let evidence {
                 Text(evidence.readStatus.readStatusLabel).font(.caption).foregroundStyle(.secondary)
                 if evidence.extractedText.isEmpty {
-                    Text("텍스트로 읽을 수 없는 자료입니다. Finder에서 원본을 확인할 수 있습니다.")
+                    Text("텍스트로 읽을 수 없는 자료입니다. 원본 미리보기에서 확인하세요.")
                         .font(.callout).foregroundStyle(.secondary)
                 } else {
                     ScrollView {
@@ -639,96 +721,62 @@ private struct ReviewDetailView: View {
 @MainActor
 private struct HistoryView: View {
     @ObservedObject var model: OrganizerAppModel
+    @State private var selection: Set<UUID> = []
+    @State private var undoRequest: UndoRequest?
+
+    private var selectedRecords: [MoveRecord] {
+        model.history.filter { selection.contains($0.id) }.sorted { $0.createdAt > $1.createdAt }
+    }
+    private var restorableRecords: [MoveRecord] { selectedRecords.filter { $0.state == .applied } }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("정리 이력").font(.title2.weight(.semibold))
+            HStack {
+                Text("정리 이력").font(.title2.weight(.semibold))
+                Spacer(minLength: 12)
+                if !selection.isEmpty {
+                    Text("\(selection.count)개 선택").font(.callout).foregroundStyle(.secondary)
+                    Button("선택 되돌리기") { undoRequest = UndoRequest(records: restorableRecords) }
+                        .disabled(restorableRecords.isEmpty || model.isBusy)
+                }
+            }
             if model.history.isEmpty {
                 Text("아직 정리한 파일이 없습니다.").foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                List(model.history.sorted { $0.createdAt > $1.createdAt }) { record in
-                    HStack(alignment: .top, spacing: 16) {
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text(record.destination.lastPathComponent).font(.headline)
-                            Text(record.source.path + " → " + record.destination.path)
-                                .font(.caption).foregroundStyle(.secondary).textSelection(.enabled)
-                            Text("\(record.state.displayName) · \(record.createdAt.formatted(date: .abbreviated, time: .shortened))")
-                                .font(.caption).foregroundStyle(.secondary)
-                            if let detail = record.detail { Text(detail).font(.caption).foregroundStyle(.secondary) }
+                List(selection: $selection) {
+                    ForEach(model.history.sorted { $0.createdAt > $1.createdAt }) { record in
+                        HStack(alignment: .top, spacing: 16) {
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(record.destination.lastPathComponent).font(.headline)
+                                Text(record.source.path + " → " + record.destination.path)
+                                    .font(.caption).foregroundStyle(.secondary)
+                                Text("\(record.state.displayName) · \(record.createdAt.formatted(date: .abbreviated, time: .shortened))")
+                                    .font(.caption).foregroundStyle(.secondary)
+                                if let detail = record.detail { Text(detail).font(.caption).foregroundStyle(.secondary) }
+                            }
+                            Spacer()
+                            Button("되돌리기") { undoRequest = UndoRequest(records: [record]) }
+                                .disabled(record.state != .applied || model.isBusy)
                         }
-                        Spacer()
-                        Button("되돌리기") { Task { await model.undo(record.id) } }
-                            .disabled(record.state != .applied || model.isBusy)
+                        .padding(.vertical, 8).tag(record.id)
                     }
-                    .padding(.vertical, 8)
                 }
                 .listStyle(.inset)
+                Text(selection.isEmpty
+                     ? "⌘ 또는 ⇧로 여러 항목을 선택해 함께 되돌릴 수 있습니다."
+                     : "선택한 \(selection.count)개 중 \(restorableRecords.count)개를 되돌릴 수 있습니다.")
+                    .font(.caption).foregroundStyle(.secondary)
             }
         }
         .padding(22)
-    }
-}
-
-@MainActor
-private struct RulesView: View {
-    @ObservedObject var model: OrganizerAppModel
-
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                HStack {
-                    Text("분류 규칙").font(.title2.weight(.semibold))
-                    Spacer()
-                    Button("폴더 구조 분석") { Task { await model.analyzeStructure() } }
-                        .buttonStyle(LiquidGlassButtonStyle())
-                        .disabled(!(model.hasAPIKey || model.isDemo) || model.isBusy)
-                }
-                Text("선택한 폴더의 이름과 파일명 사례에서 규칙 후보를 찾습니다. 확인한 규칙만 새 제안에 사용됩니다.")
-                    .font(.callout).foregroundStyle(.secondary)
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("규칙 후보").font(.headline)
-                    if model.settings?.candidates.isEmpty != false {
-                        Text("검토할 규칙 후보가 없습니다.").foregroundStyle(.secondary)
-                    }
-                    ForEach(Array((model.settings?.candidates ?? []).enumerated()), id: \.offset) { index, candidate in
-                        LiquidGlassCard {
-                            VStack(alignment: .leading, spacing: 10) {
-                                Text(folderPath(candidate.folderID)).font(.caption).foregroundStyle(.secondary)
-                                Text(candidate.instruction)
-                                ForEach(Array(candidate.evidence.enumerated()), id: \.offset) { _, evidence in
-                                    Text("• \(evidence)").font(.caption).foregroundStyle(.secondary)
-                                }
-                                if !candidate.uncertainties.isEmpty {
-                                    Text("확인 필요: " + candidate.uncertainties.joined(separator: ", "))
-                                        .font(.caption).foregroundStyle(.secondary)
-                                }
-                                Button("규칙 확정") { Task { await model.confirmRule(index) } }
-                                    .disabled(model.isBusy)
-                            }
-                        }
-                    }
-                }
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("확정한 규칙").font(.headline)
-                    if model.settings?.rules.isEmpty != false {
-                        Text("아직 확정한 규칙이 없습니다.").foregroundStyle(.secondary)
-                    }
-                    ForEach(model.settings?.rules ?? [], id: \.id) { rule in
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text(folderPath(rule.folderID)).font(.caption).foregroundStyle(.secondary)
-                            Text(rule.instruction).textSelection(.enabled)
-                        }
-                        .padding(.vertical, 8)
-                    }
-                }
-            }
-            .padding(24)
-        }
+        .sheet(item: $undoRequest) { BatchUndoReviewView(model: model, records: $0.records) }
+        .onChange(of: model.history.map(\.id)) { _, ids in selection.formIntersection(Set(ids)) }
     }
 
-    private func folderPath(_ id: String) -> String {
-        model.settings?.folders.first(where: { $0.id == id })?.path ?? "현재 목록에 없는 폴더"
+    private struct UndoRequest: Identifiable {
+        let id = UUID()
+        let records: [MoveRecord]
     }
 }
 

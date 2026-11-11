@@ -204,6 +204,7 @@ private struct PsiloFixture {
         try await service.configure(downloads: downloads, roots: [archive])
         _ = try await service.importItem(file)
         return try OrganizerAppModel(stateDirectory: state, demo: false, dependencies: AppModelDependencies(
+            keyIsConfigured: { true },
             readKey: { "dummy-local-test-key" }, saveKey: { _ in }, deleteKey: { },
             analyzeFile: { _, _, _ in throw CancellationError() }
         ), settleInterval: 0)

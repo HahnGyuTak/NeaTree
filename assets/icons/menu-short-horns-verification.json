@@ -1,0 +1,20 @@
+[
+  {
+    "file": "MenuBarTemplate.png",
+    "has_alpha": true,
+    "nonblack_pixels": 0,
+    "page_interior_alpha": 0,
+    "pixels": 18,
+    "transparent_pixels": 114,
+    "visible_pixels": 210
+  },
+  {
+    "file": "MenuBarTemplate@2x.png",
+    "has_alpha": true,
+    "nonblack_pixels": 0,
+    "page_interior_alpha": 0,
+    "pixels": 36,
+    "transparent_pixels": 560,
+    "visible_pixels": 736
+  }
+]

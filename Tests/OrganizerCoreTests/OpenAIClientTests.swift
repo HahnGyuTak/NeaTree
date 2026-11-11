@@ -25,6 +25,7 @@ struct OpenAIClientTests {
         let body = try #require(try JSONSerialization.jsonObject(with: capturedBody) as? [String: Any])
         #expect(body["model"] as? String == "gpt-6.1-sol")
         #expect(body["store"] as? Bool == false)
+        #expect(body["max_output_tokens"] as? Int == 6_000)
         let input = try #require(body["input"] as? [[String: Any]])
         #expect(input.first?["role"] as? String == "developer")
         #expect(input.last?["role"] as? String == "user")

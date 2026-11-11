@@ -1,0 +1,32 @@
+{
+  "Psilo.usdz": {
+    "sha256": "3709dbedbc43205270a69f0ac02fb4b5fe11a160167a3801c1fc16b7179b6f49",
+    "source_matches_package": true
+  },
+  "MenuBarTemplate.png": {
+    "sha256": "436267138aa081020122f71669d44ebc8bb85fa0fde7bae9510d2b5439b6cc12",
+    "source_matches_package": true
+  },
+  "MenuBarTemplate@2x.png": {
+    "sha256": "8d9a6f6903c7af12fe5df44223fbb21ad4b75fcf7b4f0bf9ce05a4924de98c19",
+    "source_matches_package": true
+  },
+  "development_build": {
+    "version": "0.1.0",
+    "build_number": 8,
+    "architecture": "arm64",
+    "configuration": "debug",
+    "signing": "ad-hoc-development",
+    "notarized": false,
+    "swift_build": "passed",
+    "codesign_verify": "passed",
+    "native_demo": [
+      "idle",
+      "file analysis with glasses and files",
+      "error spiral eyes",
+      "recover to idle",
+      "structure analysis",
+      "completion transition"
+    ]
+  }
+}

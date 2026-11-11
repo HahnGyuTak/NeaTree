@@ -1,0 +1,41 @@
+{
+  "version": "0.1.0",
+  "build": "9",
+  "bundle_id": "io.github.HahnGyuTak.NeaTree",
+  "signing": "ad-hoc-development, codesign verification passed by pack-app.sh",
+  "notarized": false,
+  "published": false,
+  "resources": {
+    "MenuBarTemplate.png": {
+      "source_sha256": "8d4b33c1ba20705eaabacdd9d253e62f9ee713e957ea197c6ccbc2776f402453",
+      "bundled_sha256": "8d4b33c1ba20705eaabacdd9d253e62f9ee713e957ea197c6ccbc2776f402453",
+      "source_matches_package": true
+    },
+    "MenuBarTemplate@2x.png": {
+      "source_sha256": "e1a5fdf893cf40585ff1e56a35c5d313e1c3c5034ad06c6280ddc04948629796",
+      "bundled_sha256": "e1a5fdf893cf40585ff1e56a35c5d313e1c3c5034ad06c6280ddc04948629796",
+      "source_matches_package": true
+    },
+    "AppIcon.icns": {
+      "source_sha256": "bc352bd08de734513854ec287601d83b917383b611f68da4db1759eea6167804",
+      "bundled_sha256": "bc352bd08de734513854ec287601d83b917383b611f68da4db1759eea6167804",
+      "source_matches_package": true
+    },
+    "top_level_icon": {
+      "source_matches_package": true,
+      "sha256": "bc352bd08de734513854ec287601d83b917383b611f68da4db1759eea6167804"
+    }
+  },
+  "app_icon_layers_verified": [
+    "NSAppearanceNameAqua:3",
+    "NSAppearanceNameDarkAqua:3",
+    "ISAppearanceTintable:3"
+  ],
+  "checks": [
+    "native512and64pxlight/darkpreview",
+    "18and36pxmenutemplatealphaandblackfill",
+    "swiftdebugbuild",
+    "bundle/resourcehashidentity",
+    "ad-hocsignaturevalidation"
+  ]
+}

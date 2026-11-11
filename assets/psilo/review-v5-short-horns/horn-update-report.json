@@ -1,0 +1,28 @@
+{
+  "horns": [
+    {
+      "name": "Horn_L",
+      "closed_manifold": true,
+      "control_vertices": 738,
+      "axis_length_m": 0.032,
+      "outward_lean_degrees": 8
+    },
+    {
+      "name": "Horn_R",
+      "closed_manifold": true,
+      "control_vertices": 738,
+      "axis_length_m": 0.032,
+      "outward_lean_degrees": 8
+    }
+  ],
+  "other_geometry_changed": false,
+  "shape_approved": true,
+  "whole_model_approval_implied": false,
+  "non_horn_objects_unchanged": 54,
+  "kind": "review",
+  "motion_frames": [
+    1,
+    289
+  ],
+  "approved_reference": "assets/psilo/reference/short-horns-approved-v1.png"
+}

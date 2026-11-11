@@ -56,8 +56,33 @@ final class OrganizerStatusController: NSObject {
         // The frontmost main window already presents the same queue.
         guard !NSApp.isActive || NSApp.keyWindow == nil else { return }
         model.selectedItemID = id
+        #if DEBUG
+        let verifyFocus = ProcessInfo.processInfo.arguments.contains("--verify-menu-focus")
+        let frontmostPIDBeforePresentation = verifyFocus ? NSWorkspace.shared.frontmostApplication?.processIdentifier : nil
+        #endif
         showProposal(allowKeyboardFocus: false)
+        #if DEBUG
+        if verifyFocus { verifyAutomaticProposalFocus(frontmostPIDBeforePresentation) }
+        #endif
     }
+
+    #if DEBUG
+    /// Opt-in observation only: allow the nonactivating panel's animation and
+    /// AppKit focus changes to settle without activating or inspecting an app.
+    private func verifyAutomaticProposalFocus(_ previousFrontmostPID: pid_t?) {
+        let presentedPanel = panel
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(250)) { [weak presentedPanel] in
+            let panelVisible = presentedPanel?.isVisible == true
+            let frontmostPIDUnchanged = previousFrontmostPID.map {
+                NSWorkspace.shared.frontmostApplication?.processIdentifier == $0
+            } ?? false
+            let panelNotKey = presentedPanel?.isKeyWindow == false
+            // Never emit the PID, application identity, proposal or file path.
+            NSLog("NeaTree menu focus verification: panelVisible=%@ frontmostPIDUnchanged=%@ panelNotKey=%@",
+                  String(panelVisible), String(frontmostPIDUnchanged), String(panelNotKey))
+        }
+    }
+    #endif
 
     func stop() {
         dismissProposal()

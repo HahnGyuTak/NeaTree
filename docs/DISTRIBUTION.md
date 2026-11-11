@@ -24,7 +24,19 @@ scripts/pack-app.sh --version 0.1.0 --configuration debug --no-dmg
 
 기본 결과는 `dist/NeaTree-0.1.0-b1-macos-arm64-development/`처럼 버전·빌드 번호·아키텍처가 포함된 폴더다. 해당 폴더에는 앱 번들, ZIP, `build-metadata.json`, `SHA256SUMS`가 들어간다. `--no-dmg`를 빼면 DMG도 만든다. 같은 결과 폴더가 있으면 덮어쓰지 않고 중단하므로 `--build-number 2` 또는 별도 `--output-dir`을 사용한다.
 
-내부 Swift 실행 파일 이름은 `file-organizer`다. 메뉴막대 템플릿은 SwiftPM의 `NeaTree_OrganizerApp.bundle`에 포함된다. 패키징은 같은 빌드의 리소스 번들을 `Contents/Resources`에 넣는다. `--binary`로 이미 빌드한 실행 파일을 지정할 때도 그 옆에 같은 빌드의 `NeaTree_OrganizerApp.bundle`이 있어야 한다. 메뉴막대 이미지나 리소스 번들이 빠지면 패키징을 중단한다.
+내부 Swift 실행 파일 이름은 `file-organizer`다. 패키징은 같은 빌드의 SwiftPM `NeaTree_OrganizerApp.bundle`을 `Contents/Resources`에 넣는다. `--binary`로 이미 빌드한 실행 파일을 지정할 때도 그 옆에 같은 빌드의 `NeaTree_OrganizerApp.bundle`이 있어야 한다.
+
+현재 실로 v7 패키지는 다음 리소스를 요구한다. 소스 위치는 `Sources/OrganizerApp/Resources/`다.
+
+| 리소스 | 용도 |
+| --- | --- |
+| `MenuBarTemplate.png`, `MenuBarTemplate@2x.png` | 배경에 맞춰 반전되는 메뉴막대 템플릿 |
+| `Psilo.usdz` | v7 중립 모델·베이크된 재질·네이티브 표정과 macOS 14 호환 대상 메시. 현재 5,014,102바이트 |
+| `PsiloDisplayTransform.rgba16float` | Blender AgX 출력에서 생성한 33³ RGBA half-float 색상 변환 표. 287,496바이트 |
+
+메뉴막대 이미지·USDZ·색상 표·리소스 번들 중 하나라도 없으면 패키징을 중단한다. 색상 표는 위 바이트 수와 일치하는지도 검사한다. 이 검사는 내용 해시나 실제 GPU 시각 결과 검증을 대신하지 않는다. 최종 앱에 들어간 USDZ·색상 표의 SHA-256을 각각 [v7 모델 기록](../assets/psilo/runtime-v7/model-metrics.json)과 [색상 표 생성 기록](../assets/psilo/runtime-v7/color-transform/provenance.json)에 대조한다.
+
+Blender 원본·MCP·검수 렌더·OpenColorIO 실행 코드나 원본 설정은 앱 번들에 넣지 않는다. 앱은 생성된 모델·표와 자체 RealityKit/Metal 코드를 사용한다. AgX 출처와 상위 변환의 라이선스 확인 범위는 [출처 안내](../assets/psilo/runtime-v7/color-transform/NOTICE.md)에 기록했다.
 
 앱 아이콘은 `assets/icons/AppIcon.icon`의 Icon Composer 레이어 문서를 `actool`로 컴파일한다. `scripts/compile-app-icon.sh`가 생성한 `Assets.car`와 호환용 `AppIcon.icns`를 앱의 `Contents/Resources`에 넣고, 컴파일러가 반환한 `CFBundleIconName`·`CFBundleIconFile`을 실제 `Info.plist`에 병합한다. 따라서 지원 OS의 시스템 렌더링에는 레이어 자산이 사용되며, 이전 OS용 ICNS도 함께 제공한다. 최소 지원 버전은 계속 macOS 14다. [Apple Icon Composer 안내](https://developer.apple.com/documentation/xcode/creating-your-app-icon-using-icon-composer)
 
@@ -36,6 +48,14 @@ scripts/pack-app.sh --configuration debug --version 0.1.0 --no-dmg \
 ```
 
 이미 별도의 샌드박스 안에서 실행 중인 개발 환경은 필요할 때 `--disable-manifest-sandbox`를 지정할 수 있다. 이는 SwiftPM의 중첩 manifest sandbox 옵션이며, 앱의 보안 기능이나 macOS Gatekeeper를 끄는 옵션이 아니다. 빌드 캐시 위치는 `--scratch-path`로 바꾼다.
+
+## 실로 런타임과 검증 범위
+
+macOS 15 이상에서도 가져온 표정 키의 이름 매핑과 비어 있지 않은 실제 변형 오프셋을 모두 확인한 채널만 네이티브 가중치를 사용한다. b12 실제 앱에서 이름만 있고 오프셋이 없는 가져오기 결과는 표면을 움직이지 않는 것으로 확인되어 이 검사를 필수로 추가했다. macOS 14 또는 네이티브 조건을 만족하지 못한 채널은 토폴로지·UV·좌표를 검사한 대상 메시를 보간한다. 호환 대상은 화면에 그리지 않으며 표정이 변할 때만 메시를 갱신한다. 네 채널을 모두 준비하지 못한 초기 상태는 중립 얼굴을 유지한다. 최신 OS의 강제 호환 검사나 단독 네이티브 가져오기 결과는 실제 macOS 14 실행 및 최종 앱의 얼굴 변형 검증을 대신하지 않는다.
+
+색상 표는 GPU 한 패스로 적용하며 파이프라인과 표 텍스처는 재사용한다. 렌더러의 스냅샷 ICC로 sRGB/P3를 구분하고 `bgra8Unorm_srgb`, `rgba8Unorm_srgb`, `rgba16Float`의 선형 읽기·쓰기 경로에서 해당 원색 변환과 AgX 표를 연결한다. 현재 개발 기기의 실제 화면은 `bgra8Unorm_srgb`(81), 비 HDR 스냅샷은 `rgba16Float`(115)로 확인했다. 알 수 없는 프로파일·지원 범위 밖 형식과 일반 UNORM은 기본 렌더링을 유지한다. 창을 숨기거나 최소화하면 렌더러·프레임 구독·진행 중 프로파일 확인을 해제한다. 모델과 재사용 가능한 GPU 자원은 보존한다. 동작과 조건은 [실로 행동 문서](design/mascot-motion.md)에 있다.
+
+이 구현과 현재 개발 기기의 색상 기준값 검사는 모든 GPU·화면의 외형 일치, 화면 간 이동, Intel 및 실제 macOS 14, 사용자 지정 ICC/HDR 환경을 검증한 결과가 아니다. 배포 설명에는 확인한 기기·OS·아키텍처와 미확인 범위를 구분한다. 최종 패키지의 실제 실행과 포커스·모션 확인 여부는 [검증 기록](VERIFICATION.md)의 해당 빌드를 따른다.
 
 ## CI
 

@@ -29,19 +29,24 @@ public enum OpenAIClientError: Error, LocalizedError, Sendable, Equatable {
 /// Read-only analysis adapter. It never reads credentials from disk or mutates files.
 public struct OpenAIClient: Sendable {
     public static let model = "gpt-6.1-sol"
+    public static let maximumOutputTokenLimit = 6_000
     private let apiKey: String
+    private let maxOutputTokens: Int
     private let transport: @Sendable (URLRequest) async throws -> (Data, URLResponse)
     private static let endpoint = URL(string: "https://api.openai.com/v1/responses")!
     private static let maximumInputBytes = 1_000_000
 
-    public init(apiKey: String, session: URLSession = .shared) {
+    public init(apiKey: String, maxOutputTokens: Int = maximumOutputTokenLimit, session: URLSession = .shared) {
         self.apiKey = apiKey
+        self.maxOutputTokens = maxOutputTokens
         self.transport = { request in try await session.data(for: request) }
     }
 
     /// Allows deterministic tests without entering CFNetwork or creating real requests.
-    init(apiKey: String, transport: @escaping @Sendable (URLRequest) async throws -> (Data, URLResponse)) {
+    init(apiKey: String, maxOutputTokens: Int = maximumOutputTokenLimit,
+         transport: @escaping @Sendable (URLRequest) async throws -> (Data, URLResponse)) {
         self.apiKey = apiKey
+        self.maxOutputTokens = maxOutputTokens
         self.transport = transport
     }
 
@@ -106,6 +111,7 @@ public struct OpenAIClient: Sendable {
     private func request<Input: Encodable, Output: Decodable>(task: String, input: Input, schemaName: String, schema: [String: Any]) async throws -> Output {
         guard !apiKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { throw OpenAIClientError.missingAPIKey }
         guard apiKey.rangeOfCharacter(from: .whitespacesAndNewlines) == nil else { throw OpenAIClientError.invalidInput }
+        guard (1...Self.maximumOutputTokenLimit).contains(maxOutputTokens) else { throw OpenAIClientError.invalidInput }
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = [.sortedKeys]
@@ -116,7 +122,7 @@ public struct OpenAIClient: Sendable {
             "model": Self.model,
             "store": false,
             "reasoning": ["effort": "low"],
-            "max_output_tokens": 6_000,
+            "max_output_tokens": maxOutputTokens,
             "input": [
                 ["role": "developer", "content": PromptLibrary.common + "\n\n" + task],
                 ["role": "user", "content": userData]

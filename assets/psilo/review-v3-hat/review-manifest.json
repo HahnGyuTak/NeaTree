@@ -1,0 +1,36 @@
+{
+  "status": "awaiting user visual approval",
+  "scope": "hat wearing angle, brim contact and band proportions",
+  "app_resource_replaced": false,
+  "helper_sha256": "67cf9142aa546954f092001730b51f699021a409cd4d15870b2488b2b0a59934",
+  "files": {
+    "Psilo-v3-hat.blend": {
+      "bytes": 2759503,
+      "sha256": "c9b5ac1356fa890633a53a966802c378cc162d43e19b56e5efc1b6f8f602fb45",
+      "before_metadata_sanitization_sha256": "d62870ce1caa3db3927ef74ed985cfe8950d6ec64746cca62a8653c935e37d36"
+    },
+    "Psilo-v3-hat-motion.blend": {
+      "bytes": 2869995,
+      "sha256": "473bda6ad73b7da2a3434625af40101f110124dca7956098b867f1aae75a72de",
+      "before_metadata_sanitization_sha256": "2d8f393c6d1ea3db9c326c81eb591901d6b7c3adce1028eb39739756c9ba22b3"
+    },
+    "hat-front.png": {
+      "bytes": 733779,
+      "sha256": "eea906d29bd513f9f8ca7698c107e2d1c9985ab1c409f124d36d9b260fc5c1eb",
+      "before_metadata_sanitization_sha256": "13bd13ed948218610a241fd4f3304bf9904f9bd2159da109fd7274f53a4399e8"
+    },
+    "hat-reference-comparison.jpg": {
+      "bytes": 187598,
+      "sha256": "2610ecffbbc54773890f2acaee3f18ea58ba589dd7e6109bba002bceae5a919e"
+    },
+    "hat-angle-check.jpg": {
+      "bytes": 124917,
+      "sha256": "23d4d71f347ee48d4d55e6ef671d5f303cc68dad32e0befd677a2a5680485cec"
+    },
+    "hat-check.json": {
+      "bytes": 113,
+      "sha256": "01cac7031820b69a0ad25968c5ad120ec55cd3e8f9edbb055165b6fa1608e924"
+    }
+  },
+  "metadata_sanitization_report": "../runtime-v7/blend-metadata-sanitization.json"
+}

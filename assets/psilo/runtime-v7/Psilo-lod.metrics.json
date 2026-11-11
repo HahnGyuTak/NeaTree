@@ -1,0 +1,227 @@
+{
+  "purpose": "Unapproved Blender LOD review; not a production runtime asset",
+  "target_triangles": 40000,
+  "actual_triangles": 40003,
+  "original_triangles": 332108,
+  "within_ten_percent_of_target": true,
+  "mesh_count": 28,
+  "materials": [
+    "BodyCream",
+    "Cream",
+    "Hat",
+    "Ink",
+    "Psilo Mouth Surface v6",
+    "Sage"
+  ],
+  "objects": [
+    {
+      "name": "Pedestal",
+      "before": 19456,
+      "target": 1285,
+      "after": 1284
+    },
+    {
+      "name": "Cap",
+      "before": 262144,
+      "target": 22839,
+      "after": 22839
+    },
+    {
+      "name": "SpiralCurve_L",
+      "before": 1088,
+      "target": 1088,
+      "after": 1088
+    },
+    {
+      "name": "SpiralCurve_R",
+      "before": 1088,
+      "target": 1088,
+      "after": 1088
+    },
+    {
+      "name": "EyeDot_L",
+      "before": 440,
+      "target": 440,
+      "after": 440
+    },
+    {
+      "name": "EyeDot_R",
+      "before": 440,
+      "target": 440,
+      "after": 440
+    },
+    {
+      "name": "Arm_L",
+      "before": 80,
+      "target": 80,
+      "after": 80
+    },
+    {
+      "name": "Arm_R",
+      "before": 80,
+      "target": 80,
+      "after": 80
+    },
+    {
+      "name": "Bridge",
+      "before": 80,
+      "target": 80,
+      "after": 80
+    },
+    {
+      "name": "Frame_L",
+      "before": 440,
+      "target": 440,
+      "after": 440
+    },
+    {
+      "name": "Frame_R",
+      "before": 440,
+      "target": 440,
+      "after": 440
+    },
+    {
+      "name": "Band",
+      "before": 1536,
+      "target": 658,
+      "after": 658
+    },
+    {
+      "name": "Brim",
+      "before": 18432,
+      "target": 3054,
+      "after": 3053
+    },
+    {
+      "name": "Crown",
+      "before": 12288,
+      "target": 2717,
+      "after": 2717
+    },
+    {
+      "name": "Horn_L",
+      "before": 6144,
+      "target": 1744,
+      "after": 1744
+    },
+    {
+      "name": "Horn_R",
+      "before": 6144,
+      "target": 1744,
+      "after": 1744
+    },
+    {
+      "name": "Smile",
+      "before": 80,
+      "target": 80,
+      "after": 80
+    },
+    {
+      "name": "ProudEye_L",
+      "before": 368,
+      "target": 368,
+      "after": 368
+    },
+    {
+      "name": "ProudEye_R",
+      "before": 368,
+      "target": 368,
+      "after": 368
+    },
+    {
+      "name": "Document",
+      "before": 108,
+      "target": 108,
+      "after": 108
+    },
+    {
+      "name": "Folder",
+      "before": 108,
+      "target": 108,
+      "after": 108
+    },
+    {
+      "name": "FolderTab",
+      "before": 108,
+      "target": 108,
+      "after": 108
+    },
+    {
+      "name": "Document.001",
+      "before": 108,
+      "target": 108,
+      "after": 108
+    },
+    {
+      "name": "Folder.001",
+      "before": 108,
+      "target": 108,
+      "after": 108
+    },
+    {
+      "name": "FolderTab.001",
+      "before": 108,
+      "target": 108,
+      "after": 108
+    },
+    {
+      "name": "Document.002",
+      "before": 108,
+      "target": 108,
+      "after": 108
+    },
+    {
+      "name": "Folder.002",
+      "before": 108,
+      "target": 108,
+      "after": 108
+    },
+    {
+      "name": "FolderTab.002",
+      "before": 108,
+      "target": 108,
+      "after": 108
+    }
+  ],
+  "shape_transfer": {
+    "object": "Cap",
+    "name": "SmileClose",
+    "method": "normalized double-precision barycentric displacement",
+    "vertices": 11778,
+    "moved_vertices": 380,
+    "max_local_projection_distance_units": 2.6219662686344236e-05,
+    "nonfinite_vertices": 0,
+    "degenerate_triangle_edge_samples": 722
+  },
+  "eye_shape_transfers": [
+    {
+      "object": "EyeDot_L",
+      "name": "Happy",
+      "method": "exact indexed evaluated displacement; no eye decimation",
+      "vertices": 222,
+      "moved_vertices": 222,
+      "max_local_displacement_units": 1.2756566541336143,
+      "max_world_displacement_m": 0.004129806361272064,
+      "runtime_morph_controller_required": true
+    },
+    {
+      "object": "EyeDot_R",
+      "name": "Happy",
+      "method": "exact indexed evaluated displacement; no eye decimation",
+      "vertices": 222,
+      "moved_vertices": 222,
+      "max_local_displacement_units": 1.2756566541336143,
+      "max_world_displacement_m": 0.004129806267503552,
+      "runtime_morph_controller_required": true
+    }
+  ],
+  "source_frame": 1,
+  "baking_required": true,
+  "limitations": [
+    "Procedural materials require normal/roughness/color baking for RealityKit.",
+    "No visual parity or runtime performance claim follows from triangle count.",
+    "Current evaluated pose is preserved; use the neutral source before export.",
+    "Close-up facial seats and mouth cavity need multi-angle visual review.",
+    "SmileClose and both Happy eye keys are retained; the app morph controller is not implemented here."
+  ]
+}

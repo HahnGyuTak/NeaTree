@@ -1,0 +1,68 @@
+{
+  "character": [
+    {
+      "alpha_range": [
+        0,
+        1
+      ],
+      "name": "Character-before.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "visible_bbox": [
+        25,
+        93,
+        999,
+        759
+      ]
+    },
+    {
+      "alpha_range": [
+        0,
+        1
+      ],
+      "name": "Character.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "visible_bbox": [
+        25,
+        91,
+        1000,
+        762
+      ]
+    }
+  ],
+  "compiled_stacks": [
+    {
+      "appearance": "NSAppearanceNameDarkAqua",
+      "layers": 3
+    },
+    {
+      "appearance": "NSAppearanceNameAqua",
+      "layers": 3
+    },
+    {
+      "appearance": "ISAppearanceTintable",
+      "layers": 3
+    }
+  ],
+  "files_layer_unchanged": true,
+  "icon_document_unchanged": true,
+  "preserved_source_hashes": {
+    "assets/icons/AppIcon.icon/Assets/Files.png": "2c7490a3572ca93d0d2a8d3ca0751a27aabab6f610a2fd546f17ed3da319bc28",
+    "assets/icons/AppIcon.icon/icon.json": "c24eb07c4d19060c66bfd55d2d1e83a97f7ae104fe865c75bf6484c77fb5c93f"
+  },
+  "icns_bytes": 1571642,
+  "icns_sha256": "bc352bd08de734513854ec287601d83b917383b611f68da4db1759eea6167804",
+  "native_previews": [
+    "docs/design/icons-v7-horns-default.png",
+    "docs/design/icons-v7-horns-dark.png"
+  ],
+  "native_preview_sizes_checked": [
+    512,
+    64
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "source": "assets/psilo/review-v7-plump-horns/Psilo-v7.blend",
+  "source_sha256": "1ec7be0deefea7a2c5c1127da8fa3ae6781d8c85517f69916d555741afc2139b",
+  "build_script_sha256": "613aa05157582bbfca9635065e93acf0ef7e6dbcb7208f89eb81ae2d223180da",
+  "blender_version": "5.3.0",
+  "visible_triangles": 41219,
+  "fallback_target_triangles": 24935,
+  "fallback_targets": [
+    {
+      "source": "Cap",
+      "shape": "SmileClose",
+      "target": "MorphTarget_Cap_SmileClose",
+      "vertices": 11778,
+      "triangles": 22839
+    },
+    {
+      "source": "EyeDot_L",
+      "shape": "Happy",
+      "target": "MorphTarget_EyeDot_L_Happy",
+      "vertices": 222,
+      "triangles": 440
+    },
+    {
+      "source": "EyeDot_R",
+      "shape": "Happy",
+      "target": "MorphTarget_EyeDot_R_Happy",
+      "vertices": 222,
+      "triangles": 440
+    },
+    {
+      "source": "MouthInterior",
+      "shape": "SmileClose",
+      "target": "MorphTarget_MouthInterior_SmileClose",
+      "vertices": 641,
+      "triangles": 1216
+    }
+  ],
+  "material_count": 2,
+  "textures": [
+    {
+      "name": "Psilo-v7-color.png",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Psilo-v7-roughness.png",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Psilo-v7-normal.png",
+      "size": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "usdz_bytes": 5014102,
+  "usdz_sha256": "810e6b176d4541bf58117c4a2152e28107285757fd7d6ca404df6196960f347c",
+  "installed_in_app": true,
+  "native_runtime_visual_validation_pending": true,
+  "mouth": "fitted inset surface patch with closure blendshape; closed aperture collapses to zero area",
+  "coordinate_system": "Y-up, +Z front; converted per mesh/control/shape key",
+  "app_resource": "Sources/OrganizerApp/Resources/Psilo.usdz",
+  "geometry_validation": "geometry-validation.json",
+  "source_before_metadata_sanitization_sha256": "4daadd9a313ccd774efb15cf5f92f82db89f1c288e46c566d2bce2f134a90205",
+  "source_metadata_sanitization": "blend-metadata-sanitization.json",
+  "builder_current_after_path_hygiene_sha256": "4318d1da8ab9de6cc2903b16306c10399c050f9263b4d83d7ade4243ef24ae0a",
+  "build_script_sha256_note": "build_script_sha256 identifies the exact export build; later path-metadata hygiene guards do not change the installed USDZ."
+}

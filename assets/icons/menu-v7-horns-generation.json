@@ -1,0 +1,48 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-11-12",
+  "authorization": "User approved Psilo v7 horn shape and requested the same shape in app and menu-bar icons.",
+  "scope": "Menu glyph horn width, rounded tips and outward tilt; existing mushroom-capped-document composition retained.",
+  "approved_horn_reference": "assets/psilo/review-v7-plump-horns/front.png",
+  "approved_horn_reference_sha256": "3a858a6512fdf5be9acfd106f3382623db72146a6e43391f5ca0d3d8abeee940",
+  "output": "assets/icons/MenuBar-master.png",
+  "output_sha256": "10a370428a123940415549c6e0b8a0207f5c66c187b69f9e212206e0761b3235",
+  "transparent_background": true,
+  "attempts": [
+    {
+      "number": 1,
+      "prompt": "Use case: precise-object-edit.\nAsset type: macOS menu-bar template icon, a single opaque black silhouette on genuine transparent background.\nInput images: Image 1 is the EDIT TARGET, the existing NeaTree mushroom-capped document menu icon. Image 2 is the approved Psilo v7 FRONT reference for HORN SHAPE ONLY. Image 3 is its 35-degree view to clarify the horn's rounded conical volume, not the desired camera angle.\nPrimary request: Replace ONLY the two horns of Image 1 with the exact short, plump, straight-axis cone design approved in Image 2. Each horn has a broad circular base, straight taper and a noticeably rounded blunt apex, not a needle point. The cone base is flush with the sloped cap shoulder and the cone axis leans outward as it does in the approved front reference. Horns are chunky and about 29 percent broader than the old target horns, with substantially rounder tips. Keep them short. Preserve the broad dome of the mushroom cap and its rounded lower edge; preserve the document outline, folded top-right corner, transparent document interior, outline thickness, scale, centering and padding from Image 1. Preserve all non-horn geometry as closely as possible.\nStyle: pure flat BLACK template glyph. No face, no eyes, no mouth, no hat, no cap spots, no cream areas, no gradients, no shading, no texture, no gray halos, no outlines added to the horn. Merge the black horn bases seamlessly into the existing black cap. The result should remain immediately readable as the same mushroom-capped document at 18 pixels.\nOutput: one clean 1024-by-1024 square transparent PNG. Solid black fill and antialiasing only, actual transparent alpha everywhere else, including inside the page. No background, no checkerboard, no captions, no presentation sheet, no extra elements.",
+      "input_roles": [
+        "assets/icons/MenuBar-master.png",
+        "assets/psilo/review-v7-plump-horns/front.png",
+        "assets/psilo/review-v7-plump-horns/left.png"
+      ],
+      "input_sha256": [
+        "fec13ec13fd5e8a6ba5f15054e0633028afaaac1c052a08dbb1e08f908483976",
+        "dd8b9ba6bf227eab0580193872d1df33d3731da83ee81c2cde69ef8e7b30c2dd",
+        "0d57d3b5c852d74e27e4b4f454f107af25d5c5d17df2916b4b3025978caa67ad"
+      ],
+      "output_sha256": "fec0e1f4f2425172312fc3f701002a3bfc2a92c1d06cf8e447dc0dd51b1f0aeb",
+      "selected": false,
+      "reason": "Rejected because the cap became taller and document/cap proportions drifted."
+    },
+    {
+      "number": 2,
+      "prompt": "Use case: precise-object-edit.\nImage 1 is the EDIT TARGET: the original NeaTree menu-bar symbol, shown on white so its shape is clearly visible. This is a very localized horn edit, not a redesign.\nChange ONLY the TWO HORNS protruding from the upper left and upper right shoulders of the mushroom cap. Make each horn about 29 percent broader and plumper, with a straight conical taper and a broad soft rounded tip instead of the current small pointed tip. Each short horn leans outward about 20 degrees, seated fully into the existing sloped cap shoulder. Keep the tips low and chunky, no long horns, no hooked or bent shapes, no sharp needle points, no narrow stems, no separate circles, no pear shapes.\nEverything else must match Image 1 precisely: preserve the existing LOW BROAD MUSHROOM DOME, its exact width-to-height ratio, its shallow curved top and rounded lower edge. Do not add a raised central bump, hat, tier, or extra cap. Preserve the document's exact rectangular outline, corner radii, folded top-right corner, outline thickness, dimensions and position; preserve exact original centering and margins. Do not move the cap relative to the document. Keep the document interior empty.\nRender as a single pure black flat template glyph with smooth antialiasing. No face, eyes, mouth, hat, spots, gray shading, gradient, texture, shadow, text, label, or presentation framing. ONLY TWO HORN REGIONS MAY CHANGE. The supporting white background is for viewing only: output a genuinely TRANSPARENT PNG, transparent inside the document too. Output the same square canvas and same artwork placement as the reference.",
+      "input_roles": [
+        "Native AppKit white-background inspection of the previous MenuBar-master.png"
+      ],
+      "input_sha256": [
+        "62c9af5f954b7fdfd8432d0fdaf68d9f1fd40098f053c1cc4bc5b299dc376a2d"
+      ],
+      "previous_master_sha256": "fec13ec13fd5e8a6ba5f15054e0633028afaaac1c052a08dbb1e08f908483976",
+      "output_sha256": "10a370428a123940415549c6e0b8a0207f5c66c187b69f9e212206e0761b3235",
+      "selected": true,
+      "reason": "Preserves the low broad cap and document composition, with broader rounded outward horns."
+    }
+  ],
+  "export": "swift scripts/export-menu-icon.swift .",
+  "note": "The generator rerasterized edges; no claim of pixel-identical non-horn regions. Original comparison visible bounds differ approximately 1\u20132 pixels at 1254px source resolution.",
+  "approved_horn_reference_sha256_before_metadata_sanitization": "dd8b9ba6bf227eab0580193872d1df33d3731da83ee81c2cde69ef8e7b30c2dd",
+  "reference_pixels_unchanged_by_metadata_sanitization": true
+}

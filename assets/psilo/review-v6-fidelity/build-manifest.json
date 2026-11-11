@@ -1,0 +1,280 @@
+{
+  "geometry": {
+    "version": 6,
+    "cap_max_displacement_m": 0.007288910527477901,
+    "horn_attachment": "separate circular-cone helper and full-disc validation",
+    "body": "broad capsule with rounded flat bottom",
+    "status": "review only; user approval pending"
+  },
+  "horns": {
+    "horns": [
+      {
+        "horn": "Horn_L",
+        "axis_cap": [
+          -0.5714418888092041,
+          -0.5891307592391968,
+          0.571295976638794
+        ],
+        "perpendicular_sections": "circles",
+        "base_center_cap": [
+          -0.053571347147226334,
+          -0.017901653423905373,
+          0.022572224959731102
+        ],
+        "base_radius_m": 0.014,
+        "surface_anchor_cap": [
+          -0.05700000002980232,
+          -0.021436437964439392,
+          0.026000000536441803
+        ],
+        "base_inset_m": 0.006,
+        "virtual_height_m": 0.03,
+        "actual_rounded_tip_cap": [
+          -0.07009072601795197,
+          -0.03493238240480423,
+          0.039087384939193726
+        ],
+        "tip_round_radius_m": 0.0008,
+        "cone_half_angle_degrees": 25.016893478100023,
+        "attachment": "full basal-disc containment must be validated"
+      },
+      {
+        "horn": "Horn_R",
+        "axis_cap": [
+          0.5400961637496948,
+          -0.6152415871620178,
+          0.5742594599723816
+        ],
+        "perpendicular_sections": "circles",
+        "base_center_cap": [
+          0.05375942215323448,
+          -0.01947838068008423,
+          0.022554444149136543
+        ],
+        "base_radius_m": 0.014,
+        "surface_anchor_cap": [
+          0.05700000002980232,
+          -0.023169830441474915,
+          0.026000000536441803
+        ],
+        "base_inset_m": 0.006,
+        "virtual_height_m": 0.03,
+        "actual_rounded_tip_cap": [
+          0.06937264651060104,
+          -0.03726392984390259,
+          0.0391552709043026
+        ],
+        "tip_round_radius_m": 0.0008,
+        "cone_half_angle_degrees": 25.016893478100023,
+        "attachment": "full basal-disc containment must be validated"
+      }
+    ],
+    "cap_geometry_changed": false,
+    "axial_sections_circular": true
+  },
+  "spots": {
+    "kind": "finite 3D tangent patch with front oval preservation",
+    "patches": [
+      {
+        "center_local": [
+          -0.07699999958276749,
+          -0.03150036931037903,
+          -0.006000000052154064
+        ],
+        "normal_local": [
+          -0.4998401999473572,
+          -0.6011519432067871,
+          0.623519241809845
+        ],
+        "projected_radii_m": [
+          0.0145,
+          0.0108
+        ],
+        "angle_radians": 0.39,
+        "normal_depth_m": 0.012,
+        "depth_exponent": 4
+      },
+      {
+        "center_local": [
+          0.024000000208616257,
+          -0.034905627369880676,
+          0.03200000151991844
+        ],
+        "normal_local": [
+          0.19540978968143463,
+          -0.8386733531951904,
+          0.5083721280097961
+        ],
+        "projected_radii_m": [
+          0.02,
+          0.0123
+        ],
+        "angle_radians": -0.34,
+        "normal_depth_m": 0.012,
+        "depth_exponent": 4
+      },
+      {
+        "center_local": [
+          0.07900000363588333,
+          -0.034168437123298645,
+          -0.008999999612569809
+        ],
+        "normal_local": [
+          0.5053175687789917,
+          -0.6539607048034668,
+          0.563018262386322
+        ],
+        "projected_radii_m": [
+          0.0138,
+          0.0101
+        ],
+        "angle_radians": -0.55,
+        "normal_depth_m": 0.012,
+        "depth_exponent": 4
+      }
+    ],
+    "hard_y_clip": false,
+    "production_bake_required": true
+  },
+  "surface": {
+    "production_approved": false,
+    "geometry_changed": false,
+    "reference": "assets/icons/AppIcon.icon/Assets/Character.png",
+    "view": {
+      "transform": "AgX",
+      "look": "Medium High Contrast",
+      "exposure": 0.4
+    },
+    "side_spot_wrap": "smooth continuation around curved cap side",
+    "ink_roughness": 0.5,
+    "underside": {
+      "mask": "object normal Z < -0.05 to -0.65, local height -0.008 to -0.025m",
+      "pigment_multiplier": [
+        0.36,
+        0.36,
+        0.34
+      ]
+    },
+    "studio_energy_balance": {
+      "STUDIO_Key": 1.9,
+      "STUDIO_Fill": 0.72,
+      "STUDIO_Rim": 0.85,
+      "STUDIO_LowFill": 0.3
+    },
+    "linear_pigment_multipliers": {
+      "Coral": [
+        0.82,
+        1.55,
+        1.55
+      ],
+      "Cream": [
+        0.96,
+        0.96,
+        1.45
+      ],
+      "Hat": [
+        0.96,
+        0.96,
+        1.45
+      ],
+      "BodyCream": [
+        1.03,
+        1.03,
+        1.32
+      ],
+      "Sage": [
+        1.0,
+        0.98,
+        1.0
+      ]
+    },
+    "paper_grain_contrast": {
+      "cap": 0.25,
+      "cream_hat": 0.28
+    },
+    "paper_bump_m": 2.8e-05,
+    "body_bounce_energy": 0.85
+  },
+  "face": {
+    "eyes": [
+      {
+        "name": "eye_L",
+        "local_surface": [
+          -0.03099999949336052,
+          -0.05218622088432312,
+          -0.008999999612569809
+        ],
+        "local_center": [
+          -0.031018754467368126,
+          -0.05227746069431305,
+          -0.008963621221482754
+        ],
+        "rear_embed_m": 0.00105,
+        "front_relief_m": 0.00125
+      },
+      {
+        "name": "eye_R",
+        "local_surface": [
+          0.03099999949336052,
+          -0.05294434726238251,
+          -0.008999999612569809
+        ],
+        "local_center": [
+          0.03101673722267151,
+          -0.05303599685430527,
+          -0.008963667787611485
+        ],
+        "rear_embed_m": 0.00105,
+        "front_relief_m": 0.00125
+      }
+    ],
+    "mouth": "cap_surface_recess",
+    "new_protruding_lip": false,
+    "smile": "seated on closed surface; uniform bevel reveal"
+  },
+  "glasses": {
+    "front_curve_points": 29,
+    "front_surface_clearance_m": 0.0038,
+    "kept_front_circle_projection": true,
+    "arms_join_outer_rims": true
+  },
+  "horn_lighting": {
+    "fill_light_links": [
+      {
+        "light": "STUDIO_BodyBounce",
+        "original_receiver_collection": "Psilo body bounce receivers",
+        "receiver_collection": "STUDIO_BodyBounce receivers without Psilo horns",
+        "excluded_horns": [
+          "Horn_L",
+          "Horn_R"
+        ],
+        "existing_rules_preserved": true,
+        "energy_unchanged": 0.8500000238418579
+      },
+      {
+        "light": "STUDIO_LowFill",
+        "original_receiver_collection": "",
+        "receiver_collection": "STUDIO_LowFill receivers without Psilo horns",
+        "excluded_horns": [
+          "Horn_L",
+          "Horn_R"
+        ],
+        "existing_rules_preserved": true,
+        "energy_unchanged": 0.30000001192092896
+      },
+      {
+        "light": "STUDIO_Fill",
+        "original_receiver_collection": "",
+        "receiver_collection": "STUDIO_Fill receivers without Psilo horns",
+        "excluded_horns": [
+          "Horn_L",
+          "Horn_R"
+        ],
+        "existing_rules_preserved": true,
+        "energy_unchanged": 0.7200000286102295
+      }
+    ],
+    "other_lighting_changed": false
+  },
+  "production_replaced": false
+}

@@ -2,13 +2,16 @@
 
 NeaTree의 파일 정리 도우미다. 넓고 낮은 산호색 버섯 갓과 세 개의 아이보리 반점, 뭉툭한 큰 뿔 두 개, 정원사 모자, 작은 점 눈과 타원 입을 유지한다. 작업할 때 안경과 파일이 등장하고, 완료·오류 표정은 별도 부위로 움직인다.
 
+최신 제작용 모델은 [v7 통통한 뿔 검수본](review-v7-plump-horns/README.md)이다. [v6](review-v6-fidelity/README.md)에서 갓·몸통·얼굴 접합·재질·뿔 부착을 수정한 뒤, 뿔이 작고 뾰족하다는 후속 피드백에 따라 원형 단면·밑면 전체 매립을 유지하면서 크기와 끝의 둥글기를 늘렸다. 2026-11-12 최신 모델의 앱 반영 요청에 따라 전체 v7을 경량화·베이크하고 연속 표정 변형을 연결했다. 실제 앱 리소스는 [runtime-v7/Psilo.usdz](runtime-v7/README.md)이며, 아래 `blender/` 파일은 초기 제작·MCP 편집 기록이다. 전체 외형·모션의 최종 사용자 품질 승인은 별도다.
+
 ## 파일
 
 | 파일 | 용도 |
 | --- | --- |
 | `blender/Psilo-MCP.blend` | Blender MCP에서 실제 장면을 편집하고 작업·완료·오류·복귀의 미리보기 키프레임을 추가한 원본. 텍스처가 패킹되어 있다. |
 | `blender/Psilo.blend` | 앱용 중립 모델을 제작한 Blender 원본. 일반 Blender Z-up 장면과 편집 가능한 부위·모디파이어를 보존한다. |
-| `blender/Psilo.usdz` | 앱 리깅을 위한 중립 포즈 내보내기. Y-up, +Z 정면, 미터 단위다. |
+| `blender/Psilo.usdz` | 초기 모델의 중립 포즈 내보내기. 최신 앱 자산은 `runtime-v7/Psilo.usdz`다. |
+| `runtime-v7/Psilo.usdz` | 최신 전체 v7의 앱용 중립 모델. 베이크 재질·4개 표정 채널·macOS 14 호환 데이터를 포함한다. |
 | `blender/Psilo-cap-color.png` | 갓 표면의 반점과 미세한 색감을 담은 유일한 768×768 텍스처. |
 | `blender/Psilo-front.png`, `blender/Psilo-three-quarter.png` | Blender 스튜디오 조명의 정면·사선 검토 이미지. 앱 렌더링의 조명이나 그림자와 다를 수 있다. |
 | `blender/model-metrics.json` | 내보낸 앱 모델의 규모. |
@@ -39,7 +42,8 @@ blender --background --python scripts/blender-psilo.py -- "$PWD"
 | --- | --- |
 | `Psilo` | 모델 루트, 미세한 호흡 |
 | `Head` | 고개·시선 방향과 들썩임의 기준 |
-| `Hat`, `Horns` | 고개를 약간 늦게 따라가는 소품 |
+| `Hat` | 고개를 약간 늦게 따라가는 모자 |
+| `Horns` | 갓과 함께 움직이는 고정 뿔. 별도 지연 회전하지 않는다. |
 | `Glasses` | 작업 중 내려와 안착하는 안경 |
 | `eye_L`, `eye_R` | 커서 시선과 깜빡임 |
 | `mouth_idle`, `mouth_proud` | 기본·뿌듯한 표정 |
@@ -52,6 +56,6 @@ blender --background --python scripts/blender-psilo.py -- "$PWD"
 
 ## 규모와 실행 범위
 
-현재 중립 USDZ는 **삼각형 22,780개·메시 27개·재질 6개·768×768 텍스처 1개·630,244바이트**다. `usdchecker --arkit`를 통과했다. 이는 자산 규모와 형식 검증이며 기기별 프레임 속도나 전력 소비 측정값은 아니다.
+현재 v7 USDZ는 **표시 가능한 삼각형 41,219개·재질 2개·텍스처 3개·5,014,102바이트**다. macOS 14 표정 호환 데이터 24,935 삼각형은 로딩 직후 장면에서 제거하며 렌더링하지 않는다. 상세 수치·해시·재생성 방법은 [앱용 자산 문서](runtime-v7/README.md)에 있다. `usdchecker --arkit`를 통과했다. 이는 자산 규모와 형식 검증이며 기기별 프레임 속도나 전력 소비 측정값은 아니다.
 
 앱은 방향광 하나를 사용하고 실시간 그림자·물리·충돌을 생략한다. 창이 닫히거나 최소화·숨김·완전 가림 상태가 되면 `ARView`와 프레임 구독을 제거하고, 다시 보이면 보존한 모델·포즈로 렌더링을 재개한다. 앱에는 이 모델과 RealityKit 런타임만 번들링하며 제작용 스튜디오 바닥·카메라·조명·Blender 실행 파일은 포함하지 않는다.

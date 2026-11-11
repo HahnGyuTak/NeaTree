@@ -1,0 +1,126 @@
+{
+  "source": "assets/psilo/review-v6-fidelity/Psilo-v6-motion.blend",
+  "source_sha256": "2bab706e0c2f45a1938594e0da89c5c811c2b3eb005ab8e28075a026017bfa26",
+  "frames": [
+    {
+      "frame": 88,
+      "front_curves": {
+        "Frame_L": {
+          "vertices": 234,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.002173932,
+          "maximum_relief_m": 0.004939077,
+          "entire_front_curve_outside_cap": true
+        },
+        "Frame_R": {
+          "vertices": 234,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.002203654,
+          "maximum_relief_m": 0.004904977,
+          "entire_front_curve_outside_cap": true
+        },
+        "Bridge": {
+          "vertices": 54,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.002770113,
+          "maximum_relief_m": 0.004292063,
+          "entire_front_curve_outside_cap": true
+        }
+      }
+    },
+    {
+      "frame": 106,
+      "front_curves": {
+        "Frame_L": {
+          "vertices": 234,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.002174531,
+          "maximum_relief_m": 0.004939135,
+          "entire_front_curve_outside_cap": true
+        },
+        "Frame_R": {
+          "vertices": 234,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.002204293,
+          "maximum_relief_m": 0.004905013,
+          "entire_front_curve_outside_cap": true
+        },
+        "Bridge": {
+          "vertices": 54,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.002770612,
+          "maximum_relief_m": 0.004292827,
+          "entire_front_curve_outside_cap": true
+        }
+      }
+    },
+    {
+      "frame": 207,
+      "front_curves": {
+        "Frame_L": {
+          "vertices": 234,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.00217392,
+          "maximum_relief_m": 0.004939074,
+          "entire_front_curve_outside_cap": true
+        },
+        "Frame_R": {
+          "vertices": 234,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.002203692,
+          "maximum_relief_m": 0.004904976,
+          "entire_front_curve_outside_cap": true
+        },
+        "Bridge": {
+          "vertices": 54,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.002770116,
+          "maximum_relief_m": 0.004292074,
+          "entire_front_curve_outside_cap": true
+        }
+      }
+    },
+    {
+      "frame": 210,
+      "front_curves": {
+        "Frame_L": {
+          "vertices": 234,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.002173761,
+          "maximum_relief_m": 0.004939064,
+          "entire_front_curve_outside_cap": true
+        },
+        "Frame_R": {
+          "vertices": 234,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.002203484,
+          "maximum_relief_m": 0.004904963,
+          "entire_front_curve_outside_cap": true
+        },
+        "Bridge": {
+          "vertices": 54,
+          "inside_fraction": 0.0,
+          "deepest_overlap_m": 0.0,
+          "closest_signed_m": 0.002769974,
+          "maximum_relief_m": 0.004291852,
+          "entire_front_curve_outside_cap": true
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "method": "evaluated world-space front spectacles mesh vertices and cap BVH signed distances in settled working/error poses",
+  "source_before_metadata_sanitization_sha256": "98616f327a72d219d49873ffd56874eea1b6e18c59ecaca3f66d07fdb5e2666e",
+  "source_metadata_sanitization": "../runtime-v7/blend-metadata-sanitization.json"
+}

@@ -1,0 +1,33 @@
+{
+  "tool": "built-in image_gen",
+  "status": "Approved short horn shape applied to existing menu bar glyph",
+  "scope": "horn shape only; document/cap/no-face/no-hat design retained",
+  "input_roles": [
+    "previous MenuBar-master.png",
+    "approved short-horn Psilo character"
+  ],
+  "input_sha256": [
+    "0b8f2f7b2d6f329cb15e9ba4a89961d108a5ce68de5b3129fbdc20e6f0afaf86",
+    "bbdb69c828480750e259d805bc68a1acb69c5c345a79692b6026bd976e03c34b"
+  ],
+  "output": "assets/icons/MenuBar-master.png",
+  "transparent_background": true,
+  "prompt": "Use case: precise-object-edit. Image 1 is the EDIT TARGET: a pure black macOS menu bar template glyph consisting of a broad mushroom cap above a single outlined document with a folded top-right corner. Image 2 is a REFERENCE FOR HORN SHAPE ONLY, the user's newly approved Psilo mascot. Modify ONLY the TWO HORNS of image 1 to match the short, broad, straight-axis horns with subtly pointed soft tips in image 2. Remove the existing long, inward-curved cashew/hook profiles. New horns are squat and chunky, roughly one third shorter than the previous horn silhouette, with a wide base, smoothly convex sides and a softly rounded small point, a slight outward lean, no elbow or hook. They join the same shoulders of the mushroom cap. Preserve all other pixels/geometry of image 1 as closely as possible: the cap dome width/height and rounded lower edges, the single document's outline thickness/size/position, transparent interior, exact folded corner, centering, padding and overall composition. No face, no hat, no eyes, no mouth, no spots, no cream color from the mascot. This is a MONOCHROME SYMBOL, not a character rendering. Pure solid black opaque fill and strokes, antialiasing only, transparent everywhere else including inside the document. No gray texture, no highlights, no extra strokes, no backdrop/checkerboard, no captions, no frames. Output one clean high-resolution square PNG, matching the original dimensions and placement, suitable to downsample to 18pt and 36px.",
+  "export": "swift scripts/export-menu-icon.swift .",
+  "resources": [
+    {
+      "name": "MenuBarTemplate.png",
+      "pixels": [
+        18,
+        18
+      ]
+    },
+    {
+      "name": "MenuBarTemplate@2x.png",
+      "pixels": [
+        36,
+        36
+      ]
+    }
+  ]
+}

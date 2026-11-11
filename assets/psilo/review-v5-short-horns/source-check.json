@@ -1,0 +1,112 @@
+[
+  {
+    "source": "assets/psilo/review-v5-short-horns/Psilo-v5.blend",
+    "horns": [
+      {
+        "name": "Horn_L",
+        "closed": true,
+        "positive_volume": true,
+        "zero_area_faces": 0
+      },
+      {
+        "name": "Horn_R",
+        "closed": true,
+        "positive_volume": true,
+        "zero_area_faces": 0
+      }
+    ],
+    "images": [
+      {
+        "name": "Psilo cap color.008",
+        "packed": true,
+        "relative": true
+      },
+      {
+        "name": "Psilo-paper-grain.png",
+        "packed": true,
+        "relative": true
+      }
+    ],
+    "render_path_relative": true
+  },
+  {
+    "source": "assets/psilo/review-v5-short-horns/Psilo-v5-motion.blend",
+    "horns": [
+      {
+        "name": "Horn_L",
+        "closed": true,
+        "positive_volume": true,
+        "zero_area_faces": 0
+      },
+      {
+        "name": "Horn_R",
+        "closed": true,
+        "positive_volume": true,
+        "zero_area_faces": 0
+      }
+    ],
+    "images": [
+      {
+        "name": "Psilo cap color.008",
+        "packed": true,
+        "relative": true
+      },
+      {
+        "name": "Psilo-paper-grain.png",
+        "packed": true,
+        "relative": true
+      }
+    ],
+    "render_path_relative": true
+  },
+  {
+    "source": "assets/psilo/blender/Psilo.blend",
+    "horns": [
+      {
+        "name": "Horn_L",
+        "closed": true,
+        "positive_volume": true,
+        "zero_area_faces": 0
+      },
+      {
+        "name": "Horn_R",
+        "closed": true,
+        "positive_volume": true,
+        "zero_area_faces": 0
+      }
+    ],
+    "images": [
+      {
+        "name": "Psilo cap color",
+        "packed": true,
+        "relative": true
+      }
+    ],
+    "render_path_relative": true
+  },
+  {
+    "source": "assets/psilo/blender/Psilo-MCP.blend",
+    "horns": [
+      {
+        "name": "Horn_L",
+        "closed": true,
+        "positive_volume": true,
+        "zero_area_faces": 0
+      },
+      {
+        "name": "Horn_R",
+        "closed": true,
+        "positive_volume": true,
+        "zero_area_faces": 0
+      }
+    ],
+    "images": [
+      {
+        "name": "Psilo cap color",
+        "packed": true,
+        "relative": true
+      }
+    ],
+    "render_path_relative": true
+  }
+]

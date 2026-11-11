@@ -1,0 +1,70 @@
+{
+  "before": {
+    "size": [
+      1024,
+      1024
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      26,
+      94,
+      998,
+      758
+    ],
+    "sha256": "4f35891d5ef0e093aa53e89ea69e1af55945a8b33339ab76a239de480ab9e71b"
+  },
+  "approved": {
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      31,
+      114,
+      1223,
+      930
+    ],
+    "sha256": "bbdb69c828480750e259d805bc68a1acb69c5c345a79692b6026bd976e03c34b"
+  },
+  "layer": {
+    "size": [
+      1024,
+      1024
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      25,
+      93,
+      999,
+      759
+    ],
+    "sha256": "773f24d43f079a4e9d05aefae5d965c3442f6480c3aa0744b71ff9da166754a0"
+  },
+  "compiled_stacks": [
+    {
+      "appearance": "NSAppearanceNameDarkAqua",
+      "layers": 3
+    },
+    {
+      "appearance": "NSAppearanceNameAqua",
+      "layers": 3
+    },
+    {
+      "appearance": "ISAppearanceTintable",
+      "layers": 3
+    }
+  ],
+  "compiled_icns_bytes": 1540430,
+  "files_layer_unchanged": true,
+  "icon_document_unchanged": true
+}

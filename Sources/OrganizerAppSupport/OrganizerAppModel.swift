@@ -18,6 +18,7 @@ public final class OrganizerAppModel: ObservableObject {
     @Published public private(set) var watching = false
     @Published public private(set) var automaticallyAnalyze = false
     @Published public private(set) var hasAPIKey = false
+    @Published public private(set) var apiVerification: APIVerificationReport?
     @Published public private(set) var reviewDrafts: [UUID: ReviewDraft] = [:]
     @Published public private(set) var batchResults: [BatchItemResult] = []
     @Published public var selectedItemID: UUID?
@@ -40,6 +41,7 @@ public final class OrganizerAppModel: ObservableObject {
     private var analysisPsiloIDs: [UUID: UUID] = [:]
     private var batchInProgress = false
     private var refreshGeneration = UUID()
+    private var keyAvailabilityGeneration = UUID()
     private var analysisGenerations: [UUID: UUID] = [:]
     private var analysisTasks: [UUID: Task<FileProposal, any Error>] = [:]
     private var automaticAnalysisIDs: Set<UUID> = []
@@ -76,17 +78,18 @@ public final class OrganizerAppModel: ObservableObject {
             }
             return
         }
-        refreshKeyAvailability()
         await run(clearError: false) {
             // Repair journal-backed state after an interrupted move before either
             // window can present the old source as an actionable inbox item.
             do { _ = try await self.service.reconcileHistory() }
             catch OrganizerServiceError.notConfigured { }
         }
+        await refreshKeyAvailability()
         if preferences.watchEnabled, settings != nil { beginWatching() }
     }
 
     public func stop() {
+        keyAvailabilityGeneration = UUID()
         watcher?.cancel()
         watcher = nil
         watching = false
@@ -350,27 +353,45 @@ public final class OrganizerAppModel: ObservableObject {
     }
 
     public func createRule(folderID: String, instruction: String) async {
-        await run { _ = try await self.service.createRule(folderID: folderID, instruction: instruction) }
+        await run {
+            _ = try await self.service.createRule(folderID: folderID, instruction: instruction)
+            self.statusMessage = "분류 규칙을 추가했습니다."
+        }
     }
 
     public func updateRule(id: String, folderID: String, instruction: String) async {
-        await run { _ = try await self.service.updateRule(id: id, folderID: folderID, instruction: instruction) }
+        await run {
+            _ = try await self.service.updateRule(id: id, folderID: folderID, instruction: instruction)
+            self.statusMessage = "분류 규칙을 수정했습니다. 이전 제안은 다시 검토하세요."
+        }
     }
 
     public func deleteRule(id: String) async {
-        await run { try await self.service.deleteRule(id: id) }
+        await run {
+            try await self.service.deleteRule(id: id)
+            self.statusMessage = "분류 규칙을 삭제했습니다. 파일은 변경하지 않았습니다."
+        }
     }
 
     public func updateCandidate(index: Int, folderID: String, instruction: String) async {
-        await run { _ = try await self.service.updateCandidate(index: index, folderID: folderID, instruction: instruction) }
+        await run {
+            _ = try await self.service.updateCandidate(index: index, folderID: folderID, instruction: instruction)
+            self.statusMessage = "규칙 후보를 수정했습니다. 내용을 확인한 뒤 확정하세요."
+        }
     }
 
     public func deleteCandidate(index: Int) async {
-        await run { try await self.service.deleteCandidate(index: index) }
+        await run {
+            try await self.service.deleteCandidate(index: index)
+            self.statusMessage = "규칙 후보를 삭제했습니다."
+        }
     }
 
     public func setWatcherExclusions(extensions: [String], relativeFolders: [String]) async {
-        await run { try await self.service.setWatcherExclusions(extensions: extensions, relativeFolders: relativeFolders) }
+        await run {
+            try await self.service.setWatcherExclusions(extensions: extensions, relativeFolders: relativeFolders)
+            self.statusMessage = "감시 제외 설정을 저장했습니다."
+        }
     }
 
     public func saveAPIKey(_ key: String) async {
@@ -379,7 +400,8 @@ public final class OrganizerAppModel: ObservableObject {
             let trimmed = key.trimmingCharacters(in: .whitespacesAndNewlines)
             guard !trimmed.isEmpty, trimmed.rangeOfCharacter(from: .whitespacesAndNewlines) == nil else { throw AppModelError.invalidAPIKey }
             try self.dependencies.saveKey(trimmed)
-            self.refreshKeyAvailability()
+            self.apiVerification = nil
+            await self.refreshKeyAvailability()
             self.statusMessage = "API 키를 키체인에 저장했습니다."
         }
     }
@@ -388,8 +410,33 @@ public final class OrganizerAppModel: ObservableObject {
         await run {
             guard !self.isDemo else { throw AppModelError.demoCredentials }
             try self.dependencies.deleteKey()
-            self.refreshKeyAvailability()
+            self.apiVerification = nil
+            await self.refreshKeyAvailability()
             self.statusMessage = self.hasAPIKey ? "키체인 키를 삭제했습니다. 환경변수의 키는 계속 설정되어 있습니다." : "키체인의 API 키를 삭제했습니다."
+        }
+    }
+
+    public func importAPIKeyFile(_ url: URL) async {
+        await run {
+            guard !self.isDemo else { throw AppModelError.demoCredentials }
+            let key = try APIKeyFile.read(from: url)
+            try self.dependencies.saveKey(key)
+            self.apiVerification = nil
+            await self.refreshKeyAvailability()
+            self.statusMessage = "파일의 API 키를 키체인에 저장했습니다."
+        }
+    }
+
+    /// Called only by the explicit, cost-confirmed connection-check action.
+    public func verifyAPIConnection() async {
+        await run {
+            guard !self.isDemo else { throw AppModelError.demoCredentials }
+            self.apiVerification = nil
+            let report = try await self.dependencies.verifyAPI(self.requireAPIKey())
+            self.apiVerification = report
+            self.statusMessage = report.passed
+                ? "합성 자료로 API 연결과 기본 분류 응답을 확인했습니다."
+                : "API 연결 검증 결과를 설정에서 확인하세요."
         }
     }
 
@@ -721,10 +768,22 @@ public final class OrganizerAppModel: ObservableObject {
         }
     }
 
-    private func refreshKeyAvailability() {
+    private func refreshKeyAvailability() async {
         guard !isDemo else { hasAPIKey = false; return }
-        do { hasAPIKey = !(try dependencies.readKey() ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
-        catch { hasAPIKey = false; errorMessage = error.localizedDescription }
+        let generation = UUID()
+        keyAvailabilityGeneration = generation
+        let check = dependencies.keyIsConfigured
+        do {
+            // Even an attributes-only Security query can block. It must not delay
+            // drawing the first window or acquire the secret just to show settings.
+            let configured = try await Task.detached(priority: .utility) { try check() }.value
+            guard generation == keyAvailabilityGeneration, !Task.isCancelled else { return }
+            hasAPIKey = configured
+        } catch {
+            guard generation == keyAvailabilityGeneration, !Task.isCancelled else { return }
+            hasAPIKey = false
+            errorMessage = error.localizedDescription
+        }
     }
 
     private static func shouldPauseAutomaticAnalysis(after error: any Error) -> Bool {
@@ -801,13 +860,23 @@ public final class OrganizerAppModel: ObservableObject {
 }
 
 struct AppModelDependencies: Sendable {
+    var keyIsConfigured: @Sendable () throws -> Bool
     var readKey: @Sendable () throws -> String?
     var saveKey: @Sendable (String) throws -> Void
     var deleteKey: @Sendable () throws -> Void
     var analyzeFile: @Sendable (OrganizerService, UUID, String) async throws -> FileProposal
+    var verifyAPI: @Sendable (String) async throws -> APIVerificationReport = {
+        try await APIConnectionVerifier.verify(apiKey: $0)
+    }
 
     static var live: AppModelDependencies {
         AppModelDependencies(
+            keyIsConfigured: {
+                if let environment = ProcessInfo.processInfo.environment["OPENAI_API_KEY"], !environment.isEmpty {
+                    return !environment.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+                }
+                return try APIKeyStore.containsKey()
+            },
             readKey: {
                 if let environment = ProcessInfo.processInfo.environment["OPENAI_API_KEY"], !environment.isEmpty { return environment }
                 return try APIKeyStore.read()

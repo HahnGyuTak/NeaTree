@@ -1,0 +1,3454 @@
+{
+  "files": [
+    {
+      "file": "assets/psilo/review-v5-short-horns/working.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "89a8014b798e70daf7c16a0dce604413dcd8d73d68988696b8ab9322f2dd2fef",
+      "after_sha256": "eb2e5c2d8582d12834d8de4c6b74e888b65ff243d3e0c0410b6b493540802e51",
+      "idat_sha256": "a56b766d71b060a2f37c2a0623320f49073fefbdff3e26b817e78955e36f7412",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v5-short-horns/proud.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6e22557e02176cae33871179aaebe725cbc277a6fbd93b6e2e33669468821e0c",
+      "after_sha256": "3573900c327e42d25870df596f450222cef5dd390dfb3e421e02e8e7695e1d0c",
+      "idat_sha256": "36b88d5cc8ba7db5864acccfb2279f0667935f582d92d58213e0196162d8e8f0",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v5-short-horns/left.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e414a9eedfa931267fda641a3646d7eace4e1e87d32be2ff9e37d43144e2b640",
+      "after_sha256": "756ff9c16f8725eb1846fe90d337517f7851c29a473eaad14141ea96e0bf1731",
+      "idat_sha256": "04199fb2a8b2b9b32949fea4993b3d7f3ccf3410b5974fe94f170a4af2022312",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v5-short-horns/error.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6ac18720b9ff96d8307c8ab87d411a24334645e4bd7c7d547cd3c2e2901be957",
+      "after_sha256": "a2b3d13ed77e9b3429018c8d37be24185c7c1930520f596cfd25070e931e7cba",
+      "idat_sha256": "ef42c657b4959885587907a8f354d451ea3f9e59fe003b7e7378959334e2d9f6",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v5-short-horns/transition.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "73449e9b94e699e4867c406e83d53ab869f6e9db4c8b6f37228d4d48ce536f90",
+      "after_sha256": "25f0cc017c8f775e7cac9210ad839797a2d2a47f05c5cced6f79895ee2d9eca4",
+      "idat_sha256": "bb89fa2a408ff17d925fb86be8535447e7fd9df5ac33d650f9af4b92332475a2",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v5-short-horns/right.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a7db871df744752ec554600a7485fa450e25de60e2a5ed9ca01c8412503a72b7",
+      "after_sha256": "749dcb627e2daeb71f7f49b5fed5d32b5ff744f4b8bb2c9eb16712a69fd62a41",
+      "idat_sha256": "1651725a7897d9b7048e99723947a2714cf6bd0a9cf5adaff6c6bd4e7dbe2f24",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v5-short-horns/front.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b63c7f0d19ef3952f6f56ddd488b861433d037ccbce48d0a64e3e73f94eca980",
+      "after_sha256": "d6c9cde705fc39afd6cbd60e9201d2eb15740d3f75fcbdd73404184fd06fe55d",
+      "idat_sha256": "d1bfe8bb031cf73f3851e292e24018c635f46cdc93463781d76f7b329313992d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v6-fidelity/working.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "dcad6e99ad386ed1a2d2a5c21d9549f5c46c51eb7a4eb3977ca0da0c33f46361",
+      "after_sha256": "7d8eca2e11f42d9a5feaae4baf502626593acbc1f8c7982e2509f64259b85f9e",
+      "idat_sha256": "6ccb1ac51ae8790698da408a4b032e4e42a9b29804fdfb5e647c3322f6f9da83",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v6-fidelity/proud.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "69e37b7cb1ac45fd44b7c949f0a160c0eda0df113fccab24306c56329c3a93ca",
+      "after_sha256": "c16e58b744a5e80223ca138feef21a35bb0b4e4004a2e724d7f724cdc0b6c0db",
+      "idat_sha256": "90522a33f67fbf9a86e717b8d3855ff19130d34b8a30f80928e4764ef7554e71",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v6-fidelity/left.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3f4716413244f057ae6b660d26453dbc96772e3d8c2536e95fd541c8902d597a",
+      "after_sha256": "02864cf9b23787381e0681389f2d9fafc44b79f011e1052ec38eb61aeea0a1f5",
+      "idat_sha256": "7f05d97ca445792f275d02a44ba4e03d7eb720714dac4729e1e31162d7d3e0fc",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v6-fidelity/error.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "5ca359363dab16af63800e7e1c4a7ef94da58f50298fdd6e20ddc5155cd6e0c7",
+      "after_sha256": "d95c848a339f6f7ee5694d742e979fc710f9f321c88b9d157b49264163c873f9",
+      "idat_sha256": "7189a73c430cf869d369fca895e873f00b497727f0f3a8e116f484a03e4424a3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v6-fidelity/transition.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a72b58ad03969897bb13d4120c595dd342a08a2d1e92a20245699e497ebdb2ed",
+      "after_sha256": "3d37ce31eb770a831996e09f42197f3d450fe99cae338cd3229bfc8a143d660b",
+      "idat_sha256": "afaedac554e867eee00693a5f9a345d6d099919dc11485e7498e47f835cd874c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v6-fidelity/right.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "4d04d7aeaabc14142fb8e90c5606e7e868ba6abaeb3d7b8a548c4dd533aba8e3",
+      "after_sha256": "bc4ca1d09efffa52a996b0ae50a1f7d8d2b43a3cd3bf351ad8950cede9fc7352",
+      "idat_sha256": "a45371679bf5d87284014469e5cf908e245cecbe45e40e31d5ce8484ab463694",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v6-fidelity/front.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b13572bf26023a1d9c0222cc91f357cc8ec72f430a0c8ead431b0cac51de26bb",
+      "after_sha256": "2b3ee4919a8c1372928d1ff1bef23396e1b8a5e1e0c33fb6264edebb4890825b",
+      "idat_sha256": "9d9f561d2f1994919f3f35610f9ae2ade64ad11753f72e89fa3a6e24a36a42ea",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/runtime-v7/baked-left.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "5f3c7d18e13bfa34202f56812b433036744049e2d1f1535680738044514ef44f",
+      "after_sha256": "73d88c97f7b5d106cdab7fa1b7ff4e0c2b87fcd592b637c9d94337f45e847c57",
+      "idat_sha256": "f6007f8251dbb312d82d8f18a36212493c2652474271069cecfe5af3493d6e31",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/runtime-v7/smile-0.5.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1d66ccfa00f5a01c46be06d4bfe09353342bf4091a23c3df059063905d2c4d3c",
+      "after_sha256": "7f714cc9edd94ca2b3b0343fa8b937e8c49eb255c33d3c487d7a3eb65e9c0a09",
+      "idat_sha256": "cd84a517f18ac5da2b6ac5c8e5357a7d6d56ab1a98196e20398dfd148ea95353",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/runtime-v7/error-three-quarter.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "847b80d269a4dc92c9d774b9b6a69ee702b548d798d6fee7701811a09f8283f4",
+      "after_sha256": "0ec86923b68e095c37592a83dd0c08886e497ec431517dc193b03ff26ffb32e1",
+      "idat_sha256": "4f174d1ab0347f822dc3ec9440dad15e4df9683f638545627f5a9d014e4c57e5",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/runtime-v7/working-three-quarter.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6fa4700a1bf1e4718c966870c62505d58e57d8da1ee0e2b74a75f16a069fe085",
+      "after_sha256": "b53e58e387db4bdcf325ec80484de8a0a4c544fe6c4b3bbc5eba6cef0748de73",
+      "idat_sha256": "48a338ed85e49b08e76e689e46c22b6d9a4806ac2714ed468ab4dccb667b8b61",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/runtime-v7/baked-front.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c3752dfa30b605ce4a836f8a4d37d42abe944aa241368f042de352e947bc2889",
+      "after_sha256": "43e4c4cd808452468915771d458382cc7ed45a3cc4a94afb858f6159af91af6b",
+      "idat_sha256": "88860251d0bd764e43272e52b0c9e3c8f3379f4864443f5380f61c7d22d8f8aa",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/runtime-v7/baked-right.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "134610eb9a981370ee63a1c33c3c46ff0536e4320b12ea9d0dfbab27d2f09f1e",
+      "after_sha256": "82beee3c136726ab8e5156530c7eaff32cad28dae4d0b99abd72e6266c5a84a8",
+      "idat_sha256": "b8386a972887da08b59bd8fc0104ad095ac86d376a8e715af615b19a5509f323",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/runtime-v7/smile-1.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "cb7869ebfaec8171d944214121b11548b167af2b9a33df4a9e8aaa9b21ac4420",
+      "after_sha256": "6856688766596a434ffad4cf593dcb9e8f235b5ec05eba92c807c00329a8228b",
+      "idat_sha256": "96b78cf55296131dd8c7d33bc324b57c6c33901fd12f4ffba9eea44847c6b528",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/runtime-v7/lod-procedural-front.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "32be013842c9b4f8b55306365770ed369e40def42867370b180094f460dd27bd",
+      "after_sha256": "071250b912f0a9123ef7ad6e2a666bbe83be9b4c6b98d0364d6de8b6ae97a599",
+      "idat_sha256": "fb845a3b3bc04f6ef3c102d37218ca42dbd1a1e158df09e4305c630a6f111c52",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v4-fit-surface/angle-right.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8380fd34938729e9a892ba8e6aeb6a1c30b5373606584d33c691020a7be57177",
+      "after_sha256": "a7f316f9c69df91f55990402a32bbf0c7639a5343977a66d2330c700039e4446",
+      "idat_sha256": "202bff5d7d3302beedcdd0f1491db0fbce34e701b54394f586cb2337bae66d34",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v4-fit-surface/angle-front.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b08e54d7e9ff55337727fea9d46bf75832008ae3090d928b4b7eb261a1e9a3c6",
+      "after_sha256": "5448f17ad4736202f11cb5a18732c37fdc0ebee1f0c92f07693777b8c65aca38",
+      "idat_sha256": "6497c5467068a72d1dbd45a78888d0bfc72f7cf78ccd1f953a70bb8631d8662b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v4-fit-surface/pose-error.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6c6f669e304f118f6f3ecf85c3cc8a28dd2badfdc25f0f69def0c8eed11b76b4",
+      "after_sha256": "410a803c6bf58a188d45d3720f0a75d9746bee30cc52672bb5fd184b1e8e6011",
+      "idat_sha256": "3e258b0425323024c43c33ff8ef0511c4c204d9389b4c25a2ed7ae1d2c1911f6",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v4-fit-surface/pose-working.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "322dc56126a83ce04403e798d1d2e5fed141c6a4d8b2136e692c26039fe94a35",
+      "after_sha256": "2bc2412734277e8fc6e13612d7045a44533b314c3089299f95760a33c01e7902",
+      "idat_sha256": "544a39701badfb45f68f29ff18f7c3ccd8a6a8ae78a2520390a39656cb78babf",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v4-fit-surface/angle-left.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "0233c4d9f795751865695d0d95691f3b705cada2e29ac18a35c10ee5b24794ca",
+      "after_sha256": "4a3368e3f03ac2fdff5effc87007079c0ac31f7969ce92e792a6dbc6f0985383",
+      "idat_sha256": "d8fb8c64e756236449f5bb69aaa3afba2e5f1f98d3dcd9231b24d29bf936162d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v4-fit-surface/pose-transition.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "68ce2b2202cec11fad9880ba101846db879b8454243645f5c0dfa69077de34a1",
+      "after_sha256": "cf1a3870b74e8471518fcbb17f7dba8f713e85d6990a3fbce9cb52011a803f43",
+      "idat_sha256": "30cad031640fdad508ecf085970840515c0b1181e49eda3e241d48acb776c74f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v4-fit-surface/pose-proud.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1886536121fd37d3edef191d944cc58dfcb07b0adb235a1e3bcc301acd7ae88a",
+      "after_sha256": "c62b53b796ddc17add84291061e28794fc7d59bec32da19bd2ac882a16892fca",
+      "idat_sha256": "4ddf9d312538381c05e5c5e3fd9cdd608bbce8c2acf0cc17b28a73d9508ed8b0",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v7-plump-horns/working.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "27bd7c232176aa95446146c8e83d071fa4e1528d0bb5e43cc7fcd308380d5593",
+      "after_sha256": "62c4f0528bbfb06ad804fd6730a84e7b62f0357a54e532b3d9532276b8d17e9a",
+      "idat_sha256": "9b64fb0c0ac4c8788bc742780d1e2b2e0b26eb1966883c65d8ff2699a38ec382",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v7-plump-horns/proud.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8dd88fb8583bd1892a0f16e5ceed2ba902e557a92d6180e3a9be9dd0abe4d6de",
+      "after_sha256": "596c5841e3d3e1391c5ca879480644ba127a94ab4796724b965370c5e3a64237",
+      "idat_sha256": "11520028e6859ff3b3d10d6e4a8c8c263ff1e486168e86d8dacca30893767027",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v7-plump-horns/left.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "0d57d3b5c852d74e27e4b4f454f107af25d5c5d17df2916b4b3025978caa67ad",
+      "after_sha256": "40363ce54d4ffab0e94606af4bc021c49f89afb90489c7f5f97d9df95f70b0a4",
+      "idat_sha256": "01a693008c5662d380e5a317838926e6d3def1ab3d9e7ad68a5e70918e07a3b1",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v7-plump-horns/error.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "602a27c5a983151fad9d4a89d5c35d41ca2bacc0ce2fb010c497d7c69a43f128",
+      "after_sha256": "6eb169e92c92619009596ae870baa3cc5de88305f478fbe6e7d364e957aa3a79",
+      "idat_sha256": "98b7febacd41dbdf00ecdc7c89338b47a83127150403d96838f49b7c326c7311",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v7-plump-horns/transition.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1b6398dfe09941ba4432b7ba021d42c4090a30cc06a40c215cba66d3701335f5",
+      "after_sha256": "fd81f2b67724a8cdd47c3253b19add7575562ef87b0e506a2e39f33e982972fd",
+      "idat_sha256": "b5f4b2b18972139f7faa779d94e1df892ce205dc3cb42ed585e2cfc7846ec221",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v7-plump-horns/right.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "5f0318ab51e062e7896eb588f8abb570de33bda691716b9d7ac67602aaa2e3c3",
+      "after_sha256": "2cb42b858686e7a7967fb4c66671c5726ebd19079d15ce37d52a386b661e8f7d",
+      "idat_sha256": "ccb301aaac5d138697ba5f39c1405c309fa0510591cc6e348eb62883fb692e46",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v7-plump-horns/front.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "dd8b9ba6bf227eab0580193872d1df33d3731da83ee81c2cde69ef8e7b30c2dd",
+      "after_sha256": "3a858a6512fdf5be9acfd106f3382623db72146a6e43391f5ca0d3d8abeee940",
+      "idat_sha256": "0925964c9b0202ed5b479c88034029a737565b3348844242f6181770f65f9480",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/angle-right.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8b5744c2e5d0d114e7f7051a4d216cf0853043afeb582c224683324f3ee03534",
+      "after_sha256": "92eab66e33f44a75c69cb752eac45c6312aecaa9e59827f0aa7623cf7412149a",
+      "idat_sha256": "501d6151256d0b3a1559d82629b2301b4241a4e5e837d8725e2368cba6593985",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/angle-front.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "13d4d07290858a41ce815b13a173c985a040c3ba8aafe6e188c696c5c4c66adf",
+      "after_sha256": "418cdfd696ed38ba8d6f647531b9f073203894d4c3a5028012b47f89dfacbf31",
+      "idat_sha256": "e2867aedc840d75106c2e431495d40a0cf7646ac4ef5d64e0a2ec109402172b6",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/pose-proud-eevee.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3f15c968faa06fa36f5f8b941af8cac9a15e62f7591598039002dc89fb57ac3c",
+      "after_sha256": "71b7dcd93cf37a8de8b891b6f1a918f53cb91f9c0f58e7ec004abf1c6bd31fd9",
+      "idat_sha256": "13c48d029b139f03ed996c6e93c9f9adbdbf513f6ccc8eb92b4e772dd5964d83",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/pose-error.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "208242a79a8700006873f322b672e4fec85288cd51c17df102a971de9ccb6d9c",
+      "after_sha256": "6c843f8798934bcbf56c1e6f719e4eadcc58259e185f98c84a6fedae225cb0fd",
+      "idat_sha256": "528cb55172cc5fed0c0a96fc6221c458ebd6682699516a0166467693e2cdc438",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/pose-recovery.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "76c6bd1169861666dd2eea34c55ce55e50cfdc9d7ebdbbf5fa08475c5be42443",
+      "after_sha256": "f410130915259f298b96e2c47aa288c9a4e08f95130906882d446fdd50f4da1e",
+      "idat_sha256": "108ec20466611931b9924ef25f809e0dbdcccc152baf820cb80efa0a0ce73eb1",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/angle-side.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "504b20300fd54d2c972d7e3f40381d6d32f49f97ccba0ba6d4ff004d305aa3e5",
+      "after_sha256": "d132a4f13b02bef85d504d5ea228492739e5924533511f49574d01a6c6eabcf7",
+      "idat_sha256": "644f78124cbc5bd3880eaf5a9c63d60b824498662a80736de782081724bd85fe",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/pose-working.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "7bad7c1d9eb1185c077ec28bed9958639df5fa4ec5cdd6d86e2857070775e054",
+      "after_sha256": "40c392b2537886c1b5705d6ff2df45b92a50d97d6d9f1d44b04edb357340e9fd",
+      "idat_sha256": "86f9db5721188b9a42a8dcef489cc8166550d403d4a71966b6423cbeaa2196ae",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/angle-left.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e3e881fb9fa8f91fa60055cf2ab886966c2ef42ad8204db41b694b8e124317d7",
+      "after_sha256": "2128ff33ddc31e7b000277a55076150d8dfb73fbf78e3c079430f71e9b121830",
+      "idat_sha256": "9a484a876baadb9d0714b89212183f4c12fecb7ff5e6f7ecc31307785e7ff562",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/pose-proud.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1f32b0654d9f21bb75130547142b68be3099e931d866f97f23fcf821cc70ea2e",
+      "after_sha256": "4f9fd00844e39fb1eb83229bf47afba76e68ac1c394c57fef4693536f21f3770",
+      "idat_sha256": "b0d2f74f462d7d3c9cb342bbdfc951cf6f4b975d0922bad8dd279b064a291564",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/blender/Psilo-three-quarter.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "34126d0fcd5d87c870c6ae3b8fbe4c3e0806b8282a717841d9c1238ec3ec0c0c",
+      "after_sha256": "99ad7d453136b3535a05eab7fa7abaffacb3a549f88e04951e6651075536c203",
+      "idat_sha256": "d6fa65cda6d099abd2832a0f4f404e23c4d7a6e819599351c109cd2404c10f1d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/blender/Psilo-front.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "609dad927cea654c4cd937f9df7c4c31da595c7b3a29d03a4b43fbc6973a781a",
+      "after_sha256": "ed88e036845fd5e61d37d639014d19e1cb7dd00c93e12788dc3ba8793a6be9f0",
+      "idat_sha256": "1082ce3ce8c414bf39a7dca96dc8bda7eab46e4600a15498c0e853ff23ab4c84",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v3-hat/hat-working.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d911f4ab5cd2f53c6faec99e0c3f5a78bc9e1eca0dc8512c9033dd0d8c6b1d31",
+      "after_sha256": "7d8399b71166e1a7ceb0117ca5a7c72ba79298a9ca87720ebadba9ce54c491c3",
+      "idat_sha256": "824999595f6862d82379d6d8f9a8b5cd8064350321e1f7daac35ca4f48325d4a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v3-hat/hat-side.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1cf5a889083b8edec2f05c034887fc23a9c0589c3b775e0cd860a5833fea20d1",
+      "after_sha256": "88fd9f5c6b7f52427edde944f58602a6e389036c10d3b164bd6c99ce45adbe9f",
+      "idat_sha256": "c69cb634a4ddf9acec2fb14539a94902178b79d2fdb32caa40164e1d26bdd41f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v3-hat/hat-proud.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "571bd72a417a583c97a8a814fa3472829fadcbcbbeb7a9f6f0297afcdfb61108",
+      "after_sha256": "15aef2ecb73dafae2e55ccfd2e8da5702c056d912ffb6e356284cb7d097bf767",
+      "idat_sha256": "24c9f61260348b38b3b5d1018f4bb07f209711f596568129ea2ce9f2371e8154",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v3-hat/hat-left.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1353849d607918cac153d104b85554c7a74b004ee521c2aa719de3d13bd1640e",
+      "after_sha256": "ba659c14085b0f61792eddeda5a076a6efedfc791e87db903f768defd83900b2",
+      "idat_sha256": "9f17eb2793a5e118415692161e41bff3c7cc629f07d3863352ebc0a172fc07c8",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v3-hat/hat-right.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "def50505a447fe16e7d7978f07d925dffcf934d8a104422e5f8636abf23ce056",
+      "after_sha256": "0ccbe479f80cfa75925299edb664caf68513f3cc42e0f3cb1fbd1102d9380339",
+      "idat_sha256": "7dfa33e1e5a72f88929439540d3c23b37adfbce788a5cb0a335992e7a80cd3cd",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v3-hat/hat-front.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "13bd13ed948218610a241fd4f3304bf9904f9bd2159da109fd7274f53a4399e8",
+      "after_sha256": "eea906d29bd513f9f8ca7698c107e2d1c9985ab1c409f124d36d9b260fc5c1eb",
+      "idat_sha256": "f818831969072a65cbf059b5bb254485a5b376cc8ed4b90bbaf3274ba697a2d7",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0069.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a683ea688cc940d7acd58f555f5dd2c6f3ff1cf8bfc3c63f2df526ef3eddd906",
+      "after_sha256": "15dbc0c0718f41303c111db2c03785eca1fd710c4a83b8e457a9739e1eb241d8",
+      "idat_sha256": "07130550d8ddeb50784149e9221268132a1b706deba49adacf419778a837542b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0041.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "533a5e8c08a6483d076a8d6801b8060860d5c48031cc4a0d846f2508be098bb0",
+      "after_sha256": "2d3bd4a4d0f496703d6ce76b60037c9219c909ef0a751860f8b233188190110a",
+      "idat_sha256": "c6f12d4769f312d31d9cfd8e62baec63509b3d46493da9f9198fa3120298ff06",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0055.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8702649268dbc1473f4073ebe4b56cbc7c031d9d38dd9c6b1603850c6968c95d",
+      "after_sha256": "c6fd125c89005e2535842a1d68bc3417aa1e2d38d6f34d6ff16892f01a5b9d05",
+      "idat_sha256": "6cc7771bfd4cf4770df4b7067f2a131c2b1840a0360bfa6ab250d3bd16a34853",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0082.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e66e30a6a10b553ac643f23d4086a132e54a937439e85e2e2ab903224ddde57e",
+      "after_sha256": "71719dea05ef901a70b75d6dacfdf2687adb8167a4df2a432cb63f4b2c496ee0",
+      "idat_sha256": "078f161d037358d70886e39c166e2919dc1fa7605806469dd59e40dab6b833b3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0096.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "712c00b2b61bd4f11c1e47a05971d9fbac94b95a49f23967a3f085fbd60e668e",
+      "after_sha256": "ddc2a87cb26b9f75ca60b7b329bf37e18be10d5baee58032cd0bc2c42f7beb45",
+      "idat_sha256": "15f3889629b12568272690d9ca083c7933a05ef4133cc9d401e71092422ebdf8",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0243.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "ab775350f9162cba0a6fb3bf499e83f4c8641f2e1788a4c7c0d2b875bcab18df",
+      "after_sha256": "d097114314c4e335bd0849bc5b5bd35acba324bad15fa307da59a9f5485ff374",
+      "idat_sha256": "686543adebd61522470426c4c2033762384aad55bd80a1cde5e3a82f07eda64e",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0257.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "af995a451fa4960a650cb19cb73fbc991a23e62efdc600b2ed2118f079c241de",
+      "after_sha256": "1e6544735057dbbb257a7b1029152e40494db0f189dec017acfaff243635d8e3",
+      "idat_sha256": "6f9ecaf0cc3b0832da7105d3d7b63138ad0264cc0940458112932dc308fd8158",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0280.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "59ffb2af751bf7edf1928637e1d9151daf20b43f5d886cf619a0fb808d8d6952",
+      "after_sha256": "ba519c43cc549c844c06a9e2710d2d54ab5ba1026e19e4a1a71dc6d14bde8666",
+      "idat_sha256": "2fa3a2c337deed1b98145e690383ac0339c354752b77bd049c8246f1d8ad7b4a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0109.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3d05ddba95ddb7d55286e0b32e1e6dc598ba375b176c37433c979e063a5da2f3",
+      "after_sha256": "470a864160f4b48b3f9bf16685cc54a0cea4536774cab85d3f7a0409a6d34898",
+      "idat_sha256": "a9bb0a674e38ae5ceb05c061482c61aff9c6f0a1f57892f2ce3c6afe72470ca3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0135.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1df8bfdfd38dc823f3700774bdac50031f4b719b37d71845ffe8c0f1d1ba8991",
+      "after_sha256": "12633f5baf415ef7e6d9324113e3150fb9276803fc9732c0025ce70ad7717fc3",
+      "idat_sha256": "8f49d0c3928ac251058ec513e8d2632157f93baf143e7cb14946908e8e696208",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0121.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6edab73ea64f46bbfb3a3fd5b9fd0b97cf1e61a12708bbd81d42c861bcfbd518",
+      "after_sha256": "3de0bdeb545b2261eca5026ccd9249580e813615a9f5ee82a782f03d06661c70",
+      "idat_sha256": "01c19fdf656d752b4bfe2bd7c811f94d5009b80167d8c6769dc373a437164a1c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0120.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a9fb58326b76bdf4d3bc991acf2a3b3233a51023cabe1a1790c2f7669be8c311",
+      "after_sha256": "f1eba9669ee3fa2ad0b08c663bbea6c0f71e066e8fe368a4feea5fffbbb3c4e1",
+      "idat_sha256": "fed527d3eb13ed13ac45a6344dafc72e0da84722b4b55b074292007764aaa216",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0134.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "444916233aec1aeb93092711010bc409b69560412495588cb09fdeb4fabd380f",
+      "after_sha256": "ecd98d787e5276692aad19f0c5a61618dbbd4f66769e8910a86c44fb09acd155",
+      "idat_sha256": "c1699d46c7ac43431675201a0b0a82637304b82c5e257ba0dec149d440f4305b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0108.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "40fae5ba37c34671b69a0a7bb327d84e1944987256031abdc4246da3daac73c9",
+      "after_sha256": "7fb4ae0737fee6124d8b2e211a82ee4184879af0135601951f9c0f4207afcb87",
+      "idat_sha256": "2ec7869d18d8d1a90f5418eff844792c75c9c5bfd0bac88e965a68f007658faf",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0281.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b281266a46f1c341f60d69f9167bb88cfcbba900c59693a08ce36cd70def4490",
+      "after_sha256": "2bca828ea2aadc12616a88b75e0a1fb5a5c60389d5b0fd0a78c7c3c833c10a15",
+      "idat_sha256": "cb5f1fe309b63773a9734620aa92c1027ad0d44f634ccb9af907c6d1a2df20d1",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0256.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "329edb1ae8c50b169b36d8c517c2876760314ad7d38233ed17dca8af23ae291c",
+      "after_sha256": "1f1186db8f3b61057f74e3cd124bd0a5f93540834f9cf88fc6b21ab512b62c3a",
+      "idat_sha256": "25a6ff9fba42e7899fea9edc14236bacb143279eb2c20de4131351e615b857c1",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0242.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b28d4fafa8ea80e781b0fa7d7a8ff12b6f73c3750b5592262466770f2284babe",
+      "after_sha256": "d17f5b87dc7fc75f69332599d285783c40dd96d2554068bb994af7c93f31b4fb",
+      "idat_sha256": "93ea35a84420b20aaeef319ea80d43c9b8ddd3a2eebd03de5bfcee0ba81f6b05",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0097.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "ab69ef6443f90b0cdb3db9c9077256204ea03cffdd3163614ccd6eba9a34e149",
+      "after_sha256": "42b772251a60667b1d4cfa1e7b5484537d5bdf5deffca0c5d43de047a8745711",
+      "idat_sha256": "340bf1905adda35779f9428cc6179279100f513310c2a09edfa990d818b89ce9",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0083.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "15879ef4451c6659e77c14ad15dda6a1dd11549501baaaf280e4fd715921b6f5",
+      "after_sha256": "e9531283811772ec9c45c4344edef534ef54722f76ac60b34eaea3df24b33985",
+      "idat_sha256": "12e3b4bc1e4533733e48c769c289327fc890d1fe2fd9ac470d4e95b9ecd3f225",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0054.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "11c77f396fc5a424754e5c6178967d7591ec7e5d7811d0ca862d7703676d052e",
+      "after_sha256": "a71c7fad9006a6faf42172b6e7bea6d43beb7f07914a8079fc2aaee126705bf5",
+      "idat_sha256": "baae190affdc98765f6fc81511f575c227849a2bad1c29c0616fb660fc96f46b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0040.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "4a3f42a12569b1fe12c8b8f2e21b62984400a163b3a5c1722bbe2b2c3779a766",
+      "after_sha256": "507889bda3767762f72d3b35131baa45063c8486c8b0f08cd571e7743c44a5b9",
+      "idat_sha256": "dfe45c5fa5671ec201e20a778e9a641e8c1c358643a53af0a3225609cbff926f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0068.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d05eb59c1d12d533fc085938f68e7b62002754c1d49e659655aba9d54fccd901",
+      "after_sha256": "b7b5c339ab4a95c29444ddb13a0c36b8d4d92cde45369e99e0c9c3a73dabc413",
+      "idat_sha256": "cbb42eddfa57a60b0fe8c6a0192a727a1141b9c4f766a249365f9a4fa70ac387",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0056.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "2bebe6b747cd27c8e9748629847db978ceb40464bbe2b0025ad0ca383c2fc03b",
+      "after_sha256": "dcb0a0b4004a37756fabaa124c7e38501b6f7924255e70c89ab0036e1b72ac89",
+      "idat_sha256": "86978fb9d652d0be440dd82e7af9be226e5baa5127e15ee6e2b2c9c72b1fdf50",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0042.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "906bbba9fdf550ca2c8f661f9cc946720ccd3d8198f384b125a58f9792372c94",
+      "after_sha256": "90e867998c9faa642e2e99857966f1869162423fc5e6b7021f2cbb8cd7979ceb",
+      "idat_sha256": "6c8e632dc73b8b5ea68ab6094913b2098f7b5364da12470020e2acdd1d6ee057",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0095.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "91039b321fadaa2be704998d8271642dddbaec1145e1a49f0547452b48176a50",
+      "after_sha256": "691fe5e6e51adfc61af0fec097f672d525392b5a0363076f3ffacaadefddc965",
+      "idat_sha256": "ae464fa5a636ce6d8631975e452a5a7768df6283cfea8f08031f23c3c20ecab4",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0081.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "59dd6f99235d17fc209669c001ceff8f288c1573407b42816f13052d720149d6",
+      "after_sha256": "3d7e41cf401ed2e9d478715f42034cb43f2f1888c47245d4b5e32de05f490970",
+      "idat_sha256": "abac5c579d1a355aab24d3005396d0e2e67f8d8dcee2ddbb61e9a4869761d327",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0268.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e8f4c4cffdfcac54d31231239e1b6decde9a700038ee5504a616e4e6d0cb0c75",
+      "after_sha256": "928d0abe70ecafae3b9e2f4237a129a81ed9fb5eef1e1eb92d68c382500e2053",
+      "idat_sha256": "b7206ece2c3ba6fc3f643c32fc7db332a5c837884b88f65c8c14169a9581b7f3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0254.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "287650b70d29a99ca9f4bcc23fce40491da8aaf75a85fef3c1c314197366c37a",
+      "after_sha256": "46ad332aa8c6570e32bb04b3ff261df3802246065bab57ee282ed39211d39176",
+      "idat_sha256": "cf37f09a6eb9cf3d3bbe9d9363aeb79a26ae2b6b846d0b4728c11303a0bc99f5",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0240.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "71fd4df70bb99f07c6b7f5d45de78ac272b2455fd79b250ccd1b73e3a9d8fe93",
+      "after_sha256": "02392e529e097d61ec058430fbdcae31e47de464eb937f394ff4d6297292e1c6",
+      "idat_sha256": "4e36bbbc8f8e8f23a3b4eae34919ed43a8aceafeeeebb41a445f15fd040213e4",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0283.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3f26927c7fff5def3bc4633993ba0e2af9fc2e3b6767a75111a830d7d85a5210",
+      "after_sha256": "d489a2bd8b8b629bad60bd43d575d85f0183e9cd86a8a81f795cabf8ca268ed1",
+      "idat_sha256": "bf433e4749404944328efbcc96721e8a57af7b74ba54421ae1d4104c321f366f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0122.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3afc7cb1622987698e57de3f3aa5d3f38b289530e70d4e2e95946175f906f3cc",
+      "after_sha256": "e637d6b085fb3008fff4d41611a6e47359f0610e0ff98ad066a4624b9ba89354",
+      "idat_sha256": "b77f67de442007f2a79e121415c2c165aa7847f7203d61062b7747020c782de2",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0136.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "db31f6fa134213f5548635855865ca73f626212b7334c02e18b0b08d3ffaa84e",
+      "after_sha256": "91e1cedc4d3b88ca74677ad5c6b4fa8d66c4ee7109132dd2aacb55cdaa3a9f25",
+      "idat_sha256": "b08c51ef9fdf558a44ef02cabf37815d528b482695e6d931964044e649fe4d3a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0137.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b1b9c4888cc8543cf972a1e3ceeb1f5098845f6ae35e772e513ae9fb0315efd9",
+      "after_sha256": "7428da3781abd7e22b59a10ec2f37c58ad47f4f2079719531797f0a104b9218a",
+      "idat_sha256": "8db9da255627fcab46557fe9adf68b0011ab4857cd896a77aa976d1c063a4d6e",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0123.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "184c9f098dcc0acf41c60226fb2987f2e881e99b5476ef9091f458f16a324006",
+      "after_sha256": "c337023ce4c115fdfccf826d86906f2853b5d621771d66093cf1e522a973ea5a",
+      "idat_sha256": "3d3fd0c29e3750374da5faff5e3436286859c09bcbb06908117cc0f6f20695cc",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0282.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d28d54c2b53511d77acd4da3f77234c1d59a8268e538ea2ae6ccd5afa0d2f2a1",
+      "after_sha256": "66d9e11201896f06281d540e33e7be9daedd9db1baeee2459dc455a23e378718",
+      "idat_sha256": "4a77f62a14d57ebbbec039d15ad36769c099a11d10cee533ef03628ca3959868",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0241.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c6123c9ae172bc3acbd39a3b137a60db87759be3fdcbb43ceb5aad17b1953b04",
+      "after_sha256": "b8799d85e6d2917fb0a9d037ff36e62c24a458c0df9f18ed8b57c6c51c9d922d",
+      "idat_sha256": "d0ddb31be25b38b745bdd3e562c7cd0e097cbaa924e8a9439df18a167f3eb424",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0255.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a77d4de2df1267bd97a9dad08da621a0cbcd6c0390c9b7fab2fde208a40aed3f",
+      "after_sha256": "70bdcde076e1811cd194854e926b44d5b07c17fed41df5425952a7c38d040cf4",
+      "idat_sha256": "b1d201560f2d1d3255cf26f2712cc79748981a68ae2eec5fcd2b9d24bd18148f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0269.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "abc5b292fc819ec28063dd15000aea1ae6d4aa3d07f3c014dfff4a103ae79a08",
+      "after_sha256": "2f423b67914aec66f5187b592c56388caaf2d3f7b318be0a7b35a05a6d4118ce",
+      "idat_sha256": "0822d116c26e93823ce395413fdc800712cac28c4fce11cea9b89977fe1587d0",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0080.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a4f443d7614ec7c659b64a799ec058d48f63007bd8946048c979e617b2bc28e2",
+      "after_sha256": "5c4567cb8cc74cb46d014cbb77001c0576a0557d320be9ff97b76f4fb81b542a",
+      "idat_sha256": "470482a01bec7f20f15c8ad224598e2b4a1d8ffaa39beaf0c3da4aa84241250b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0094.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "95889ff0861cfa5f791f8cf0610f48f73e32756deefaba02f0f7c480d26ea429",
+      "after_sha256": "8a69f7c82d03a9f7b1948743bca44e020c0031cf162786764a25aa7c701e484a",
+      "idat_sha256": "bfe412e8cc7a1d56e266745d0113f4378c2ab32d502cf0d69e188c1b185534f2",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0043.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "2151a12a9f1304c87cfae92e0e4edc35d79661c11deeaa2c72573075eb5b7ff3",
+      "after_sha256": "65afa7689728fa2bd715dff21bcc3dcc970eb92957814799583aa0e5ba63766e",
+      "idat_sha256": "23cf5ebb222a6bb3cd5a8d0bd7df91ac5041d05fe3e549407adac8a13973be94",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0057.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d5ccddae02b0bdc23af5c67a1c5500a3e3afb684b86c94d2759b93530e17b56b",
+      "after_sha256": "56e8e4c41164afe18b867d575b3782d27c135f38d7677432186ac35d7fd46160",
+      "idat_sha256": "a1afea203d97bb48ddd7943f9b6aec5edccc27d57bb06bee9790f93bfaca7777",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0053.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3985db6f33ac2278bbe5bb604f434768fd91a3aedd4821a6b946089e8857083b",
+      "after_sha256": "835b4f6dc0162326fd1f000cffe7a301ba5af947e3ed3c42d9878d0c125fd1f5",
+      "idat_sha256": "3c73dda26e5a5e0ceaf99cc1d291e352436962afd73f7349e5bf20958781e560",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0047.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "af8ab9890522de63005f9076ce4fa4f5ba513e1d0840b01f46bf36e3fd31df28",
+      "after_sha256": "57c6a186d0f44c55c25d3f2e0fe26255f13753a0344d6f99a3143dc9f3bb3682",
+      "idat_sha256": "522ab01ee38ee03623623df3acee71a1cdc2f999ca78f8a9185e48e51fa08d42",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0090.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "72560daf0797f62e95fe71a4d2fc682ca057c791e0e3a09e0cacf1fb3336f6fd",
+      "after_sha256": "4323378f9366f715a76aad0e34aaafdf64a9edf7d04b603d948cfd8b874957e8",
+      "idat_sha256": "17f7793cd52d6b15437e7f71b03c454c9245388ad692b9a863551b795ad86308",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0084.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e18a30ab0eb87289adbaba1960feb4f1dd7f45d0675375fea85145e60bdf334f",
+      "after_sha256": "46a1ca5333c1f0a6573836bfd1fa8a1d0e153eaa425feeeb69c3d17036c5826e",
+      "idat_sha256": "c5f95940f3c2e15c3c5f584b9543e0f123afdde17fb20a666d7ac621a820ff51",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0251.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "797bf02146f9e9ab60ebbd3beb4b5d570c99e8a80cb49bc9c479e72698c8ffcd",
+      "after_sha256": "4d9913a2a9d99a50add625880dcec75f22d195845b4af166e1b8337e3399853b",
+      "idat_sha256": "4aaf7e9f9259d092d71d1e79797838b9edbb19cdf60870c64095419b6886e6cf",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0245.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "89e382d01411343b55d095080043a3a5e881fb62841a79ec6800e13a45e49eae",
+      "after_sha256": "094ace35c48e8028db64189359218b15825d12a82857148ab9674d43250b6a59",
+      "idat_sha256": "4ceba8c4e98f297ea947a7b0076198cb932e8c80704bd8e7fc563e0a6b571d49",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0279.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c41b2c34c8d7ba147519a0198a6d335a9836927b499bb929b65fc16ee57eddf5",
+      "after_sha256": "2804a13bb0daf7951e4436ddbfc5a48f562178326c1cf04f57da656fe425e5e0",
+      "idat_sha256": "c5c701e943515e61e1df7a2c6c752546ed470125c008b639b8d33fa49bae63da",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0286.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e43b4aeb3bbc1036b291c7b29e6502e93b11c83750391d8192d4dc2ec35d4391",
+      "after_sha256": "a5fea7bc4014587253956a216b51c828e945aec75a04009c1e59efab27aa8c68",
+      "idat_sha256": "e104b87aa17bf3a61fc02ec7fd4faeaf8d1c27aa1fec533626212ccc726c0ebd",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0127.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c8eebeb28e91df617d52fe825f430767d48a47be91680b71f02222ba86f303f4",
+      "after_sha256": "4a2c3791468c7711c158876d62cd619df6465f7f11610bba1b8ffeb75568523e",
+      "idat_sha256": "deee8a5afd3edf68b7ceb1c96743290e53d4825cc5209bbde7ee7a70fc98e7e6",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0133.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d5eb8bc62e85b88dd09e18f21f28f46bd2a7fcbd19419466daec263e9c797935",
+      "after_sha256": "3e87df477b3f58e93a5048585b6b637b94cb2da3b98eb902252cd2b5349bdf3b",
+      "idat_sha256": "c352ad60c57c381ebf17d8826a4ded6f66a94c658c594e4c6b2fb4c1abc75cca",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0132.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "cff209a31a420428dcbda1fbd42ced11bbda83f87397c2f2099e0b12ea12f830",
+      "after_sha256": "6a1bc967769e4f8c8c72d8ec6d885f98438955ef70512aacd1ef38cb981d4564",
+      "idat_sha256": "664db573512a1db52de9351238c23b3245787a7e4a644c2efad11671216c5c19",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0126.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e2a29035b6b583f15bd6b4847ad3bfffb95985442a98692cfc8424d69cada8e5",
+      "after_sha256": "308e75396b7c0b48b3b59aef8830a8a20f043ba1142e84e438b3d9a0da5b1fe3",
+      "idat_sha256": "869ceabe10802ca3c3edd19761392895371d0af5d540867a3af635fe0b5ef022",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0287.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a2dff21afdc8ec612c81ae148c1f9bb234e773accedba0ca57d0538d0bd4991c",
+      "after_sha256": "a0e0fc8bb62572a684e43b85578d7d9e5e5750b16adb8db25677c8273865043a",
+      "idat_sha256": "5b7625c69ca4bedd0c1f770a6ec2a75ba867228a7a40525a2fd64aad47d7363c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0278.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e92210da19b58d58019f7351c3af466d6e75a6c904051d20d7b75c1fc749e1d2",
+      "after_sha256": "fbf813dec86d55dc85ac40f09354ca9956f81a3f57be8fc67c92597a18fb0919",
+      "idat_sha256": "d512609ee343c2c8eedb95b438b1ee55a08bb05460d04a45cd57bbb3eafdee77",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0244.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a0c9e9614d735427259045baf93ca27785ed6b2af6f053c9e6d6955d353a9f68",
+      "after_sha256": "7940db7f8afa863dc4f306c3c4e1632e85508b429e5bcc468ef91a146ed67968",
+      "idat_sha256": "2bbb496e7a45978af6eaffc261abea8250951291025ad85f5949eaea80cfacb7",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0250.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "29e3f1b0dbbf64c6d78b3d8e551ac9f9217a1d2294d51509127108823be84385",
+      "after_sha256": "7bd1587141bbe9c1d03a77514665deedb71e109ec80f591888a2e0eb4af7ae1d",
+      "idat_sha256": "edd095033a7ad682606036bd29a0965695d6627a64dd95d7809a8583959b378f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0085.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "22ff0891f29357213dc83c6be21c7338901dfbcb24b93c772f8cd7dde60fe29c",
+      "after_sha256": "1543c06b06e23101b8b7229cd4e9fac1c68f6404b3cdba308ea948e34a325bda",
+      "idat_sha256": "e1102190a8fd739b9166bed266564aca779a6ecda0bd1b8a072494e82b14937a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0091.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1fd19753a94cbd4bc7e82cefcb6ae632152ccdaba73030d107edcc64c3944667",
+      "after_sha256": "0a5e19d10aa30b2e2923038d6874fe6ebbcd46668f7bcdfb97a6452994dd357b",
+      "idat_sha256": "f3cccc42d79df405552514067ae5cf8b986488b362731f316a02bdca009542ed",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0046.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b531f1ceec301840916b3446dff94dd23f8d5b267b86ac8c3cc5140c0a9eaa9e",
+      "after_sha256": "55e9ea0bd969530bfaa972708111a83c57e19f9d7985491562403ce7fdff260e",
+      "idat_sha256": "0df04f441e63d5129167c5aed3430aa0377a5c3a423bf0d3ba8bf7898590c429",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0052.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e86819d9602cfc6057a2e01ab44d3ffe84f5f828d85335ec34c6d1dd10e6718c",
+      "after_sha256": "7e3d3b3d91e3f284422a6d938bad0a6b6646effd7b207b82f943a86c47fb2bfd",
+      "idat_sha256": "ebdc40ec82d911e08875defac940a87d53312758c4f525ce4d161c422ce1b3af",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0044.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "9125f39086dee7bf177efc1da82c5fd4d4ecd27f1ed5896358c6db2da7215577",
+      "after_sha256": "931b39143f522ae8713697f3e2a16597b2e28d7a4473def3c7bbfb14dcaa26b9",
+      "idat_sha256": "3a360429fea0f0dae4ed079bc86e645f89dfdc205dc44133221ac36a41688afc",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0050.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b1f31aa1a33a205a056f7975625a4f558ee19acaba2af6d6b53ee7a019568cf3",
+      "after_sha256": "8766f8e5a1e12307198adf4b6807350d2dfe2c93d64b99ace05d89d969f09ab5",
+      "idat_sha256": "e4df25d9eda5b55be8ae27441bf073ba8fd7a938bd700e23928782683f29c601",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0078.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8b7d2ef7e08ed84df7814fd2ac1939eff0fa1a9c926bf0e043a2535b9620e40c",
+      "after_sha256": "4f61b2d1901a441024907d232e76fb9e768e0add0ae1c24ea36ce2fa8dbf0eb4",
+      "idat_sha256": "eb8560d7e303eae1efbe540c6461ab5eb43b748400dbba2742bb6cf529e35a17",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0087.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "98171ea02a548fb3f388584f635da0d227bf549a79a22976b6311544afa6e22a",
+      "after_sha256": "7ea4e343a574be8774dcd0a2c552be58724a8cc2f377b778dcb2a1ef2dcf6374",
+      "idat_sha256": "f6f7072f7ebc6137545253a065ff9c9a0d1a56e504c34eb709dafcf673664895",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0093.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "202c40b3f2899b15250d019f5c192dd900d2eec25b287d97d162c4b048a88c95",
+      "after_sha256": "20318b650c07bf59f7ebe32dcf7f6c43eb82cdbf4923eafceaf30352f8934f83",
+      "idat_sha256": "7c9b31af6172ee65253dbcc6e120c1fe15230f885ece48b4ad862a112bde7949",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0246.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c6b536746c4b47b2725b4ed976f842948da5c6b16e44a5e2b435b59d545b661d",
+      "after_sha256": "385da87d854fd47032400f2a5106c3c8e5f22baf85a18afde4f1db38d824455b",
+      "idat_sha256": "1fafbf6ddb5d32ed9f92e551df8e8a6aa9279edf1078362204e6ab2c5cfd94b0",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0252.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d1db646b5a2ecee455184dd1f06cf5ceb0eb48a9e39b2cf500f64487165998ea",
+      "after_sha256": "a279ad10311289b1dca220b008916af8046e4de60c28bf27adb81cad944bbe16",
+      "idat_sha256": "ef251fe940d5be6ed06768a4564195bda5ad4df4fd87cd92e21578e98e5fce16",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0285.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c8ff4968cf1cc7e6f13f7377deb0bb5a21dd736b90adad907f4f17bd28d3101b",
+      "after_sha256": "ea340497a996d62cdfc214eb79e5cbd5176a4a0a3fe18baab588a2be6bead029",
+      "idat_sha256": "177d57799562273c73a5375ca8787be6eb6ba255398778fad5781d3bea6ac3b8",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0130.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "9715e7cd592bdc93af19e6412ca6662c17d9cc9f4902c6b63e47228267ae09de",
+      "after_sha256": "39c1d51a2e8ad6edd1df307583ac6b75f343be927afdfe1bdcdb0ea222ee7ae9",
+      "idat_sha256": "e32901a4898daf824846ab4ba5acaf4e20969ee1f3f8354bf44e5e0c5dbc6bac",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0124.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "7bbb5d1d4a83de294added56bc30b2f8618b24778ff03b31d0d9c9a971d64acc",
+      "after_sha256": "3834135728ed1f74fee9f2e7286bbc164f3b22c21ebcbe64cca9ff19aff0638a",
+      "idat_sha256": "ffb90da89610412df32a2b66bfcf37c9601a403f1d363152f38d2f07203577dc",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0118.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "0577f6091b6559ab577e1858c9d4bdeb1baf735499ef6817d24c564c81d302d6",
+      "after_sha256": "cfad495535116323b811f785a7e858ccbb9cef07b2147cdd33e183b24a94b448",
+      "idat_sha256": "6f0d6b97edcccb3d0d7a70893d4369703d6117bc38b125c526686447243dc653",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0119.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "f98455474d70887fd1783cc38f702d7d99d01db7048af8afa11ed8ede899a82c",
+      "after_sha256": "108e0445274e708417c775ecae303cfacb78caef5af56b8886ebfb347f97daae",
+      "idat_sha256": "7ce9cc84c36833457b2d38ca12df3dd032aa4246333b2fd716e82a7c6391ef45",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0125.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "5af5f1a574f400871a4e1ea36456063aa7f9fc6ce9bf4fce0822748e4ec93630",
+      "after_sha256": "cb6090dfb1b5d12afb0a2d22cc4f3a8b362105b570ed1d9a49d15f9bb57899a6",
+      "idat_sha256": "31bd2b88c928f0022f96334c66829df8c36a565a7286b867871494222384bbee",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0131.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "02339788926fdb666bfbc182d95d0ecd5e4e1cc5b3fb7483db4590cfc724bd8c",
+      "after_sha256": "94b0b98e5d538b4dfb632ef4d45ee10c5ef47c28ebd01ce3d017f59e993f4688",
+      "idat_sha256": "2aec3c99c7b61232eb03e124362f255a154904a2cc679d3c8c460819ac357ccb",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0284.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3f02562d1834a36fb082b87f37b18efbea34a91a0702aa5d09f3553375a13436",
+      "after_sha256": "981a4d6003ee789e4ffda8bce58f38ecde281bd252e3e7c9a62d46e317820a6a",
+      "idat_sha256": "8a9f59094c2c9c6a6d3ca29b45423bda1a96b688dce50a2e030cafd7eac087d3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0253.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d942459cf25feeaed8e8766f3f9358d543dbdef5882fbb03ac595f143b84b8c8",
+      "after_sha256": "1423650b8ab51d3dd7b7d3cb602b0394a0acb6d81ad7110507c86f1dc5094cd9",
+      "idat_sha256": "8364e05a1bdacf49f1f68a0c3f900d0c1ceba20fdd6a5811a67bb375b655b0d4",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0247.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c7ecdc760c9015770ed98cfee9dbcb13b6b0be739a956dc775df058154e37926",
+      "after_sha256": "a5845ba8827ebc8a61811196fb193a080d47d35ea8fddf870373e2996f7f4354",
+      "idat_sha256": "302dc9840f3fb60b716ab451e2eff57baad27f0aa6d7a43ae0b0d91b8afb0a25",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0092.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "902506e2d643375a9c1405febf42981ec3993c969ae8160e43e75d151d886f6b",
+      "after_sha256": "accf16d8015634dc4fe6b43fae8607209d0d7292bb643b5972b3f5ba3ddc1a7e",
+      "idat_sha256": "caa2ad5e10e81c5a2b386a7f08ebbda3cd502c9079fad10886cef6e7977f2fd1",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0086.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "4f1e6ee6f578ead0484cd04cf70a5502b927e05837654214809510378b8c8480",
+      "after_sha256": "3f19719072f7aca4bad2d57a84bca4ff8b6c25159a44e228abc9b783c98ffd03",
+      "idat_sha256": "f687cdfe52ebe37a79be1553dbf85def6522d052c98f85657fa9f95f394cdd2c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0079.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1f3c4a670c8402225dc384d7adfac6afb762f827bd8e137726bdccc87c4022f4",
+      "after_sha256": "fc058f15b43b8ee91592390bdc399e90c80132fd0b0a11afaa5bcc99a77ea402",
+      "idat_sha256": "9236f653136ac740f73a71c5f598f9085ff5df4c8d1f4529fb694bea4c9ca069",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0051.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c6b9edb4844005725fb331e1294537fe50daab0b3e27db73a3ab1a059bd50e88",
+      "after_sha256": "6872ccb93348eb7b365653aa9e1748b399ad436217d57f7ef1c9968fcaab5c60",
+      "idat_sha256": "2b93f105a55193cbdda323ddfadcd9217c73970bce26f11e31b4464c399d04e9",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0045.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "342967f25992ef40a20f037889d09a42a5f5f25c200a22efe37b39c173a7f63f",
+      "after_sha256": "6fcf5f0016697054e8c3bdd062bee21b6d12f3521930237d5f5a5603c465668f",
+      "idat_sha256": "4ddf18cf84925e5fe5a595d6356e45a1e23d9c2473a910d10010462d3b64389d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0022.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "f6f0fe6bf1337c7f5f5881b8d7da7772116b7d0672ff91f1339d6c310cd4dbdd",
+      "after_sha256": "f54d09bc0da74ee4907ff624745d4ba2b4167594cefbcf96e2d67251c7edccc9",
+      "idat_sha256": "8143c2c76332314725531dfd3dfe20e5638d1916fbae2d537e6093e4f58a1935",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0036.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3466a448cc77fd2ff31764d7bdd9167e5ff43dd780f3dfe578919f01f687bb56",
+      "after_sha256": "6ed54bf64711032e4392fe5cb1139db618c5277627da0b64f07c788f6396eff3",
+      "idat_sha256": "51759112813dc42fa1080168f3800bda1324c29bdb1b15a5c1cd9b8fc7814055",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0208.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "117a4bf2906bc8c260875f7ab2b67cc3f044b8b346b967e66977ad1d0f5ba0e6",
+      "after_sha256": "b20727c0d73857f03b39f6d3a72bcea08effb4831d774b6d1290d4e4e83eebe4",
+      "idat_sha256": "9b3cf38ce61d182b88c83433326a3dfc4e2cc8dfc28860f5899ff28a14779b5d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0220.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "0dee92a2848cc06dcbfcc8a260e647c7c9afd84d1731dfe824a624051074927e",
+      "after_sha256": "c58649ca9e479300a1cf9d3f1386e17c0c11f00cff7d7d3935645871fe571dcf",
+      "idat_sha256": "5266e75560c13d5e7b2a34cd4d199e2a4b17522a2bf5974c6e1b3a65129d08d0",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0234.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1a88696860b39ac49715e13d7e287218d787b6301c563902ab586fb68d6595e3",
+      "after_sha256": "b1d83a50cd57b5f1fa7b318a21f46142793d20e9915c5a5862e38bddca3eaac6",
+      "idat_sha256": "bf3d5b4d1fcee7b21bbfc48f0ec7cc4c648f76746de8021aa5260413e8b206b2",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0156.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "816fd613acf0ecf81b137ac3ed61f337b27f82929365fb4191d9a9fd5628744d",
+      "after_sha256": "30a0a7b1330762a6aec1f86141a97eed1ca720cb06550b9b94e48f540b6b1f3a",
+      "idat_sha256": "912e61330fd12606d8e61cf8183f804e080440589c2b382a4f694c87ae961e77",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0142.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b6d5aa07727c1507a1f335f37f8702ca097e27d5ac97f4a6ea67cad29baa3953",
+      "after_sha256": "0c6420791c20d198545794fc052a3a909a0578516580e6f292370013ba765b51",
+      "idat_sha256": "fe11e69e9f858c5aefcc0abac6d816868868a2d4785a91e7594eba1340a78eee",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0195.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d6e0267322bf0b9bce0078dfd3208fad7755014907598454cb080ecefd4bce27",
+      "after_sha256": "ad92964f3d42ffd146a0e529f5471ec1edf25c65716e28cfa5f078fd0794b0e2",
+      "idat_sha256": "43988d6b04df0f72e9c782ae7da803a386765d224a2d39e97f2a68b432cce74b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0181.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "850aa29f821390f15c80ba9c0e83e03f1f1240f8fe1779ac151fbee90fdd04a9",
+      "after_sha256": "5e143046a0145246084335c945cb76702f84a98b540dd638eb4f511a59a44fcc",
+      "idat_sha256": "a680e6b16234b0196fd2ca1458d72e91badda787c733259c69f302ae7dd1985b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0180.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "586d5158b1727f01d2638e35641d6a091c55352648f5a73da6f99c319cd18ce9",
+      "after_sha256": "27cc484173ebd61015a76045fcbcacd55a7d85993335366dc607eea1ec4febc4",
+      "idat_sha256": "79eae3560ae60fc94a639e45d16e6c9fabddeb3442a7da80ac94fb96173dcc95",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0194.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "20ae97d1e85c547fb4565d0eacac0d03b2c3a38011dd84dab68207da499bb550",
+      "after_sha256": "bb1a1198c59ed99e39f249e2b8363c93f0a7c59ccbd91faace5ef6531b2cc223",
+      "idat_sha256": "fc37727d3eb935d24ac7a5a5b5afb6cdf9d8dd93e2cbda8203d698cb414f1fca",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0143.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "2f3426635abf8698be64d963c694a18d149356f9b08df06460a197a8ed5c8616",
+      "after_sha256": "db8b55bc39e6b5ee01609203135bb1018699bf94718b1e2a160a0028b8e1e40c",
+      "idat_sha256": "08d52c2caa296abcb89c2043ad4abc090222b96496d88e290dc8eda83f7ddc34",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0157.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "2cb06a4aa55f2a531dd4c9bf55c74503e860d404f1f6003712600408e20d40d5",
+      "after_sha256": "a833bb07253c4494c72482403f84f6fafb208613cdc3b6070f01b23235da5964",
+      "idat_sha256": "a16f4abbf99fca3296cfcfb1a3ecfee3242945e54e17ce66ccd84d97bccb1430",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0235.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e403de678fe2764b939121466d254980b3b55723483f819b5bf5fa47dd7f8c0b",
+      "after_sha256": "05d984361a545fb8b543d56e44cbf8cc9503f7e4b920185327fa39b6ba2a4203",
+      "idat_sha256": "169ffa5d72c2dfec8a887cb22938b817462692a7044770e8e0dfafcc14e5766e",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0221.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "20a17c0761946080e7bc6d440294a29a083907d34ad32ccf5a289fa1a405c595",
+      "after_sha256": "d269ae9078b588e19df34a03a5c60793a20f15c64e686ccda68e3a181b3d48d6",
+      "idat_sha256": "db6a0e63f4794654a1c53cf94773c77cedd36d16033bfb1b0bce7de77128de1a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0209.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "da4afc2546f9a6dab551e7fde2d46982c684789eb139fd1917af86ff10864584",
+      "after_sha256": "6a7fe7abde48d21e4b0d90e7eb45d928fa6732e29664bdc250bf81336412d565",
+      "idat_sha256": "af9bd7d5bd74fa8c01451098130934f7e8767572a1f58c40df6a2009f28aac75",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0037.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "201e5dc7d7a676f818469fd9c17951ec6cc6d30a37c489159389cc73dc1e0368",
+      "after_sha256": "8d2ef89421c8b7db84185ebaa532e702a7fa1e1647483f259859750f7db94e43",
+      "idat_sha256": "0dba7ba9ac7c32b32720b6d9f5c1e287b0c3ebb482d9e6cae9cfa1c52b196101",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0023.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "4f3e64482491e42b5abe1d2baf6157de81820ff3b61654ff97072656f2a2cfbc",
+      "after_sha256": "ac91bb203470144ad1fb2630cb4b5698a968ad30ef7387bb8d074dfd824b4296",
+      "idat_sha256": "f00a6945a079749f2a589c0eb8ce71cc61d23fb01efe1e9d83a49236a7076d3e",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0009.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "fc0b307d2de52270b2c4f46ae6cc923762cf8303a56060aae56bf9e5c109732e",
+      "after_sha256": "8b34b3869a9b0e7ff0f9d1bb76eaffcec5e26bf9a6e65b02fce9a74dc8ff4f87",
+      "idat_sha256": "a2260d936992475bb8e50c2a615b1b1adb2c180404426ae545a05af02076c30d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0035.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "591df1e022ecc1030de328297bba7c7e5b145ac05c62cca37f8f2a828af5745b",
+      "after_sha256": "15c3e5744ee651b3720104a0e5ad7b65295952cf53f2e05b1aacee2768ffa05b",
+      "idat_sha256": "aea03401caa4bdf067de90327480ed8735ed2365ae02364d0bfffc6ca83751ce",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0021.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "87be8cbf4e2392d5a4f62bc31c4256cdbd1b89f5e38f7f9435f8b4ba3a2409e9",
+      "after_sha256": "4bc6bdf4ccf330d5945746b21ad371dfb769c43fdae32ea3c3d412dca12912c2",
+      "idat_sha256": "818ed7fd67dc43bcd73435e6eacc07045a882245ac60cc14f9c5d8b2365b31e7",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0237.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "2f6f4255714172def31cf8eb9726a3c51d0d59421ed40c93aaba7ac40bd104c8",
+      "after_sha256": "f16871fa1e25c03ce9123e1d61659355b66fb636fd599db405a498fe4004db17",
+      "idat_sha256": "70fdd80946d14737f7bb88f5e3778ca645a26e70b333d448a8e880a11927b139",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0223.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b5bd0b6529fee89fa0764924e7c57c697559588b0dd1bd8639309c399d9e9da6",
+      "after_sha256": "8e61563b03460de36bc882baa6b5509f3a118ea9374e457c636d9c5e9ac2da74",
+      "idat_sha256": "e518a6b87a7c5b33fc797553e8889bd58c72199a387f2608d09868c500ad54f3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0169.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3ad3a614041785b7f39fd7ae4594a3171cb0427750a9abbf27263a750fecbaa7",
+      "after_sha256": "de8a2557e8cd7bdfa098d20eb6f0790c82df204c7068bc29868c3a79cb9dde1e",
+      "idat_sha256": "63c8bbf5624c7dd8ccdca177749dc04375f069466fc39537fe43f3e6ade1aed5",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0141.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "47e858f16eb5751e1d2a7e9438a25ee10c0dfe4cbf2edf99c52f2246fdfd4121",
+      "after_sha256": "4e8b0e10111207dec8106f1e0227f5512a65a85a21ac7e03a0df27d31a00a3d6",
+      "idat_sha256": "2c4f5812303777920048a3ec9ba166f7730a519fd82338a7ee67b2d805a190e9",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0155.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c880cd6cecdfb77719e254c5fcea29207b3fd738231a58e24f3cd7a82b95f255",
+      "after_sha256": "e5c452489d69b05cb86aa4355352116595fbd9cf61b028b04ab5b6fe3e58e470",
+      "idat_sha256": "0f3bf91795dffdc69063e24f201fe07852212d652200ff5bf44946fbcf0e6d76",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0182.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "0ee35fe5886ccaea3df3dda08c64c7ff2ed1272033e5f9f3368288359c9fa041",
+      "after_sha256": "707e01f834d8264a3d18d3a9dee6633765a6dec063d12dd6c8a0d6581b55eb9c",
+      "idat_sha256": "b8d4960e950391219e18986a4aa2ada4c879d0e1eb914ecf7a1cb8ec5cbf7ce8",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0196.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "87ab72f85431e2ff3853009241dfd638f4563c6d66c2b689478b3e49c2a8ec31",
+      "after_sha256": "c0b30b10a0ee5146474f2e41ca7d91f4f8f3cd82784a992408e1e64df2bb4f24",
+      "idat_sha256": "841e622060c305896d33f0cbb74cf3249371b8e8a21c7005f841e1acb9b3ba78",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0197.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d7bfdfbc8cbb44d6269cbd3e7c51b682f30b288f1de0f8d604d9654635572a6f",
+      "after_sha256": "7e9922cca107236b9bfa7fe63641a4447a1482c987cc2a427a6b462cd86d69c8",
+      "idat_sha256": "6c9d5f7e13f7ece877adbd5c23f06f8d09e0522fd0305712d04f432fe3704737",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0183.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a0e2f49636804c8421425406712c6fa64386496c26d5ab9c089b604eb7e36de0",
+      "after_sha256": "0c7139fae0e693e7fd7be3902a21ddb1088eb2fbdd5d64f737f6b5530da47c64",
+      "idat_sha256": "2828b4741ee4fca1c40552310090486304e977da01d4e3128de37923b4649537",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0154.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6a6fb685f945963fe2a3c24d813dddeeffd55b550206055446cc66cb68c9cea8",
+      "after_sha256": "babb1ed6ae6eed3ec8183fd5e9a2a71e40769a6fe47c1e5527b1acab4a410a32",
+      "idat_sha256": "e2d61a9e8ef3a9fa142e42d220d53867d8c56943967c6bff8fd595ebb34a6016",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0140.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "76f6be3b9bbdc7372ea2bfe5107f75169cc0c845c0ebb0513ef35f319919742d",
+      "after_sha256": "d4fb87e5b6b2945983f69477db8b962053f662817f5ddbf202e299f04ad43cca",
+      "idat_sha256": "d9a18f6d4439224db6eb674754451e85190c87b46289a2b137ad53197b3199ed",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0168.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8eb9f058bbdc6e87c02a3e2894c6f405eb1113e248cb0cdac10fdf00d09ec884",
+      "after_sha256": "1feab78fcb12d9932d8b567737c61289c4ed1fcd8e635fc157df25f55d1a7d72",
+      "idat_sha256": "bcd1185df7a0c3a3fc85dba6d73730b70ff2b7c9bcc4686f957a33c03dcecc82",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0222.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "dc6fd3e2f23c8dc057afc65b314756dccc65dbc717eddf9805bd4ae9b0436076",
+      "after_sha256": "84e38e3cd4d95973dde95fc25888739d62d0803ecff5719cdfdf1d7ae92850b3",
+      "idat_sha256": "257f7c525d17936bb40e5250b50d255bfadfa6246b3774e2704469d5b075af72",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0236.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d34f6ea944ce7b8263fb1980d52d9e8d90bd6d4f721b06c7ae83904a05004488",
+      "after_sha256": "537c2414ca645b4d33e5a170fbcb4240be0697dfea3e83edd3f9f8e80e94c54d",
+      "idat_sha256": "fbf9a606f4fadd46799cccaf0e0c23d175b4129a714b275164228274844c04ef",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0020.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1f0ae85bcced67a6f9384b55866dc0d45241110bfa6600ea1a5ed27a948f30be",
+      "after_sha256": "5cd74fdf5ec4917cb62943453d2febc1903fa6fb6942cbccf9df46b531c8f2b5",
+      "idat_sha256": "e8373cb68479cef1515b1f41a78a3014fc6c28139e2d6bb7d46a94f0a3f671bf",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0034.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a454bc443c996136787b9f3a2bf702c26413da4f684c3068bf0d9b6b49fbdb49",
+      "after_sha256": "dc66f2e4f5be7ee79e4ce7c20b0f128a1712754a0ffec234ad86ba63268f97ff",
+      "idat_sha256": "09789789c4ed19d75352cf2ed70890f30f639d3d072fb3de5e742e414f312f6e",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0008.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "9afcc131a58cfc242996a0977683d3bb76ecbb40fcb76c4cbec8870dd72a984f",
+      "after_sha256": "ec6bb4d0df33d19eddcab51878f60955c42c6203386725d1ebf7f80baad31644",
+      "idat_sha256": "6ccc4ee63d0c95c7e2373f8ff3ed24b28734b27c2371d0772d19d69dbce1df1e",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0030.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "fc36da6a199483a4f893ad0e5bafa45840587e1f5fdbf5195fc656ed6e55a0b4",
+      "after_sha256": "65dfe930426763aa2dc9346f7af7b500d9c67720785ec7d1f0955884a0d2a2b2",
+      "idat_sha256": "c14e63ea572c160a0f7891e9925ef3abd4523b88b2ed33dc460c84a9a5ee27cf",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0024.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "5f7d1ce60f8ef0f3475f59fc6f4a5a8bd2f991aff069dae6919b1a1268bba7cc",
+      "after_sha256": "bc890d682b13d9c6c6bbfacc1b5e34291c58313b7fff073ce6bfea36033da4ab",
+      "idat_sha256": "c7a6890b1555fcb78288dbbf87cf192260815caea79c00b34806e87a90a1ec7b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0018.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "ce008e7dc45d59a0d6b7673a942192f9ae1baaa791d6b1f96ec3f35d598c1046",
+      "after_sha256": "d0d24e11e161ff638664affd798d2eeb3fdd43bd7e100299ad79273ecfe32731",
+      "idat_sha256": "adc403fbba9f9769fcb04fc840f06c759ea20e227005187fff155f1f36b9cfb5",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0232.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "18b23632056295093ae151bd79d06a54f8bba224cdde4700cccc3936dcbff2c6",
+      "after_sha256": "ec9b9b78a050f81d5b527893633f3f873b238e0256eecda04dad53b792254191",
+      "idat_sha256": "7cb1f84e1d3086367b56af04f780d0135ccb5bb8d90d3d2e684fa185b32458d3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0226.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b1cebf99a1860bc7acbed63937a96b524dfce6ecaa8b123eb8023458da5422ce",
+      "after_sha256": "de02f2c7726255ce625f026b96bd4e4874a79afd5a5342039fe4d70afe9a1d3c",
+      "idat_sha256": "bd438905e6dedef6d53ad54acded09900d39a6fa821e26ad5a5de782d7f48f09",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0144.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "808e158a4212d63dceda463618907bd76a7117630444df82f5106170399f1399",
+      "after_sha256": "5e8a1aba62f987d288a51ad9e7656f9ff655eb31bfd78eab7cd087e97cc214de",
+      "idat_sha256": "2fcf7ee5ee60e815b8fc366749a1fb4dd3f47832df39fc86807ed628cffdf8b4",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0150.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a16373c51708765f3e7d3b436f6e54079495f11112772be157107b1485c0be01",
+      "after_sha256": "9141fc03bcc9da470bb70c84205455eea6f2b601951af5e1f5c0731a5b35dd56",
+      "idat_sha256": "93aefa155a03c9e6102cf26cebb3c0af1a9ffd7852199990e0ba218a6976cfd3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0178.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8516bb7c87948e1a2c3ff609086ef73ac34f54acba8cfe008119a7186a4023ad",
+      "after_sha256": "dbe26119941bb6daf1f3988bb4ac35b2e01dd5be2ac056c53e8e6f7c9b709cd3",
+      "idat_sha256": "19c89f3a5dfbef37a7ead4ce339564465eb9b13e210061f3c2160d89b931dd1b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0187.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "aa9e87686cae0eb97f619de1434ea5ab6545bc2127aae35fd80cd76f8e253361",
+      "after_sha256": "f8fac1dd426aa1dbbb5ce400184010520a52ca4d6b4fcdec4b53e3ec63cc82a4",
+      "idat_sha256": "63608e77d54c0ef78f66d64401ea3333dad4f8ea6f3bda4ec6ddefd2731f7f88",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0193.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "2dd1b2094b86b02831e7d03c6e0424e7c31b923b5e8d32e3f32982bb2f3d22c1",
+      "after_sha256": "05cc1732fd581702b633c8e0fb74a3881b4eb7b1c0ef73a36fda04630342306b",
+      "idat_sha256": "299a70bb507396a5515fc6aca62a6b44e2def16adc860e3d36742d8dcbac70ab",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0192.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "ba58b5a552f7512f72f58729d0f2941fa9e8d9799e0d7b6310b669dfc7c153a7",
+      "after_sha256": "818c8820cd920abd6bf2a195b5d598ea10b2280fd17f0f3c6bff1f0a199d45b5",
+      "idat_sha256": "617acb40448bcbb28bc9ef3a096e5b05f343255b11a147550f7393ac0126e103",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0186.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "63495b5f769b4c88a464378a8535b8685bd2bf104943dcbc0ee9201a9123d269",
+      "after_sha256": "b742b0093796c7b6c76535319f62d4f85ff99d7bb4d1449853fdc774a13bdea0",
+      "idat_sha256": "8c1f922657ebf44aa7be8fcae216177a233fbce1468d5c4646196a4a93a663ca",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0179.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "4d82cf14bad59b2992e756f2ef80d03b28fb2b070f5a835c6e2f1a64c98f988c",
+      "after_sha256": "0852339e17ab51854240117f4399494072336180e0ce6c717811f87bae5ca73d",
+      "idat_sha256": "53cd5415c4d9c2d965ae5121bfb8ff56ed1acdfd95f81961dd5eae785d020034",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0151.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "ff8412a1f3b011e6de6ef5bb6a09495f4c37976bfe61f037dfddc04a2d76e4ec",
+      "after_sha256": "6eccd1ad59d3fa32f96fd39245b3c4903be296c579b3f9f92fc0d99154bb2f89",
+      "idat_sha256": "de05245c29b14053af3ffc9d2cdde2071d1e245a8bd3daa6eaaa713d81c6c88d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0145.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "59dd7bd3ae2a05666c8880643d4f0eeb331043e758afc6bfd86fd10a80f8fc6b",
+      "after_sha256": "3dd2514a923499f61dc490abc633b93a0b9febf0b5fb697c1a9f47b12aa60963",
+      "idat_sha256": "0f940f4b4948e305fc4be843e61fbd9bb627d99e5ec07cd22d8873a8e7fd0a65",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0227.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1c513a4c4ee2fc3c0f79bf5731319b5e171a6f2324c0110e5924a5eacb4914ee",
+      "after_sha256": "6631d23965ed5ab558c2f82fc1b93c3c79c1f0ac1529cb14ca05ccc2ba71339d",
+      "idat_sha256": "e01e5b4c9d73ae30341f398c857f58df71b2b80d5451cf524ebf17049766d837",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0233.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "51317ae2ed90a88e0a52bdc6a522df1d10e8b5a07e273fb7b806bee3fd4bbadb",
+      "after_sha256": "0ead77795b437561d75ea2297c5f202e2c8042e5df272eb16643a8e192e7b235",
+      "idat_sha256": "a99384ea4623c2cd0a02cbe03aad1b00912d84e459770ef095a10fa10b55ebff",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0019.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "ec2d7b3e375df99417cb121c31b0f61aa7648bc3e4585a8d3f1c2ae041b726a4",
+      "after_sha256": "9bf1bd1529c22f3602e2f7b216e4a52dab9a697c63111b557f006a916fbc7b14",
+      "idat_sha256": "77cc65257fc6bf682e9a19cf3e5a5d0dbfc8fb502598ea0c4b35fb19a017e031",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0025.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c00019556cc9828de6406e68720823c3f24203bfcca2374a3ea47834388712a6",
+      "after_sha256": "97d66bee6e64cfec868717e7346a5bd5ed07c642c931ff52ff73cce8c2adf4bb",
+      "idat_sha256": "2c5b2076ed4b695bf55ef51fad6ddc60a4371c9fbed92ce9f8305d190f6670f7",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0031.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c70c310f14576c6bdbc0cbd88fd9f27bc253ba6f33bc00176908870cd3eac45a",
+      "after_sha256": "388a8057d38f6ca0d49f3351f55666cbd23d5dfccc1a37da4c1bc276b1703d33",
+      "idat_sha256": "71a6417d191e67374caf36b3e49e8f750f6fb5336137d817f7205e3ef2634bed",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0027.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "89d61c2796cddb1fd7a12c22ca43ab9aa5f6546328ce61ad98dc1aba0d95d486",
+      "after_sha256": "c1b381026e1293376984305354f7ac966a04713f30dd8625df124a1c6fabb186",
+      "idat_sha256": "8003a210bf687bc8e6373caf4b047b8a1924f1d9d8e54ab2a36f7aa47445952d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0033.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8f43f87b9e193954611cf506814e5640328f08f6a238203595caba6f4a8a33cb",
+      "after_sha256": "89ffe9b6c14471d4d921106ee53ea4291791577baf99fb8dce3db3d848ac9325",
+      "idat_sha256": "4751f5a7cf8b85829d3dcc23348784a9955e460411461ab229db4db4c5e06051",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0225.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "78e7ff12dc424cd3400167731065b03da13baf432a9b384ffcc96819b6afaeed",
+      "after_sha256": "fda4dc43d96ecee4958124e665013184702d7a59b2be38b237861f549b488cab",
+      "idat_sha256": "2dcc1267ec7ea7cfa3737019f6ea3cab0605355635b4838a0119412ff6d45db9",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0231.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "083fddceed5be51b827ee2be27bf05cd1630d3a13117e30ba60db5b4699625dd",
+      "after_sha256": "20ec6b3daca6f087b4ec45e0d579c8cab9e09f998fa74c481efdfe771477b4d6",
+      "idat_sha256": "72a7c640732af105850a82a324ae228b0412e0ee09bde352863811c198ce815f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0219.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "76985458151dd1658cd2aca476d0e4b8882231a1d28dd402cd980b3aa659631a",
+      "after_sha256": "1aeafee9c31189b765b008460a4dcdd3e83c52374c640e09ffaa98a331d8b577",
+      "idat_sha256": "237d03fb5468bc11d5d8bf740705a4c36655d8e4378a7c57488b7633a3ef2018",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0153.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6b4aa63343820e4ad537c2b083e77cb82bb657c174f37964a3626c8960db8492",
+      "after_sha256": "b2cb071faa19f489e44a3500d39a2c3b3d5a831c38163751c2413890ce71e46b",
+      "idat_sha256": "75aaaa9d33fa71a64154f82644969bcb9d1e71285c4064629c020a957c0e149c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0147.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "dfd127410b0fda06293f4eaa2975d3f0433059d264f0ba6904366c157073a689",
+      "after_sha256": "9a82815bd34eb8fbde08eb394cde339b183bb0a67ed8b21c35b2393aaf2930f5",
+      "idat_sha256": "35fa827104a61d38415101a3e0f634eebacad56fcac30c26f9ff6bd0b5f9ade7",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0190.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "fb0850c6a92dfcd35bcb1cd1d3fb3267ead6273151d555f3fcbcf7a2f9608bba",
+      "after_sha256": "d1c20ab451b95b2e2fe59fdb651fb5a09d47086b249a912749d5b39070e1cdd9",
+      "idat_sha256": "f7609a5f885b9a1f28c438badfcef18e5d6f1cf51cdfdfd77c91898e04b4952e",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0184.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c829da8f662758150f33c349609cbc662bd5d80476113b579d86dcc79ec32c85",
+      "after_sha256": "204c8dd0b6d9287669dfca8161ae2a3dc4fd490a7d663cfd4a029ee7544e48a4",
+      "idat_sha256": "ddc48b1df067ffe867614bb67c07e65c10211d08fa6ddfe294a7b30a0f0210c8",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0185.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "47112e9c0dfb5662a01a556740e4019170dcc6c75fcea68c350e37b87e13594c",
+      "after_sha256": "53fef6965a6c50a5db75fe7c16462ce199e2780410336b02818b4df0f6a2fc9e",
+      "idat_sha256": "61fdfe015cb1071f63ba8e97cf395259e01a8cb37504fd3f23a61ca109511d7b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0191.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d7710a30343b7f9198f710712e5a0c97d5cce98e88632e67d8656efec690e453",
+      "after_sha256": "70cc08efbe097816bb0d064df5f266cc6e2221ff459813c5709fd9b528dfbfa9",
+      "idat_sha256": "c2e687dbf589777ab9de41b53e1643b36e4eb38ef5ef25a7d373c7d5b339276a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0146.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a3b5288744cb366b4d452148ab2932464bbad5d380ab1d3d2eb5f3c913de1fed",
+      "after_sha256": "4a51e47f8ef5aa9375e4b85148a1bfc390b2b1f21c5b41cd4a06494f6a5a0cc3",
+      "idat_sha256": "1872b6778be85ef1c5c72bf73b8501b7ef1209e5f6ac43e88972e3e9f90b0c74",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0152.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "531e4b59d037c451919972ff9a63b223aafcdc437c814d64bd9110e2e66351e5",
+      "after_sha256": "2f88711125d914e587d10bb765823759b76cfb8ad3133c131e5da6c6ef91dede",
+      "idat_sha256": "e362d1e1ce7fd5555420e63a62af3ae844165e4ae6d4ab1d5d631e22bdf18d7f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0218.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "7bc3dd473abc2e8c7fd4f0acf375d5ee5c1166bece9c0e44acdea5ef0521b8b9",
+      "after_sha256": "81404cc675319653a06b2e2fd2c60221a58818c511fa905fe9f9c98be10f823c",
+      "idat_sha256": "2907971f49758f1627c099edbf9e8e5c3082a4676e0dce74c10cf7d3ef13cf91",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0230.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "682b9106dfd0561a28d1bc1969fafe83820452294b0de93f655645d8e785c061",
+      "after_sha256": "a3361f4a19a2dba4989e78cac70ebc2665995f5f99c62d92fbc27eb7b3e26c55",
+      "idat_sha256": "16085e672a189fad049290d91e8cf13bb1dfecdba12596bfd72c36a3fabe2b0f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0224.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b7e0b613c87435a3f3ba002957e5c21f094eaef1bf05c3994e21b60faf561e8d",
+      "after_sha256": "27f6f3c386d1f7e6db65cf271dc40b0ca4591f8b2d5d81e4e48caf8870f5b979",
+      "idat_sha256": "a83feef6a33f2630e4c231c4e285e0e84da9f70345af49f1ac74ce96269fc755",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0032.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "4e72cfd422020c799f12b261a17a8348c9a876bd784d89abb8cbd23806aa56ed",
+      "after_sha256": "2d1fc5ba72813a0a21c3e9a5886d194b06d090e07bd20f4caa2ca28c70f11354",
+      "idat_sha256": "524bb718281517e6bd250be88b06c086c7b160ea9d47ff930ba83952ce739a38",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0026.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "043a88436b11b0b6f771e8d2c362870c79e9726f7ab34fb473a87937c11bd1ca",
+      "after_sha256": "f1d5e125b2515d537c41097eb89b6026c2323667859b1dcf00cc80ad32a686e1",
+      "idat_sha256": "59e64e476ca971c4a417d59c2b90ccce7f3668d3d0dac3301f82d7fa1ed53bd1",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0003.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "12ff553d100d52652f2ef2d2c8b7249e068f5da343e367b0f0dd49a33a217f08",
+      "after_sha256": "baa69eaa5e82aa229f132a843d0a342f5210dc1c53614f9943cbf44dc4722e53",
+      "idat_sha256": "a5ddea954036c042efa0f705b101ef2c06b29400f0bb1039288842d87d1c1881",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0017.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "043d71ea0950610b9eaf5bd7cc4ebfc2ad26cd68f61a3ff352ce397291cbaa7d",
+      "after_sha256": "7b14268e90b5cfc2c7deab0512cccfc3592bd6da0eb3f053c75b8767f91b21a2",
+      "idat_sha256": "df2be114072e42208334e0836f5eceb7869ef96ee0568867a954fa3b12f8c1bf",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0229.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1f50c617a4dfdd0aec6ad5f3498d2b345e9ccb0a324b298f7c6f9f52baac7f1f",
+      "after_sha256": "b38fb523b751a47ad0817bf106adad5d6f0a030414a8d71a6b8fccfb129bc9bd",
+      "idat_sha256": "3bae1d0e23c8063bf409c36c6e5e16c30ba4a9012ec90b1d827f3afc8ac2ac72",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0201.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "f7aa324aa1e17914d31fb1e71b6936702b43c3a61a9339ffa0ab621da4af6d36",
+      "after_sha256": "3d732f7d7ed24f7044635fa55d2b09b6888ef8195fcb15ceee21dde138cfbd3c",
+      "idat_sha256": "8ef7b07a564cdaa255e4d365603ebcce455cdaf382e529d16af33e4213a37090",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0215.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3f1641d756eeb7e4adcecf88e915299d9b60fb6f9c2cf08eaf8ccc5b70e678ab",
+      "after_sha256": "14db6a1dd24b826eaf6c15321e55883e735c064512da93a0cfee4ce4d4b53164",
+      "idat_sha256": "3b40cc08e45a99b5384ea3505526b7bb12cb3b22e05153c8ec2130a2bc394642",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0177.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1868fa6831a5ed51716f47d3e854b0471f26e9b2e387c754ab014b3277aa003e",
+      "after_sha256": "fc5c892090b96585ce67d12ded367c3bebba5e47080bc07a5614f17e934854d7",
+      "idat_sha256": "2f68d4eb4e3224f8b848a01267f202c14d3fa628a8b89a871948c699be68e56f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0163.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c84b713aaa6726830a89e5151bd576c0ce229de17486ca913280d98dd3421fff",
+      "after_sha256": "bd6f376bf4bd616fb74a812d7e60bdba5edde0b7640f9d1da639dfa895ebe2d7",
+      "idat_sha256": "32ee1ed8199626bc2a1627e3244ebe3b7d756c706298d21dfa444cfd0d29dbd3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0188.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c303c393e03d9e6456aee1a242fefc033ba1e3b3094185e19f189f49348f9def",
+      "after_sha256": "4218af029de98f8429dfb0d5683845decb99ef20fdeebc63192c65e5a5bbe8a0",
+      "idat_sha256": "73bc6fb5da6a02cf4d4434c254d72d0f831a05876f316bf444a6c4f34d0f26de",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0189.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "31bd9a14237768e1ff95f73156490a92058fb07e40cb12214dff7d67c156ad2f",
+      "after_sha256": "372539b0ba3ef25272c4762e07b22d48485ad21242347e433063ad39a1c72219",
+      "idat_sha256": "63adc1c5a376db2cf9c95599625539400c5688bf4dd03ddc75b8a26c4684e43b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0162.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "2c94b002be75c3a3d002c8df6d904b72c622b36ab40eedf1afdb1ad7f208bf7e",
+      "after_sha256": "4eb6e118ab154db759a39494b607fe6379107a1a96eb611ef48b4fe0cf827d1a",
+      "idat_sha256": "5666d60f7dfa940db63ac39f6d05be102691662bf3f8caa74113fdf1e0792885",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0176.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a5c17f3da91d51a5b54458c7294fdcb3ec2bd4739f5f504215bd2856f1d4e698",
+      "after_sha256": "cbb4c18de784f08b5c7a2f246bd81537330092bfd82e186ac17159541cbd5c78",
+      "idat_sha256": "e38ece11ea3e86d54ac02e52b2fe59c1554f5753019af5c25e6f5128d9c3378a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0214.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "7162e3c7f4e5107eae37a8136c249fdbb81dc7122fdf59461b4e0ad4bed6bd39",
+      "after_sha256": "f0ba4d75548959cf790800d55ad1342052fd11629519e44da6fcd0c3e30ee2e2",
+      "idat_sha256": "8fcac143ab45938f96d823cf7b709b9cfbda3daebc1757d5e31eabc5ddb571cb",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0200.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d235c34022e68cbe2cc3fae6b7e65047bea2e9f24d888c63d1ab33c333c4d6de",
+      "after_sha256": "cae96f003ce298e4067f2e2105be0a5733a7e2b457b3f17d9963a22b4312b141",
+      "idat_sha256": "82914fe3bfd06ac69dadf4c98a212239e4d497f03ef16d692c9b80e3e5c1d58c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0228.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c27c5e49e080d64d21f79e849f4fa39d35d9af5ac2914a3ad4e1f340e6aaaaa5",
+      "after_sha256": "49c6a6ba83397319abb1ab2ede3524ce4d3cdb715b5ed3aeb330192c41df9860",
+      "idat_sha256": "671fc1176eedaa9a9b98cd59eed311ebecd6edd32fff7f688a3d8aacd41ce763",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0016.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a27349cf1de96888a6e105ab3efbbd11898761c223acea157c6a51dfb3390a31",
+      "after_sha256": "c94b6e0bf7e9a8c73742722329a8ab031fb606378df5d023998d5ce7bb2e6c0e",
+      "idat_sha256": "26d26806098ca6405b224f3e31c731e9725906c8c8a6ea43860a50e7af70aa5c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0002.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "66aa0ba485875b91c3b32b7c3ba15229a80f40990b3d7df6f96d1690f1adcc02",
+      "after_sha256": "c20f1cea9604020590d3ad54454c533e668a715aece54a628cbcec2613683d4a",
+      "idat_sha256": "706d2bbb7bd6020550eb98f01f3787f9c4d67998298ba2464b508a4a5497ac8c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0028.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "4eafd48a1d4919729e5f77e88c26bbdcc34ef451effcf1930f7e529d8bb1ee58",
+      "after_sha256": "90f0ee0c5636cb3e0115305f2e322be3110d25d652883f5a2ebddc9736d42705",
+      "idat_sha256": "79cea6f23909b778b31e16b3a77a60d525d52accd32b043f924f9348486c6f02",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0014.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "064267d76633b4842355400ba13e7b9717d975c83ea58e79d8d344712fbf9dc4",
+      "after_sha256": "7b7de22f8b913fc15b83b0415afb73b8748f51bed2182b659f471b86927ba159",
+      "idat_sha256": "b52f16b6ee6cda4b57cb7e9565fe22c89726dca3b4ed8f949217c8ae97557287",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0216.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a4290cd3ab849f1cdda2fc005ac61e5c1e8b55503cffd3ee043e9147a1ce7739",
+      "after_sha256": "40ad070ef6c5e9061c5e927ad80a68cabe5203e76445a3fe780d5b5e3359bac0",
+      "idat_sha256": "832320e73c463bf19da290ec25dd46d12e7157717b8a55636cf5276ea9f418df",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0202.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e48fa8c1e447c3a744aad72b1b5468bbf111568c92d0b71eea342a335b4986c7",
+      "after_sha256": "eb97daac10bf557250f05b4ade37b90c985036b1adceafd7ce5c5351ba4735bf",
+      "idat_sha256": "422640c0d64b9a3a871d42ac6b76feb1f14bd74e2e79923964780d424977391f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0148.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "db92f70b54e3e6bb76455b99e40a9fc6cee863246b3b6f54c1546afe28c31f79",
+      "after_sha256": "09fb5dd61c41252d06c42595ccd8267095f3bdf0e60979e3ed8340fbd813a76e",
+      "idat_sha256": "ba72438250dea44fe0b3df67d57cc7b2d5bf92e77ee97b2dda03e5ff9216b5a5",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0160.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b241b75ed85c1737408352015fce0e647c7075cf19d2c3a2f9ff36ff46f6beb4",
+      "after_sha256": "8bad656e25f596ef144317fae4586a62174a3831b965a1302b550f002d2c62b4",
+      "idat_sha256": "808858347e9688cfc9cd4096e9ec13bfb1fa325886b13876f5574a8fd255015d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0174.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "376ddeee16d03e11f57443d92be32a262ea1df1f860b43da615cc077608644eb",
+      "after_sha256": "1aa133109dc0c7df6976c7b97eecb329ae980ccf480a73a6f4f9d0920caeec6c",
+      "idat_sha256": "d80755b914cf98aa4e30776b5ed7f9c7c02e5cb9b5e3aafc7f50dde4c3cee608",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0175.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d04470a92bacfda310b3c383782df62fd541452a32413af240ab6d63e40689bd",
+      "after_sha256": "cfbaa8c3303821f53975963bf0634e225078ccca514396914612e448a0d8e576",
+      "idat_sha256": "325caa1f9489eb4248146c2596056af5e0833f6dbe9266db304cdd134c978931",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0161.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "36a705c1ed81b464ffc89c372a9637c8978cb94818310e33b9bba7480ff27eb6",
+      "after_sha256": "6bfa861bb87a7b13511fd72c85617f72be3d805c85abb097a9258eb255672e93",
+      "idat_sha256": "ffab0bbcf02d5a9c42fc1bdd9ae849cff88e796bb3ffd3973f2e79fe5c5104c2",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0149.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "778f6405222d79416935b6caf8e5c2a083bf3b2cdfa3d2f2f068d965ba2c66c5",
+      "after_sha256": "f8237ab5eecbec1b7bf6811bf4c125dac0183fa3c7d7d94f957049762024b031",
+      "idat_sha256": "59b6fb8ff1db435f5ab768aa2d382a7493442cb606c3222b9f95018dd4451c83",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0203.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1cce42d27ea9647dcbd8f23ff8cdd24bff9c3ca4acbddd0b19defc1539fa815a",
+      "after_sha256": "30c096fef4f6e4fe2a739685fc018e77ff490c28de65c0b47c844b5a79d82e88",
+      "idat_sha256": "46fd8424b53506f4f38dd2018dc7555711ebb7b96537028e480529f223a66d90",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0217.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "12f802af0cebaa9b84e970426c7e7fb01566eff6c81d2f7d8097356d5fd04632",
+      "after_sha256": "3d777125db9d1e2f4c8642770ce550fc8a72cc30d05e2a9e0d8bbb5ef63b359a",
+      "idat_sha256": "a52e19840860f4b6b20b396bc02517127ac67e158c85261eae7e27b14bc8d52c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0001.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d5d36c2bab19397b13ecc5e49efcb064d824d09be5aa84ac4b3f9f1b92d695c8",
+      "after_sha256": "c549b587f24c3d71b757d86cd2de09c53cdbc5979096eafe03ae232fd00cc4f5",
+      "idat_sha256": "9a066bf89d815061092542336d9ffcfe7057e1e03dc49bd0ed5c2ef6a6721646",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0015.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8cf4851a9ad648c818fdfa2a768cb1f332847c6ee92eb34948138d6125507f95",
+      "after_sha256": "900b8adbb34f099441e0bd5d07bb34999a86651c51a981999c86a18d446da47b",
+      "idat_sha256": "9b1fe215d6dd4745a51bf1aab49e9a53fffa0cf64fd0638d653fa1df243995f7",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0029.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "5199f31ae0857f2c9372e1d12c4ef908cc61cff8e47d5abdbd69b7575ab7aa52",
+      "after_sha256": "750366b8dab1795430a00c2d1ad966ff3d3f5a13192b31525fbc63b165d1cae9",
+      "idat_sha256": "ea66b505d9d79f1d8d89d08abaf20c44cbc7f6f9ef2ce26b8e1a0351d3f1b2c6",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0011.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "cae9c1d23262ddb3e440d2210d7510fbbc2f6cc95f892ae3a3514500e2b9ed76",
+      "after_sha256": "eb0a3d18baa07fd7a925f46a3035734ff263bc94ce0ebe3603a969ba5941b65f",
+      "idat_sha256": "ede1a532449fd8962173e0232974fc65ab03961a7b8e7e8e6d5766418e75492c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0005.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "7a425223016e78af692334e485b7da586f25f11f9d303379ad48eb42cdfb2d5b",
+      "after_sha256": "fa9bbaaa0efae6d0755ab3851427950b40f0fd20c3d85a4ccd96f3278882bb1a",
+      "idat_sha256": "d5f2f83de078460900977ca76efa11a76be5eeee254e9e133092f240d0723a5f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0039.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c58b9c2327d733c5ffef8bf4b143410f561136f62d25c17ebf254a2932ded6c0",
+      "after_sha256": "5e716880d7b95a848402a4a4861c779c994fb7eb024007b129300b1596abc0ab",
+      "idat_sha256": "40e281f47c7cb79d47a78123d040293933b7e5354ec93a36ba1fb3da4d8437e9",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0213.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "560302be7cfcf432f12bed05cd8daa4db5489b715451e94e97df2ff1a5c8b98d",
+      "after_sha256": "2808f4784f55651a441d0ff1cd305b8f422f8d029d9a6c5b2184546dc3bc91f8",
+      "idat_sha256": "8ee9edf08e1b01785243e4e8f2ea9a298073c1652c256913ef24b41db8f608de",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0207.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6792724a7538be364fa9d7ff565b33a4b0ff9fab80d6331d2e46b482cbbda50e",
+      "after_sha256": "67116e5a78e322aba5f562f43e21e848de024bfbb99156798f49b9d4f7abd042",
+      "idat_sha256": "c52f7b829aaf2ff5ef0e05783286f1f56fa7b44f4c80b5fb153e33cdf552d9ac",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0165.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e14fa2285f93e6c65b98c739145552e01320f1444ace1ff9e9c683661a247dbd",
+      "after_sha256": "5c86b5c3b0a8e19241b2a6396c5bb980999c1fa9fb873e5d7323a119aa1d94d2",
+      "idat_sha256": "f2bab5e591609f1acf20a92561517ab3fb0e6f87937a6c2488b6798673992e06",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0171.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "2cdd3b2e08e358fd48dd7469a969d562569364a02cb57a4fcd721b4fd955f847",
+      "after_sha256": "20411cf694c101804c457d873f294e92fb9854a13b10ce0f7a6d00e9a3f13add",
+      "idat_sha256": "0a1aa4572e61be01e45cf11c79d41deb1e3af02586dbe70717df0a45b7cbcd1e",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0159.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c52f232961a35f37845705c5b9a3bec07838d72b537730a8f5b7fd98e4f28ebb",
+      "after_sha256": "034701fe77bd364acaf785c1cb6e5343f950f74c076f59604750a94d7f81e3fa",
+      "idat_sha256": "853714d460d513ceaba7703b3ff43d5c79673550a9f72134bbc837677f145a55",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0158.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6b97fd905898ba989bb3d4cfc2f9e0adbe8ee65a199db367de152546b0cd30d8",
+      "after_sha256": "430215472d266aa553ef2f740eb08676b3af27e4caf09348bc38c23a11a4a736",
+      "idat_sha256": "5b73d96a00284a3365904ae06012771bf4c85c30cba086d049dddf0ed48f67c8",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0170.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "ba14761231bc529f71ff0c8bd520649ee4388a82022d5ed26cd5424d8d7dffa5",
+      "after_sha256": "855b8916a48a3843ab52b78235f88d7b59676649507498221f40578931203250",
+      "idat_sha256": "3cde95ee7ea6c44029ab04c19dd2a8eeab2f34d8f227a4196cc8d06fa45976e3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0164.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "fcb9578e11a61ce9aab87415c196ed087efa4d30d299f945aba93f105507f3e9",
+      "after_sha256": "a054d074b248fd815caa75934839e8f655116288cae1760cd21877dffb4c6c33",
+      "idat_sha256": "8b4189b43b62adb73f69d5cf21adc2e1fb2e8cd6bedfb8a8cc649b5be50a321c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0206.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "5cbd0e43847069f2602d8aa1992dbb80c4c8d68d881034c9fc525e41324327c0",
+      "after_sha256": "f8e51e28f7868d4fe9f543b22c32680814a722679a481aa424ebcb0e9f723404",
+      "idat_sha256": "c8529cf720fa6ff1d1feca8d91a2e888555b70a21981f90bfd7f2dc8c02a21a7",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0212.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b5e22d37797ecc96ef9b5de062767739752e97c40490017c23e9aa549220e80c",
+      "after_sha256": "a50a135815d0acf3e37eeacbc5b3440537e2ad6e9dfe9e53944d49103a685b50",
+      "idat_sha256": "29f22e0e3419abbdad55cbd49734879a7d47592b851a74d0d91234483d42ccde",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0038.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1053917520781c0ac3cb209eaa950f2bdc32d50590e5638e6a043e3164b854fb",
+      "after_sha256": "c33333939c241fbed8450d0589c06cd6ce7039e5880a0de8cf175b383f2d7674",
+      "idat_sha256": "b6d6b2303de0b37bdbe7275ecc923fd50e7feb4f24807a9c1347d5dcf1619174",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0004.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d1f27491a0fa8be1324ad2bfe086ae428d83952beaf0b3ec2eba71c072babdc6",
+      "after_sha256": "ac719f47b769f45e0bcb9645cdfbdb3fe75e6210063d76a2326b7dd27f1363a4",
+      "idat_sha256": "37ab2da9a5fb67ffef29fc5bd93148045222bac57099ecfc9fe0b8b46f26f15a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0010.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "4cbe8853dfe19f804f8b526154d0c3cce2c3f083d50abd277bf391795ead2dfa",
+      "after_sha256": "4a4383a3f787b59a55cc09a28ba70c383281889653c57633dfdbdace935061e4",
+      "idat_sha256": "683c3d45b793d3827f57ed747a4f324583e911fc562972a056d8ca9c2eff2a3e",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0006.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "76614bce7a23d8bcb193d2d9437c94f518166afe2343f2356fa38ad704fa73d3",
+      "after_sha256": "6fc5f9a30f71e652e09ea14b21fcb2638be24ab10dacc42c9b4f46f334117e3e",
+      "idat_sha256": "24386e58a6483b29d5a594f25a226f69d6a69fef0115181177b3e866958d24f8",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0012.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "98f2ddea4bb66ada8441b0b325202b694c789f5c318962dc66df6a332ee6eb52",
+      "after_sha256": "cb363e571d32bb056604a646b78eb0df662e4f96df5826741fefdf7dca553a1a",
+      "idat_sha256": "0d392a25b79baced65a2b6c50352131a6572531735d770a44165c2c6e82471f5",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0204.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6f411f49d7be16ae4f531532c3d35e880ef4a72aeaa180a04745dc2def0af8f5",
+      "after_sha256": "445782271e0b272dcf513643d8e3ba98872b9a51e5866b95700d90324c88d2ea",
+      "idat_sha256": "e4dac4b0d808e35545ef4f155dcb2303a94b9974a645d5d98b7b3711bb7b2f1f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0210.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "55f2e74f2b79309d905dea363cfaeee46a298fd34023ecf1b7487d93c9697e32",
+      "after_sha256": "cc56f8a6394182ac998b4e237426b13f45a2f5d83c438c15171fe36eaca85dfa",
+      "idat_sha256": "0e747e89352b1dff9fd6abf3255812352a15fe3b58132bec58b15ebd410b2a62",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0238.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "0574eb4ac33af89ec3170cd74088af00fcc411870200bce49e7996e6e3cc4dd5",
+      "after_sha256": "fafffd684aa3a44eca81061c5c72bebab38e047f23037106c12b145209395e50",
+      "idat_sha256": "2e0fed40e94b5803f3da3fcb79467d1d839b3ee7ab85cac70066075842b56606",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0172.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "991793f7b4c576d395cc4a5c55d8540c881bd34a549f61ce88ae3fff3feed705",
+      "after_sha256": "2a32cc07ff94f172821df4342a5284e4acb158e7c96f64897bdf52d2c91b57c7",
+      "idat_sha256": "b7664c50e50379fd5c219f457576dc5202afbda5833ac74ee77783cd210eec61",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0166.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1ce345ff7426ca6a0e8e832693f0e9b7ececa910a1140c1bf2994bd9a5ddd04d",
+      "after_sha256": "97e1db933f5f81bbfb0612b03ff4a25d393ab3254f312b5a5aaa528581f63be2",
+      "idat_sha256": "597dd1cd3390c52b9008c12d9ca5d6ecabd44689117678c86cdeabc1a82bb356",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0199.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "9783b25d3b622a6d864dfc663926c7dc5f415b824578ee35bed1822f225c11d2",
+      "after_sha256": "75bb11b3823174962a2e520261aeb517bd1726eba424e2d8403e60b23e29af91",
+      "idat_sha256": "b5f05babbfcc8fba8416355a7d854032cf63148c08421faae5bf1d25f54e4bd8",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0198.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "2d14e96faca11c65b5a7547eb99c3bef6995a3656508375796edfdc61bc5e746",
+      "after_sha256": "33ebd54d49bf1cca04c737fa945b0f1845edb3aa70e3ae27691a4a80047b5b43",
+      "idat_sha256": "4432e2c39af46e4cea8b8deb6c004a053e7b524a75300e802dc26ef74e31363a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0167.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "567e3c913cca7848b289320d2713ec1db2554c92a7accf002488033cf327f853",
+      "after_sha256": "5db9d555dc390d10bf093511f02077b3d303a339c7b92164a549f2419cf006f6",
+      "idat_sha256": "9b211d4cdddb435867bf1bb051ca547c21324f7d4e33c7573c14a5ec211949b9",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0173.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "f8a3f57e3c9765fcec0d27d15de11973020c8e1ff9719f9940828fb86164c659",
+      "after_sha256": "e8289c2cd952124bdd73d20b80d1b9705c236cd4cec19b73984092c10c5a5711",
+      "idat_sha256": "bd73a100a286dabfcfa2d06ca6937fcd3d1355b33ff2ab5ea19c62fb0c152d08",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0239.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "9e275dfc4956edf678ad86b95e34a821efb3054aed7358835e9e7e2cd8761a9c",
+      "after_sha256": "d86065d998360f9c09dc38530ab7e7eae656d6014612b54240082db7e7063a01",
+      "idat_sha256": "56ca4d679250d8f4e1e60ae8d508bde0b62483b58a9d09af5a1f0d5db7b874db",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0211.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "f5ca8a044c3f45c8692387f3d3582c85fd1ff6d63aabbb0af2a58804f642bda0",
+      "after_sha256": "b9996feb8dbf69f15fdf2ab0376bd0ecb1654176a22d3bcc96c5ea62e6f0090e",
+      "idat_sha256": "c3d247a719c6fef5d37e1477c033fefbbb632d29addd5c55c87d6e93ece6872b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0205.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b1df542c1b6e16c18b5bf0d537a80148a699b0e76389be2e91bc7fdc89cced6a",
+      "after_sha256": "445e6d3e50ff390d6549cb2b652be56986dabe7362b06207a8ff18d95c499b6b",
+      "idat_sha256": "5857073cb2147f167c8f1286d91301002cc6cbcd582e24893f55c273a3fac952",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0013.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a4c9ea2e42a70315e6220d895ce85c9b5e074c012fa802ceffcfe1257cd5fabc",
+      "after_sha256": "0459ffdf6202abc76dfe4be42976b0bcc0fbcb81c9dd831c654a0e02533911bd",
+      "idat_sha256": "7bfc912241922594fa132fe3cee012dc211e500ee751c4b8754330d260056bb2",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0007.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d8248789f5b47c5485dda961ee868327b2c2fb1c8efbfda18dc852259c59e0aa",
+      "after_sha256": "d0cfaa2fd62704cb79769f3e8f6c05fd8dbc7d175b6d9890fc28ca51780cc63e",
+      "idat_sha256": "89f2d217fc52ffb44d6bb537af14d60d6661bccb1fdd0302f7aad01c2355a562",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0048.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "64047111996bf191369b2534643c07e1c1e5aa2c6e5a9a004f7383e649074558",
+      "after_sha256": "1a2e67b70932c01f3c1264df9f477855f6c4f0fd1841c54eee7f4347b96ea8f7",
+      "idat_sha256": "7e02c25e37ad6f07bb7f781bec45fef9c8df8eec3000e7bae7e77746c00a9392",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0060.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d1fe929f8eeec77821f227c286b023909d0b8d4df5c942063b03c3b24db93309",
+      "after_sha256": "0c5ca6aed566325dac00f4d3191d8e6e2851b7b1e913e89cf14a847384d4789d",
+      "idat_sha256": "57ec6cc2733fffd075bab43b6dc4e51abec67209cdc027e7617be0f99f0ef08e",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0074.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "2f7984cafe8f4659d95c7d4c271b7d935455db7e5ec5cad66c231d813a36ee89",
+      "after_sha256": "b3ea0a6a08fc17153e0f3fc24238d590d0b0e84d3d7edce2c6d88797e9dbfb85",
+      "idat_sha256": "13e75498a30ce4b4073453b103e8310998e93f39efd1dcce2b7c901396879962",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0262.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "5f5ce48ed1d7304c7b612a47b45cb61e29a9eda7e2b99846d8057a30d14404aa",
+      "after_sha256": "c1efd0fbab66cee73559d6841a32ee113e268172570e2306dacdac74e6694c83",
+      "idat_sha256": "206461084401f59547e050e833654e71611a66557bbb31bfb311ec7e8dfe6a43",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0276.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6e4def52dd7886ea4ea78e98166dbaa6a56decaa7a67d8daf67c5c39571a3430",
+      "after_sha256": "f00a1e697679ec822de55208ece6d217b2451bf4b6544d008eab5674fec11a1a",
+      "idat_sha256": "4b99e2ab975feed7a3e08f62870456bdd5283de448f34f4f26cd3f21be66442f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0289.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "28119029d221084a15d1130b04c18ce944ce715ec5336e31237803a2ee1f390a",
+      "after_sha256": "739f0733182afbddf61a931f1ed5551270c61e6a181fc01bddd21f1b7862d5fb",
+      "idat_sha256": "259e5f76ab0eb2f6a22d93fc307e395e4dde89e3926e9d2789cf3edbbf8ec351",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0128.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "06e49692f0753b5ea3ea28c1296693af5f946febf66ac2f016b28a74964ddb27",
+      "after_sha256": "8f9f84d62d05a2ff88227d342beaffc6bf3d8ba7487e56398ec2bf63427da1c1",
+      "idat_sha256": "6ca84c3ee7c09c2edf9fad0d67097cde8426df6e2e3a7bd3c7d9d91b9a141db4",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0114.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "417fccb1677e10b04c8f55a6ea1e6c31606fc159bc0d17bae50d575103445f52",
+      "after_sha256": "5bff69110f9b0caab67dba232d1986708998aef92e7bc315c9b650758cca2ca4",
+      "idat_sha256": "9a11bb864205929df8c82df89feb2ee2bc868387e581e30b04831b02815933aa",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0100.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8ad4e62668fe00600a116925a29bf1f6c261b397845dffd835112ae9d870f6b7",
+      "after_sha256": "c233d74eb93fed327614782d8cec937ef92d14dc9acfdcb7224a29ffeb66d8ed",
+      "idat_sha256": "d9888c8b27ed33fa323d507ea2553c934f0e5eb70f5860112ef0e5cb070f2a00",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0101.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "0d19a7bf2b6c9f776326d2e03a28bf0019c3771206fdda829fb16c9773693532",
+      "after_sha256": "b0e344430b7f82a77b26656606348bdd7d9a12d20f19ddf18ec679871f8ede6f",
+      "idat_sha256": "75a27ac7a487bcc1c80a94a070c2942b47c5c57e60ab7abbf96bd1a6ebd31204",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0115.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c2925cae7494e7888dd431c8167c0ed05d8c7da28db687a3b771fefef3eeb761",
+      "after_sha256": "9e74d52e68b3eab3952cbc330412b11b103beddbb73a557b0f404a7e7211f3d5",
+      "idat_sha256": "a28ddb3e56289f0d655d3c0457ba909a79d2c5d9c7cda19d82f89b30bba2f60a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0129.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3e31635b34a139e37c98dc86efac8e93c6234b806f964f5781a212812ce8ca09",
+      "after_sha256": "29b49abd00d24567ec378dffed68d7c6ba1705b0a882c6088a25cfdf02b00c7a",
+      "idat_sha256": "9f68f86abc56bcee6e1ad02f0aaf8ab688818ee0f50c4275eb51f85d17f1e645",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0288.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "bc1fc3deeb24ffc4c9848bbff773f8a15b1f7a1a3c9fe86c2c026829577a963d",
+      "after_sha256": "e4555a9d1b0a0fb6463118834def02cad240615191129deaa05de2134f7393a0",
+      "idat_sha256": "b6663f387de7b93a29c2dafa0b9be7afa03052cb6a81832405c6e89fe26edd2d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0277.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d7db21eff4f42c5a8b46895d7ffb249003c14d99205c406782022342d936031e",
+      "after_sha256": "6125768948e5653511b63fe09cc57e30cd74d834e6ccc4425b9824f2a1cc5b4f",
+      "idat_sha256": "be9b7daed4decb95965a1840829e8af7f4dc7f67c5fe75ffae8cce2da606506a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0263.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c7b97ad99f9f0b9b2d2de4fd17dca8b28bc8bb0fc9ef79ce3c2ca4f37aeb99b4",
+      "after_sha256": "c11cc1b60d1cf8cbf56d35f3bed9e0ee5f32c760f93b3e2c7d0519c6b19df9e1",
+      "idat_sha256": "c7675dc84c3ccccf4024635a7e07779454b35fc796e0a49f6a6d129ef37ceb29",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0075.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "3d5731fc7e8f1af3fcd9cc5060800838c99d3bd54df2c3e001ac55d3a0a76883",
+      "after_sha256": "07e5bf5b67bda8b18523ddaf706b4cea0d2ce2f8d1d92ae21ace7c061b3e587b",
+      "idat_sha256": "1f355724a99f0940378da2df62cef9cca2bf9120585a5ef6bbd84af957e27779",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0061.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "85b47a1860b106de5743428811f726f9294a2d3b1fe6938e3b3ad991b9434653",
+      "after_sha256": "a9358af3452ee73caaa4a2d32f20bfd5a2358d39ea83082d3d3194652b2417f6",
+      "idat_sha256": "bcf71104e3b3ffb7c67952c2bc4d0c143ff43aa18cb7e8b85336618ce5076d8c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0049.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d5af5c21dc64e38b55d62ecb8c676ad809f9bb04268fe4650efb78fcb6bf4bf1",
+      "after_sha256": "674c454d9b9f8d151b3ffc5a79be57a1c7d9bbf882c974f72cd9793a99c2c5aa",
+      "idat_sha256": "2af72652c0532ee375643cf28e1910f656c726218c37c31b42d72a2ef36b6282",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0077.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6b01f82b9f29e8aa79bafa714db75cd62ccc204d2b6e4697200d8e1c20c0f51c",
+      "after_sha256": "a7f48dbcdd2e7f4c3a0c57fa82f67de5789d95fc81a73d053f1387bbffcdd7fa",
+      "idat_sha256": "4f5d1e59ebf120fb61230cfd02a9e0cb13c8c3044a80e4467a07bc4a26f519c0",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0063.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e0226394ead77b52dd64e69f2a57f2d740997cb503df50fb62ac815791dfe297",
+      "after_sha256": "f1b198c632c472f46a488ea585df80bdb59b7538f61932360d3019b0f268c0df",
+      "idat_sha256": "d9dcd6975ac662a881b1e2866ad9faed9fdf35739fd4194a371125be37539822",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0088.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e53ee919c1278ac3c51ba8890c494042a4b0b7ef9071789ba189e380258ae9aa",
+      "after_sha256": "f40ca312aa8ca6e48725596848e9394a606ab99adcf643e8ad9214476789eb27",
+      "idat_sha256": "ea201217da659a39300097f8ae118c2a315fd04a06f56588f3d8ff68cea1cd69",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0249.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "9cdf7f8d835bdacd6562367807a10c0de64a5fa54c7c7bda5fe4b4055baeb92b",
+      "after_sha256": "2f947373e488198a992730982eea53d5c893014c6cd7fada5e5641945f355523",
+      "idat_sha256": "7ee69c94a85a6ee420a92e77cd3691c043199b14a587d0ddb7c8f91c76ebf30d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0275.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "bba13f026bfdb722f10855a8b8f44f9a1c19051b117a2b8361dd63dd58bcc92c",
+      "after_sha256": "3d79ea56fc71e92febe1fc24cbb2933835f9efc6b62911234af390a5573d199b",
+      "idat_sha256": "5999b9f8dbe23b2c4a81199ff193f9bda16381900b4d4ffcd27edc95edc937a3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0261.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "0236338e5239c1d16391a132c8e7d01d995160ea7238e43c32386e420a6074b4",
+      "after_sha256": "1d091c4c7e1340ebd7ebbacfb78601c8e9ed42d095890265eeb23a52f36b2767",
+      "idat_sha256": "2af5b3f1e7e81a27e7e192f51da3834cc35ef5dd892a65b4e4c5b0ea0e9059ce",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0103.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "06c45f732f0354f40a138a464916bf8dbbcb626fed8bb017e48a045345aed55c",
+      "after_sha256": "aab61ec33bc17f364e4f2bf612104ddb7843cf669f3d06895c7cf5309f1cf6c3",
+      "idat_sha256": "d8f21078e70181bbb5a62bc2ac7e77dc1521bf77675434dac61c7bcafdfad80c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0117.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "f40253337e470ea380a4e61f46e5cde277514071ee1a494b9ce4eb59fbafc59a",
+      "after_sha256": "76bb5f8950bea200ba9fa2984d8779cee021add37e32007b00a16a179f435f81",
+      "idat_sha256": "d49e4a41a7330bc2a61031f609d9fbfdf07ea53701b0f1e062862500ee081e24",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0116.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b46196ec641a790954098038c60f3d33dff5ca4ad481bd54efaaf197938d93a7",
+      "after_sha256": "587c6ecc24fcf585beed8fd195fd8376552729ec2c663f7ee29061ce2ef31815",
+      "idat_sha256": "c18f812e790318df0c612da5e58a8210d75cddec8cf337c76c22a60b17ec1279",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0102.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6e89bf68ed379e912f8da44ac837657f4cdb603a310e007d8465b2f883b643f6",
+      "after_sha256": "f73017e0d8b9b6d0ce81739a4ad25a507d255da051219b320437354f99117d3f",
+      "idat_sha256": "f161376d573d4c6ba17f290ca401103b2a6986522caf0f24245af8832873adaa",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0260.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b7a4ae83be7c77dd5bbd3724ae22dc2a6ba1a4014b007e940675bc7cdd0a6035",
+      "after_sha256": "773a5de09160840454a1817c20e15924effa893b5d2e754a0ef6bf271ee4c070",
+      "idat_sha256": "b6db8dcecd577f90249d15bf750bc4951ee450d74b2a338532f8fd0acf288f66",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0274.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "7baf0cd6704af15a2433f1a153b286e3e7dd44e050ad3935e12709ea47d9d648",
+      "after_sha256": "b435edde331585e9c2a99f3b6251e8ddc1d2a56a3300cd066df62d960606a85c",
+      "idat_sha256": "55de88e6f26b936cd252a4c8aecf525a7ad63adb13b194b66e93e5eee634e834",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0248.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "94af1ce956b6b64559d778af950d0a8d1de5554a04593e9d12a0eec981f71784",
+      "after_sha256": "261bdc9b0d8bb9a6a5b4d132fe96b17fae46716537a53e5368eaf194566a8a1e",
+      "idat_sha256": "1e1c18800ff066a8a311ac48921487b06109e65ffab7afaefd9407c6236e79c1",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0089.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "bae631fa53ae5b0f1b780d46e0a9edabcfa723a9bcc8948ab369fdec2bf4e441",
+      "after_sha256": "098d1f3795c1010b4fc46dae976244334e6b4f4d86842cc8fa692923911ab93a",
+      "idat_sha256": "e4a792cb0a092640fc947b328104bdd18454ea16253ec88743d98504b9b22619",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0062.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "0778dde8196c1bb2ebf9bb7a670242f44fb91ca1b6d949e6f79283be9b2d2b66",
+      "after_sha256": "6d3f9937eebf5ba1f626e5c9e2930ed38a4a3a0e11d62e2d160abcd108dd2e7d",
+      "idat_sha256": "0ba51235e13882c1259946de9fe8a2227538af1af964389ac1ccdea15543b2a4",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0076.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c8da36be66dea6d1b2d39f82aad541567402b26bf458194239a54da467ce56e3",
+      "after_sha256": "cb1a8b9929718c6a90a411e4e139d3c5789ee34e076fb1b202d13102ecb7a086",
+      "idat_sha256": "ba190833a1486ad9d1c8e560cfe753243827cc90715f7af4b6877bda1c9340b4",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0072.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e30871a730433abc259eac27c7c3bf8e87777d707a3eb092d77d2a5870ce1051",
+      "after_sha256": "a3f973eb601d19e48d4c5d000c8725ab5ba37de93654a61bb5ae99811b9efb7e",
+      "idat_sha256": "b0fa77735147eb33a58c4d689c1db651aebda2e3083601c4242a59e1e194bbfc",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0066.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "6c55c518e0723ee23f651d4f9d7b501d41110d2ab78dabb00ccde05d7d013000",
+      "after_sha256": "ccaf7c40416ad4ef141e3856decbfe95b8fedd7eade36ba6a1eb271862bcfaad",
+      "idat_sha256": "975613be1a5d256b763f713a1a1c8c25e2cb3a1ebbaeab6af402ac9520232373",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0099.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "084e6892e02267e9718267efbc7db929d9251fcb226e970a41a80132a6b72350",
+      "after_sha256": "50faa00c279abf95d9223f3b71262072455909ac2189122c9de70bf4555a446f",
+      "idat_sha256": "886f5a08cca8dc0bb465bf2ab19d3004bc02c4b4dea9be877029ae758af847ad",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0270.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8b48347722067b34bd6fc4e6a73d8bc618dde288ac1185ad2e92e84d612c0f6b",
+      "after_sha256": "ef56fdb55589426717db890588780cb8128a7755e8684d50a6a35b8cf45e4b8f",
+      "idat_sha256": "23b494e44b5d74a78fc22c43b0fbc3861d8e1222fe6a0d7c8aa15b730743a50f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0264.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b63f2b5eeb13dda1ae8c6312e917d53678ad2e12cb6b663171bc7ff0a6a43f35",
+      "after_sha256": "00a0ca0d2058971941f61ae04e570b446591b5cba4764c60912d431db60db4f4",
+      "idat_sha256": "27a832dea8c7d62121f9f077eaf5e5e2e9f2c0f1212c2a32d95343cf182dc78b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0258.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8550d62a2bf232202ed3a111eb39a07ace472671658a117b4689fa11128eea39",
+      "after_sha256": "bb8fc6f36d296be735a9c5105d8e97a401d3f635315b72e135309bd45f724877",
+      "idat_sha256": "3a4ed6e6cfc913e0f4eb6d27bbef7fa8a6c1f8e5a5795b4bfb8892fd543628e0",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0106.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a6f2115b947bcb5ee7fa00cb25c344d546a6d8c2c8f99fae58505c41d8c5d6c1",
+      "after_sha256": "2b50ef5f921614b37bfa962c84cd0d9949b1987e47173c506dbb7da1b01fad97",
+      "idat_sha256": "e6904343192cdba139aa6ba530c21952b2f78e80e676673991aa58ec12d40d76",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0112.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "d6d140244638f9171c42d82c727b540ffabfe56042189585e8b35ab5733cc224",
+      "after_sha256": "141abe6f51072fd8782bd886e3e11dba6772290146d38482f310e1c547b6a95f",
+      "idat_sha256": "4b28ef91f1f7380b98222e5fa883158869d5224351f3d1a9904344521e95c962",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0113.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "0ba989cdd627c2a8bca9a1eab21263157070fad9deab2363b9da80f0e9b195bc",
+      "after_sha256": "1550f8b3ca3a4b9c985e89b487ab7bad2fd267c6fa45f47fe3f0684e4fa69558",
+      "idat_sha256": "d07e3aeb928a823814bd7333f2aa6e2f52f6249d9a6d78e318925670c7033904",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0107.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "864475eb94b69b4ed746d88230869c10462d3628b69c4561c0baf6a51ad5317c",
+      "after_sha256": "ab68517ba0be747b2471aedb2e80ebc69f057f4204ae1470639b6d6bd4c3d05e",
+      "idat_sha256": "1d3b341b60e9956c93f2977968e41a006c10faecb92a463f04ce25ff87dfdbed",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0259.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "add74981e2cc9f2034bee65edbc63745ccf3e2c9b0d1e4de6e315c43cdc89de6",
+      "after_sha256": "3df4f35b1947e2adf2013f9a1f18da54dfee7b27aefea263464e6fdce09d33b7",
+      "idat_sha256": "11ba8b44aeb028b2fe8f1de36f7e74bae7e560bfe9f72527b2ca80ca2725f5f7",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0265.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a489ff9cd9b45de9d22cd93340b57cec6247bfd9ee604b22c713ab7e95acd199",
+      "after_sha256": "467cf2829c5cade5e09b83fe66755af4ffc9206c0af9c1485607700bf5201a55",
+      "idat_sha256": "eb725d77f5ba6912ab636504e5c6d32bd12a1125509ca786f755d9432f2617ab",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0271.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "b3224e15af0f73843d40942250a5fcf4840250cfa7d10f4769b5d604e01a8ef9",
+      "after_sha256": "37afb9d10fbb7eed0e4ac002279857adb1270d84fe3978e9ce1baefa001e1fdf",
+      "idat_sha256": "14ad4df542d832c367bcf91320c1de84534906072e854a093bbda3ff04eb2e2b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0098.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "1835ae3f0a6dd1a5c217f47cc6521d6fa289c16df231cf0fb5ab941046f1846b",
+      "after_sha256": "5d44551f457d642ff36d8ca96c1cd58b4ebf8140f650cadcf3d9e4dfeabb5586",
+      "idat_sha256": "807f5c22b200914920e13d22fe0bec58169debd87bee83f29a4639de07688526",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0067.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c309df5362cf8b97638cfa96f6e516f087ead627645d2d257cd41aec000842d1",
+      "after_sha256": "32544dfa5af6ac55c5e6a43721be662333fa9dddae82f3184faf70162692bd02",
+      "idat_sha256": "149a66ed22210918d7edf1bd691543723b403231b8a115bc06b3e14100302d2f",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0073.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "49d3b1932e0687b144379d2332efce58cbdf86f916f90d9aa6a97f02caae8cec",
+      "after_sha256": "068fb7ed6d57cbf3c9d661bdd19cd2376290f6e2a4d1607453aec4ff3c5413c9",
+      "idat_sha256": "bc3b0bde1b1c05259e94cc789f5f314e26065282e6b6929de826855d078938ca",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0065.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "019bd49fb96c770a11c63a4b8919355ab0e11839ed585b67c21db9ea0babbc4a",
+      "after_sha256": "dcfce27a4b190d646e70d1158015e918bf4b1a96dfcf0b3d3ed3fa2d60b1647e",
+      "idat_sha256": "f9a336ad483d08721d13ef1e54f8ef72ac5a27ec2594eff0bee47f02a096bc5e",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0071.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "06598164169d0ef8e7606bda61e39523dc99a85f6e489a22c5a1a0ac8bf2a4bb",
+      "after_sha256": "f7ee2f4fa83634eb515e43300f504fd3b1bfea97a706591ee5e4baf73cd5126a",
+      "idat_sha256": "01dac497284cceb81de17eb0018f97b32d5a93eb70dd5b9a9b6311191a734d4b",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0059.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "f8c943dc874972a38d48f8eeead4518efef1f2035480962f542fe1d6330c9e1e",
+      "after_sha256": "f100949d497405429ec5ee7451b6d6f0faea6e5f804d97661059884f67fb7a8c",
+      "idat_sha256": "ea9174062af7ace812777e5a2ad88552b89f8dac9e6a6a3c1703a8103c9b69e6",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0267.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "ba4a1938c3bd8760e4c02d9e8d7b0beb1e1767469806eb5d05546a8e93d1fc51",
+      "after_sha256": "f51531fff25577825ca97ce76447e521fedeccfcc872cc861ae480a946f092bd",
+      "idat_sha256": "dd0d3975292aae9871d8ac009f3d13f481d0e0f6ee649f6ad2206a17f6ef1b0d",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0273.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "68d7512956474b631a4d6b2eb04072f48e4b4fb8f0889f6be8420a105cfa8711",
+      "after_sha256": "a7d0b18f72e5633ddba72b398dbcbd32af06d16154280568fc76cbf288576f90",
+      "idat_sha256": "10f1d4ad5df1e49baef4129896ddbdaef19d118b30d3841e99518fb8652fe156",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0111.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "5d24d9d276916a0a283ace3e4ba3295c47b368831ec511010b15b6df00ccdd20",
+      "after_sha256": "be680b82406edd7fc7bf1af3d7208ca7d067e344b95b9d5d73174e44830a3427",
+      "idat_sha256": "f1a53611b880604d3ce0392459a6c226e85c1bd804eba41683f6e0e2aa688d5a",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0105.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "2fbf94f537d572983c1df3fbde6a4c9bff71d65c9aa1ca1c563343f89cc1b2db",
+      "after_sha256": "7a30e64a47dac02243a0c3a2c9ec073e80c5fd3aff63f3b27761beb60dcea4ac",
+      "idat_sha256": "5ac0780f5d15e64d7f97bf5f341e7f3e30e2a03963ca6fefcc5aa5ca1252dbaa",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0139.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "873444cd401806a4bbec3af773823831f66806981bc7e0d61781033f68c58de8",
+      "after_sha256": "2773888e8d426cdfde23e3172a15b8d806f3b48697e41e50175805df39ab6023",
+      "idat_sha256": "33e2dccf15466071df12234d9770d9d4651ed0a11b6235cbb9644df101a1dfb6",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0138.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "a0eb6de558bfd339f490695df2057f088f44a70818fa57546aed965bcb0984f2",
+      "after_sha256": "349f751e81385f5630f7e77da9908a1e06985c465c5f0b58312d93b96401789b",
+      "idat_sha256": "04eb9739f4ca776de776ba945ddcd5ba665f2a21b4425497b48bdef47111bfb3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0104.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "443b79f527181ef35ae732995c2e74767c173703cd11316325df52b928ad88ba",
+      "after_sha256": "df4b4065250bceeb9be6f915285eaa25588977eb4c339d769cb80197b69ef1ec",
+      "idat_sha256": "802188940d7ea81dc42da2fed88c5753da04602979611f3a5a043fdd75a301be",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0110.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "37a5be08eb4c38ac9ff64720fae64d173a7463259b5f2294da4f751e60067da0",
+      "after_sha256": "4f006e50078249d0828d77eb2db82305e1fccb7b40064120c4e12ee9afc0e34e",
+      "idat_sha256": "4d13caaf6aac8ebb8e70608a027a3f6a23633dca1bf95289d24c1282cd9eba22",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0272.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "fef5109a4fb8bed3c104f4d6e7e326c4ed9f840df9ff21b7b0fd4c1f6eabfc3b",
+      "after_sha256": "d507f7e10c8b8372874cc3208638847dcea82bfe04933a70c0d44467e98eb899",
+      "idat_sha256": "f1e47989e0976026d412eb5b6394c8c06cadf054a19dc189acc5def237cb83f4",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0266.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "e46a8debeccee6a41d20f52fd74dd48dbf662b63a8176a8fdd17c7e95eb5747f",
+      "after_sha256": "8d7a377139aef7475fa9137852c42b50deb497151e3695f106742a7549156a02",
+      "idat_sha256": "52e1c31831914bc42852466bfa1b325bce3e82f335697338720c737f97ebe8cc",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0058.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "cd0ba5c427d776259a53569c995647b6c2189616477c5961f7b4f7dac573887a",
+      "after_sha256": "00809ac11dc897de71df3c79937af22e66bec28270fc929c45a54f003c778eaf",
+      "idat_sha256": "822721ee153482bff3b1a5055576307f2b1ccc06257f74ae7e19d00aebc442bb",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0070.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "da7c34989027eb31f0e9ab18bfac78ebc5c644e50ec76e3802ce400386f7e5a9",
+      "after_sha256": "b5158047f8495dc6c3cbe6d94d82404264906b5f4965d281c0ad4a518ecc3cd9",
+      "idat_sha256": "9546105e147121f8db1783511fb5811449c74bc8494cc32408b4afba26bc888c",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/frames/frame-0064.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "24229983004a1d55c72fb11d8df2f7ab932855a4feabe1da65d4129a7a769317",
+      "after_sha256": "c8bfd98f7113162269591aeaa5b8c60aeb872948bacc145651b9adad6da81f95",
+      "idat_sha256": "245db34e8e5ed05e93b6a43834f934ec41975ccdf589f56756b43d2ea32ec1ed",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/runtime-review/lod-front.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "efc71d77ad55df9cd202e3ead15455bab4974910dcb90d0fcfb150a5353ad38e",
+      "after_sha256": "d7e92baeb24500bc2dff911ffc5d43e2a229902ae2b137e3994d3b9cd341f675",
+      "idat_sha256": "0c10d1ad6b09572cfcccb6a4e862a6120bcc418903db106b8fa9c1a5fc3e21f3",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/runtime-review/lod-angle.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "8f492935323716d0a4b74af5d74c0db716fe51d17f927697e1e6ced372086c04",
+      "after_sha256": "d8763a186472d3545a4059412fdb47082faaebee17f228f52eefac9c9aa3df44",
+      "idat_sha256": "bd0d23f73f80fce87c191e354eb085f90e7056174eb340d10294ae22cee789b0",
+      "all_remaining_chunks_byte_identical": true
+    },
+    {
+      "file": "assets/psilo/review-v2/runtime-review/lod-proud.png",
+      "removed_chunks": [
+        "tEXt"
+      ],
+      "before_sha256": "c813146461e23cb160f17e2903d3bcf62a40442c05c9f19317349f53a37f64ef",
+      "after_sha256": "82d6afdf4a5440798fc2f69ad4a556d70428fce7ab52d877af066477f464da42",
+      "idat_sha256": "d46ad6082022314d65d11e6916fac869701493440470542a5f34ba02525f5503",
+      "all_remaining_chunks_byte_identical": true
+    }
+  ]
+}

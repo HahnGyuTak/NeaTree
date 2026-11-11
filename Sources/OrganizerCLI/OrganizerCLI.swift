@@ -16,7 +16,8 @@ import OrganizerCore
         let statePath = args.option("--state") ?? ProcessInfo.processInfo.environment["FILE_ORGANIZER_STATE_DIR"]
         let command = args.next() ?? "help"
         if ["help", "--help", "-h"].contains(command) { print(help); return }
-        if command == "key" { try keyCommand(args.next() ?? "status"); return }
+        if command == "key" { try keyCommand(&args); return }
+        if command == "api" { try await apiCommand(&args); return }
         let defaultState = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appendingPathComponent("FileOrganizer")
         let service = try OrganizerService(stateDirectory: statePath.map(url) ?? defaultState)
         switch command {
@@ -138,7 +139,17 @@ import OrganizerCore
         }
     }
 
-    private static func keyCommand(_ action: String) throws {
+    private static func keyCommand(_ args: inout Arguments) throws {
+        let action = args.next() ?? "status"
+        if action == "import" {
+            guard let path = args.option("--file"), args.values.isEmpty else {
+                throw CLIError("key import --file <키 한 줄을 저장한 UTF-8 또는 RTF 파일>")
+            }
+            try APIKeyFile.importIntoKeychain(from: url(path))
+            print("파일의 API 키를 macOS 키체인에 저장했습니다. 원본 파일은 변경하지 않았으며 API 요청을 보내지 않았습니다.")
+            return
+        }
+        guard args.values.isEmpty else { throw CLIError("키를 명령 인자로 넣지 마세요. key set 또는 key import --file <경로>를 사용하세요.") }
         switch action {
         case "set":
             guard isatty(STDIN_FILENO) != 0 else { throw CLIError("터미널에서 organizer key set을 실행하세요. 키를 명령 인자로 넣지 마세요.") }
@@ -147,19 +158,38 @@ import OrganizerCore
             defer { memset(buffer, 0, strlen(buffer)) }
             try APIKeyStore.save(key); print("API 키를 macOS 키체인에 저장했습니다.")
         case "status":
-            let exists = try !(ProcessInfo.processInfo.environment["OPENAI_API_KEY"] ?? "").isEmpty || APIKeyStore.read() != nil
-            print(exists ? "API 키 설정됨" : "API 키 미설정")
+            let environment = ProcessInfo.processInfo.environment["OPENAI_API_KEY"] ?? ""
+            let exists = try environment.isEmpty ? APIKeyStore.containsKey() : !environment.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            print(exists ? "API 키 설정됨 (연결 검증은 별도)" : "API 키 미설정")
         case "delete": try APIKeyStore.delete(); print("키체인의 API 키를 삭제했습니다.")
-        default: throw CLIError("key set | status | delete")
+        default: throw CLIError("key set | import --file <경로> | status | delete")
         }
     }
 
+    private static func apiCommand(_ args: inout Arguments) async throws {
+        guard args.next() == "verify" else { throw CLIError("api verify --allow-paid-request [--key-file <경로>]") }
+        let allowed = args.flag("--allow-paid-request")
+        let file = args.option("--key-file")
+        guard args.values.isEmpty else { throw CLIError("api verify --allow-paid-request [--key-file <경로>]") }
+        guard allowed else {
+            throw CLIError("실제 유료 API 요청이 최대 2회 발생합니다. 실행하려면 --allow-paid-request를 명시하세요. 키나 개인 파일은 아직 읽지 않았습니다.")
+        }
+        let key = try file.map { try APIKeyFile.read(from: url($0)) } ?? configuredAPIKey()
+        let report = try await APIConnectionVerifier.verify(apiKey: key)
+        try output(report)
+        if !report.passed { throw CLIError("API 검증을 통과하지 못했습니다. 위 단계별 결과를 확인하세요. 자동 재시도는 하지 않았습니다.") }
+    }
+
     private static func client() throws -> OpenAIClient {
+        OpenAIClient(apiKey: try configuredAPIKey())
+    }
+
+    private static func configuredAPIKey() throws -> String {
         let key = try ProcessInfo.processInfo.environment["OPENAI_API_KEY"] ?? APIKeyStore.read()
         guard let key, !key.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
-            throw CLIError("API 키가 없습니다. 터미널에서 organizer key set으로 설정하세요.")
+            throw CLIError("API 키가 없습니다. organizer key set 또는 key import --file <경로>로 설정하세요.")
         }
-        return OpenAIClient(apiKey: key)
+        return key
     }
     private static func uuid(_ value: String) throws -> UUID {
         guard let id = UUID(uuidString: value) else { throw CLIError("올바른 항목 또는 작업 ID가 아닙니다.") }; return id
@@ -219,6 +249,9 @@ import OrganizerCore
                                       수정 내용을 규칙 후보로 저장 (확정은 별도)
       duplicates <파일>               관리 폴더 안의 동일 내용 파일 찾기
       key set|status|delete           macOS 키체인 API 키 관리
+      key import --file <경로>         키 한 줄만 있는 파일을 Keychain에 저장 (API 호출 없음)
+      api verify --allow-paid-request [--key-file <경로>]
+                                      합성 자료로 최대 2회 실제 API 검증 (비용 발생 가능)
 
     apply와 unclassified는 실제 파일을 이동합니다. 번호 템플릿: '{serial}_제목.pdf'
     API 모델: gpt-6.1-sol. 제외 설정은 자동 감시에만 적용하며 직접 가져오기는 유지합니다.

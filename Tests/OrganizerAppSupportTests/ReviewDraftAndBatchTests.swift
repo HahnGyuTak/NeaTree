@@ -280,7 +280,7 @@ private struct DraftFixture {
     }
 
     var dependencies: AppModelDependencies {
-        AppModelDependencies(readKey: { "test-key" }, saveKey: { _ in }, deleteKey: { }, analyzeFile: { service, id, key in
+        AppModelDependencies(keyIsConfigured: { true }, readKey: { "test-key" }, saveKey: { _ in }, deleteKey: { }, analyzeFile: { service, id, key in
             let number = try await probe.begin()
             let entry = try #require(await service.entries().first { $0.id == id })
             let evidence = try await FileInspector.inspectAsync(URL(fileURLWithPath: entry.path))

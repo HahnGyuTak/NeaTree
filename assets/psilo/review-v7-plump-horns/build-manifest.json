@@ -1,0 +1,111 @@
+{
+  "horns": [
+    {
+      "horn": "Horn_L",
+      "axis_cap": [
+        -0.5714418888092041,
+        -0.5891307592391968,
+        0.571295976638794
+      ],
+      "perpendicular_sections": "circles",
+      "base_center_cap": [
+        -0.053571347147226334,
+        -0.017901653423905373,
+        0.022572224959731102
+      ],
+      "base_radius_m": 0.018,
+      "surface_anchor_cap": [
+        -0.05700000002980232,
+        -0.021436437964439392,
+        0.026000000536441803
+      ],
+      "base_inset_m": 0.006,
+      "virtual_height_m": 0.035,
+      "actual_rounded_tip_cap": [
+        -0.07187674939632416,
+        -0.036773696541786194,
+        0.040872953832149506
+      ],
+      "tip_round_radius_m": 0.0025,
+      "cone_half_angle_degrees": 27.216111557307475,
+      "attachment": "full basal-disc containment must be validated"
+    },
+    {
+      "horn": "Horn_R",
+      "axis_cap": [
+        0.5400961637496948,
+        -0.6152415871620178,
+        0.5742594599723816
+      ],
+      "perpendicular_sections": "circles",
+      "base_center_cap": [
+        0.05375942215323448,
+        -0.01947838068008423,
+        0.022554444149136543
+      ],
+      "base_radius_m": 0.018,
+      "surface_anchor_cap": [
+        0.05700000002980232,
+        -0.023169830441474915,
+        0.026000000536441803
+      ],
+      "base_inset_m": 0.006,
+      "virtual_height_m": 0.035,
+      "actual_rounded_tip_cap": [
+        0.07106070220470428,
+        -0.03918685019016266,
+        0.04095010459423065
+      ],
+      "tip_round_radius_m": 0.0025,
+      "cone_half_angle_degrees": 27.216111557307475,
+      "attachment": "full basal-disc containment must be validated"
+    }
+  ],
+  "cap_geometry_changed": false,
+  "axial_sections_circular": true,
+  "lighting": {
+    "fill_light_links": [
+      {
+        "light": "STUDIO_BodyBounce",
+        "original_receiver_collection": "Psilo body bounce receivers",
+        "receiver_collection": "STUDIO_BodyBounce receivers without Psilo horns",
+        "excluded_horns": [
+          "Horn_L",
+          "Horn_R"
+        ],
+        "existing_rules_preserved": true,
+        "energy_unchanged": 0.8500000238418579
+      },
+      {
+        "light": "STUDIO_LowFill",
+        "original_receiver_collection": "",
+        "receiver_collection": "STUDIO_LowFill receivers without Psilo horns",
+        "excluded_horns": [
+          "Horn_L",
+          "Horn_R"
+        ],
+        "existing_rules_preserved": true,
+        "energy_unchanged": 0.30000001192092896
+      },
+      {
+        "light": "STUDIO_Fill",
+        "original_receiver_collection": "",
+        "receiver_collection": "STUDIO_Fill receivers without Psilo horns",
+        "excluded_horns": [
+          "Horn_L",
+          "Horn_R"
+        ],
+        "existing_rules_preserved": true,
+        "energy_unchanged": 0.7200000286102295
+      }
+    ],
+    "other_lighting_changed": false
+  },
+  "change": "Larger circular cones with a broader spherical tip; same root anchor and surface-normal alignment",
+  "previous_dimensions_m": {
+    "base_radius": 0.014,
+    "virtual_height": 0.03,
+    "tip_round_radius": 0.0008
+  },
+  "production_replaced": false
+}

@@ -1,0 +1,75 @@
+{
+  "preview": "docs/design/menu-v7-horns-light-dark.png",
+  "resources": [
+    {
+      "alpha_range": [
+        0,
+        1
+      ],
+      "file": "Sources/OrganizerApp/Resources/MenuBarTemplate.png",
+      "has_alpha": true,
+      "maximum_opaque_rgb": 0,
+      "pixels": [
+        18,
+        18
+      ],
+      "template_black_passed": true,
+      "visible_bbox": [
+        0,
+        0,
+        17,
+        17
+      ],
+      "visible_pixels": 209,
+      "sha256": "8d4b33c1ba20705eaabacdd9d253e62f9ee713e957ea197c6ccbc2776f402453"
+    },
+    {
+      "alpha_range": [
+        0,
+        1
+      ],
+      "file": "Sources/OrganizerApp/Resources/MenuBarTemplate@2x.png",
+      "has_alpha": true,
+      "maximum_opaque_rgb": 0,
+      "pixels": [
+        36,
+        36
+      ],
+      "template_black_passed": true,
+      "visible_bbox": [
+        0,
+        1,
+        35,
+        34
+      ],
+      "visible_pixels": 747,
+      "sha256": "e1a5fdf893cf40585ff1e56a35c5d313e1c3c5034ad06c6280ddc04948629796"
+    }
+  ],
+  "master": {
+    "file": "assets/icons/MenuBar-master.png",
+    "sha256": "10a370428a123940415549c6e0b8a0207f5c66c187b69f9e212206e0761b3235",
+    "pixels": [
+      1254,
+      1254
+    ],
+    "alpha_range": [
+      0,
+      1
+    ]
+  },
+  "approved_horn_reference_sha256": "3a858a6512fdf5be9acfd106f3382623db72146a6e43391f5ca0d3d8abeee940",
+  "previous_master_sha256": "fec13ec13fd5e8a6ba5f15054e0633028afaaac1c052a08dbb1e08f908483976",
+  "preview_sha256": "62bb12c6f6a8b45d38b7d7b3dda08385deb68293b78531c7df41b56aa0541541",
+  "source_geometry_note": "Existing cap/document composition visually retained; imagegen antialiasing and contour pixels were regenerated.",
+  "checks": {
+    "source_saved_in_workspace": true,
+    "one_x_18px": true,
+    "two_x_36px": true,
+    "template_black_and_alpha": true
+  },
+  "scope": "Source/export and native AppKit light/dark pixel-size preview; not a packaged-app execution check.",
+  "approved_horn_reference_original_sha256": "dd8b9ba6bf227eab0580193872d1df33d3731da83ee81c2cde69ef8e7b30c2dd",
+  "approved_horn_reference": "assets/psilo/review-v7-plump-horns/front.png",
+  "reference_metadata_note": "The reference PNG metadata was sanitized for publication. Pixels and approved geometry are unchanged; the original digest is retained for provenance."
+}

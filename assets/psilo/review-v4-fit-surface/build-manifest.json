@@ -1,0 +1,63 @@
+{
+  "version": 4,
+  "blender_version": "5.3.0",
+  "geometry": {
+    "margin_m": 0.004,
+    "falloff_m": 0.04,
+    "grid_constraints": 773,
+    "cap_changed_from_v3": false,
+    "restored_prior_cap_fit": false,
+    "clearance_target": "visible brim upper envelope; hidden solid overlap allowed",
+    "hat_meshes": {
+      "Brim": {
+        "moved_vertices": 426,
+        "max_displacement_m": 0.014504797833885339,
+        "front_y_below_minus30mm_max_m": 0.0006435718385855882
+      },
+      "Crown": {
+        "moved_vertices": 339,
+        "max_displacement_m": 0.008929062712659516,
+        "front_y_below_minus30mm_max_m": 0.00034449249949128753
+      },
+      "Band": {
+        "moved_vertices": 162,
+        "max_displacement_m": 0.008936237545628226,
+        "front_y_below_minus30mm_max_m": 0.00012571737298546382
+      }
+    }
+  },
+  "surface": {
+    "palette_srgb": {
+      "cream": "FFBF4A",
+      "hat": "FFC953",
+      "sage": "585426"
+    },
+    "lower_fill": 0.4,
+    "grain_multiplier": 1.2,
+    "production_approved": false
+  },
+  "markings": {
+    "cream_sample": [
+      0.7803922295570374,
+      [
+        0.15625,
+        0.2604166666666667,
+        0
+      ]
+    ],
+    "spots_in_object_space": true
+  },
+  "paper": {
+    "texture": "Psilo-paper-grain.png",
+    "tile_world_width_m": 0.03840810448554769,
+    "mapping": "object attached physical BOX",
+    "cream_reduction": 0.85,
+    "production_approved": false
+  },
+  "motion_frames": [
+    1,
+    289
+  ],
+  "status": "unapproved review only",
+  "runtime_bake_and_validation_required": true
+}

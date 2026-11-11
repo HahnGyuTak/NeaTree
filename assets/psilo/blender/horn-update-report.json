@@ -1,0 +1,40 @@
+{
+  "horns": [
+    {
+      "name": "Horn_L",
+      "closed_manifold": true,
+      "control_vertices": 362,
+      "axis_length_m": 0.032,
+      "outward_lean_degrees": 8,
+      "front_offset_m": -0.003
+    },
+    {
+      "name": "Horn_R",
+      "closed_manifold": true,
+      "control_vertices": 362,
+      "axis_length_m": 0.032,
+      "outward_lean_degrees": 8,
+      "front_offset_m": -0.003
+    }
+  ],
+  "other_geometry_changed": false,
+  "shape_approved": true,
+  "whole_model_approval_implied": false,
+  "non_horn_objects_unchanged": 47,
+  "kind": "runtime",
+  "runtime_metrics": {
+    "name": "Psilo",
+    "source": "Blender 5.3",
+    "horn_design": "approved-short-soft-point-v5",
+    "triangles": 25756,
+    "meshes": 27,
+    "materials": 6,
+    "textures": 1,
+    "texture_resolution": [
+      768,
+      768
+    ],
+    "bytes": 671098
+  },
+  "approved_reference": "assets/psilo/reference/short-horns-approved-v1.png"
+}

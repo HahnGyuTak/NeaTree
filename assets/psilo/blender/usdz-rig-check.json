@@ -1,0 +1,31 @@
+{
+  "checked_non_horn_prims": 83,
+  "checked_non_horn_xforms": 43,
+  "non_horn_geometry_materials_and_transforms_identical": true,
+  "comparison_normalization": "Signed zero canonicalized; prim sibling order ignored.",
+  "required_rig_controls": [
+    "Psilo",
+    "Head",
+    "Horns",
+    "Hat",
+    "Glasses",
+    "eye_L",
+    "eye_R",
+    "mouth_idle",
+    "mouth_proud",
+    "ErrorEyes",
+    "spiral_L",
+    "spiral_R",
+    "file_0",
+    "file_1",
+    "file_2"
+  ],
+  "up_axis": "Y",
+  "materials": 6,
+  "texture_sha256": {
+    "Psilo-cap-color.png": "435ddb607da5c36178091f72947c31151a5b861c8b920f75e61039c2ae3cf180"
+  },
+  "original_usdz_sha256": "6e016d049fddc9cee7188c7e207076da537a538993f2c6ef9e3c5d24bf5aeb92",
+  "updated_usdz_sha256": "3709dbedbc43205270a69f0ac02fb4b5fe11a160167a3801c1fc16b7179b6f49",
+  "usdchecker_arkit": "passed"
+}

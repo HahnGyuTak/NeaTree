@@ -1,0 +1,2057 @@
+{
+  "margin_m": 0.004,
+  "falloff_m": 0.04,
+  "grid_constraints": 773,
+  "cap_changed_from_v3": false,
+  "restored_prior_cap_fit": false,
+  "clearance_target": "visible brim upper envelope; hidden solid overlap allowed",
+  "hat_meshes": {
+    "Brim": {
+      "moved_vertices": 426,
+      "max_displacement_m": 0.014504797833885339,
+      "front_y_below_minus30mm_max_m": 0.0006435718385855882
+    },
+    "Crown": {
+      "moved_vertices": 339,
+      "max_displacement_m": 0.008929062712659516,
+      "front_y_below_minus30mm_max_m": 0.00034449249949128753
+    },
+    "Band": {
+      "moved_vertices": 162,
+      "max_displacement_m": 0.008936237545628226,
+      "front_y_below_minus30mm_max_m": 0.00012571737298546382
+    }
+  },
+  "face_roi_max_delta_m": 0.0,
+  "underside_max_delta_m": 0.0,
+  "whole_cap_max_delta_m": 0.0,
+  "sampled_frames": 289,
+  "total_exposed_vertices": 0,
+  "worst_envelope_distance_m": -0.0015303678810596466,
+  "minimum_outer_underside_clearance_m": -0.004917629063129425,
+  "frame_checks": [
+    {
+      "frame": 1,
+      "max_signed_envelope_distance_m": -0.002877417951822281,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044085122644901276,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 2,
+      "max_signed_envelope_distance_m": -0.002877388149499893,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408452659845352,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 3,
+      "max_signed_envelope_distance_m": -0.0028773657977581024,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408564418554306,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 4,
+      "max_signed_envelope_distance_m": -0.0028774216771125793,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408508539199829,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 5,
+      "max_signed_envelope_distance_m": -0.002877451479434967,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408508539199829,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 6,
+      "max_signed_envelope_distance_m": -0.0028774552047252655,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408504813909531,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 7,
+      "max_signed_envelope_distance_m": -0.002877417951822281,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044085122644901276,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 8,
+      "max_signed_envelope_distance_m": -0.002877425402402878,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408504813909531,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 9,
+      "max_signed_envelope_distance_m": -0.00287744402885437,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408515989780426,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 10,
+      "max_signed_envelope_distance_m": -0.0028773993253707886,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408501088619232,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 11,
+      "max_signed_envelope_distance_m": -0.002877369523048401,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408560693264008,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 12,
+      "max_signed_envelope_distance_m": -0.002877417951822281,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044085122644901276,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 13,
+      "max_signed_envelope_distance_m": -0.0028773657977581024,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408564418554306,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 14,
+      "max_signed_envelope_distance_m": -0.0028773918747901917,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408508539199829,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 15,
+      "max_signed_envelope_distance_m": -0.002877362072467804,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408508539199829,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 16,
+      "max_signed_envelope_distance_m": -0.002877451479434967,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044085681438446045,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 17,
+      "max_signed_envelope_distance_m": -0.0022550076246261597,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044162459671497345,
+      "outer_vertices_above_underside": 3267
+    },
+    {
+      "frame": 18,
+      "max_signed_envelope_distance_m": -0.0026875361800193787,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00445118173956871,
+      "outer_vertices_above_underside": 3279
+    },
+    {
+      "frame": 19,
+      "max_signed_envelope_distance_m": -0.0026143155992031097,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00453031063079834,
+      "outer_vertices_above_underside": 3302
+    },
+    {
+      "frame": 20,
+      "max_signed_envelope_distance_m": -0.0024162493646144867,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004667218774557114,
+      "outer_vertices_above_underside": 3349
+    },
+    {
+      "frame": 21,
+      "max_signed_envelope_distance_m": -0.0024725645780563354,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004825107753276825,
+      "outer_vertices_above_underside": 3370
+    },
+    {
+      "frame": 22,
+      "max_signed_envelope_distance_m": -0.0024594999849796295,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004910752177238464,
+      "outer_vertices_above_underside": 3400
+    },
+    {
+      "frame": 23,
+      "max_signed_envelope_distance_m": -0.0022308342158794403,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0048620253801345825,
+      "outer_vertices_above_underside": 3383
+    },
+    {
+      "frame": 24,
+      "max_signed_envelope_distance_m": -0.002474222332239151,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004761744290590286,
+      "outer_vertices_above_underside": 3357
+    },
+    {
+      "frame": 25,
+      "max_signed_envelope_distance_m": -0.002426203340291977,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004626818001270294,
+      "outer_vertices_above_underside": 3343
+    },
+    {
+      "frame": 26,
+      "max_signed_envelope_distance_m": -0.0026748105883598328,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004520982503890991,
+      "outer_vertices_above_underside": 3297
+    },
+    {
+      "frame": 27,
+      "max_signed_envelope_distance_m": -0.0025592371821403503,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004440836608409882,
+      "outer_vertices_above_underside": 3274
+    },
+    {
+      "frame": 28,
+      "max_signed_envelope_distance_m": -0.0028776712715625763,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408545792102814,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 29,
+      "max_signed_envelope_distance_m": -0.0028774701058864594,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408571869134903,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 30,
+      "max_signed_envelope_distance_m": -0.0028774142265319824,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408515989780426,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 31,
+      "max_signed_envelope_distance_m": -0.0028773918747901917,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408504813909531,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 32,
+      "max_signed_envelope_distance_m": -0.0028769634664058685,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408448934555054,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 33,
+      "max_signed_envelope_distance_m": -0.002874031662940979,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408128559589386,
+      "outer_vertices_above_underside": 3263
+    },
+    {
+      "frame": 34,
+      "max_signed_envelope_distance_m": -0.0028660111129283905,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004407435655593872,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 35,
+      "max_signed_envelope_distance_m": -0.0026823729276657104,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004389170557260513,
+      "outer_vertices_above_underside": 3256
+    },
+    {
+      "frame": 36,
+      "max_signed_envelope_distance_m": -0.002837482839822769,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00435570627450943,
+      "outer_vertices_above_underside": 3241
+    },
+    {
+      "frame": 37,
+      "max_signed_envelope_distance_m": -0.0026706717908382416,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004304472357034683,
+      "outer_vertices_above_underside": 3218
+    },
+    {
+      "frame": 38,
+      "max_signed_envelope_distance_m": -0.0025627128779888153,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004240024834871292,
+      "outer_vertices_above_underside": 3196
+    },
+    {
+      "frame": 39,
+      "max_signed_envelope_distance_m": -0.0028996653854846954,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004180405288934708,
+      "outer_vertices_above_underside": 3152
+    },
+    {
+      "frame": 40,
+      "max_signed_envelope_distance_m": -0.002621166408061981,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004129007458686829,
+      "outer_vertices_above_underside": 3143
+    },
+    {
+      "frame": 41,
+      "max_signed_envelope_distance_m": -0.002736099064350128,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004133034497499466,
+      "outer_vertices_above_underside": 3145
+    },
+    {
+      "frame": 42,
+      "max_signed_envelope_distance_m": -0.0024628303945064545,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004154518246650696,
+      "outer_vertices_above_underside": 3145
+    },
+    {
+      "frame": 43,
+      "max_signed_envelope_distance_m": -0.0027445219457149506,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004205107688903809,
+      "outer_vertices_above_underside": 3163
+    },
+    {
+      "frame": 44,
+      "max_signed_envelope_distance_m": -0.0025484897196292877,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004240773618221283,
+      "outer_vertices_above_underside": 3195
+    },
+    {
+      "frame": 45,
+      "max_signed_envelope_distance_m": -0.0025941841304302216,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004299752414226532,
+      "outer_vertices_above_underside": 3216
+    },
+    {
+      "frame": 46,
+      "max_signed_envelope_distance_m": -0.002698272466659546,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004361927509307861,
+      "outer_vertices_above_underside": 3244
+    },
+    {
+      "frame": 47,
+      "max_signed_envelope_distance_m": -0.0026733502745628357,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00438830628991127,
+      "outer_vertices_above_underside": 3256
+    },
+    {
+      "frame": 48,
+      "max_signed_envelope_distance_m": -0.0028399862349033356,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004405103623867035,
+      "outer_vertices_above_underside": 3262
+    },
+    {
+      "frame": 49,
+      "max_signed_envelope_distance_m": -0.0028773844242095947,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044085122644901276,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 50,
+      "max_signed_envelope_distance_m": -0.0028776265680789948,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408515989780426,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 51,
+      "max_signed_envelope_distance_m": -0.0028791725635528564,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00440862774848938,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 52,
+      "max_signed_envelope_distance_m": -0.002883356064558029,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044091083109378815,
+      "outer_vertices_above_underside": 3263
+    },
+    {
+      "frame": 53,
+      "max_signed_envelope_distance_m": -0.0023273080587387085,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004419352859258652,
+      "outer_vertices_above_underside": 3263
+    },
+    {
+      "frame": 54,
+      "max_signed_envelope_distance_m": -0.0027204900979995728,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004444953054189682,
+      "outer_vertices_above_underside": 3274
+    },
+    {
+      "frame": 55,
+      "max_signed_envelope_distance_m": -0.0025116726756095886,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004479091614484787,
+      "outer_vertices_above_underside": 3287
+    },
+    {
+      "frame": 56,
+      "max_signed_envelope_distance_m": -0.0022921711206436157,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00451447069644928,
+      "outer_vertices_above_underside": 3298
+    },
+    {
+      "frame": 57,
+      "max_signed_envelope_distance_m": -0.0025823302567005157,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004542164504528046,
+      "outer_vertices_above_underside": 3294
+    },
+    {
+      "frame": 58,
+      "max_signed_envelope_distance_m": -0.0021559149026870728,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004553690552711487,
+      "outer_vertices_above_underside": 3294
+    },
+    {
+      "frame": 59,
+      "max_signed_envelope_distance_m": -0.002655964344739914,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004549708217382431,
+      "outer_vertices_above_underside": 3294
+    },
+    {
+      "frame": 60,
+      "max_signed_envelope_distance_m": -0.0026111602783203125,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004534967243671417,
+      "outer_vertices_above_underside": 3292
+    },
+    {
+      "frame": 61,
+      "max_signed_envelope_distance_m": -0.0027640163898468018,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004504799842834473,
+      "outer_vertices_above_underside": 3293
+    },
+    {
+      "frame": 62,
+      "max_signed_envelope_distance_m": -0.002231832593679428,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044610947370529175,
+      "outer_vertices_above_underside": 3278
+    },
+    {
+      "frame": 63,
+      "max_signed_envelope_distance_m": -0.002580024302005768,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004436157643795013,
+      "outer_vertices_above_underside": 3268
+    },
+    {
+      "frame": 64,
+      "max_signed_envelope_distance_m": -0.002412129193544388,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00442809984087944,
+      "outer_vertices_above_underside": 3263
+    },
+    {
+      "frame": 65,
+      "max_signed_envelope_distance_m": -0.002689249813556671,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004452012479305267,
+      "outer_vertices_above_underside": 3265
+    },
+    {
+      "frame": 66,
+      "max_signed_envelope_distance_m": -0.0026741735637187958,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004509106278419495,
+      "outer_vertices_above_underside": 3267
+    },
+    {
+      "frame": 67,
+      "max_signed_envelope_distance_m": -0.0024663694202899933,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004543334245681763,
+      "outer_vertices_above_underside": 3265
+    },
+    {
+      "frame": 68,
+      "max_signed_envelope_distance_m": -0.0025582462549209595,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004553209990262985,
+      "outer_vertices_above_underside": 3269
+    },
+    {
+      "frame": 69,
+      "max_signed_envelope_distance_m": -0.0023346617817878723,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0045713819563388824,
+      "outer_vertices_above_underside": 3289
+    },
+    {
+      "frame": 70,
+      "max_signed_envelope_distance_m": -0.002583082765340805,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0045951493084430695,
+      "outer_vertices_above_underside": 3299
+    },
+    {
+      "frame": 71,
+      "max_signed_envelope_distance_m": -0.002553548663854599,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004585128277540207,
+      "outer_vertices_above_underside": 3313
+    },
+    {
+      "frame": 72,
+      "max_signed_envelope_distance_m": -0.0026969239115715027,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004535645246505737,
+      "outer_vertices_above_underside": 3319
+    },
+    {
+      "frame": 73,
+      "max_signed_envelope_distance_m": -0.002824530005455017,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004491675645112991,
+      "outer_vertices_above_underside": 3307
+    },
+    {
+      "frame": 74,
+      "max_signed_envelope_distance_m": -0.0027893930673599243,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004473879933357239,
+      "outer_vertices_above_underside": 3298
+    },
+    {
+      "frame": 75,
+      "max_signed_envelope_distance_m": -0.0026921890676021576,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00446738675236702,
+      "outer_vertices_above_underside": 3299
+    },
+    {
+      "frame": 76,
+      "max_signed_envelope_distance_m": -0.0026782043278217316,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004466503858566284,
+      "outer_vertices_above_underside": 3300
+    },
+    {
+      "frame": 77,
+      "max_signed_envelope_distance_m": -0.00266193225979805,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004465609788894653,
+      "outer_vertices_above_underside": 3300
+    },
+    {
+      "frame": 78,
+      "max_signed_envelope_distance_m": -0.002620276063680649,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004463575780391693,
+      "outer_vertices_above_underside": 3298
+    },
+    {
+      "frame": 79,
+      "max_signed_envelope_distance_m": -0.0025645941495895386,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004460960626602173,
+      "outer_vertices_above_underside": 3297
+    },
+    {
+      "frame": 80,
+      "max_signed_envelope_distance_m": -0.002503804862499237,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004458032548427582,
+      "outer_vertices_above_underside": 3297
+    },
+    {
+      "frame": 81,
+      "max_signed_envelope_distance_m": -0.002437882125377655,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044548399746418,
+      "outer_vertices_above_underside": 3297
+    },
+    {
+      "frame": 82,
+      "max_signed_envelope_distance_m": -0.002364508807659149,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004451382905244827,
+      "outer_vertices_above_underside": 3293
+    },
+    {
+      "frame": 83,
+      "max_signed_envelope_distance_m": -0.002879418432712555,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004447445273399353,
+      "outer_vertices_above_underside": 3291
+    },
+    {
+      "frame": 84,
+      "max_signed_envelope_distance_m": -0.0028150342404842377,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004443105310201645,
+      "outer_vertices_above_underside": 3287
+    },
+    {
+      "frame": 85,
+      "max_signed_envelope_distance_m": -0.002746015787124634,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004438396543264389,
+      "outer_vertices_above_underside": 3285
+    },
+    {
+      "frame": 86,
+      "max_signed_envelope_distance_m": -0.0027004703879356384,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004433590918779373,
+      "outer_vertices_above_underside": 3283
+    },
+    {
+      "frame": 87,
+      "max_signed_envelope_distance_m": -0.0025905631482601166,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004428524523973465,
+      "outer_vertices_above_underside": 3278
+    },
+    {
+      "frame": 88,
+      "max_signed_envelope_distance_m": -0.002477303147315979,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044232942163944244,
+      "outer_vertices_above_underside": 3275
+    },
+    {
+      "frame": 89,
+      "max_signed_envelope_distance_m": -0.0023613199591636658,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044178590178489685,
+      "outer_vertices_above_underside": 3274
+    },
+    {
+      "frame": 90,
+      "max_signed_envelope_distance_m": -0.002243783324956894,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004412434995174408,
+      "outer_vertices_above_underside": 3266
+    },
+    {
+      "frame": 91,
+      "max_signed_envelope_distance_m": -0.002855643630027771,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044069476425647736,
+      "outer_vertices_above_underside": 3263
+    },
+    {
+      "frame": 92,
+      "max_signed_envelope_distance_m": -0.002769000828266144,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00440148264169693,
+      "outer_vertices_above_underside": 3258
+    },
+    {
+      "frame": 93,
+      "max_signed_envelope_distance_m": -0.0026500336825847626,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0043962933123111725,
+      "outer_vertices_above_underside": 3256
+    },
+    {
+      "frame": 94,
+      "max_signed_envelope_distance_m": -0.0025338120758533478,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004396706819534302,
+      "outer_vertices_above_underside": 3251
+    },
+    {
+      "frame": 95,
+      "max_signed_envelope_distance_m": -0.002421177923679352,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004397131502628326,
+      "outer_vertices_above_underside": 3246
+    },
+    {
+      "frame": 96,
+      "max_signed_envelope_distance_m": -0.002313584089279175,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004397526383399963,
+      "outer_vertices_above_underside": 3243
+    },
+    {
+      "frame": 97,
+      "max_signed_envelope_distance_m": -0.00221145898103714,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00439796969294548,
+      "outer_vertices_above_underside": 3239
+    },
+    {
+      "frame": 98,
+      "max_signed_envelope_distance_m": -0.002614971250295639,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004398323595523834,
+      "outer_vertices_above_underside": 3237
+    },
+    {
+      "frame": 99,
+      "max_signed_envelope_distance_m": -0.002821061760187149,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004402756690979004,
+      "outer_vertices_above_underside": 3237
+    },
+    {
+      "frame": 100,
+      "max_signed_envelope_distance_m": -0.002743225544691086,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00440298393368721,
+      "outer_vertices_above_underside": 3235
+    },
+    {
+      "frame": 101,
+      "max_signed_envelope_distance_m": -0.002673838287591934,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403170198202133,
+      "outer_vertices_above_underside": 3232
+    },
+    {
+      "frame": 102,
+      "max_signed_envelope_distance_m": -0.0026132240891456604,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403352737426758,
+      "outer_vertices_above_underside": 3230
+    },
+    {
+      "frame": 103,
+      "max_signed_envelope_distance_m": -0.00256187841296196,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403464496135712,
+      "outer_vertices_above_underside": 3228
+    },
+    {
+      "frame": 104,
+      "max_signed_envelope_distance_m": -0.0025132596492767334,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044035352766513824,
+      "outer_vertices_above_underside": 3226
+    },
+    {
+      "frame": 105,
+      "max_signed_envelope_distance_m": -0.002476915717124939,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403639584779739,
+      "outer_vertices_above_underside": 3224
+    },
+    {
+      "frame": 106,
+      "max_signed_envelope_distance_m": -0.0024626292288303375,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403706640005112,
+      "outer_vertices_above_underside": 3224
+    },
+    {
+      "frame": 107,
+      "max_signed_envelope_distance_m": -0.002462688833475113,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00440371036529541,
+      "outer_vertices_above_underside": 3224
+    },
+    {
+      "frame": 108,
+      "max_signed_envelope_distance_m": -0.0024628974497318268,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403706640005112,
+      "outer_vertices_above_underside": 3224
+    },
+    {
+      "frame": 109,
+      "max_signed_envelope_distance_m": -0.0024636201560497284,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403643310070038,
+      "outer_vertices_above_underside": 3224
+    },
+    {
+      "frame": 110,
+      "max_signed_envelope_distance_m": -0.0024784021079540253,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403669387102127,
+      "outer_vertices_above_underside": 3225
+    },
+    {
+      "frame": 111,
+      "max_signed_envelope_distance_m": -0.0025148913264274597,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403561353683472,
+      "outer_vertices_above_underside": 3226
+    },
+    {
+      "frame": 112,
+      "max_signed_envelope_distance_m": -0.002564813941717148,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403416067361832,
+      "outer_vertices_above_underside": 3228
+    },
+    {
+      "frame": 113,
+      "max_signed_envelope_distance_m": -0.002618253231048584,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403255879878998,
+      "outer_vertices_above_underside": 3230
+    },
+    {
+      "frame": 114,
+      "max_signed_envelope_distance_m": -0.002678927034139633,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403200000524521,
+      "outer_vertices_above_underside": 3232
+    },
+    {
+      "frame": 115,
+      "max_signed_envelope_distance_m": -0.0027500055730342865,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004403315484523773,
+      "outer_vertices_above_underside": 3236
+    },
+    {
+      "frame": 116,
+      "max_signed_envelope_distance_m": -0.0028096437454223633,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004400990903377533,
+      "outer_vertices_above_underside": 3239
+    },
+    {
+      "frame": 117,
+      "max_signed_envelope_distance_m": -0.0027351491153240204,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004382852464914322,
+      "outer_vertices_above_underside": 3241
+    },
+    {
+      "frame": 118,
+      "max_signed_envelope_distance_m": -0.002260826528072357,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004333358258008957,
+      "outer_vertices_above_underside": 3255
+    },
+    {
+      "frame": 119,
+      "max_signed_envelope_distance_m": -0.002960219979286194,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004286564886569977,
+      "outer_vertices_above_underside": 3245
+    },
+    {
+      "frame": 120,
+      "max_signed_envelope_distance_m": -0.003016650676727295,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004273083060979843,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 121,
+      "max_signed_envelope_distance_m": -0.002865515649318695,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0042809247970581055,
+      "outer_vertices_above_underside": 3275
+    },
+    {
+      "frame": 122,
+      "max_signed_envelope_distance_m": -0.0027052462100982666,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004335418343544006,
+      "outer_vertices_above_underside": 3291
+    },
+    {
+      "frame": 123,
+      "max_signed_envelope_distance_m": -0.002481359988451004,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004426438361406326,
+      "outer_vertices_above_underside": 3313
+    },
+    {
+      "frame": 124,
+      "max_signed_envelope_distance_m": -0.0024892985820770264,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004559885710477829,
+      "outer_vertices_above_underside": 3321
+    },
+    {
+      "frame": 125,
+      "max_signed_envelope_distance_m": -0.0022204332053661346,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004647053778171539,
+      "outer_vertices_above_underside": 3318
+    },
+    {
+      "frame": 126,
+      "max_signed_envelope_distance_m": -0.002152375876903534,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004651051014661789,
+      "outer_vertices_above_underside": 3307
+    },
+    {
+      "frame": 127,
+      "max_signed_envelope_distance_m": -0.002391364425420761,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0045454129576683044,
+      "outer_vertices_above_underside": 3287
+    },
+    {
+      "frame": 128,
+      "max_signed_envelope_distance_m": -0.0026987046003341675,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004375003278255463,
+      "outer_vertices_above_underside": 3259
+    },
+    {
+      "frame": 129,
+      "max_signed_envelope_distance_m": -0.0030602551996707916,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004210222512483597,
+      "outer_vertices_above_underside": 3236
+    },
+    {
+      "frame": 130,
+      "max_signed_envelope_distance_m": -0.002653934061527252,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004135727882385254,
+      "outer_vertices_above_underside": 3226
+    },
+    {
+      "frame": 131,
+      "max_signed_envelope_distance_m": -0.0026602745056152344,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004136726260185242,
+      "outer_vertices_above_underside": 3228
+    },
+    {
+      "frame": 132,
+      "max_signed_envelope_distance_m": -0.0027048923075199127,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0041435398161411285,
+      "outer_vertices_above_underside": 3233
+    },
+    {
+      "frame": 133,
+      "max_signed_envelope_distance_m": -0.0028260350227355957,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004161730408668518,
+      "outer_vertices_above_underside": 3235
+    },
+    {
+      "frame": 134,
+      "max_signed_envelope_distance_m": -0.0029402337968349457,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004193469882011414,
+      "outer_vertices_above_underside": 3236
+    },
+    {
+      "frame": 135,
+      "max_signed_envelope_distance_m": -0.0031423941254615784,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004225041717290878,
+      "outer_vertices_above_underside": 3233
+    },
+    {
+      "frame": 136,
+      "max_signed_envelope_distance_m": -0.0025270171463489532,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004239395260810852,
+      "outer_vertices_above_underside": 3237
+    },
+    {
+      "frame": 137,
+      "max_signed_envelope_distance_m": -0.003138650208711624,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004224367439746857,
+      "outer_vertices_above_underside": 3233
+    },
+    {
+      "frame": 138,
+      "max_signed_envelope_distance_m": -0.002963181585073471,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004196446388959885,
+      "outer_vertices_above_underside": 3236
+    },
+    {
+      "frame": 139,
+      "max_signed_envelope_distance_m": -0.0029571279883384705,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004181426018476486,
+      "outer_vertices_above_underside": 3234
+    },
+    {
+      "frame": 140,
+      "max_signed_envelope_distance_m": -0.0030335113406181335,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004206374287605286,
+      "outer_vertices_above_underside": 3235
+    },
+    {
+      "frame": 141,
+      "max_signed_envelope_distance_m": -0.0027604401111602783,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004273906350135803,
+      "outer_vertices_above_underside": 3242
+    },
+    {
+      "frame": 142,
+      "max_signed_envelope_distance_m": -0.0026606470346450806,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004370249807834625,
+      "outer_vertices_above_underside": 3258
+    },
+    {
+      "frame": 143,
+      "max_signed_envelope_distance_m": -0.002622351050376892,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004472952336072922,
+      "outer_vertices_above_underside": 3273
+    },
+    {
+      "frame": 144,
+      "max_signed_envelope_distance_m": -0.0025200769305229187,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004560515284538269,
+      "outer_vertices_above_underside": 3286
+    },
+    {
+      "frame": 145,
+      "max_signed_envelope_distance_m": -0.0020713284611701965,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004616264253854752,
+      "outer_vertices_above_underside": 3289
+    },
+    {
+      "frame": 146,
+      "max_signed_envelope_distance_m": -0.0021500363945961,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004628587514162064,
+      "outer_vertices_above_underside": 3290
+    },
+    {
+      "frame": 147,
+      "max_signed_envelope_distance_m": -0.0021659210324287415,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004606630653142929,
+      "outer_vertices_above_underside": 3285
+    },
+    {
+      "frame": 148,
+      "max_signed_envelope_distance_m": -0.002700500190258026,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004573274403810501,
+      "outer_vertices_above_underside": 3289
+    },
+    {
+      "frame": 149,
+      "max_signed_envelope_distance_m": -0.002626486122608185,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004549488425254822,
+      "outer_vertices_above_underside": 3292
+    },
+    {
+      "frame": 150,
+      "max_signed_envelope_distance_m": -0.002519723027944565,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004537619650363922,
+      "outer_vertices_above_underside": 3291
+    },
+    {
+      "frame": 151,
+      "max_signed_envelope_distance_m": -0.002305496484041214,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004535175859928131,
+      "outer_vertices_above_underside": 3297
+    },
+    {
+      "frame": 152,
+      "max_signed_envelope_distance_m": -0.002458542585372925,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004535499960184097,
+      "outer_vertices_above_underside": 3294
+    },
+    {
+      "frame": 153,
+      "max_signed_envelope_distance_m": -0.0025041289627552032,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004532929509878159,
+      "outer_vertices_above_underside": 3290
+    },
+    {
+      "frame": 154,
+      "max_signed_envelope_distance_m": -0.002398792654275894,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004523418843746185,
+      "outer_vertices_above_underside": 3294
+    },
+    {
+      "frame": 155,
+      "max_signed_envelope_distance_m": -0.002767302095890045,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0045051537454128265,
+      "outer_vertices_above_underside": 3294
+    },
+    {
+      "frame": 156,
+      "max_signed_envelope_distance_m": -0.002512224018573761,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004479397088289261,
+      "outer_vertices_above_underside": 3287
+    },
+    {
+      "frame": 157,
+      "max_signed_envelope_distance_m": -0.0027351081371307373,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004450291395187378,
+      "outer_vertices_above_underside": 3275
+    },
+    {
+      "frame": 158,
+      "max_signed_envelope_distance_m": -0.0024110078811645508,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004424687474966049,
+      "outer_vertices_above_underside": 3262
+    },
+    {
+      "frame": 159,
+      "max_signed_envelope_distance_m": -0.002220563590526581,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004412412643432617,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 160,
+      "max_signed_envelope_distance_m": -0.002351537346839905,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044203028082847595,
+      "outer_vertices_above_underside": 3263
+    },
+    {
+      "frame": 161,
+      "max_signed_envelope_distance_m": -0.002712991088628769,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004445713013410568,
+      "outer_vertices_above_underside": 3281
+    },
+    {
+      "frame": 162,
+      "max_signed_envelope_distance_m": -0.0026598311960697174,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044832900166511536,
+      "outer_vertices_above_underside": 3294
+    },
+    {
+      "frame": 163,
+      "max_signed_envelope_distance_m": -0.0025812312960624695,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00452461838722229,
+      "outer_vertices_above_underside": 3307
+    },
+    {
+      "frame": 164,
+      "max_signed_envelope_distance_m": -0.002449464052915573,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004564300179481506,
+      "outer_vertices_above_underside": 3308
+    },
+    {
+      "frame": 165,
+      "max_signed_envelope_distance_m": -0.002641793340444565,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004593126475811005,
+      "outer_vertices_above_underside": 3314
+    },
+    {
+      "frame": 166,
+      "max_signed_envelope_distance_m": -0.0022834204137325287,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004604186862707138,
+      "outer_vertices_above_underside": 3313
+    },
+    {
+      "frame": 167,
+      "max_signed_envelope_distance_m": -0.0022157542407512665,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004600055515766144,
+      "outer_vertices_above_underside": 3315
+    },
+    {
+      "frame": 168,
+      "max_signed_envelope_distance_m": -0.0025781653821468353,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004585903137922287,
+      "outer_vertices_above_underside": 3315
+    },
+    {
+      "frame": 169,
+      "max_signed_envelope_distance_m": -0.002382628619670868,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0045590028166770935,
+      "outer_vertices_above_underside": 3311
+    },
+    {
+      "frame": 170,
+      "max_signed_envelope_distance_m": -0.0025234073400497437,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004519186913967133,
+      "outer_vertices_above_underside": 3312
+    },
+    {
+      "frame": 171,
+      "max_signed_envelope_distance_m": -0.0025688521564006805,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004476413130760193,
+      "outer_vertices_above_underside": 3292
+    },
+    {
+      "frame": 172,
+      "max_signed_envelope_distance_m": -0.002666998654603958,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004439294338226318,
+      "outer_vertices_above_underside": 3276
+    },
+    {
+      "frame": 173,
+      "max_signed_envelope_distance_m": -0.002278737723827362,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004416555166244507,
+      "outer_vertices_above_underside": 3263
+    },
+    {
+      "frame": 174,
+      "max_signed_envelope_distance_m": -0.0028322599828243256,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004405636340379715,
+      "outer_vertices_above_underside": 3260
+    },
+    {
+      "frame": 175,
+      "max_signed_envelope_distance_m": -0.0027746297419071198,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004401605576276779,
+      "outer_vertices_above_underside": 3258
+    },
+    {
+      "frame": 176,
+      "max_signed_envelope_distance_m": -0.0027304627001285553,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004399564117193222,
+      "outer_vertices_above_underside": 3257
+    },
+    {
+      "frame": 177,
+      "max_signed_envelope_distance_m": -0.0026900731027126312,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004397757351398468,
+      "outer_vertices_above_underside": 3256
+    },
+    {
+      "frame": 178,
+      "max_signed_envelope_distance_m": -0.0026524029672145844,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004396218806505203,
+      "outer_vertices_above_underside": 3256
+    },
+    {
+      "frame": 179,
+      "max_signed_envelope_distance_m": -0.0026162751019001007,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004396449774503708,
+      "outer_vertices_above_underside": 3255
+    },
+    {
+      "frame": 180,
+      "max_signed_envelope_distance_m": -0.0025813058018684387,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004396703094244003,
+      "outer_vertices_above_underside": 3254
+    },
+    {
+      "frame": 181,
+      "max_signed_envelope_distance_m": -0.002547122538089752,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004396658390760422,
+      "outer_vertices_above_underside": 3251
+    },
+    {
+      "frame": 182,
+      "max_signed_envelope_distance_m": -0.0025170333683490753,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004396822303533554,
+      "outer_vertices_above_underside": 3248
+    },
+    {
+      "frame": 183,
+      "max_signed_envelope_distance_m": -0.002497222274541855,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0043979547917842865,
+      "outer_vertices_above_underside": 3248
+    },
+    {
+      "frame": 184,
+      "max_signed_envelope_distance_m": -0.002622254192829132,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004420768469572067,
+      "outer_vertices_above_underside": 3254
+    },
+    {
+      "frame": 185,
+      "max_signed_envelope_distance_m": -0.0024370960891246796,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004489343613386154,
+      "outer_vertices_above_underside": 3266
+    },
+    {
+      "frame": 186,
+      "max_signed_envelope_distance_m": -0.002008005976676941,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004633162170648575,
+      "outer_vertices_above_underside": 3279
+    },
+    {
+      "frame": 187,
+      "max_signed_envelope_distance_m": -0.0017510876059532166,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004787750542163849,
+      "outer_vertices_above_underside": 3297
+    },
+    {
+      "frame": 188,
+      "max_signed_envelope_distance_m": -0.0017739161849021912,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0048739612102508545,
+      "outer_vertices_above_underside": 3306
+    },
+    {
+      "frame": 189,
+      "max_signed_envelope_distance_m": -0.002134375274181366,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004840221256017685,
+      "outer_vertices_above_underside": 3304
+    },
+    {
+      "frame": 190,
+      "max_signed_envelope_distance_m": -0.0021485500037670135,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004680316895246506,
+      "outer_vertices_above_underside": 3280
+    },
+    {
+      "frame": 191,
+      "max_signed_envelope_distance_m": -0.0021011605858802795,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004456959664821625,
+      "outer_vertices_above_underside": 3251
+    },
+    {
+      "frame": 192,
+      "max_signed_envelope_distance_m": -0.002894580364227295,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004244428128004074,
+      "outer_vertices_above_underside": 3224
+    },
+    {
+      "frame": 193,
+      "max_signed_envelope_distance_m": -0.0027706511318683624,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004107337445020676,
+      "outer_vertices_above_underside": 3212
+    },
+    {
+      "frame": 194,
+      "max_signed_envelope_distance_m": -0.0029655396938323975,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004025168716907501,
+      "outer_vertices_above_underside": 3193
+    },
+    {
+      "frame": 195,
+      "max_signed_envelope_distance_m": -0.0033720657229423523,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.003975994884967804,
+      "outer_vertices_above_underside": 3182
+    },
+    {
+      "frame": 196,
+      "max_signed_envelope_distance_m": -0.003229048103094101,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00396936759352684,
+      "outer_vertices_above_underside": 3178
+    },
+    {
+      "frame": 197,
+      "max_signed_envelope_distance_m": -0.003260470926761627,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.003949347883462906,
+      "outer_vertices_above_underside": 3177
+    },
+    {
+      "frame": 198,
+      "max_signed_envelope_distance_m": -0.003331553190946579,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.003957308828830719,
+      "outer_vertices_above_underside": 3183
+    },
+    {
+      "frame": 199,
+      "max_signed_envelope_distance_m": -0.003502223640680313,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.003979887813329697,
+      "outer_vertices_above_underside": 3185
+    },
+    {
+      "frame": 200,
+      "max_signed_envelope_distance_m": -0.003022845834493637,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004010442644357681,
+      "outer_vertices_above_underside": 3195
+    },
+    {
+      "frame": 201,
+      "max_signed_envelope_distance_m": -0.0027381889522075653,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004076272249221802,
+      "outer_vertices_above_underside": 3209
+    },
+    {
+      "frame": 202,
+      "max_signed_envelope_distance_m": -0.002638399600982666,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0041664764285087585,
+      "outer_vertices_above_underside": 3225
+    },
+    {
+      "frame": 203,
+      "max_signed_envelope_distance_m": -0.0025845542550086975,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004278060048818588,
+      "outer_vertices_above_underside": 3237
+    },
+    {
+      "frame": 204,
+      "max_signed_envelope_distance_m": -0.0026216506958007812,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004387602210044861,
+      "outer_vertices_above_underside": 3257
+    },
+    {
+      "frame": 205,
+      "max_signed_envelope_distance_m": -0.0025965049862861633,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004499964416027069,
+      "outer_vertices_above_underside": 3274
+    },
+    {
+      "frame": 206,
+      "max_signed_envelope_distance_m": -0.0020839497447013855,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004608765244483948,
+      "outer_vertices_above_underside": 3284
+    },
+    {
+      "frame": 207,
+      "max_signed_envelope_distance_m": -0.0021155811846256256,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004709471017122269,
+      "outer_vertices_above_underside": 3297
+    },
+    {
+      "frame": 208,
+      "max_signed_envelope_distance_m": -0.0021021701395511627,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004793953150510788,
+      "outer_vertices_above_underside": 3307
+    },
+    {
+      "frame": 209,
+      "max_signed_envelope_distance_m": -0.0019803009927272797,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00485944002866745,
+      "outer_vertices_above_underside": 3317
+    },
+    {
+      "frame": 210,
+      "max_signed_envelope_distance_m": -0.0015303678810596466,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004901375621557236,
+      "outer_vertices_above_underside": 3322
+    },
+    {
+      "frame": 211,
+      "max_signed_envelope_distance_m": -0.0016459748148918152,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00491691380739212,
+      "outer_vertices_above_underside": 3321
+    },
+    {
+      "frame": 212,
+      "max_signed_envelope_distance_m": -0.0015874803066253662,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004905689507722855,
+      "outer_vertices_above_underside": 3321
+    },
+    {
+      "frame": 213,
+      "max_signed_envelope_distance_m": -0.0021728649735450745,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00487334281206131,
+      "outer_vertices_above_underside": 3322
+    },
+    {
+      "frame": 214,
+      "max_signed_envelope_distance_m": -0.0018750689923763275,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004818454384803772,
+      "outer_vertices_above_underside": 3316
+    },
+    {
+      "frame": 215,
+      "max_signed_envelope_distance_m": -0.001924213021993637,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004741400480270386,
+      "outer_vertices_above_underside": 3313
+    },
+    {
+      "frame": 216,
+      "max_signed_envelope_distance_m": -0.0024514012038707733,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004646856337785721,
+      "outer_vertices_above_underside": 3303
+    },
+    {
+      "frame": 217,
+      "max_signed_envelope_distance_m": -0.002572491765022278,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004541773349046707,
+      "outer_vertices_above_underside": 3290
+    },
+    {
+      "frame": 218,
+      "max_signed_envelope_distance_m": -0.0025659315288066864,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004433088004589081,
+      "outer_vertices_above_underside": 3276
+    },
+    {
+      "frame": 219,
+      "max_signed_envelope_distance_m": -0.0025884248316287994,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004322320222854614,
+      "outer_vertices_above_underside": 3258
+    },
+    {
+      "frame": 220,
+      "max_signed_envelope_distance_m": -0.002630729228258133,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004213329404592514,
+      "outer_vertices_above_underside": 3247
+    },
+    {
+      "frame": 221,
+      "max_signed_envelope_distance_m": -0.0027785710990428925,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004117276519536972,
+      "outer_vertices_above_underside": 3235
+    },
+    {
+      "frame": 222,
+      "max_signed_envelope_distance_m": -0.0030852220952510834,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004038851708173752,
+      "outer_vertices_above_underside": 3223
+    },
+    {
+      "frame": 223,
+      "max_signed_envelope_distance_m": -0.003552831709384918,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.003983683884143829,
+      "outer_vertices_above_underside": 3215
+    },
+    {
+      "frame": 224,
+      "max_signed_envelope_distance_m": -0.0033850818872451782,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0039559826254844666,
+      "outer_vertices_above_underside": 3214
+    },
+    {
+      "frame": 225,
+      "max_signed_envelope_distance_m": -0.0033284910023212433,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.003945864737033844,
+      "outer_vertices_above_underside": 3214
+    },
+    {
+      "frame": 226,
+      "max_signed_envelope_distance_m": -0.0033227764070034027,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00394444540143013,
+      "outer_vertices_above_underside": 3214
+    },
+    {
+      "frame": 227,
+      "max_signed_envelope_distance_m": -0.0034828297793865204,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.003968868404626846,
+      "outer_vertices_above_underside": 3217
+    },
+    {
+      "frame": 228,
+      "max_signed_envelope_distance_m": -0.003085169941186905,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0040316954255104065,
+      "outer_vertices_above_underside": 3223
+    },
+    {
+      "frame": 229,
+      "max_signed_envelope_distance_m": -0.0028298944234848022,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004115987569093704,
+      "outer_vertices_above_underside": 3239
+    },
+    {
+      "frame": 230,
+      "max_signed_envelope_distance_m": -0.0027023889124393463,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004212480038404465,
+      "outer_vertices_above_underside": 3251
+    },
+    {
+      "frame": 231,
+      "max_signed_envelope_distance_m": -0.0026553869247436523,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004319578409194946,
+      "outer_vertices_above_underside": 3260
+    },
+    {
+      "frame": 232,
+      "max_signed_envelope_distance_m": -0.002633940428495407,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004428312182426453,
+      "outer_vertices_above_underside": 3280
+    },
+    {
+      "frame": 233,
+      "max_signed_envelope_distance_m": -0.0025749392807483673,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004536006599664688,
+      "outer_vertices_above_underside": 3292
+    },
+    {
+      "frame": 234,
+      "max_signed_envelope_distance_m": -0.0025384947657585144,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0046418458223342896,
+      "outer_vertices_above_underside": 3307
+    },
+    {
+      "frame": 235,
+      "max_signed_envelope_distance_m": -0.0020648203790187836,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004742585122585297,
+      "outer_vertices_above_underside": 3317
+    },
+    {
+      "frame": 236,
+      "max_signed_envelope_distance_m": -0.0020184405148029327,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004830699414014816,
+      "outer_vertices_above_underside": 3320
+    },
+    {
+      "frame": 237,
+      "max_signed_envelope_distance_m": -0.001711960881948471,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0048937611281871796,
+      "outer_vertices_above_underside": 3328
+    },
+    {
+      "frame": 238,
+      "max_signed_envelope_distance_m": -0.0018451176583766937,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004917629063129425,
+      "outer_vertices_above_underside": 3337
+    },
+    {
+      "frame": 239,
+      "max_signed_envelope_distance_m": -0.001798190176486969,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004915021359920502,
+      "outer_vertices_above_underside": 3331
+    },
+    {
+      "frame": 240,
+      "max_signed_envelope_distance_m": -0.0016939677298069,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004903420805931091,
+      "outer_vertices_above_underside": 3326
+    },
+    {
+      "frame": 241,
+      "max_signed_envelope_distance_m": -0.00219900906085968,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0048737116158008575,
+      "outer_vertices_above_underside": 3325
+    },
+    {
+      "frame": 242,
+      "max_signed_envelope_distance_m": -0.002166006714105606,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004802018404006958,
+      "outer_vertices_above_underside": 3313
+    },
+    {
+      "frame": 243,
+      "max_signed_envelope_distance_m": -0.001938898116350174,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004699189215898514,
+      "outer_vertices_above_underside": 3295
+    },
+    {
+      "frame": 244,
+      "max_signed_envelope_distance_m": -0.0021215155720710754,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00456642359495163,
+      "outer_vertices_above_underside": 3283
+    },
+    {
+      "frame": 245,
+      "max_signed_envelope_distance_m": -0.002197660505771637,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004427846521139145,
+      "outer_vertices_above_underside": 3271
+    },
+    {
+      "frame": 246,
+      "max_signed_envelope_distance_m": -0.0030232854187488556,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004279151558876038,
+      "outer_vertices_above_underside": 3227
+    },
+    {
+      "frame": 247,
+      "max_signed_envelope_distance_m": -0.0026355423033237457,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0041748881340026855,
+      "outer_vertices_above_underside": 3212
+    },
+    {
+      "frame": 248,
+      "max_signed_envelope_distance_m": -0.0032922253012657166,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0040699392557144165,
+      "outer_vertices_above_underside": 3186
+    },
+    {
+      "frame": 249,
+      "max_signed_envelope_distance_m": -0.0033293403685092926,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.003996454179286957,
+      "outer_vertices_above_underside": 3165
+    },
+    {
+      "frame": 250,
+      "max_signed_envelope_distance_m": -0.003102976828813553,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0039663128554821014,
+      "outer_vertices_above_underside": 3157
+    },
+    {
+      "frame": 251,
+      "max_signed_envelope_distance_m": -0.003343481570482254,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.003991030156612396,
+      "outer_vertices_above_underside": 3166
+    },
+    {
+      "frame": 252,
+      "max_signed_envelope_distance_m": -0.0032728873193264008,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004051074385643005,
+      "outer_vertices_above_underside": 3182
+    },
+    {
+      "frame": 253,
+      "max_signed_envelope_distance_m": -0.0028571411967277527,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004129473119974136,
+      "outer_vertices_above_underside": 3204
+    },
+    {
+      "frame": 254,
+      "max_signed_envelope_distance_m": -0.0027454569935798645,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0042094700038433075,
+      "outer_vertices_above_underside": 3218
+    },
+    {
+      "frame": 255,
+      "max_signed_envelope_distance_m": -0.003012191504240036,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004301007837057114,
+      "outer_vertices_above_underside": 3248
+    },
+    {
+      "frame": 256,
+      "max_signed_envelope_distance_m": -0.002383854240179062,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0043933093547821045,
+      "outer_vertices_above_underside": 3261
+    },
+    {
+      "frame": 257,
+      "max_signed_envelope_distance_m": -0.002297457307577133,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00445309653878212,
+      "outer_vertices_above_underside": 3272
+    },
+    {
+      "frame": 258,
+      "max_signed_envelope_distance_m": -0.002618487924337387,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004479430615901947,
+      "outer_vertices_above_underside": 3270
+    },
+    {
+      "frame": 259,
+      "max_signed_envelope_distance_m": -0.0026194900274276733,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004473123699426651,
+      "outer_vertices_above_underside": 3273
+    },
+    {
+      "frame": 260,
+      "max_signed_envelope_distance_m": -0.002453044056892395,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004449542611837387,
+      "outer_vertices_above_underside": 3269
+    },
+    {
+      "frame": 261,
+      "max_signed_envelope_distance_m": -0.002281010150909424,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004425574094057083,
+      "outer_vertices_above_underside": 3267
+    },
+    {
+      "frame": 262,
+      "max_signed_envelope_distance_m": -0.002908170223236084,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.00441187247633934,
+      "outer_vertices_above_underside": 3265
+    },
+    {
+      "frame": 263,
+      "max_signed_envelope_distance_m": -0.0028778426349163055,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408493638038635,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 264,
+      "max_signed_envelope_distance_m": -0.0028773918747901917,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408508539199829,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 265,
+      "max_signed_envelope_distance_m": -0.0028773657977581024,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408564418554306,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 266,
+      "max_signed_envelope_distance_m": -0.0028773993253707886,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408501088619232,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 267,
+      "max_signed_envelope_distance_m": -0.0028774477541446686,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044085122644901276,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 268,
+      "max_signed_envelope_distance_m": -0.002877451479434967,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408508539199829,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 269,
+      "max_signed_envelope_distance_m": -0.00287739560008049,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408504813909531,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 270,
+      "max_signed_envelope_distance_m": -0.0028774552047252655,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408504813909531,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 271,
+      "max_signed_envelope_distance_m": -0.00287739560008049,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408501088619232,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 272,
+      "max_signed_envelope_distance_m": -0.0028774477541446686,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408571869134903,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 273,
+      "max_signed_envelope_distance_m": -0.0028773583471775055,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408571869134903,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 274,
+      "max_signed_envelope_distance_m": -0.0028773657977581024,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408564418554306,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 275,
+      "max_signed_envelope_distance_m": -0.0028773918747901917,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408508539199829,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 276,
+      "max_signed_envelope_distance_m": -0.0028774552047252655,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408564418554306,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 277,
+      "max_signed_envelope_distance_m": -0.002877451479434967,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044085681438446045,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 278,
+      "max_signed_envelope_distance_m": -0.002877425402402878,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408501088619232,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 279,
+      "max_signed_envelope_distance_m": -0.0028774552047252655,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408504813909531,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 280,
+      "max_signed_envelope_distance_m": -0.002877362072467804,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044085681438446045,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 281,
+      "max_signed_envelope_distance_m": -0.002877458930015564,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408501088619232,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 282,
+      "max_signed_envelope_distance_m": -0.0028774216771125793,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408508539199829,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 283,
+      "max_signed_envelope_distance_m": -0.00287739560008049,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408504813909531,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 284,
+      "max_signed_envelope_distance_m": -0.0028774328529834747,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408493638038635,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 285,
+      "max_signed_envelope_distance_m": -0.0028774216771125793,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408504813909531,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 286,
+      "max_signed_envelope_distance_m": -0.002877388149499893,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044085122644901276,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 287,
+      "max_signed_envelope_distance_m": -0.0028773918747901917,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.004408508539199829,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 288,
+      "max_signed_envelope_distance_m": -0.002877417951822281,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044085122644901276,
+      "outer_vertices_above_underside": 3264
+    },
+    {
+      "frame": 289,
+      "max_signed_envelope_distance_m": -0.002877417951822281,
+      "exposed_vertices": 0,
+      "min_outer_underside_clearance_m": -0.0044085122644901276,
+      "outer_vertices_above_underside": 3264
+    }
+  ]
+}

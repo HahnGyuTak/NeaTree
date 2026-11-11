@@ -1,0 +1,29 @@
+{
+  "approval": "2026-11-12 user approved v7 horn shape and requested both icon updates",
+  "tool": "built-in image_gen",
+  "reference": "assets/psilo/review-v7-plump-horns/front.png",
+  "reference_sha256": "3a858a6512fdf5be9acfd106f3382623db72146a6e43391f5ca0d3d8abeee940",
+  "edit_target_before_sha256": "773f24d43f079a4e9d05aefae5d965c3442f6480c3aa0744b71ff9da166754a0",
+  "attempts": [
+    {
+      "purpose": "Transfer approved v7 horns only",
+      "prompt": "Use case: precise-object-edit. Asset type: NeaTree macOS app icon transparent CHARACTER LAYER, 1024 x 1024. Image 1 is the EDIT TARGET (existing Psilo artwork); Image 2 is the APPROVED HORN GEOMETRY REFERENCE ONLY (actual Blender front render). Replace ONLY the two cream horns of Image 1 so they match the two horns in Image 2: short, broad, plump right circular cones, substantial rounded tips instead of points, straight unbent longitudinal axes, tilting outward and toward the viewer following the mushroom shoulder slope, their full broad bases seated flush into the coral cap. Match the approved reference horn proportions and orientation, not the old upright pear/teardrop horns. The tip has a broad smooth convex rounding rather than a sharp point. Transfer the new horn shape at the same proportional size relative to the cap (each visible horn spans roughly 14% of cap width). Keep the polished paper-clay cream material, texture, light and soft contact shadows consistent with Image 1. CRITICAL INVARIANTS: preserve Image 1 exactly outside the two horn regions: original gardener hat and olive band, coral mushroom cap silhouette and thickness, three cream spots, eyes, open mouth, cream pedestal, texture, colors, lighting, placement, scale, bottom margin and 1024 square composition. Do not copy Image 2's face, body, cap, hat, cropping or overall proportions; only its horns. No files, folders, app tile, background, text or border. Keep actual transparent alpha background, including empty lower canvas. Return one production-ready RGBA PNG at 1024 square, keeping the original full-canvas alignment."
+    },
+    {
+      "purpose": "Correct approximately 10 percent smaller horn proportion",
+      "prompt": "Use case: precise-object-edit. Edit this transparent Psilo character PNG. Make ONLY the TWO CREAM HORNS exactly about 10% larger in both visible width and visible height, growing outward and upward around their existing seated bases. Each horn should occupy approximately 14% of the coral cap's width in this front view. Keep their current short wide straight-cone geometry, outward tilt, rounded outer tips and paper-clay material exactly; do not make them longer/slimmer or sharp. All other pixels and geometry must remain unchanged: coral mushroom silhouette, hat, green band, face, spots, body, lighting, colors, full canvas placement and empty bottom margin. No whole-character scaling. No new elements. Actual transparent background preserved. One square RGBA PNG 1024x1024, identical alignment. This is a very small localized scale correction to the two horns only."
+    },
+    {
+      "purpose": "Clean cutout specks after scale correction; selected final",
+      "prompt": "Use case: precise-object-edit / transparent cutout cleanup. Preserve this exact Psilo character, same shapes, size, position, all colors, paper texture, lighting, wide rounded horns, face, hat and body. ONLY clean the transparent background and cutout edge: remove every detached white speck, bright fragment, tiny floating pixel island outside the character, especially above and to the left of the left horn, above the hat, and beneath the body. Make all empty space truly alpha=0 with clean antialiased silhouette. No white halo or bright fringe. Do not redraw or reshape the character, do not resize or crop, no added shadow, no background. Retain the exact wide outward cones and broad rounded tips. One square RGBA production app-icon character layer, 1024x1024, same alignment and empty lower margin."
+    }
+  ],
+  "output": "assets/icons/AppIcon.icon/Assets/Character.png",
+  "output_sha256": "542f2032d5198af0bebdd28ca1b78802326288b2426b6c77fbf6a5c840938555",
+  "transparent_background": true,
+  "native_export": "Image generator 1254x1254 RGBA resampled uniformly to1024x1024 with macOS sips",
+  "outside_horn_pixels_identical": false,
+  "other_character_features": "Visually preserved; generative rerasterization is not a pixel-exact edit",
+  "reference_sha256_before_metadata_sanitization": "dd8b9ba6bf227eab0580193872d1df33d3731da83ee81c2cde69ef8e7b30c2dd",
+  "reference_pixels_unchanged_by_metadata_sanitization": true
+}

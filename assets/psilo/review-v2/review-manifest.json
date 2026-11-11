@@ -1,0 +1,55 @@
+{
+  "status": "awaiting user visual approval",
+  "app_resource_replaced": false,
+  "video": {
+    "width": 960,
+    "height": 864,
+    "fps": 24,
+    "frames": 289,
+    "duration_seconds": 12.041667
+  },
+  "artifacts": {
+    "Psilo-v2.blend": {
+      "bytes": 2745238,
+      "sha256": "98214838d70c5e4a5c9aca4a685a6c6acea3da3beb98034b85108ba42a70d88f",
+      "before_metadata_sanitization_sha256": "34523d9417fbbe1bcdb1f5af58604d6c99b3726b74cf709267b012e490d63fc8"
+    },
+    "Psilo-v2-motion.blend": {
+      "bytes": 2850682,
+      "sha256": "de7b41478a25e58a8640dd217ca76b281747a6d9dcc7bad81c543110a948a901",
+      "before_metadata_sanitization_sha256": "d2cf520e3e58a055a671f07d5fde8ed0bad9692271add85bf03052a11800cd7d"
+    },
+    "Psilo-cap-color.png": {
+      "bytes": 714349,
+      "sha256": "7811ff5e0e443544173d9009fc6cb9fe22dc8970871c32c97a487a756b3b3e85"
+    },
+    "reference-comparison.jpg": {
+      "bytes": 194524,
+      "sha256": "7587b55e161b5c976b615588daad1ac06cb1a64f67d88446ab8c0830ca839710"
+    },
+    "angles-and-poses.jpg": {
+      "bytes": 251716,
+      "sha256": "a8b535a56613e8935f66c979d2075b4a8641567071736602da3f0614169d2c55"
+    },
+    "angle-side.png": {
+      "bytes": 616428,
+      "sha256": "d132a4f13b02bef85d504d5ea228492739e5924533511f49574d01a6c6eabcf7",
+      "before_metadata_sanitization_sha256": "504b20300fd54d2c972d7e3f40381d6d32f49f97ccba0ba6d4ff004d305aa3e5"
+    },
+    "motion-review.mp4": {
+      "bytes": 969534,
+      "sha256": "9d2df32ba63e927858b71e89ecb833cd9066ae0006fee02e6c0266c30efccf9f"
+    },
+    "runtime-review/Psilo-v2-lod.blend": {
+      "bytes": 1958284,
+      "sha256": "689dcacf13d5c3f772125c2123132641e12b2393b468f11a8cdb3bd98a5ad90b",
+      "before_metadata_sanitization_sha256": "4029d3a1d94fdf80578de1a8f4aed08b95f3f2530c23dc4a9d4dfbd917fc250d"
+    },
+    "runtime-review/Psilo-v2-lod-studio.blend": {
+      "bytes": 1965072,
+      "sha256": "50d7a3b502179c99a0a06f7f25f90f061897a43973c59f8e464731c636302089",
+      "before_metadata_sanitization_sha256": "d71dc880fc3c120fda8d9bd52aa60a92b02be208ac73323e893e05e95c687e72"
+    }
+  },
+  "metadata_sanitization_report": "../runtime-v7/blend-metadata-sanitization.json"
+}

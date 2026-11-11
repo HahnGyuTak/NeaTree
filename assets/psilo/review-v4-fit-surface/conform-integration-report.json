@@ -1,0 +1,28 @@
+{
+  "margin_m": 0.004,
+  "falloff_m": 0.04,
+  "grid_constraints": 773,
+  "cap_changed_from_v3": false,
+  "restored_prior_cap_fit": true,
+  "clearance_target": "visible brim upper envelope; hidden solid overlap allowed",
+  "hat_meshes": {
+    "Brim": {
+      "moved_vertices": 426,
+      "max_displacement_m": 0.014504797833885339,
+      "front_y_below_minus30mm_max_m": 0.0006435699837599966
+    },
+    "Crown": {
+      "moved_vertices": 339,
+      "max_displacement_m": 0.008929062712659516,
+      "front_y_below_minus30mm_max_m": 0.00034449249949128753
+    },
+    "Band": {
+      "moved_vertices": 162,
+      "max_displacement_m": 0.008936237545628226,
+      "front_y_below_minus30mm_max_m": 0.00012571737298546382
+    }
+  },
+  "reapply_hat_max_delta_m": 0.0,
+  "from_clearance_vs_from_v3_hat_max_delta_m": 2.9802322387695312e-08,
+  "from_clearance_vs_from_v3_cap_max_delta_m": 2.3283064365386963e-10
+}

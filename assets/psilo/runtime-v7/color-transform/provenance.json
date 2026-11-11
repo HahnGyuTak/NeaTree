@@ -1,0 +1,47 @@
+{
+  "generator": "scripts/build-psilo-color-lut.py",
+  "generator_sha256": "75e949645cf124d3f256a29d151fdd9736db318d98f3ec1e2a1446efe28e6b1a",
+  "method": "float image -> Blender Image.save_render 16-bit PNG -> Non-Color numerical decode -> IEEE754 half",
+  "blender_version": "5.3.0",
+  "blender_build_hash": "02f0899d78e3",
+  "color_management_inputs": [
+    {
+      "relative_path": "config.ocio",
+      "sha256": "066a440ed1c02551fa3cacbb3af5d22d2efde7e4da5f2c14dffcca00c47751a0"
+    },
+    {
+      "relative_path": "luts/AgX_Base_sRGB.cube",
+      "sha256": "e707a36f3e90ee79bc342332febf91334c02ce3974cac700ece00ca9d4507491"
+    }
+  ],
+  "display": "sRGB",
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "lut_exposure_stops": 0.4,
+  "gamma": 1,
+  "dimension": 33,
+  "channels": "RGBA",
+  "encoding": "little-endian IEEE754 binary16",
+  "layout": "red/X fastest, green/Y next, blue/Z slowest",
+  "input_linear_range": [
+    0.000244140625,
+    16
+  ],
+  "input_shaper": "clamp((log2(max(linearRGB, 2^-12)) + 12) / 16, 0, 1)",
+  "output_transfer": "display-encoded sRGB",
+  "runtime_calibration_stops_not_baked_into_lut": 1.2,
+  "runtime_output": "decode sampled sRGB to linear before writing an sRGB Metal target",
+  "filename": "PsiloDisplayTransform.rgba16float",
+  "bytes": 287496,
+  "sha256": "eaad6b75749f60e553f0df2ef37145eacf54fb3b006f15e5e4a00abb2bd00bb0",
+  "upstream_config_source": "https://github.com/blender/blender/blob/main/release/datafiles/colormanagement/config.ocio",
+  "attribution": [
+    "Troy Sobotka",
+    "Zijun Eary Zhou",
+    "Mark Faderbauer",
+    "Sakari Kapanen"
+  ],
+  "distribution": "Generated numerical output only; no upstream Blender/OCIO config, source code or LUT is copied into the app.",
+  "license_note": "Upstream AgX standalone license not verified; do not infer a license from the OpenColorIO engine or this project.",
+  "runtime_color_profiles": "ICC-verified P3/Rec.709 conversion; recognized sRGB Metal targets and verified linear rgba16Float snapshot buffers; unknown profiles or formats pass through"
+}

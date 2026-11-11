@@ -19,12 +19,58 @@ struct OrganizerAppModelTests {
         #expect(!model.watching)
         #expect(!model.automaticallyAnalyze)
         #expect(recorder.analysisCalls == 0)
+        #expect(recorder.verificationCalls == 0)
+        #expect(recorder.keyReads == 0)
+        #expect(recorder.availabilityChecks == 1)
+        #expect(!recorder.availabilityCheckedOnMainThread)
+        #expect(model.hasAPIKey)
 
         await model.scanNow()
         await model.scanNow()
         #expect(model.entries.count == 1)
         #expect(model.entries.first?.status == .ready)
         #expect(recorder.analysisCalls == 0)
+    }
+
+    @Test(arguments: [false, true])
+    func delayedStartupAvailabilityCannotOverwriteNewCredentialState(staleValue: Bool) async throws {
+        let fixture = try ModelFixture()
+        defer { fixture.remove() }
+        let recorder = CallRecorder()
+        let probe = AvailabilityProbe(staleValue: staleValue)
+        defer { probe.release() }
+        var dependencies = recorder.dependencies
+        dependencies.keyIsConfigured = { try probe.check() }
+        let model = try OrganizerAppModel(stateDirectory: fixture.state, demo: false, dependencies: dependencies)
+        defer { model.stop() }
+        let startup = Task { await model.start() }
+        try await probe.waitForStart()
+        if staleValue { await model.deleteAPIKey() }
+        else { await model.saveAPIKey("synthetic-replacement-key") }
+        #expect(model.hasAPIKey == !staleValue)
+        probe.release()
+        await startup.value
+        #expect(model.hasAPIKey == !staleValue)
+        #expect(recorder.keyReads == 0)
+        #expect(model.errorMessage == nil)
+    }
+
+    @Test func unavailableMetadataDoesNotReadSecretAndStillLoadsConfiguration() async throws {
+        let fixture = try ModelFixture()
+        defer { fixture.remove() }
+        let service = try OrganizerService(stateDirectory: fixture.state)
+        try await service.configure(downloads: fixture.downloads, roots: [fixture.archive])
+        let recorder = CallRecorder()
+        var dependencies = recorder.dependencies
+        dependencies.keyIsConfigured = { throw OpenAIClientError.missingAPIKey }
+        let model = try OrganizerAppModel(stateDirectory: fixture.state, demo: false, dependencies: dependencies)
+        defer { model.stop() }
+        await model.start()
+        #expect(model.settings != nil)
+        #expect(!model.hasAPIKey)
+        #expect(model.errorMessage != nil)
+        #expect(recorder.keyReads == 0)
+        #expect(recorder.verificationCalls == 0)
     }
 
     @Test func startupRepairsCommittedMoveWhoseInboxUpdateWasInterrupted() async throws {
@@ -110,11 +156,54 @@ struct OrganizerAppModelTests {
         await model.analyze(entry.id)
         await model.saveAPIKey("must-not-be-saved")
         await model.deleteAPIKey()
+        await model.importAPIKeyFile(fixture.root.appendingPathComponent("missing-key-file.txt"))
+        #expect(model.errorMessage == AppModelError.demoCredentials.localizedDescription)
+        await model.verifyAPIConnection()
         #expect(recorder.keyReads == 0)
         #expect(recorder.keyWrites == 0)
         #expect(recorder.keyDeletes == 0)
         #expect(recorder.analysisCalls == 0)
+        #expect(recorder.verificationCalls == 0)
+        #expect(recorder.availabilityChecks == 0)
         #expect(try Data(contentsOf: fixture.file) == Data("original content".utf8))
+    }
+
+    @Test func connectionVerificationIsExplicitAndCredentialChangesInvalidateIt() async throws {
+        let fixture = try ModelFixture()
+        defer { fixture.remove() }
+        let recorder = CallRecorder()
+        let model = try await fixture.model(recorder: recorder)
+        defer { model.stop() }
+        await model.start()
+        #expect(model.apiVerification == nil)
+        #expect(recorder.verificationCalls == 0)
+        #expect(recorder.keyReads == 0)
+
+        await model.verifyAPIConnection()
+        #expect(recorder.verificationCalls == 1)
+        #expect(model.apiVerification?.passed == true)
+        #expect(recorder.keyReads == 1)
+        await model.saveAPIKey("synthetic-replacement-key")
+        #expect(model.apiVerification == nil)
+        #expect(recorder.verificationCalls == 1)
+        #expect(recorder.keyReads == 1)
+
+        await model.verifyAPIConnection()
+        let keyFile = fixture.root.appendingPathComponent("synthetic-key.txt")
+        try Data("synthetic-file-key\n".utf8).write(to: keyFile)
+        await model.importAPIKeyFile(keyFile)
+        #expect(model.apiVerification == nil)
+        #expect(recorder.keyWrites == 2)
+        #expect(try String(contentsOf: keyFile, encoding: .utf8) == "synthetic-file-key\n")
+        #expect(recorder.verificationCalls == 2)
+
+        await model.verifyAPIConnection()
+        await model.deleteAPIKey()
+        #expect(model.apiVerification == nil)
+        #expect(recorder.verificationCalls == 3)
+        #expect(recorder.keyReads == 3)
+        #expect(!model.hasAPIKey)
+        #expect(recorder.analysisCalls == 0)
     }
 
     @Test func demoRejectsExternalConfigurationAndMixedDropsIncludingEscapingSymlinks() async throws {
@@ -319,22 +408,65 @@ private final class CallRecorder: @unchecked Sendable {
     private var reads = 0
     private var writes = 0
     private var deletes = 0
+    private var verifications = 0
+    private var checks = 0
+    private var checkedOnMainThread = false
+    private var configured = true
     private let failure: OpenAIClientError
     init(failure: OpenAIClientError = .invalidProposal) { self.failure = failure }
     var analysisCalls: Int { lock.withLock { analyses } }
     var keyReads: Int { lock.withLock { reads } }
     var keyWrites: Int { lock.withLock { writes } }
     var keyDeletes: Int { lock.withLock { deletes } }
+    var verificationCalls: Int { lock.withLock { verifications } }
+    var availabilityChecks: Int { lock.withLock { checks } }
+    var availabilityCheckedOnMainThread: Bool { lock.withLock { checkedOnMainThread } }
     var dependencies: AppModelDependencies {
         AppModelDependencies(
+            keyIsConfigured: {
+                self.lock.withLock {
+                    self.checks += 1
+                    self.checkedOnMainThread = self.checkedOnMainThread || Thread.isMainThread
+                    return self.configured
+                }
+            },
             readKey: { self.lock.withLock { self.reads += 1 }; return "dummy-test-key" },
-            saveKey: { _ in self.lock.withLock { self.writes += 1 } },
-            deleteKey: { self.lock.withLock { self.deletes += 1 } },
+            saveKey: { _ in self.lock.withLock { self.writes += 1; self.configured = true } },
+            deleteKey: { self.lock.withLock { self.deletes += 1; self.configured = false } },
             analyzeFile: { _, _, _ in
                 self.lock.withLock { self.analyses += 1 }
                 throw self.failure
+            },
+            verifyAPI: { _ in
+                self.lock.withLock { self.verifications += 1 }
+                // A decoded fixture keeps this test entirely offline.
+                let json = #"{"model":"synthetic-model","passed":true,"requestsAttempted":2,"maximumRequests":2,"maxOutputTokensPerRequest":1536,"checks":[],"usage":[],"scope":"offline test"}"#
+                return try JSONDecoder().decode(APIVerificationReport.self, from: Data(json.utf8))
             }
         )
+    }
+}
+
+private final class AvailabilityProbe: @unchecked Sendable {
+    private let lock = NSLock()
+    private let gate = DispatchSemaphore(value: 0)
+    private var checks = 0
+    private let staleValue: Bool
+    init(staleValue: Bool) { self.staleValue = staleValue }
+
+    func check() throws -> Bool {
+        let first = lock.withLock { checks += 1; return checks == 1 }
+        guard first else { return !staleValue }
+        guard gate.wait(timeout: .now() + 5) == .success else { throw OpenAIClientError.transportFailure }
+        return staleValue
+    }
+    func release() { gate.signal() }
+    func waitForStart() async throws {
+        let deadline = ContinuousClock.now.advanced(by: .seconds(2))
+        while !lock.withLock({ checks > 0 }) {
+            guard ContinuousClock.now < deadline else { throw OpenAIClientError.transportFailure }
+            try await Task.sleep(for: .milliseconds(5))
+        }
     }
 }
 
