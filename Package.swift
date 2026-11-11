@@ -16,7 +16,11 @@ let package = Package(
         .target(name: "OrganizerCore"),
         .target(name: "OrganizerDesignSystem"),
         .target(name: "OrganizerAppSupport", dependencies: ["OrganizerCore"]),
-        .executableTarget(name: "OrganizerApp", dependencies: ["OrganizerCore", "OrganizerDesignSystem", "OrganizerAppSupport"]),
+        .executableTarget(
+            name: "OrganizerApp",
+            dependencies: ["OrganizerCore", "OrganizerDesignSystem", "OrganizerAppSupport"],
+            resources: [.process("Resources")]
+        ),
         .executableTarget(name: "OrganizerCLI", dependencies: ["OrganizerCore"]),
         .executableTarget(name: "OrganizerDesignPreview", dependencies: ["OrganizerDesignSystem"]),
         .testTarget(name: "OrganizerCoreTests", dependencies: ["OrganizerCore"]),

@@ -27,6 +27,7 @@ final class OrganizerApplicationDelegate: NSObject, NSApplicationDelegate {
     private var intakeObservation: AnyCancellable?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        OrganizerArtwork.installDevelopmentAppIcon()
         do {
             let arguments = CommandLine.arguments
             let demo = arguments.contains("--demo") || Bundle.main.object(forInfoDictionaryKey: "FileOrganizerDemoMode") as? Bool == true

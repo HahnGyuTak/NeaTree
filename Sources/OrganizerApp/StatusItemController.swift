@@ -27,9 +27,7 @@ final class OrganizerStatusController: NSObject {
         super.init()
         item.autosaveName = "FileOrganizerStatusItem"
         if let button = item.button {
-            let image = NSImage(systemSymbolName: "tray", accessibilityDescription: "NeaTree")
-            image?.isTemplate = true
-            button.image = image
+            button.image = OrganizerArtwork.menuBarIcon()
             button.imagePosition = .imageLeading
             button.target = self
             button.action = #selector(clicked(_:))

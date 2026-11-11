@@ -27,7 +27,7 @@ Usage: scripts/pack-app.sh [options]
   --arch native|arm64|x86_64|universal
   --output-dir PATH                 New artifacts go here (default dist)
   --scratch-path PATH               SwiftPM and staging files
-  --binary PATH                     Package an already-built executable
+  --binary PATH                     Package an executable and its sibling resource bundle
   --no-dmg                          Make APP and ZIP only
   --disable-manifest-sandbox        For an already sandboxed development shell
   --notarize                        Require Developer ID, notarize and staple
@@ -103,6 +103,21 @@ if [[ -z "$binary_path" ]]; then
     binary_path="$binary_dir/file-organizer"
 fi
 [[ -f "$binary_path" && -x "$binary_path" ]] || fail "Executable not found: $binary_path"
+binary_dir="$(cd "$(dirname "$binary_path")" && pwd)"
+resource_bundle="$binary_dir/NeaTree_OrganizerApp.bundle"
+[[ -d "$resource_bundle" ]] || fail "Matching app resource bundle not found beside executable: $resource_bundle"
+# Support the flat .process layout and a preserved Resources directory.
+# macOS toolchains can place resources under a bundle's Contents/Resources.
+icon_resource_dir=""
+for resource_root in "$resource_bundle" "$resource_bundle/Contents/Resources"; do
+    for candidate in "$resource_root/Resources" "$resource_root"; do
+        if [[ -f "$candidate/MenuBarTemplate.png" ]]; then icon_resource_dir="$candidate"; break 2; fi
+    done
+done
+[[ -n "$icon_resource_dir" ]] || fail "Menu-bar artwork is missing from the matching app resource bundle."
+for menu_asset in MenuBarTemplate.png MenuBarTemplate@2x.png; do
+    [[ -f "$icon_resource_dir/$menu_asset" ]] || fail "$menu_asset is missing from the matching app resource bundle."
+done
 binary_arches="$(lipo -archs "$binary_path")"
 case "$architecture" in
     universal)
@@ -125,10 +140,25 @@ if $notarize; then signing_status="developer-id-notarized"; suffix=""; fi
 artifact_name="NeaTree-$version-b$build_number-macos-$artifact_arch$suffix"
 package_dir="$output_dir/$artifact_name"
 [[ ! -e "$package_dir" ]] || fail "Output already exists; choose a new build number or output directory: $package_dir"
+compiled_icons="$staging/compiled-icons"
+"$repo_root/scripts/compile-app-icon.sh" "$compiled_icons"
 app="$staging/NeaTree.app"
 mkdir -p "$app/Contents/MacOS" "$app/Contents/Resources"
 install -m 755 "$binary_path" "$app/Contents/MacOS/file-organizer"
+ditto "$resource_bundle" "$app/Contents/Resources/NeaTree_OrganizerApp.bundle"
+install -m 644 "$compiled_icons/AppIcon.icns" "$app/Contents/Resources/AppIcon.icns"
+install -m 644 "$compiled_icons/Assets.car" "$app/Contents/Resources/Assets.car"
 cp "$repo_root/packaging/Info.plist" "$app/Contents/Info.plist"
+python3 - "$app/Contents/Info.plist" "$compiled_icons/icon-info.plist" <<'PY'
+import plistlib, sys
+path, partial_path = sys.argv[1:]
+with open(path, 'rb') as stream:
+    info = plistlib.load(stream)
+with open(partial_path, 'rb') as stream:
+    info.update(plistlib.load(stream))
+with open(path, 'wb') as stream:
+    plistlib.dump(info, stream, sort_keys=False)
+PY
 /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $version" "$app/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $build_number" "$app/Contents/Info.plist"
 plutil -lint "$app/Contents/Info.plist" >/dev/null

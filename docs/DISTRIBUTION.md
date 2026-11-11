@@ -24,7 +24,11 @@ scripts/pack-app.sh --version 0.1.0 --configuration debug --no-dmg
 
 기본 결과는 `dist/NeaTree-0.1.0-b1-macos-arm64-development/`처럼 버전·빌드 번호·아키텍처가 포함된 폴더다. 해당 폴더에는 앱 번들, ZIP, `build-metadata.json`, `SHA256SUMS`가 들어간다. `--no-dmg`를 빼면 DMG도 만든다. 같은 결과 폴더가 있으면 덮어쓰지 않고 중단하므로 `--build-number 2` 또는 별도 `--output-dir`을 사용한다.
 
-내부 Swift 실행 파일 이름은 `file-organizer`다. 이미 빌드한 실행 파일을 묶을 때는 다음처럼 지정한다.
+내부 Swift 실행 파일 이름은 `file-organizer`다. 메뉴막대 템플릿은 SwiftPM의 `NeaTree_OrganizerApp.bundle`에 포함된다. 패키징은 같은 빌드의 리소스 번들을 `Contents/Resources`에 넣는다. `--binary`로 이미 빌드한 실행 파일을 지정할 때도 그 옆에 같은 빌드의 `NeaTree_OrganizerApp.bundle`이 있어야 한다. 메뉴막대 이미지나 리소스 번들이 빠지면 패키징을 중단한다.
+
+앱 아이콘은 `assets/icons/AppIcon.icon`의 Icon Composer 레이어 문서를 `actool`로 컴파일한다. `scripts/compile-app-icon.sh`가 생성한 `Assets.car`와 호환용 `AppIcon.icns`를 앱의 `Contents/Resources`에 넣고, 컴파일러가 반환한 `CFBundleIconName`·`CFBundleIconFile`을 실제 `Info.plist`에 병합한다. 따라서 지원 OS의 시스템 렌더링에는 레이어 자산이 사용되며, 이전 OS용 ICNS도 함께 제공한다. 최소 지원 버전은 계속 macOS 14다. [Apple Icon Composer 안내](https://developer.apple.com/documentation/xcode/creating-your-app-icon-using-icon-composer)
+
+이미 빌드한 실행 파일을 묶을 때는 다음처럼 지정한다.
 
 ```sh
 scripts/pack-app.sh --configuration debug --version 0.1.0 --no-dmg \
